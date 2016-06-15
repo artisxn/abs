@@ -13,6 +13,8 @@
 
   <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
 
+  @include('layouts.analytics')
+
 </head>
 <body>
 
