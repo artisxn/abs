@@ -47,16 +47,16 @@ class AmazonController extends Controller
     public function search(Request $request)
     {
         $category = $request->input('category', 'All');
-        $keyword  = $request->input('keyword', 'amazon');
-        $page     = $request->input('page', 1);
+        $keyword = $request->input('keyword', 'amazon');
+        $page = $request->input('page', 1);
 
         $results = $this->amazon->search($category, $keyword, $page);
 
         $item = $results->get('Items');
 
         $TotalResults = array_get($item, 'TotalResults');
-        $TotalPages   = array_get($item, 'TotalPages');
-        $items        = array_get($item, 'Item');
+        $TotalPages = array_get($item, 'TotalPages');
+        $items = array_get($item, 'Item');
 
         return view('home.search')->with(compact(
             'items',
@@ -75,38 +75,38 @@ class AmazonController extends Controller
      */
     public function asin($asin)
     {
-        $item = Cache::remember('asin.' . $asin, 60 * 24, function () use ($asin) {
-            $results = $this->amazon->item([$asin]);
-            $item    = $results->get('Items');
-            $item    = array_get($item, 'Item');
+//        $item = Cache::remember('asin.' . $asin, 60 * 24, function () use ($asin) {
+        $results = $this->amazon->item([$asin]);
+        $item = $results->get('Items');
+        $item = array_get($item, 'Item');
 
-            return $item;
-        });
+//            return $item;
+//        });
 
         return view('home.asin')->with(compact('item'));
     }
 
     /**
-     * @param string $node
+     * @param string $browse
      *
      * @return \Response
      */
-    public function browse($node)
+    public function browse($browse)
     {
-        $result = $this->amazon->browse($node);
+        $result = $this->amazon->browse($browse);
 
-        $nodes       = $result->get('BrowseNodes');
+        $nodes = $result->get('BrowseNodes');
         $browse_name = array_get($nodes, 'BrowseNode.Name');
 
-        $items       = array_get($nodes, 'BrowseNode.TopSellers.TopSeller');
-        $items       = collect($items)->pluck('ASIN');
-        $results     = $this->amazon->item($items->toArray());
+        $items = array_get($nodes, 'BrowseNode.TopSellers.TopSeller');
+        $items = collect($items)->pluck('ASIN');
+        $results = $this->amazon->item($items->toArray());
 
         $item = $results->get('Items');
 
         $items = array_get($item, 'Item');
 
-        return view('home.browse')->with(compact('items', 'browse_name', 'node'));
+        return view('home.browse')->with(compact('items', 'browse_name', 'browse'));
     }
 
     /**

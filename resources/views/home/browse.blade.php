@@ -14,7 +14,7 @@
         @include('home.item')
       @endforeach
     @else
-      見つかりませんでした。もう一度検索してください。({{ $node }})
+      見つかりませんでした。もう一度検索してください。({{ link_to_action('AmazonController@browse', $browse, ['browse' => $browse]) }})
     @endif
   </div>
 
