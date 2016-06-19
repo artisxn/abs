@@ -1,17 +1,11 @@
 <?php
 namespace App\Service;
 
-use ApaiIO\Configuration\GenericConfiguration;
-
 use ApaiIO\Operations\Search;
 use ApaiIO\Operations\Lookup;
 use ApaiIO\Operations\BrowseNodeLookup;
 
 use ApaiIO\ApaiIO;
-use ApaiIO\Request\GuzzleRequest;
-use GuzzleHttp\Client;
-
-use App\Amazon\ResponseTransformer\XmlToCollection;
 
 class AmazonService
 {
@@ -21,21 +15,34 @@ class AmazonService
     protected $apai;
 
     /**
-     * AmazonService constructor.
+     * @var Search
      */
-    public function __construct()
-    {
-        $conf    = new GenericConfiguration();
-        $client  = new Client();
-        $request = new GuzzleRequest($client);
+    protected $search;
 
-        $conf->setCountry(config('amazon.country'))
-             ->setAccessKey(config('amazon.api_key'))
-             ->setSecretKey(config('amazon.api_secret_key'))
-             ->setAssociateTag(config('amazon.associate_tag'))
-             ->setResponseTransformer(new XmlToCollection())
-             ->setRequest($request);
-        $this->apai = new ApaiIO($conf);
+    /**
+     * @var Lookup
+     */
+    protected $lookup;
+
+    /**
+     * @var BrowseNodeLookup
+     */
+    protected $browse;
+
+    /**
+     * AmazonService constructor.
+     *
+     * @param ApaiIO $apai
+     * @param Search $search
+     * @param Lookup $lookup
+     * @param BrowseNodeLookup $browse
+     */
+    public function __construct(ApaiIO $apai, Search $search, Lookup $lookup, BrowseNodeLookup $browse)
+    {
+        $this->apai = $apai;
+        $this->search = $search;
+        $this->lookup = $lookup;
+        $this->browse = $browse;
     }
 
     /**
@@ -48,14 +55,14 @@ class AmazonService
     public function search($category, $keyword, $page)
     {
         try {
-            $search = new Search();
-            $search->setCategory($category);
-            $search->setKeywords($keyword);
+            $this->search->setCategory($category);
+            $this->search->setKeywords($keyword);
             if ($page > 0) {
-                $search->setPage($page);
+                $this->search->setPage($page);
             }
-            $search->setResponseGroup(['Large']);
-            $result = $this->apai->runOperation($search);
+            $this->search->setResponseGroup(['Large']);
+            $result = $this->apai->runOperation($this->search);
+
         } catch (\Exception $e) {
             $result = collect([]);
         }
@@ -71,10 +78,10 @@ class AmazonService
     public function browse($node)
     {
         try {
-            $browseNodeLookup = new BrowseNodeLookup();
-            $browseNodeLookup->setNodeId($node);
-            $browseNodeLookup->setResponseGroup(['TopSellers']);
-            $result = $this->apai->runOperation($browseNodeLookup);
+            $this->browse->setNodeId($node);
+            $this->browse->setResponseGroup(['TopSellers']);
+            $result = $this->apai->runOperation($this->browse);
+
         } catch (\Exception $e) {
             $result = collect([]);
         }
@@ -90,11 +97,10 @@ class AmazonService
     public function item($asin)
     {
         try {
-            $lookup = new Lookup();
-            $lookup->setItemId($asin);
+            $this->lookup->setItemId($asin);
+            $this->lookup->setResponseGroup(['Large']);
+            $result = $this->apai->runOperation($this->lookup);
 
-            $lookup->setResponseGroup(['Large']);
-            $result = $this->apai->runOperation($lookup);
         } catch (\Exception $e) {
             $result = collect([]);
         }
