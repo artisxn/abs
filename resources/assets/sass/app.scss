@@ -3,8 +3,10 @@
   margin-bottom: 40px;
 }
 
-.mdl-card__media img {
-  max-width: 100%;
-  height: auto;
-  padding: 20px;
+.mdl-card__media {
+  img {
+    max-width: 100%;
+    height: auto;
+    padding: 20px;
+  }
 }

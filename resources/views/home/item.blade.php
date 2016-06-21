@@ -3,11 +3,11 @@ $url = array_get($item, 'DetailPageURL');
 
 $item_title = array_get($item, 'ItemAttributes.Title');
 
-if ( ! is_null(array_get($item, 'LargeImage'))) {
+if (!is_null(array_get($item, 'LargeImage'))) {
   $img_size = 'LargeImage';
-} elseif ( ! is_null(array_get($item, 'MediumImage'))) {
+} elseif (!is_null(array_get($item, 'MediumImage'))) {
   $img_size = 'MediumImage';
-} elseif ( ! is_null(array_get($item, 'SmallImage'))) {
+} elseif (!is_null(array_get($item, 'SmallImage'))) {
   $img_size = 'SmallImage';
 }
 
@@ -36,13 +36,29 @@ $similar_products = array_get($item, 'SimilarProducts.SimilarProduct');
     </div>
   @endif
 
+  @if(array_get($item, 'EditorialReviews.EditorialReview', '') != '')
+    <div class="mdl-card__supporting-text">
+      <h4>{{ array_get($item, 'EditorialReviews.EditorialReview.Source') }}</h4>
+      <p>{!! array_get($item, 'EditorialReviews.EditorialReview.Content') !!}
+      </p>
+    </div>
+
+  @endif
+
   <div class="mdl-card__supporting-text">
     <ul>
+      <li>Publisher：{{ array_get($item, 'ItemAttributes.Publisher') }}</li>
       <li>発売日：{{ array_get($item, 'ItemAttributes.ReleaseDate') }}</li>
       <li>価格：{{ array_get($item, 'OfferSummary.LowestNewPrice.FormattedPrice') }}</li>
       <li>ランキング：{{ array_get($item, 'SalesRank') }}</li>
     </ul>
   </div>
+
+  @if(array_get($item, 'CustomerReviews.HasReviews') === 'true')
+
+    <iframe height="500" src="{!! array_get($item, 'CustomerReviews.IFrameURL') !!}"></iframe>
+
+  @endif
 
   @if(count($similar_products) > 0)
     <div class="mdl-card__supporting-text">
