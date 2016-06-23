@@ -25,7 +25,18 @@
       @endif
 
     @else
-      見つかりませんでした。もう一度検索してください。
+      <p>見つかりませんでした。もう一度検索してください。</p>
+
+      @if($page >= 5 and !empty(session('MoreSearchResultsUrl')))
+        <p>
+          一定ページ数以上は表示できないので続きはAmazonで検索してください。(現在のページ：{{ $page }})
+        </p>
+        <p>
+          <a href="{{ session('MoreSearchResultsUrl') }}"
+             class="mdl-button mdl-js-button mdl-button--colored mdl-button--raised">Amazonで検索</a>
+        </p>
+      @endif
+
     @endif
   </div>
 

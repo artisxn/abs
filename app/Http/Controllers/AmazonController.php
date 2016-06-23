@@ -58,6 +58,11 @@ class AmazonController extends Controller
         $TotalPages = array_get($item, 'TotalPages');
         $items = array_get($item, 'Item');
 
+        $MoreSearchResultsUrl = array_get($item, 'MoreSearchResultsUrl');
+        if (!empty($MoreSearchResultsUrl)) {
+            session(['MoreSearchResultsUrl' => $MoreSearchResultsUrl]);
+        }
+
         return view('home.search')->with(compact(
             'items',
             'category',
