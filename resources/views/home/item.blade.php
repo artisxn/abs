@@ -1,6 +1,9 @@
 <?php
 $url = array_get($item, 'DetailPageURL');
 
+//asinページならamazonのURL
+$item_url = empty($items) ? $url : action('AmazonController@asin', ['asin' => array_get($item, 'ASIN')]);
+
 $item_title = array_get($item, 'ItemAttributes.Title');
 
 if (!is_null(array_get($item, 'LargeImage'))) {
@@ -17,7 +20,7 @@ $similar_products = array_get($item, 'SimilarProducts.SimilarProduct');
 <div class="card-wide mdl-card mdl-shadow--8dp" itemscope itemtype="http://schema.org/Product">
   <div class="mdl-card__title">
     <h2 class="mdl-card__title-text">
-      <a href="{{ action('AmazonController@asin', ['asin' => array_get($item, 'ASIN')]) }}">
+      <a href="{{ $item_url }}">
         <span itemprop="name">{{ $item_title }}</span>
       </a>
     </h2>
@@ -48,9 +51,14 @@ $similar_products = array_get($item, 'SimilarProducts.SimilarProduct');
 
   <div class="mdl-card__supporting-text">
     <ul>
-      <li itemscope itemtype="http://schema.org/CreativeWork">Publisher：<span itemprop="publisher">{{ array_get($item, 'ItemAttributes.Publisher') }}</span></li>
+      <li itemscope itemtype="http://schema.org/CreativeWork">Publisher：<span
+          itemprop="publisher">{{ array_get($item, 'ItemAttributes.Publisher') }}</span></li>
       <li>発売日：<span itemprop="releaseDate">{{ array_get($item, 'ItemAttributes.ReleaseDate') }}</span></li>
-      <li itemscope itemtype="http://schema.org/Offer">価格：<span itemprop="priceCurrency" content="{{ array_get($item, 'OfferSummary.LowestNewPrice.CurrencyCode') }}"></span><span itemtype="http://schema.org/Offer" itemprop="price" content="{{ array_get($item, 'OfferSummary.LowestNewPrice.Amount') }}"></span>{{ array_get($item, 'OfferSummary.LowestNewPrice.FormattedPrice') }}</li>
+      <li itemscope itemtype="http://schema.org/Offer">価格：<span itemprop="priceCurrency"
+                                                                content="{{ array_get($item, 'OfferSummary.LowestNewPrice.CurrencyCode') }}"></span><span
+          itemtype="http://schema.org/Offer" itemprop="price"
+          content="{{ array_get($item, 'OfferSummary.LowestNewPrice.Amount') }}"></span>{{ array_get($item, 'OfferSummary.LowestNewPrice.FormattedPrice') }}
+      </li>
       <li>ランキング：{{ array_get($item, 'SalesRank') }}</li>
     </ul>
   </div>
