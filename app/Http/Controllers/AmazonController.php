@@ -80,13 +80,13 @@ class AmazonController extends Controller
      */
     public function asin($asin)
     {
-//        $item = Cache::remember('asin.' . $asin, 60 * 24, function () use ($asin) {
-        $results = $this->amazon->item([$asin]);
-        $item = $results->get('Items');
-        $item = array_get($item, 'Item');
+        $item = Cache::remember('asin.' . $asin, 60, function () use ($asin) {
+            $results = $this->amazon->item([$asin]);
+            $item = $results->get('Items');
+            $item = array_get($item, 'Item');
 
-//            return $item;
-//        });
+            return $item;
+        });
 
         return view('home.asin')->with(compact('item'));
     }
