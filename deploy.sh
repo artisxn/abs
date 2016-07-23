@@ -2,7 +2,7 @@
 
 git fetch origin
 git reset --hard origin/master
-/usr/local/bin/composer update --no-interaction --no-dev
+/usr/local/bin/composer install --no-interaction --no-dev
 #php artisan migrate --force
 php artisan route:cache
 #php artisan config:cache
