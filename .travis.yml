@@ -28,4 +28,4 @@ script:
 - vendor/bin/phpunit
 
 after_success:
-- ssh -t -p $DEPLOY_PORT -i ~/.ssh/travis_key -o UserKnownHostsFile=/dev/null -o CheckHostIP=no -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "cd $DEPLOY_PATH;bash -s" < deploy.sh
+- 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; thenssh -t -p $DEPLOY_PORT -i ~/.ssh/travis_key -o UserKnownHostsFile=/dev/null -o CheckHostIP=no -o StrictHostKeyChecking=no $DEPLOY_USER@$DEPLOY_HOST "cd $DEPLOY_PATH;bash -s" < deploy.sh; fi'
