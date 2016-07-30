@@ -22,7 +22,6 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->share('keyword', \Request::input('keyword'));
         view()->share('category', \Request::input('category'));
-
     }
 
     /**
@@ -33,7 +32,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton('apaiio', function ($app) {
-
             $conf = new GenericConfiguration();
             $client = new Client();
             $request = new GuzzleRequest($client);
