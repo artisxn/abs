@@ -10,7 +10,6 @@ use Cache;
 
 use App\Service\AmazonService;
 
-
 class AmazonController extends Controller
 {
     /**

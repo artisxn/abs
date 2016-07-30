@@ -62,7 +62,6 @@ class AmazonService
             }
             $this->search->setResponseGroup(['Large']);
             $result = $this->apai->runOperation($this->search);
-
         } catch (\Exception $e) {
             $result = collect([]);
         }
@@ -81,7 +80,6 @@ class AmazonService
             $this->browse->setNodeId($node);
             $this->browse->setResponseGroup(['TopSellers']);
             $result = $this->apai->runOperation($this->browse);
-
         } catch (\Exception $e) {
             $result = collect([]);
         }
@@ -100,7 +98,6 @@ class AmazonService
             $this->lookup->setItemId($asin);
             $this->lookup->setResponseGroup(['Large']);
             $result = $this->apai->runOperation($this->lookup);
-
         } catch (\Exception $e) {
             $result = collect([]);
         }
