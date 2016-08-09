@@ -63,13 +63,13 @@ class AmazonController extends Controller
         }
 
         return view('home.search')->with(compact(
-            'items',
-            'category',
-            'keyword',
-            'page',
-            'TotalResults',
-            'TotalPages'
-        ));
+                                             'items',
+                                             'category',
+                                             'keyword',
+                                             'page',
+                                             'TotalResults',
+                                             'TotalPages'
+                                         ));
     }
 
     /**

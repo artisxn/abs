@@ -32,9 +32,9 @@ class AmazonService
     /**
      * AmazonService constructor.
      *
-     * @param ApaiIO $apai
-     * @param Search $search
-     * @param Lookup $lookup
+     * @param ApaiIO           $apai
+     * @param Search           $search
+     * @param Lookup           $lookup
      * @param BrowseNodeLookup $browse
      */
     public function __construct(ApaiIO $apai, Search $search, Lookup $lookup, BrowseNodeLookup $browse)
@@ -48,7 +48,7 @@ class AmazonService
     /**
      * @param string $category
      * @param string $keyword
-     * @param int $page
+     * @param int    $page
      *
      * @return \Illuminate\Support\Collection|mixed
      */
