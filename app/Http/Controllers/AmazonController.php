@@ -62,14 +62,15 @@ class AmazonController extends Controller
             session(['MoreSearchResultsUrl' => $MoreSearchResultsUrl]);
         }
 
-        return view('home.search')->with(compact(
-                                             'items',
-                                             'category',
-                                             'keyword',
-                                             'page',
-                                             'TotalResults',
-                                             'TotalPages'
-                                         ));
+        return view('home.search')
+            ->with(compact(
+                       'items',
+                       'category',
+                       'keyword',
+                       'page',
+                       'TotalResults',
+                       'TotalPages'
+                   ));
     }
 
     /**
