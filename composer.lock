@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "e353bc168503798e2f4800073d0850347b30c0d7"
+                "reference": "b97745824d6f96604144e8fdc7095ea7adc08ce7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/e353bc168503798e2f4800073d0850347b30c0d7",
-                "reference": "e353bc168503798e2f4800073d0850347b30c0d7",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/b97745824d6f96604144e8fdc7095ea7adc08ce7",
+                "reference": "b97745824d6f96604144e8fdc7095ea7adc08ce7",
                 "shasum": ""
             },
             "require": {
@@ -59,7 +59,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2016-09-23 11:48:11"
+            "time": "2016-10-26 07:33:01"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -702,16 +702,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.3.20",
+            "version": "v5.3.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "09f2515b72eba3229dfce44a801852b9b8d011e2"
+                "reference": "140ad823863d5cc6f4580f1cdf9b18b9a6a457f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/09f2515b72eba3229dfce44a801852b9b8d011e2",
-                "reference": "09f2515b72eba3229dfce44a801852b9b8d011e2",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/140ad823863d5cc6f4580f1cdf9b18b9a6a457f4",
+                "reference": "140ad823863d5cc6f4580f1cdf9b18b9a6a457f4",
                 "shasum": ""
             },
             "require": {
@@ -826,7 +826,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-10-25 13:38:24"
+            "time": "2016-10-26 13:27:05"
         },
         {
             "name": "laravelcollective/html",
