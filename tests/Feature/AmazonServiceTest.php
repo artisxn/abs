@@ -8,7 +8,7 @@ use \Mockery as m;
 
 use App\Service\AmazonService;
 
-class AmazonServiceTest extends TestCase
+class AmazonServiceTest extends BrowserKitTest
 {
     /**
      * @var \ApaiIO\ApaiIO

@@ -96,17 +96,13 @@ return [
 
     'password' => env('MAIL_PASSWORD'),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Sendmail System Path
-    |--------------------------------------------------------------------------
-    |
-    | When using the "sendmail" driver to send e-mails, we will need to know
-    | the path to where Sendmail lives on this server. A default path has
-    | been provided here, which will work well on most of your systems.
-    |
-    */
 
-    'sendmail' => '/usr/sbin/sendmail -bs',
 
+    'markdown' => [
+        'theme' => 'default',
+
+        'paths' => [
+            resource_path('views/vendor/mail'),
+        ],
+    ],
 ];
