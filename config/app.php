@@ -2,7 +2,7 @@
 
 return [
 
-    'name' => 'Amazon Search',
+    'name' => 'Amazon Product Advertising API Demo',
 
     /*
     |--------------------------------------------------------------------------

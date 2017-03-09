@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>@yield('title') | Amazon Search</title>
+  <title>@yield('title') | {{ config('app.name') }}</title>
 
   <link rel="stylesheet" href="{{ asset('css/material.min.css') }}">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
