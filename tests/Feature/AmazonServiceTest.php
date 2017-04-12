@@ -1,5 +1,8 @@
 <?php
 
+namespace Tests\Feature;
+
+use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -8,7 +11,7 @@ use \Mockery as m;
 
 use App\Service\AmazonService;
 
-class AmazonServiceTest extends BrowserKitTest
+class AmazonServiceTest extends TestCase
 {
     /**
      * @var \ApaiIO\ApaiIO

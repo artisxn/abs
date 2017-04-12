@@ -11,6 +11,8 @@ use GuzzleHttp\Client;
 
 use App\Amazon\ResponseTransformer\XmlToCollection;
 
+use Laravel\Dusk\DuskServiceProvider;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -37,15 +39,20 @@ class AppServiceProvider extends ServiceProvider
             $request = new GuzzleRequest($client);
 
             $conf->setCountry(config('amazon.country'))
-                ->setAccessKey(config('amazon.api_key'))
-                ->setSecretKey(config('amazon.api_secret_key'))
-                ->setAssociateTag(config('amazon.associate_tag'))
-                ->setResponseTransformer(new XmlToCollection())
-                ->setRequest($request);
+                 ->setAccessKey(config('amazon.api_key'))
+                 ->setSecretKey(config('amazon.api_secret_key'))
+                 ->setAssociateTag(config('amazon.associate_tag'))
+                 ->setResponseTransformer(new XmlToCollection())
+                 ->setRequest($request);
 
             return new ApaiIO($conf);
         });
 
         $this->app->alias('apaiio', 'ApaiIO\ApaiIO');
+
+
+        if ($this->app->environment('local', 'testing')) {
+            $this->app->register(DuskServiceProvider::class);
+        }
     }
 }
