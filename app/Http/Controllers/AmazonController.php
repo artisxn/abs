@@ -53,7 +53,11 @@ class AmazonController extends Controller
 
         $TotalResults = array_get($item, 'TotalResults');
         $TotalPages = array_get($item, 'TotalPages');
-        $items = array_get($item, 'Item');
+        if ($TotalResults == 1) {
+            $items = [array_get($item, 'Item')];
+        } else {
+            $items = array_get($item, 'Item');
+        }
 
         $MoreSearchResultsUrl = array_get($item, 'MoreSearchResultsUrl');
         if (!empty($MoreSearchResultsUrl)) {
@@ -62,13 +66,13 @@ class AmazonController extends Controller
 
         return view('home.search')
             ->with(compact(
-                       'items',
-                       'category',
-                       'keyword',
-                       'page',
-                       'TotalResults',
-                       'TotalPages'
-                   ));
+                'items',
+                'category',
+                'keyword',
+                'page',
+                'TotalResults',
+                'TotalPages'
+            ));
     }
 
     /**
