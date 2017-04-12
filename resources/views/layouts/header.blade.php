@@ -1,12 +1,14 @@
-<header class="mdl-layout__header mdl-layout--no-drawer-button">
+<header>
+  <nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-left uk-logo">
+      <a href="{{ route('index') }}">{{ config('app.name') }}</a>
+    </div>
+    <div class="uk-navbar-right">
+      <ul class="uk-navbar-nav">
+        <li><a href="{{ route('index') }}">ホーム</a></li>
+        <li><a href="{{ route('browselist') }}">ブラウズリスト</a></li>
+      </ul>
 
-  <div class="mdl-layout__header-row">
-    <span class="mdl-layout-title">{{ config('app.name') }}</span>
-    <div class="mdl-layout-spacer"></div>
-    <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="{{ action('AmazonController@index') }}">ホーム</a>
-
-      <a class="mdl-navigation__link" href="{{ action('AmazonController@browseList') }}">ブラウズリスト</a>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </header>

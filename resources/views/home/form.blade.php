@@ -1,14 +1,17 @@
-<form action="{{ action('AmazonController@search') }}" method="get">
-  {{ Form::select('category', config('amazon.form'), $category) }}
+<div class="uk-section">
 
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+  <form action="{{ route('search') }}" method="get" class="uk-grid-small" uk-grid>
+    <div class="uk-width-1-4">
 
-    <input class="mdl-textfield__input" type="text" id="search_keyword" name="keyword" value="{{ $keyword or '' }}">
-    <label class="mdl-textfield__label" for="search_keyword">検索...</label>
-  </div>
+      {{ Form::select('category', config('amazon.form'), $category, ['class' => 'uk-select']) }}
+    </div>
 
-  <button type="submit" id="search_button" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-    <i class="material-icons">search</i>
-  </button>
+    <div class="uk-width-3-4 uk-search uk-search-default">
 
-</form>
+      <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+      <input id="search_keyword" name="keyword" value="{{ $keyword or '' }}" class="uk-search-input" type="search" placeholder="検索...">
+    </div>
+
+
+  </form>
+</div>

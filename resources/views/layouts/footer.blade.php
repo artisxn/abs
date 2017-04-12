@@ -1,10 +1,12 @@
 
-<footer class="mdl-mini-footer">
-  <div class="mdl-mini-footer__left-section">
-    <div class="mdl-logo">{{ config('app.name') }}</div>
-    <ul class="mdl-mini-footer__link-list">
-      <li><a href="{{ action('AmazonController@index') }}">ホーム</a></li>
-      <li><a href="{{ action('AmazonController@browseList') }}">ブラウズリスト</a></li>
-    </ul>
-  </div>
+<footer>
+  <nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-left">{{ config('app.name') }}</div>
+    <div class="uk-navbar-left">
+      <ul class="uk-navbar-nav">
+        <li><a href="{{ route('index') }}">ホーム</a></li>
+        <li><a href="{{ route('browselist') }}">ブラウズリスト</a></li>
+      </ul>
+    </div>
+  </nav>
 </footer>

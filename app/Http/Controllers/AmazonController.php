@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-
 use Cache;
 
 use App\Service\AmazonService;
@@ -28,7 +26,7 @@ class AmazonController extends Controller
     }
 
     /**
-     * @return \Response
+     * @return \Illuminate\Http\Response|\Illuminate\View\View
      */
     public function index()
     {
@@ -41,7 +39,7 @@ class AmazonController extends Controller
     /**
      * @param Request $request
      *
-     * @return \Response
+     * @return \Illuminate\Http\Response|\Illuminate\View\View
      */
     public function search(Request $request)
     {
@@ -76,7 +74,7 @@ class AmazonController extends Controller
     /**
      * @param string $asin
      *
-     * @return \Response
+     * @return \Illuminate\Http\Response|\Illuminate\View\View
      */
     public function asin($asin)
     {
@@ -94,7 +92,7 @@ class AmazonController extends Controller
     /**
      * @param string $browse
      *
-     * @return \Response
+     * @return \Illuminate\Http\Response|\Illuminate\View\View
      */
     public function browse($browse)
     {
@@ -115,7 +113,7 @@ class AmazonController extends Controller
     }
 
     /**
-     * @return \Response
+     * @return \Illuminate\Http\Response|\Illuminate\View\View
      */
     public function browseList()
     {

@@ -1,20 +1,18 @@
 @extends('layouts.master')
 
 @php
-$title = array_get($item, 'ItemAttributes.Title');
+  $title = array_get($item, 'ItemAttributes.Title');
 @endphp
 
 @section('title', $title)
 
 @section('content')
 
-  <div class="mdl-cell mdl-cell--12-col">
 
-    <h1>{{ $title }}</h1>
+  <h1 class="uk-heading-divider">{{ $title }}</h1>
 
-    @include('home.item')
+  @include('home.item')
 
-  </div>
 
 
 @endsection

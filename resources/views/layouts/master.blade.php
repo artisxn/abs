@@ -7,10 +7,6 @@
 
   <title>@yield('title') | {{ config('app.name') }}</title>
 
-  <link rel="stylesheet" href="{{ asset('css/material.min.css') }}">
-  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
   @include('layouts.analytics')
@@ -18,28 +14,22 @@
 </head>
 <body>
 
-<div class="mdl-layout mdl-js-layout">
 
-  @include('layouts.header')
+@include('layouts.header')
 
-  <main class="mdl-layout__content">
-    <div class="mdl-grid">
+<main class="uk-container">
 
-      @include('home.form')
+  @include('home.form')
 
-      @yield('content')
-
-    </div>
-
-    @include('layouts.footer')
-
-  </main>
+  @yield('content')
 
 
-</div>
+</main>
+
+@include('layouts.footer')
 
 
-<script src="{{ asset('/js/material.min.js') }}"></script>
+<script src="{{ mix('/js/app.js') }}"></script>
 
 
 </body>

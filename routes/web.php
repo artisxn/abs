@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('asin/{asin}', 'AmazonController@asin');
-Route::get('browse/{browse}', 'AmazonController@browse');
-Route::get('browse', 'AmazonController@browseList');
-Route::get('search', 'AmazonController@search');
+Route::name('asin')->get('asin/{asin}', 'AmazonController@asin');
+Route::name('browse')->get('browse/{browse}', 'AmazonController@browse');
+Route::name('browselist')->get('browse', 'AmazonController@browseList');
+Route::name('search')->get('search', 'AmazonController@search');
 
-Route::get('/', 'AmazonController@index');
+Route::name('index')->get('/', 'AmazonController@index');
