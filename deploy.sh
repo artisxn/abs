@@ -5,7 +5,7 @@ git reset --hard origin/master
 /usr/local/bin/composer install --no-interaction --no-dev
 #php artisan migrate --force
 php artisan route:cache
-#php artisan config:cache
+php artisan config:cache
 chown -R nginx:nginx ./
 chmod 700 -R ./storage/
 chmod 700 -R ./bootstrap/cache/
