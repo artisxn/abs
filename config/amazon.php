@@ -5,6 +5,8 @@ return [
     'associate_tag'  => env('AMAZON_ASSOCIATE_TAG', ''),
     'country'        => env('AMAZON_COUNTRY', 'co.jp'),
 
+    'analytics' => env('GOOGLE_ANALYTICS', ''),
+
     'form' => [
         'All'         => 'すべて',
         'Books'       => '本',
