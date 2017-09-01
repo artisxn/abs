@@ -83,7 +83,7 @@ class AmazonController extends Controller
     public function asin($asin)
     {
         $item = Cache::remember('asin.' . $asin, 60, function () use ($asin) {
-            $results = $this->amazon->item([$asin]);
+            $results = $this->amazon->item($asin);
             $item = $results->get('Items');
             $item = array_get($item, 'Item');
 

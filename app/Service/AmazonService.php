@@ -52,7 +52,7 @@ class AmazonService
      *
      * @return \Illuminate\Support\Collection|mixed
      */
-    public function search($category, $keyword, $page)
+    public function search(string $category, string $keyword, int $page)
     {
         try {
             $this->search->setCategory($category);
@@ -74,7 +74,7 @@ class AmazonService
      *
      * @return \Illuminate\Support\Collection|mixed
      */
-    public function browse($node)
+    public function browse(string $node)
     {
         try {
             $this->browse->setNodeId($node);
@@ -88,7 +88,7 @@ class AmazonService
     }
 
     /**
-     * @param string $asin
+     * @param string|array $asin
      *
      * @return \Illuminate\Support\Collection|mixed
      */

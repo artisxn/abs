@@ -31,6 +31,7 @@
 
 <script src="{{ mix('/js/app.js') }}"></script>
 
+<!-- {{ app()->version() }} -->
 
 </body>
 </html>
