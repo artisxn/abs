@@ -2,7 +2,7 @@
 
 return [
 
-    'name' => 'Amazon Product Advertising API Demo',
+    'name' => env('APP_NAME', 'Laravel'),
 
     /*
     |--------------------------------------------------------------------------
