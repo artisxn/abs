@@ -17,3 +17,7 @@ Route::name('browselist')->get('browse', 'AmazonController@browseList');
 Route::name('search')->get('search', 'AmazonController@search');
 
 Route::name('index')->get('/', 'AmazonController@index');
+
+Route::name('login')->get('login', 'LoginController@login');
+Route::get('callback', 'LoginController@callback');
+Route::name('logout')->get('logout', 'LoginController@logout');

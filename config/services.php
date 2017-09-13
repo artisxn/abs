@@ -24,19 +24,25 @@ return [
     ],
 
     'ses' => [
-        'key' => env('SES_KEY'),
+        'key'    => env('SES_KEY'),
         'secret' => env('SES_SECRET'),
         'region' => 'us-east-1',
     ],
 
-    'sparkpost' => [
-        'secret' => env('SPARKPOST_SECRET'),
-    ],
+    //    'sparkpost' => [
+    //        'secret' => env('SPARKPOST_SECRET'),
+    //    ],
 
-    'stripe' => [
-        'model' => App\User::class,
-        'key' => env('STRIPE_KEY'),
-        'secret' => env('STRIPE_SECRET'),
+    //    'stripe' => [
+    //        'model' => App\User::class,
+    //        'key' => env('STRIPE_KEY'),
+    //        'secret' => env('STRIPE_SECRET'),
+    //    ],
+
+    'amazon' => [
+        'client_id'     => env('AMAZON_LOGIN_ID'),
+        'client_secret' => env('AMAZON_LOGIN_SECRET'),
+        'redirect'      => env('AMAZON_LOGIN_REDIRECT'),
     ],
 
 ];

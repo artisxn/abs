@@ -9,12 +9,14 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "barryvdh/laravel-debugbar": "^2.4",
+        "barryvdh/laravel-ide-helper": "^2.4",
+        "exeu/apai-io": "~2.0",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
-        "barryvdh/laravel-ide-helper": "^2.4",
-        "barryvdh/laravel-debugbar": "^2.4",
         "laravelcollective/html": "5.5.*",
-        "exeu/apai-io": "~2.0"
+        "doctrine/dbal": "~2.3",
+        "revolution/socialite-amazon": "^1.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

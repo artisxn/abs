@@ -7,6 +7,13 @@
       <ul class="uk-navbar-nav">
         <li><a href="{{ route('index') }}">ホーム</a></li>
         <li><a href="{{ route('browselist') }}">ブラウズリスト</a></li>
+        @auth
+          <li><a href="{{ route('logout') }}">ログアウト</a></li>
+          @else
+            <li>
+              <a href="{{ route('login') }}">Amazonアカウントでログイン</a>
+            </li>
+            @endauth
       </ul>
 
     </div>
