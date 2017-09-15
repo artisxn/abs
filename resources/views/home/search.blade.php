@@ -13,12 +13,12 @@
     @endforeach
 
     @if($TotalPages > $page)
-      <a href="{{ action('AmazonController@search', [
+      <a href="{{ route('search', [
                 'category' => $category,
                 'keyword' => $keyword,
                 'page' => $page + 1
         ]) }}"
-         class="uk-button uk-button-primary uk-button-large uk-width-1-1 uk-margin-large-bottom">
+         class="uk-button uk-button-danger uk-button-large uk-width-1-1 uk-margin-large-bottom">
         <span uk-icon="icon: arrow-right"></span>
         次のページ
       </a>

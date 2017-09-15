@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Socialite;
-use Auth;
 
 use App\Model\User;
 
@@ -38,14 +37,14 @@ class LoginController extends Controller
                 'refresh_token' => $user->refreshToken,
             ]);
 
-        Auth::login($loginUser, true);
+        auth()->login($loginUser, true);
 
         return redirect('/');
     }
 
     public function logout()
     {
-        Auth::logout();
+        auth()->logout();
 
         return back();
     }

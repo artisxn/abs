@@ -79,7 +79,7 @@ $similar_products = array_get($item, 'SimilarProducts.SimilarProduct');
       <ul>
         @foreach($similar_products as $similar)
           <li>
-            <a href="{{ action('AmazonController@asin', ['asin' => array_get($similar, 'ASIN')]) }}">
+            <a href="{{ route('asin', ['asin' => array_get($similar, 'ASIN')]) }}">
               {{ array_get($similar, 'Title') }}
             </a>
           </li>
