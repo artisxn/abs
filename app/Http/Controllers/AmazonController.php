@@ -13,7 +13,7 @@ class AmazonController extends Controller
      */
     public function index()
     {
-        $lists = collect(config('amazon.list'));
+        $lists = collect(config('amazon-browse'));
         $node = $lists->random();
 
         return $this->browse($node);
@@ -99,7 +99,7 @@ class AmazonController extends Controller
      */
     public function browseList()
     {
-        $lists = config('amazon.list');
+        $lists = config('amazon-browse');
 
         return view('home.list')->with(compact('lists'));
     }

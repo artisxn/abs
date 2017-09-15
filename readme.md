@@ -13,3 +13,7 @@ Amazonアカウントでログイン。現状はログインだけで他には�
 
 ### APIパッケージ部分を分離 2017-09-15
 https://github.com/kawax/laravel-amazon-product-api
+
+### ブラウズリスト更新コマンド 2017-09-15
+`php artisan abs:browselist`
+
