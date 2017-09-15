@@ -12,7 +12,6 @@
         "barryvdh/laravel-debugbar": "^2.4",
         "barryvdh/laravel-ide-helper": "^2.4",
         "doctrine/dbal": "~2.3",
-        "exeu/apai-io": "~2.0",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravelcollective/html": "5.5.*",
