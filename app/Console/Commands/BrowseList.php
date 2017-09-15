@@ -82,7 +82,10 @@ class BrowseList extends Command
         });
 
         $config = '<?php' . PHP_EOL . 'return ';
-        $config .= var_export($list, true) . ';';
+        $config .= var_export($list, true);
+        $config = str_replace('array (', '[', $config);
+        $config = str_replace(')', ']', $config);
+        $config .= ';';
 
         return File::put(config_path('amazon-browse.php'), $config);
     }
