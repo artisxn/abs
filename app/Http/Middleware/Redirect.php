@@ -17,10 +17,12 @@ class Redirect
      */
     public function handle($request, Closure $next, $guard = null)
     {
+        info(config('amazon.redirect_from'));
+        info($request->getRequestUri());
+        info($request->getHost());
+
         if ($request->getHost() === config('amazon.redirect_from')) {
 
-            info($request->getRequestUri());
-            info($request->getHost());
             return redirect()->away(config('amazon.redirect_to'));
         }
 
