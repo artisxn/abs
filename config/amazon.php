@@ -2,6 +2,9 @@
 return [
     'analytics' => env('GOOGLE_ANALYTICS', ''),
 
+    'redirect_from' => env('REDIRECT_FROM'),
+    'redirect_to' => env('REDIRECT_TO'),
+
     'form' => [
         'All'         => 'すべて',
         'Books'       => '本',
