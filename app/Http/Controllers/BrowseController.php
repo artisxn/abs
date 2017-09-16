@@ -6,19 +6,16 @@ use Illuminate\Http\Request;
 
 use AmazonProduct;
 
-class AmazonController extends Controller
+class BrowseController extends Controller
 {
     /**
+     * @param string $browse
+     *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function browse(string $browse)
     {
-        //トップページは後で変更
-
-        $lists = collect(config('amazon-browse'));
-        $node = $lists->random();
-
-        $result = AmazonProduct::browse($node);
+        $result = AmazonProduct::browse($browse);
 
         $nodes = array_get($result, 'BrowseNodes');
         $browse_name = array_get($nodes, 'BrowseNode.Name');
@@ -30,5 +27,15 @@ class AmazonController extends Controller
         $items = array_get($results, 'Items.Item');
 
         return view('browse.index')->with(compact('items', 'browse_name', 'browse'));
+    }
+
+    /**
+     * @return \Illuminate\Http\Response
+     */
+    public function browseList()
+    {
+        $lists = config('amazon-browse');
+
+        return view('browse.list')->with(compact('lists'));
     }
 }

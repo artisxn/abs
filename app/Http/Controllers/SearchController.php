@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use AmazonProduct;
+
+class SearchController extends Controller
+{
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function __invoke(Request $request)
+    {
+        $category = $request->input('category', 'All');
+        $keyword = $request->input('keyword', 'amazon');
+        $page = $request->input('page', 1);
+
+        $results = AmazonProduct::search($category, $keyword, $page);
+
+        $item = array_get($results, 'Items');
+
+        $TotalResults = array_get($item, 'TotalResults');
+        if ($TotalResults === 1) {
+            $items = [array_get($item, 'Item')];
+        } else {
+            $items = array_get($item, 'Item');
+        }
+
+        $TotalPages = array_get($item, 'TotalPages');
+
+        $MoreSearchResultsUrl = array_get($item, 'MoreSearchResultsUrl');
+        if (!empty($MoreSearchResultsUrl)) {
+            session(['MoreSearchResultsUrl' => $MoreSearchResultsUrl]);
+        }
+
+        return view('home.search')->with(compact(
+            'items',
+            'page',
+            'TotalResults',
+            'TotalPages'
+        ));
+    }
+}

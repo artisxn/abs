@@ -12,9 +12,12 @@
 */
 
 Route::name('asin')->get('asin/{asin}', 'ItemController@show');
-Route::name('browse')->get('browse/{browse}', 'AmazonController@browse');
-Route::name('browselist')->get('browse', 'AmazonController@browseList');
-Route::name('search')->get('search', 'AmazonController@search');
+
+Route::name('browse')->get('browse/{browse}', 'BrowseController@browse');
+
+Route::name('browselist')->get('browse', 'BrowseController@browseList');
+
+Route::name('search')->get('search', 'SearchController');
 
 Route::name('index')->get('/', 'AmazonController@index');
 
