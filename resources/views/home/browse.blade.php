@@ -10,7 +10,7 @@
 
   @if(count($items) > 0)
     @foreach($items as $item)
-      @include('home.item')
+      @include('item.item')
     @endforeach
   @else
     見つかりませんでした。もう一度検索してください。(<a href="{{ route('browse', ['browse' => $browse]) }}">{{ $browse }}</a>)

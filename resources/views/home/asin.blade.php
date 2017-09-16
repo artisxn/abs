@@ -11,7 +11,7 @@
 
   <h1 class="uk-heading-divider">{{ $title }}</h1>
 
-  @include('home.item')
+  @include('item.item')
 
 
 

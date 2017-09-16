@@ -21,13 +21,16 @@ $similar_products = array_get($item, 'SimilarProducts.SimilarProduct');
      itemscope
      itemtype="http://schema.org/Product">
 
-  <div class="uk-card-header">
+  <div class="uk-card-header  uk-card-primary">
     <h2 class="uk-card-title">
       <a href="{{ $item_url }}">
         <span itemprop="name">{{ $item_title }}</span>
       </a>
     </h2>
   </div>
+
+
+
 
   @if( ! empty($img_size))
     <div class="uk-card-media">
@@ -67,26 +70,12 @@ $similar_products = array_get($item, 'SimilarProducts.SimilarProduct');
     </ul>
   </div>
 
-  {{--
-    @if(array_get($item, 'CustomerReviews.HasReviews') === 'true')
-      <iframe height="500" src="{!! array_get($item, 'CustomerReviews.IFrameURL') !!}"></iframe>
-    @endif
-  --}}
+  @include('item.watchlist')
 
-  @if(count($similar_products) > 0)
-    <div class="uk-card-body">
-      <h4>関連商品</h4>
-      <ul>
-        @foreach($similar_products as $similar)
-          <li>
-            <a href="{{ route('asin', ['asin' => array_get($similar, 'ASIN')]) }}">
-              {{ array_get($similar, 'Title') }}
-            </a>
-          </li>
-        @endforeach
-      </ul>
-    </div>
-  @endif
+  @include('item.histories')
+
+  @include('item.similar')
+
 
   <div class="uk-card-footer">
     <a href="{{ $url }}"

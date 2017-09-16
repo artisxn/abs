@@ -17,3 +17,8 @@ https://github.com/kawax/laravel-amazon-product-api
 ### ブラウズリスト更新コマンド 2017-09-15
 `php artisan abs:browselist`
 
+### 履歴 2017-09-16
+価格情報などの履歴を保存。変動チェックのための準備。
+
+### ウォッチリスト 2017-09-16
+Amazonアカウントでログインすると使える。

@@ -11,7 +11,7 @@
         "php": ">=7.0.0",
         "barryvdh/laravel-debugbar": "^2.4",
         "barryvdh/laravel-ide-helper": "^2.4",
-        "doctrine/dbal": "~2.3",
+        "doctrine/dbal": "^2.5",
         "fabpot/goutte": "^3.2",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",

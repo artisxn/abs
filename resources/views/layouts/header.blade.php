@@ -11,6 +11,7 @@
         <li><a href="{{ route('index') }}">ホーム</a></li>
         <li><a href="{{ route('browselist') }}">ブラウズリスト</a></li>
         @auth
+          <li><a href="{{ route('watch.index') }}">ウォッチリスト</a></li>
           <li><a href="{{ route('logout') }}">ログアウト</a></li>
           @else
             <li>

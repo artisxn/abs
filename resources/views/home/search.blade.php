@@ -9,7 +9,7 @@
 
   @if(count($items) > 0)
     @foreach($items as $item)
-      @include('home.item')
+      @include('item.item')
     @endforeach
 
     @if($TotalPages > $page)
