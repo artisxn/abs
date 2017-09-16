@@ -1,12 +1,11 @@
 @extends('layouts.master')
 
-
-@section('title', 'ブラウズ：' . $browse_name . ' | ')
-
 @section('content')
 
 
-  <h1 class="uk-heading-divider">ブラウズ：{{ $browse_name or '' }}</h1>
+  @include('home.about')
+
+  <h4 class="uk-heading-divider">ブラウズ：{{ $browse_name or '' }}</h4>
 
   @if(count($items) > 0)
     @foreach($items as $item)

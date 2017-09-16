@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @php
-  $title = array_get($item, 'ItemAttributes.Title');
+  $title = array_get($item, 'ItemAttributes.Title') . ' | ';
 @endphp
 
 @section('title', $title)

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', $keyword)
+@section('title', $keyword . ' | ')
 
 @section('content')
 
