@@ -95,7 +95,6 @@ class ItemController extends Controller
             'rank'    => $rank,
             'offer'   => $offer,
         ]);
-
     }
 
     /**

@@ -20,7 +20,6 @@ class CreateItemsTable extends Migration
             $table->string('title')->nullable();
 
             $table->timestamps();
-
         });
     }
 
