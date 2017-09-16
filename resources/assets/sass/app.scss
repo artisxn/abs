@@ -1,5 +1,11 @@
-
 @import "~uikit/src/scss/variables-theme.scss";
 @import "~uikit/src/scss/mixins-theme.scss";
-
 @import "~uikit/src/scss/uikit-theme.scss";
+
+.abs {
+  &-navbar {
+    &-container:not(.uk-navbar-transparent) {
+      background: linear-gradient(to left, #28a5f5, #1e87f0);
+    }
+  }
+}

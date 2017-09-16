@@ -14,7 +14,6 @@
 </head>
 <body>
 
-
 @include('layouts.header')
 
 <main class="uk-container">
