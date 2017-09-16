@@ -17,6 +17,7 @@ class Redirect
      */
     public function handle($request, Closure $next, $guard = null)
     {
+        info($request->getHost());
         if (app()->environment('production') and $request->getHost() === config('amazon.redirect_from')) {
             return redirect(config('amazon.redirect_to'));
         }
