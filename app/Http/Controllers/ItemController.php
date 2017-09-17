@@ -70,8 +70,15 @@ class ItemController extends Controller
         return view('home.asin')->with(compact('item', 'histories'));
     }
 
-    public function createItem(array $item)
+    /**
+     * @param array|null $item
+     */
+    public function createItem(array $item = null)
     {
+        if (is_null($item)) {
+            return;
+        }
+
         $asin = array_get($item, 'ASIN');
         $title = array_get($item, 'ItemAttributes.Title');
 

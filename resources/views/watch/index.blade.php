@@ -23,6 +23,9 @@
         </li>
       @endforeach
     </ul>
+
+    {{ $watches->links() }}
+
   @endif
 
 @endsection

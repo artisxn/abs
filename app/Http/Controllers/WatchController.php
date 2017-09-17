@@ -14,7 +14,11 @@ class WatchController extends Controller
      */
     public function index()
     {
-        $watches = auth()->user()->watches()->with('item')->latest()->paginate(50);
+        $watches = auth()->user()
+                         ->watches()
+                         ->with('item')
+                         ->latest()
+                         ->paginate(50);
 
         return view('watch.index')->with(compact('watches'));
     }
