@@ -18,29 +18,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return redirect('/');
     }
 
     /**
@@ -61,11 +39,27 @@ class ItemController extends Controller
             return $item;
         });
 
+        /**
+         * @var \Illuminate\Support\Collection $histories
+         */
         $histories = History::whereAsinId($asin)
                             ->whereNotNull('offer')
                             ->latest()
                             ->limit(100)
                             ->get();
+
+        //TODO: データが増えたらグラフ等を表示
+        //        dd($histories);
+        //平均ランク
+        //        dd($histories->avg('rank'));
+        //新品平均価格
+        //        dd($histories->avg('offer.LowestNewPrice.Amount'));
+        //新品価格グラフ用
+        //        dd($histories->pluck('offer.LowestNewPrice.Amount'));
+        //中古平均価格
+        //        dd($histories->avg('offer.LowestUsedPrice.Amount'));
+        //中古価格グラフ用
+        //        dd($histories->pluck('offer.LowestUsedPrice.Amount'));
 
         return view('home.asin')->with(compact('item', 'histories'));
     }
@@ -102,42 +96,5 @@ class ItemController extends Controller
             'rank'    => $rank,
             'offer'   => $offer,
         ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Model\Item $item
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Item $item)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\Model\Item          $item
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Item $item)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Model\Item $item
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Item $item)
-    {
-        //
     }
 }
