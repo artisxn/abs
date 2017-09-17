@@ -16,7 +16,7 @@
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravelcollective/html": "5.5.*",
-        "revolution/laravel-amazon-product-api": "^0.1.0",
+        "revolution/laravel-amazon-product-api": "^0.2",
         "revolution/socialite-amazon": "^1.0"
     },
     "require-dev": {

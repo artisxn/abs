@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "66cadc1b7a3878db861cb3285f93ba02",
+    "content-hash": "04505872edd6c2e606b55ec185f8c990",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2054,16 +2054,16 @@
         },
         {
             "name": "revolution/laravel-amazon-product-api",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-amazon-product-api.git",
-                "reference": "6eddbbd18a5c53db9faeb5aacfe2549cda743f5d"
+                "reference": "6a5b011c1188c519e944d9af7f0145098609d723"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-amazon-product-api/zipball/6eddbbd18a5c53db9faeb5aacfe2549cda743f5d",
-                "reference": "6eddbbd18a5c53db9faeb5aacfe2549cda743f5d",
+                "url": "https://api.github.com/repos/kawax/laravel-amazon-product-api/zipball/6a5b011c1188c519e944d9af7f0145098609d723",
+                "reference": "6a5b011c1188c519e944d9af7f0145098609d723",
                 "shasum": ""
             },
             "require": {
@@ -2107,7 +2107,7 @@
                 "amazon",
                 "laravel"
             ],
-            "time": "2017-09-15T09:33:42+00:00"
+            "time": "2017-09-17T05:23:55+00:00"
         },
         {
             "name": "revolution/socialite-amazon",
