@@ -25,3 +25,6 @@ https://github.com/kawax/laravel-amazon-product-api
 
 ### ウォッチリスト 2017-09-16
 Amazonアカウントでログインすると使える。
+
+### Publisherなどから検索へリンク 2017-09-18
+昔はタグとして個別ページを作ってた気がする。今はとりあえず簡易的な検索。
