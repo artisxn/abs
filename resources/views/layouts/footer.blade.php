@@ -8,5 +8,12 @@
         <li><a href="{{ route('browselist') }}">ブラウズリスト</a></li>
       </ul>
     </div>
+    <div class="uk-navbar-right">
+      <ul class="uk-navbar-nav">
+        <li>
+          <a href="#" uk-totop uk-scroll></a>
+        </li>
+      </ul>
+    </div>
   </nav>
 </footer>

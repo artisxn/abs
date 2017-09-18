@@ -24,7 +24,9 @@ class SearchController extends Controller
         $item = array_get($results, 'Items');
 
         $TotalResults = array_get($item, 'TotalResults');
-        if ($TotalResults === 1) {
+
+        //1件の場合は
+        if ($TotalResults === '1') {
             $items = [array_get($item, 'Item')];
         } else {
             $items = array_get($item, 'Item');

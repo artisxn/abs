@@ -1,4 +1,8 @@
-@if(isset($similar_products) and count($similar_products) > 0)
+@php
+  $similar_products = array_get($item, 'SimilarProducts.SimilarProduct');
+@endphp
+
+@if(!empty($similar_products) and count($similar_products) > 0)
   <div class="uk-card-body">
     <h4>関連商品</h4>
     <ul>

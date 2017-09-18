@@ -61,7 +61,7 @@ class ItemController extends Controller
         //中古価格グラフ用
         //        dd($histories->pluck('offer.LowestUsedPrice.Amount'));
 
-        return view('home.asin')->with(compact('item', 'histories'));
+        return view('asin.show')->with(compact('item', 'histories'));
     }
 
     /**
