@@ -1089,16 +1089,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.4",
+            "version": "v5.5.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d3e0493bead126cf7fb9a005c64e6b58a9190e51"
+                "reference": "a0fdfd2c90318c107b6a8d69189ec9a6607379e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d3e0493bead126cf7fb9a005c64e6b58a9190e51",
-                "reference": "d3e0493bead126cf7fb9a005c64e6b58a9190e51",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/a0fdfd2c90318c107b6a8d69189ec9a6607379e3",
+                "reference": "a0fdfd2c90318c107b6a8d69189ec9a6607379e3",
                 "shasum": ""
             },
             "require": {
@@ -1217,7 +1217,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-09-13T13:36:29+00:00"
+            "time": "2017-09-20T13:45:36+00:00"
         },
         {
             "name": "laravel/socialite",
@@ -2054,16 +2054,16 @@
         },
         {
             "name": "revolution/laravel-amazon-product-api",
-            "version": "0.2.0",
+            "version": "0.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-amazon-product-api.git",
-                "reference": "6a5b011c1188c519e944d9af7f0145098609d723"
+                "reference": "1542c1e62e515177b32c7ff2c5bd9c711ea58f3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-amazon-product-api/zipball/6a5b011c1188c519e944d9af7f0145098609d723",
-                "reference": "6a5b011c1188c519e944d9af7f0145098609d723",
+                "url": "https://api.github.com/repos/kawax/laravel-amazon-product-api/zipball/1542c1e62e515177b32c7ff2c5bd9c711ea58f3f",
+                "reference": "1542c1e62e515177b32c7ff2c5bd9c711ea58f3f",
                 "shasum": ""
             },
             "require": {
@@ -2107,7 +2107,7 @@
                 "amazon",
                 "laravel"
             ],
-            "time": "2017-09-17T05:23:55+00:00"
+            "time": "2017-09-19T17:40:14+00:00"
         },
         {
             "name": "revolution/socialite-amazon",

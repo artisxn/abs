@@ -18,14 +18,15 @@ class BrowseService
         });
 
         $nodes = array_get($result, 'BrowseNodes');
+
         $browse_name = array_get($nodes, 'BrowseNode.Name');
 
         $sellers = array_get($nodes, 'BrowseNode.TopSellers.TopSeller');
 
-        $asin = collect($sellers)->pluck('ASIN');
+        $asin = array_pluck($sellers, 'ASIN');
 
-        $results = cache()->remember('items.' . $asin->implode('.'), 60, function () use ($asin) {
-            return AmazonProduct::items($asin->toArray());
+        $results = cache()->remember('items.' . implode('.', $asin), 60, function () use ($asin) {
+            return AmazonProduct::items($asin);
         });
 
         $items = array_get($results, 'Items.Item');
