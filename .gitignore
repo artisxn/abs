@@ -7,3 +7,4 @@ Homestead.json
 .env
 .vagrant
 Vagrantfile
+!/storage/app/public/users/default.png
