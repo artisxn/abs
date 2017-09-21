@@ -17,7 +17,8 @@
         "laravel/framework": "5.5.*",
         "laravelcollective/html": "5.5.*",
         "revolution/laravel-amazon-product-api": "^0.2",
-        "revolution/socialite-amazon": "^1.0"
+        "revolution/socialite-amazon": "^1.0",
+        "tcg/voyager": "^1.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -43,8 +44,7 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": [
-            ]
+            "dont-discover": []
         }
     },
     "scripts": {
@@ -63,5 +63,11 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
+    },
+    "repositories": {
+        "hooks": {
+            "type": "composer",
+            "url": "https://larapack.io"
+        }
     }
 }

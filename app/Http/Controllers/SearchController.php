@@ -13,7 +13,7 @@ class SearchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function search(Request $request)
     {
         $category = $request->input('category', 'All');
         $keyword = $request->input('keyword', 'amazon');
