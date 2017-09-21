@@ -11,7 +11,7 @@ return [
     */
 
     'user' => [
-        'add_default_role_on_register' => true,
+        'add_default_role_on_register' => false,
         'default_role'                 => 'user',
         'namespace'                    => App\Model\User::class,
         'default_avatar'               => 'users/default.png',
