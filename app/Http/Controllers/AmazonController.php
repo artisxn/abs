@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use AmazonProduct;
-
 use App\Service\BrowseService;
+
+use App\Model\Item;
+use App\Model\History;
 
 class AmazonController extends Controller
 {
@@ -21,6 +22,9 @@ class AmazonController extends Controller
         $browse = $lists->random();
 
         $browse_items = $service->browse($browse);
+
+        $browse_items['items_count'] = Item::count();
+        $browse_items['histories_count'] = History::count();
 
         return view('home.index')->with($browse_items);
     }
