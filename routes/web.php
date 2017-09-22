@@ -34,6 +34,10 @@ Route::middleware('auth')->group(function () {
          ->only(['index', 'store', 'destroy']);
 });
 
+
+Route::view('privacy', 'pages.privacy')->name('privacy');
+
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

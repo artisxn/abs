@@ -6,6 +6,7 @@
       <ul class="uk-navbar-nav">
         <li><a href="{{ route('index') }}">ホーム</a></li>
         <li><a href="{{ route('browselist') }}">ブラウズリスト</a></li>
+        <li><a href="{{ route('privacy') }}">プライバシーポリシー</a></li>
       </ul>
     </div>
     <div class="uk-navbar-right">
