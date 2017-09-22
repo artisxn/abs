@@ -23,8 +23,8 @@ class AmazonController extends Controller
 
         $browse_items = $service->browse($browse);
 
-        $browse_items['items_count'] = Item::count();
-        $browse_items['histories_count'] = History::count();
+        $browse_items['items_count'] = Item::count('asin');
+        $browse_items['histories_count'] = History::count('id');
 
         return view('home.index')->with($browse_items);
     }
