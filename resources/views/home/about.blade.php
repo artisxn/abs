@@ -4,5 +4,5 @@
     Amazon Product Advertising APIのデモサイトとして検索機能だけ使えるようにしてましたが現在は徐々に機能追加中。追加済はAmazonアカウントでログインとウォッチリスト。10-15年くらい使ってたURLも変更。
   </p>
   <p>今後の予定は履歴データが増えたらグラフ化。</p>
-  <p>ASINカウント : {{ $items_count }} / 履歴カウント : {{ $histories_count }}</p>
+  <p>ASINカウント : {{ $items_count or '0' }} / 履歴カウント : {{ $histories_count or '0' }}</p>
 </div>
