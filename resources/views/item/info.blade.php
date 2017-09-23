@@ -12,7 +12,7 @@
 
     @unless(empty($publisher))
 
-      <li itemscope itemtype="http://schema.org/CreativeWork">Publisher：<span
+      <li itemscope itemtype="http://schema.org/CreativeWork">発売元(Publisher)：<span
           itemprop="publisher">
         <a
           href="{{ route('search', ['category' => 'All', 'keyword' => $publisher]) }}">
@@ -32,7 +32,7 @@
     @endphp
 
     @unless(empty($author))
-      <li>Author：
+      <li>著者(Author)：
         <span itemprop="author">
         <a
           href="{{ route('search', ['category' => 'All', 'keyword' => $author]) }}">
@@ -52,7 +52,7 @@
     @endphp
 
     @unless(empty($creator))
-      <li>Creator：
+      <li>作者(Creator)：
         <span itemprop="author">
           <a
             href="{{ route('search', ['category' => 'All', 'keyword' => $creator]) }}">

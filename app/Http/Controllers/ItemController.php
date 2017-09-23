@@ -18,6 +18,15 @@ class ItemController extends Controller
      */
     public function index()
     {
+        //         特定カテゴリーのアイテムリスト
+        //        $i = Item::has('histories')->where('browse', 'LIKE', '%"BrowseNodeId": "___"%')->get();
+        //        $i->load([
+        //            'histories' => function ($query) {
+        //                $query->orderBy('day', 'desc')->take(2);
+        //            },
+        //        ]);
+        //        dd($i);
+
         return redirect('/');
     }
 
@@ -83,8 +92,9 @@ class ItemController extends Controller
         $new_item = Item::updateOrCreate([
             'asin' => $asin,
         ], [
-            'asin'  => $asin,
-            'title' => $title,
+            'asin'   => $asin,
+            'title'  => $title,
+            'browse' => $item,
         ]);
 
         $history = History::updateOrCreate([
