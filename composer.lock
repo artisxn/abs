@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7acd8c762ee3becd7f9c699c83017102",
+    "content-hash": "f65e5e044cd7a4f7e916582be78bf3a0",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -69,25 +69,44 @@
         },
         {
             "name": "barryvdh/laravel-debugbar",
-            "version": "v2.4.3",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-debugbar.git",
-                "reference": "d7c88f08131f6404cb714f3f6cf0642f6afa3903"
+                "reference": "01a859752094e00aa8548832312366753272f8af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/d7c88f08131f6404cb714f3f6cf0642f6afa3903",
-                "reference": "d7c88f08131f6404cb714f3f6cf0642f6afa3903",
+                "url": "https://api.github.com/repos/barryvdh/laravel-debugbar/zipball/01a859752094e00aa8548832312366753272f8af",
+                "reference": "01a859752094e00aa8548832312366753272f8af",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
-                "maximebf/debugbar": "~1.13.0",
-                "php": ">=5.5.9",
-                "symfony/finder": "~2.7|~3.0"
+                "illuminate/routing": "5.5.x",
+                "illuminate/session": "5.5.x",
+                "illuminate/support": "5.5.x",
+                "maximebf/debugbar": "~1.14.0",
+                "php": ">=7.0",
+                "symfony/debug": "^3",
+                "symfony/finder": "^3"
+            },
+            "require-dev": {
+                "illuminate/framework": "5.5.x"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Barryvdh\\Debugbar\\ServiceProvider"
+                    ],
+                    "aliases": {
+                        "Debugbar": "Barryvdh\\Debugbar\\Facade"
+                    }
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Barryvdh\\Debugbar\\": "src/"
@@ -114,7 +133,7 @@
                 "profiler",
                 "webprofiler"
             ],
-            "time": "2017-07-21T11:56:48+00:00"
+            "time": "2017-09-18T13:32:46+00:00"
         },
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -1636,16 +1655,16 @@
         },
         {
             "name": "larapack/voyager-hooks",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/larapack/voyager-hooks.git",
-                "reference": "58ebbc579f23b231d40caf56939f0ccc1be525ac"
+                "reference": "ad4107167d6eca8e348dfd7e6fa3774fff4afec0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larapack/voyager-hooks/zipball/58ebbc579f23b231d40caf56939f0ccc1be525ac",
-                "reference": "58ebbc579f23b231d40caf56939f0ccc1be525ac",
+                "url": "https://api.github.com/repos/larapack/voyager-hooks/zipball/ad4107167d6eca8e348dfd7e6fa3774fff4afec0",
+                "reference": "ad4107167d6eca8e348dfd7e6fa3774fff4afec0",
                 "shasum": ""
             },
             "require": {
@@ -1677,20 +1696,20 @@
                 "laravel",
                 "voyager"
             ],
-            "time": "2017-08-22T20:55:38+00:00"
+            "time": "2017-09-22T16:10:18+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v5.5.11",
+            "version": "v5.5.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "56f1ffd0880255e9ebbf0dbf47024cc5c2941c7a"
+                "reference": "74f5831447817034838b3539c644303036df3d8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/56f1ffd0880255e9ebbf0dbf47024cc5c2941c7a",
-                "reference": "56f1ffd0880255e9ebbf0dbf47024cc5c2941c7a",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/74f5831447817034838b3539c644303036df3d8e",
+                "reference": "74f5831447817034838b3539c644303036df3d8e",
                 "shasum": ""
             },
             "require": {
@@ -1809,7 +1828,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-09-21T18:59:13+00:00"
+            "time": "2017-09-22T13:33:35+00:00"
         },
         {
             "name": "laravel/socialite",
@@ -2086,16 +2105,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "1.13.1",
+            "version": "v1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "afee79a236348e39a44cb837106b7c5b4897ac2a"
+                "reference": "e23a98f2d65607d8aa6c7b409a513f8fdf4acdde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/afee79a236348e39a44cb837106b7c5b4897ac2a",
-                "reference": "afee79a236348e39a44cb837106b7c5b4897ac2a",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/e23a98f2d65607d8aa6c7b409a513f8fdf4acdde",
+                "reference": "e23a98f2d65607d8aa6c7b409a513f8fdf4acdde",
                 "shasum": ""
             },
             "require": {
@@ -2114,7 +2133,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -2143,7 +2162,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2017-01-05T08:46:19+00:00"
+            "time": "2017-08-17T07:17:00+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2564,16 +2583,16 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "3.7.0",
+            "version": "3.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "0ef23d1b10cf1bc576e9d865a7e9c47982c5715e"
+                "reference": "45cffe822057a09e05f7bd09ec5fb88eeecd2334"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/0ef23d1b10cf1bc576e9d865a7e9c47982c5715e",
-                "reference": "0ef23d1b10cf1bc576e9d865a7e9c47982c5715e",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/45cffe822057a09e05f7bd09ec5fb88eeecd2334",
+                "reference": "45cffe822057a09e05f7bd09ec5fb88eeecd2334",
                 "shasum": ""
             },
             "require": {
@@ -2642,7 +2661,7 @@
                 "identifier",
                 "uuid"
             ],
-            "time": "2017-08-04T13:39:04+00:00"
+            "time": "2017-09-22T20:46:04+00:00"
         },
         {
             "name": "revolution/laravel-amazon-product-api",
