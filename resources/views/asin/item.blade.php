@@ -2,6 +2,7 @@
      itemscope
      itemtype="http://schema.org/Product">
 
+
   @include('asin.header')
 
 
@@ -13,7 +14,6 @@
   @include('item.info')
 
 
-  @include('item.watchlist')
 
   @include('item.histories')
 

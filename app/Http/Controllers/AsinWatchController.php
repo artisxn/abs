@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Watch;
 use Illuminate\Http\Request;
 
-class WatchController extends Controller
+class AsinWatchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,19 +14,7 @@ class WatchController extends Controller
      */
     public function index()
     {
-        $asin_watches = auth()->user()
-                              ->watches()
-                              ->with('item')
-                              ->latest()
-                              ->get();
-
-        $browse_watches = auth()->user()
-                                ->browseWatches()
-                                ->with('browse')
-                                ->latest()
-                                ->get();
-
-        return view('watch.index')->with(compact('asin_watches', 'browse_watches'));
+        //
     }
 
     /**
@@ -48,7 +36,15 @@ class WatchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $watch = Watch::updateOrCreate([
+            'asin_id' => $request->input('asin'),
+            'user_id' => $request->user()->id,
+        ], [
+            'asin_id' => $request->input('asin'),
+            'user_id' => $request->user()->id,
+        ]);
+
+        return back();
     }
 
     /**
@@ -97,6 +93,12 @@ class WatchController extends Controller
      */
     public function destroy(Watch $watch)
     {
-        //
+        if ($watch->user_id === auth()->user()->id) {
+            $watch->delete();
+
+            return redirect()->route('asin', $watch->asin_id);
+        } else {
+            return back();
+        }
     }
 }

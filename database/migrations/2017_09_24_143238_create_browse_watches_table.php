@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWatchesTable extends Migration
+class CreateBrowseWatchesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateWatchesTable extends Migration
      */
     public function up()
     {
-        Schema::create('watches', function (Blueprint $table) {
+        Schema::create('browse_watches', function (Blueprint $table) {
             $table->increments('id');
 
             $table->unsignedInteger('user_id');
-            $table->string('asin_id', 10);
+            $table->unsignedInteger('browse_id');
 
             $table->timestamps();
 
@@ -26,9 +26,9 @@ class CreateWatchesTable extends Migration
                   ->on('users')
                   ->onDelete('cascade');
 
-            $table->foreign('asin_id')
-                  ->references('asin')
-                  ->on('items')
+            $table->foreign('browse_id')
+                  ->references('id')
+                  ->on('browses')
                   ->onDelete('cascade');
         });
     }
@@ -40,6 +40,6 @@ class CreateWatchesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('watches');
+        Schema::dropIfExists('browse_watches');
     }
 }

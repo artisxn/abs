@@ -9,9 +9,10 @@
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
         <li><a href="{{ route('index') }}">ホーム</a></li>
+        <li><a href="{{ route('usage') }}">使い方</a></li>
         <li><a href="{{ route('browselist') }}">ブラウズリスト</a></li>
         @auth
-          <li><a href="{{ route('watch.index') }}">ウォッチリスト</a></li>
+          <li><a href="{{ route('watch') }}">ウォッチリスト</a></li>
           <li><a href="{{ route('logout') }}">ログアウト</a></li>
           @else
             <li>

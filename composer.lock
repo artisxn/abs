@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
-            "version": "3.7.4",
+            "version": "3.7.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/arrilot/laravel-widgets.git",
-                "reference": "c746a23c159cc8c021a4086452e50a43048ab317"
+                "reference": "5cf32fc2cb49681adbdf422c15c7b4702c087025"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arrilot/laravel-widgets/zipball/c746a23c159cc8c021a4086452e50a43048ab317",
-                "reference": "c746a23c159cc8c021a4086452e50a43048ab317",
+                "url": "https://api.github.com/repos/arrilot/laravel-widgets/zipball/5cf32fc2cb49681adbdf422c15c7b4702c087025",
+                "reference": "5cf32fc2cb49681adbdf422c15c7b4702c087025",
                 "shasum": ""
             },
             "require": {
@@ -65,7 +65,7 @@
                 "laravel",
                 "widgets"
             ],
-            "time": "2017-09-03T20:37:26+00:00"
+            "time": "2017-09-23T23:52:52+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",

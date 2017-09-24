@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
+use App\Model\Watch;
+use App\Model\BrowseWatch;
+
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -26,6 +29,10 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+
+        //モデル結合ルート
+        Route::model('asin-watch', Watch::class);
+        Route::model('browse-watch', BrowseWatch::class);
     }
 
     /**

@@ -39,4 +39,12 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->hasMany(Watch::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function browseWatches()
+    {
+        return $this->hasMany(BrowseWatch::class);
+    }
 }

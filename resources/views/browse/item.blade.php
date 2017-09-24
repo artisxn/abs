@@ -12,8 +12,6 @@
 
   @include('item.info')
 
-  @include('item.watchlist')
-
   @include('item.histories')
 
   @include('item.similar')

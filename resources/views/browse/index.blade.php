@@ -5,6 +5,7 @@
 
 @section('content')
 
+  @include('browse.browse-watch')
 
   <h1 class="uk-heading-divider">ブラウズ：{{ $browse_name or '' }}</h1>
 

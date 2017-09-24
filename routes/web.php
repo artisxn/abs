@@ -12,8 +12,6 @@
 */
 
 
-
-
 Route::get('asin', 'ItemController@index');
 Route::name('asin')->get('asin/{asin}', 'ItemController@show');
 
@@ -30,12 +28,18 @@ Route::get('callback', 'LoginController@callback');
 Route::name('logout')->get('logout', 'LoginController@logout');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('watch', 'WatchController')
-         ->only(['index', 'store', 'destroy']);
+    Route::resource('asin-watch', 'AsinWatchController')
+         ->only(['store', 'destroy']);
+
+    Route::resource('browse-watch', 'BrowseWatchController')
+         ->only(['store', 'destroy']);
+
+    Route::name('watch')->get('watch', 'WatchController@index');
 });
 
 
 Route::view('privacy', 'pages.privacy')->name('privacy');
+Route::view('usage', 'pages.usage')->name('usage');
 
 
 Route::group(['prefix' => 'admin'], function () {
