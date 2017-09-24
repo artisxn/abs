@@ -14,7 +14,7 @@
       @include('browse.item')
     @endforeach
   @else
-    見つかりませんでした。もう一度検索してください。(<a href="{{ route('browse', ['browse' => $browse]) }}">{{ $browse }}</a>)
+    見つかりませんでした。しばらくしてからもう一度検索してください。(<a href="{{ route('browse', ['browse' => $browse]) }}">{{ $browse }}</a>)
   @endif
 
 

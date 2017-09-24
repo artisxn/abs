@@ -8,6 +8,7 @@ use App\Service\BrowseService;
 
 use App\Model\Item;
 use App\Model\History;
+use App\Model\Browse;
 
 class AmazonController extends Controller
 {
@@ -23,8 +24,11 @@ class AmazonController extends Controller
 
         $browse_items = $service->browse($browse);
 
-        $browse_items['items_count'] = Item::count('asin');
-        $browse_items['histories_count'] = History::count('id');
+        $browse_items = array_merge($browse_items, [
+            'items_count'     => Item::count('asin'),
+            'histories_count' => History::count('id'),
+            'browses_count'   => Browse::count('id'),
+        ]);
 
         return view('home.index')->with($browse_items);
     }
