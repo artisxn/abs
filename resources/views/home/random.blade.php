@@ -1,4 +1,6 @@
-<h2 class="uk-heading-line uk-text-center"><span>ランダムブラウズ：{{ $browse_name or '' }}</span></h2>
+<h2 class="uk-heading-line uk-text-center"><span>ランダムブラウズ：
+    <a href="{{ route('browse', $browse_id) }}">{{ $browse_name or '' }}</a>
+  </span></h2>
 
 @if(count($browse_items) > 0)
   <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
