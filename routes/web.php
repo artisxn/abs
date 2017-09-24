@@ -27,7 +27,7 @@ Route::name('login')->get('login', 'LoginController@login');
 Route::get('callback', 'LoginController@callback');
 Route::name('logout')->get('logout', 'LoginController@logout');
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->namespace('Watch')->group(function () {
     Route::resource('asin-watch', 'AsinWatchController')
          ->only(['store', 'destroy']);
 

@@ -16,8 +16,15 @@ class ExampleTest extends TestCase
      */
     public function testBasicExample()
     {
-        $response = $this->get('/');
+        $response = $this->get('/usage');
 
         $response->assertSee('Amazon');
+    }
+
+    public function testWatchRedirect()
+    {
+        $response = $this->get('/watch');
+
+        $response->assertRedirect('/login');
     }
 }

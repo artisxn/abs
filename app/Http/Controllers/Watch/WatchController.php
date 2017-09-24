@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Watch;
 
+use App\Http\Controllers\Controller;
+
+use App\Model\Watch;
 use Illuminate\Http\Request;
 
-use App\Model\BrowseWatch;
-
-class BrowseWatchController extends Controller
+class WatchController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,19 @@ class BrowseWatchController extends Controller
      */
     public function index()
     {
-        //
+        $asin_watches = auth()->user()
+                              ->watches()
+                              ->with('item')
+                              ->latest()
+                              ->get();
+
+        $browse_watches = auth()->user()
+                                ->browseWatches()
+                                ->with('browse')
+                                ->latest()
+                                ->get();
+
+        return view('watch.index')->with(compact('asin_watches', 'browse_watches'));
     }
 
     /**
@@ -37,25 +50,17 @@ class BrowseWatchController extends Controller
      */
     public function store(Request $request)
     {
-        $watch = BrowseWatch::updateOrCreate([
-            'browse_id' => $request->input('browse'),
-            'user_id'   => $request->user()->id,
-        ], [
-            'browse_id' => $request->input('browse'),
-            'user_id'   => $request->user()->id,
-        ]);
-
-        return back();
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  \App\Model\Watch $watch
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Watch $watch)
     {
         //
     }
@@ -63,11 +68,11 @@ class BrowseWatchController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  \App\Model\Watch $watch
      *
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Watch $watch)
     {
         //
     }
@@ -76,11 +81,11 @@ class BrowseWatchController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int                      $id
+     * @param  \App\Model\Watch         $watch
      *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Watch $watch)
     {
         //
     }
@@ -88,18 +93,12 @@ class BrowseWatchController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  BrowseWatch $browse
+     * @param  \App\Model\Watch $watch
      *
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BrowseWatch $browse)
+    public function destroy(Watch $watch)
     {
-        if ($browse->user_id === auth()->user()->id) {
-            $browse->delete();
-
-            return redirect()->route('brose', $browse->id);
-        } else {
-            return back();
-        }
+        //
     }
 }
