@@ -16,7 +16,7 @@ class BrowseList extends Command
      *
      * @var string
      */
-    protected $signature = 'abs:browselist';
+    protected $signature = 'abs:list';
 
     /**
      * The console command description.
@@ -65,6 +65,7 @@ class BrowseList extends Command
         '3573765051',
         '3708582051',
         '2448361051',
+        '160384011',
     ];
 
     /**

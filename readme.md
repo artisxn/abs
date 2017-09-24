@@ -17,7 +17,7 @@ Amazonアカウントでログイン。現状はログインだけで他には�
 https://github.com/kawax/laravel-amazon-product-api
 
 ### ブラウズリスト更新コマンド 2017-09-15
-`php artisan abs:browselist`
+`php artisan abs:list`
 ローカルで実行用。
 
 ### 履歴 2017-09-16
