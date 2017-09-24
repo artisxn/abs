@@ -21,9 +21,9 @@ class BrowseService
 
         if (empty($result)) {
             return [
-                'browse_name' => '',
-                'items'       => [],
-                'browse'      => $browse,
+                'browse_name'  => '',
+                'browse_items' => [],
+                'browse_id'    => $browse,
             ];
         }
 
@@ -31,14 +31,24 @@ class BrowseService
 
         $browse_name = array_get($nodes, 'BrowseNode.Name');
 
+
+        $sellers = array_get($nodes, 'BrowseNode.TopSellers.TopSeller');
+
+        if (empty($sellers)) {
+            return [
+                'browse_name'  => $browse_name,
+                'browse_items' => [],
+                'browse_id'    => $browse,
+            ];
+        }
+
+
         $br = Browse::updateOrCreate([
             'id' => $browse,
         ], [
             'id'    => $browse,
             'title' => $browse_name,
         ]);
-
-        $sellers = array_get($nodes, 'BrowseNode.TopSellers.TopSeller');
 
         $asin = array_pluck($sellers, 'ASIN');
 
@@ -49,9 +59,9 @@ class BrowseService
         $items = array_get($results, 'Items.Item');
 
         return [
-            'browse_name' => $browse_name,
-            'items'       => $items,
-            'browse'      => $browse,
+            'browse_name'  => $browse_name,
+            'browse_items' => $items,
+            'browse_id'    => $browse,
         ];
     }
 }

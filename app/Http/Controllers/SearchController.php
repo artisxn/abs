@@ -39,7 +39,7 @@ class SearchController extends Controller
             session(['MoreSearchResultsUrl' => $MoreSearchResultsUrl]);
         }
 
-        return view('home.search')->with(compact(
+        return view('search.search')->with(compact(
             'items',
             'page',
             'TotalResults',
