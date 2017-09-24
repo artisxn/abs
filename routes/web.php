@@ -16,6 +16,7 @@ Route::get('asin', 'ItemController@index');
 Route::name('asin')->get('asin/{asin}', 'ItemController@show');
 
 Route::name('browse')->get('browse/{browse}', 'BrowseController@browse');
+Route::name('browse-new')->get('browse/{browse}/new', 'BrowseController@newRelease');
 
 Route::name('browselist')->get('browse', 'BrowseController@browseList');
 

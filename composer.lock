@@ -2665,16 +2665,16 @@
         },
         {
             "name": "revolution/laravel-amazon-product-api",
-            "version": "0.2.1",
+            "version": "0.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-amazon-product-api.git",
-                "reference": "1542c1e62e515177b32c7ff2c5bd9c711ea58f3f"
+                "reference": "5484aafaac604fc96fb7335f6988f5005751f6f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-amazon-product-api/zipball/1542c1e62e515177b32c7ff2c5bd9c711ea58f3f",
-                "reference": "1542c1e62e515177b32c7ff2c5bd9c711ea58f3f",
+                "url": "https://api.github.com/repos/kawax/laravel-amazon-product-api/zipball/5484aafaac604fc96fb7335f6988f5005751f6f5",
+                "reference": "5484aafaac604fc96fb7335f6988f5005751f6f5",
                 "shasum": ""
             },
             "require": {
@@ -2718,7 +2718,7 @@
                 "amazon",
                 "laravel"
             ],
-            "time": "2017-09-19T17:40:14+00:00"
+            "time": "2017-09-24T17:10:12+00:00"
         },
         {
             "name": "revolution/socialite-amazon",
@@ -5138,16 +5138,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.3.0",
+            "version": "6.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "9501bab711403a1ab5b8378a8adb4ec3db3debdb"
+                "reference": "c0ff817b36a827e64bf5f57bc72278150cf30a77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/9501bab711403a1ab5b8378a8adb4ec3db3debdb",
-                "reference": "9501bab711403a1ab5b8378a8adb4ec3db3debdb",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c0ff817b36a827e64bf5f57bc72278150cf30a77",
+                "reference": "c0ff817b36a827e64bf5f57bc72278150cf30a77",
                 "shasum": ""
             },
             "require": {
@@ -5218,7 +5218,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-08-04T05:20:39+00:00"
+            "time": "2017-09-24T07:25:54+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

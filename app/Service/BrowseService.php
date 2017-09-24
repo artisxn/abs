@@ -10,13 +10,16 @@ class BrowseService
 {
     /**
      * @param string $browse
+     * @param string $response
      *
      * @return array
      */
-    public function browse(string $browse): array
+    public function browse(string $browse, string $response = 'TopSellers'): array
     {
-        $result = cache()->remember('browse.' . $browse, 60, function () use ($browse) {
-            return AmazonProduct::browse($browse);
+        $cache_key = 'browse.' . $response . '.' . $browse;
+
+        $result = cache()->remember($cache_key, 60, function () use ($browse, $response) {
+            return AmazonProduct::browse($browse, $response);
         });
 
         if (empty($result)) {
@@ -32,9 +35,9 @@ class BrowseService
         $browse_name = array_get($nodes, 'BrowseNode.Name');
 
 
-        $sellers = array_get($nodes, 'BrowseNode.TopSellers.TopSeller');
+        $items = array_get($nodes, 'BrowseNode.' . $response . '.' . str_singular($response));
 
-        if (empty($sellers)) {
+        if (empty($items)) {
             return [
                 'browse_name'  => $browse_name,
                 'browse_items' => [],
@@ -50,17 +53,17 @@ class BrowseService
             'title' => $browse_name,
         ]);
 
-        $asin = array_pluck($sellers, 'ASIN');
+        $asin = array_pluck($items, 'ASIN');
 
         $results = cache()->remember('items.' . implode('.', $asin), 60, function () use ($asin) {
             return AmazonProduct::items($asin);
         });
 
-        $items = array_get($results, 'Items.Item');
+        $browse_items = array_get($results, 'Items.Item');
 
         return [
             'browse_name'  => $browse_name,
-            'browse_items' => $items,
+            'browse_items' => $browse_items,
             'browse_id'    => $browse,
         ];
     }

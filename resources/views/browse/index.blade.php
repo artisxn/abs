@@ -7,7 +7,11 @@
 
   @include('browse.browse-watch')
 
-  <h1 class="uk-heading-divider">ブラウズ：{{ $browse_name or '' }}</h1>
+
+  <h1 class="uk-heading-divider">ブラウズ{{ $browse_new or '' }}：{{ $browse_name or '' }}</h1>
+
+  @include('browse.new-nav')
+
 
   @if(count($browse_items) > 0)
     @foreach($browse_items as $item)
