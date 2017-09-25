@@ -76,7 +76,7 @@
     </li>
 
     <li>中古価格：
-      {{ array_get($item, 'OfferSummary.LowestUsedPrice.Amount') }}
+      {{ array_get($item, 'OfferSummary.LowestUsedPrice.FormattedPrice') }}
     </li>
 
     <li>在庫：
