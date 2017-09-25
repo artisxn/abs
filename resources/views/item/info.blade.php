@@ -67,12 +67,16 @@
       </span>
     </li>
 
-    <li itemscope itemtype="http://schema.org/Offer">価格：
+    <li itemscope itemtype="http://schema.org/Offer">新品価格：
       <span itemprop="priceCurrency"
             content="{{ array_get($item, 'OfferSummary.LowestNewPrice.CurrencyCode') }}"></span>
       <span itemtype="http://schema.org/Offer" itemprop="price"
             content="{{ array_get($item, 'OfferSummary.LowestNewPrice.Amount') }}"></span>
       {{ array_get($item, 'OfferSummary.LowestNewPrice.FormattedPrice') }}
+    </li>
+
+    <li>中古価格：
+      {{ array_get($item, 'OfferSummary.LowestUsedPrice.Amount') }}
     </li>
 
     <li>在庫：

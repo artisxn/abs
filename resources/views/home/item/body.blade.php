@@ -10,7 +10,7 @@
       {{ array_get($item, 'Offers.Offer.OfferListing.Availability') }}
     </li>
 
-    <li>価格：
+    <li>新品価格：
       {{ array_get($item, 'OfferSummary.LowestNewPrice.FormattedPrice') }}
     </li>
 
