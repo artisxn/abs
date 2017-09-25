@@ -19,10 +19,12 @@ class AmazonController extends Controller
      */
     public function index(BrowseService $service)
     {
-        $lists = collect(config('amazon-browse'));
-        $browse = $lists->random();
+        $browse_items = cache()->remember('random_items', 10, function () use ($service) {
+            $lists = collect(config('amazon-browse'));
+            $browse = $lists->random();
 
-        $browse_items = $service->browse($browse);
+            return $service->browse($browse);
+        });
 
         $recent_items = cache()->remember('recent_items', 60, function () {
             return Item::latest('updated_at')->take(12)->get();
