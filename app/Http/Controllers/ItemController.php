@@ -52,7 +52,7 @@ class ItemController extends Controller
          * @var \Illuminate\Support\Collection $histories
          */
         $histories = History::whereAsinId($asin)
-//                            ->whereNotNull('offer')
+            //                            ->whereNotNull('offer')
                             ->latest()
                             ->limit(100)
                             ->get();
@@ -96,7 +96,7 @@ class ItemController extends Controller
 
         $rank = array_get($item, 'SalesRank');
 
-        $offer = array_get($item, 'OfferSummary');
+        //        $offer = array_get($item, 'OfferSummary');
 
         $availability = array_get($item, 'Offers.Offer.OfferListing.Availability');
         $lowest_new_price = array_get($item, 'OfferSummary.LowestNewPrice.Amount');
@@ -111,7 +111,7 @@ class ItemController extends Controller
             'asin_id'           => $asin,
             'day'               => today(),
             'rank'              => $rank,
-            'offer'             => $offer,
+            //            'offer'             => $offer,
             'availability'      => $availability,
             'lowest_new_price'  => $lowest_new_price,
             'lowest_used_price' => $lowest_used_price,

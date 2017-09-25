@@ -14,7 +14,6 @@ class AddColumnsToHistoriesTable extends Migration
     public function up()
     {
         Schema::table('histories', function (Blueprint $table) {
-
             $table->unsignedInteger('total_used')->nullable()->after('rank');
 
             $table->unsignedInteger('total_new')->nullable()->after('rank');
@@ -24,7 +23,6 @@ class AddColumnsToHistoriesTable extends Migration
             $table->unsignedInteger('lowest_new_price')->nullable()->after('rank');
 
             $table->string('availability')->nullable()->after('rank')->comment('商品の発送可能時期');
-
         });
     }
 
