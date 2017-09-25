@@ -40,7 +40,6 @@ class ItemController extends Controller
     public function show(string $asin)
     {
         $item = cache()->remember('asin.' . $asin, 60, function () use ($asin) {
-
             sleep(1);
 
             return rescue(function () use ($asin) {
