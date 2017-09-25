@@ -52,7 +52,7 @@ class ItemController extends Controller
          * @var \Illuminate\Support\Collection $histories
          */
         $histories = History::whereAsinId($asin)
-                            ->whereNotNull('offer')
+//                            ->whereNotNull('offer')
                             ->latest()
                             ->limit(100)
                             ->get();
@@ -85,9 +85,6 @@ class ItemController extends Controller
         $asin = array_get($item, 'ASIN');
         $title = array_get($item, 'ItemAttributes.Title');
 
-        $rank = array_get($item, 'SalesRank');
-
-        $offer = array_get($item, 'OfferSummary');
 
         $new_item = Item::updateOrCreate([
             'asin' => $asin,
@@ -97,14 +94,29 @@ class ItemController extends Controller
             'browse' => $item,
         ]);
 
+        $rank = array_get($item, 'SalesRank');
+
+        $offer = array_get($item, 'OfferSummary');
+
+        $availability = array_get($item, 'Offers.Offer.OfferListing.Availability');
+        $lowest_new_price = array_get($item, 'OfferSummary.LowestNewPrice.Amount');
+        $lowest_used_price = array_get($item, 'OfferSummary.LowestUsedPrice.Amount');
+        $total_new = array_get($item, 'OfferSummary.TotalNew');
+        $total_used = array_get($item, 'OfferSummary.TotalUsed');
+
         $history = History::updateOrCreate([
             'asin_id' => $asin,
             'day'     => today(),
         ], [
-            'asin_id' => $asin,
-            'day'     => today(),
-            'rank'    => $rank,
-            'offer'   => $offer,
+            'asin_id'           => $asin,
+            'day'               => today(),
+            'rank'              => $rank,
+            'offer'             => $offer,
+            'availability'      => $availability,
+            'lowest_new_price'  => $lowest_new_price,
+            'lowest_used_price' => $lowest_used_price,
+            'total_new'         => $total_new,
+            'total_used'        => $total_used,
         ]);
     }
 }

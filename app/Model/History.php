@@ -14,6 +14,11 @@ class History extends Model
         'rank',
         'day',
         'offer',
+        'lowest_new_price',
+        'lowest_used_price',
+        'availability',
+        'total_new',
+        'total_used',
     ];
 
     /**
@@ -36,5 +41,23 @@ class History extends Model
     public function item()
     {
         return $this->belongsTo(Item::class, 'asin_id', 'asin');
+    }
+
+    public function getLowestNewPriceAttribute($value)
+    {
+        if (!empty($value)) {
+            $value = '￥ ' . number_format($value);
+        }
+
+        return $value;
+    }
+
+    public function getLowestUsedPriceAttribute($value)
+    {
+        if (!empty($value)) {
+            $value = '￥ ' . number_format($value);
+        }
+
+        return $value;
     }
 }

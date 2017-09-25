@@ -75,6 +75,10 @@
       {{ array_get($item, 'OfferSummary.LowestNewPrice.FormattedPrice') }}
     </li>
 
+    <li>在庫：
+      {{ array_get($item, 'Offers.Offer.OfferListing.Availability') }}
+    </li>
+
     <li>ランキング：{{ array_get($item, 'SalesRank') }} ({{ array_get($item, 'ItemAttributes.Binding') }})</li>
 
   </ul>

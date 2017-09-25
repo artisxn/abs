@@ -8,17 +8,23 @@
         <tr>
           <th>日付</th>
           <th>ランキング</th>
-          <th>価格(新品)</th>
-          <th>価格(中古)</th>
+          <th>在庫</th>
+          <th>新品価格</th>
+          <th>新品出品数</th>
+          <th>中古価格</th>
+          <th>中古出品数</th>
         </tr>
         </thead>
         <tbody>
         @foreach($histories as $history)
           <tr>
             <td>{{ $history->day->toDateString()}}</td>
-            <td>{{ $history->rank or '' }}</td>
-            <td>{{ $history->offer['LowestNewPrice']['FormattedPrice'] or '' }}</td>
-            <td>{{ $history->offer['LowestUsedPrice']['FormattedPrice'] or '' }}</td>
+            <td>{{ $history->rank }}</td>
+            <td>{{ $history->availability }}</td>
+            <td>{{ $history->lowest_new_price }}</td>
+            <td>{{ $history->total_new }}</td>
+            <td>{{ $history->lowest_used_price }}</td>
+            <td>{{ $history->total_used }}</td>
           </tr>
         @endforeach
         </tbody>

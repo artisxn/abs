@@ -6,9 +6,8 @@
   </h4>
 
   <ul class="uk-list uk-list-divider">
-    <li>発売日：<span>
-        {{ array_get($item, 'ItemAttributes.ReleaseDate') }}
-      </span>
+    <li>在庫：
+      {{ array_get($item, 'Offers.Offer.OfferListing.Availability') }}
     </li>
 
     <li>価格：
