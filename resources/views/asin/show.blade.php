@@ -11,7 +11,7 @@
   @include('item.watchlist')
 
 
-  <h1 class="uk-heading-divider">{{ $title }}</h1>
+  <h1 class="uk-heading-divider uk-heading-primary">{{ $title }}</h1>
 
   @include('asin.item')
 

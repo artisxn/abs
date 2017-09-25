@@ -40,19 +40,27 @@ class ItemController extends Controller
     public function show(string $asin)
     {
         $item = cache()->remember('asin.' . $asin, 60, function () use ($asin) {
-            $results = AmazonProduct::item($asin);
-            $item = array_get($results, 'Items.Item');
 
-            $this->createItem($item);
+            sleep(1);
 
-            return $item;
+            return rescue(function () use ($asin) {
+                $results = AmazonProduct::item($asin);
+                $item = array_get($results, 'Items.Item');
+
+                $this->createItem($item);
+
+                return $item;
+            }, function () use ($asin) {
+                logger()->error('ASIN Error: ' . $asin);
+
+                return [];
+            });
         });
 
         /**
          * @var \Illuminate\Support\Collection $histories
          */
         $histories = History::whereAsinId($asin)
-            //                            ->whereNotNull('offer')
                             ->latest()
                             ->limit(100)
                             ->get();

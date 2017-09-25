@@ -9,7 +9,7 @@
 @endphp
 
 @unless(empty($img_size))
-  <div class="uk-card-media">
+  <div class="uk-card-media uk-margin-large-left">
     <a href="{{ array_get($item, 'DetailPageURL') }}" target="_blank">
       <img src="{{ array_get($item, $img_size . '.URL') }}"
            width="{{ array_get($item, $img_size . '.Width') }}"

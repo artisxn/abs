@@ -1,6 +1,7 @@
 @if(isset($histories) and count($histories) > 0)
   <div class="uk-card-body">
-    <h4>履歴</h4>
+    <h4 class="uk-heading-line"><span>履歴</span></h4>
+
     <div class="uk-overflow-auto">
 
       <table class="uk-table uk-list-striped uk-table-hover uk-table-divider uk-table-small">

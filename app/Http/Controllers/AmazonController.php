@@ -32,9 +32,9 @@ class AmazonController extends Controller
 
         $count_info = cache()->remember('count_info', 60, function () {
             return [
-                'items_count'     => Item::count('asin'),
-                'histories_count' => History::count('id'),
-                'browses_count'   => Browse::count('id'),
+                'items_count'     => Item::count(),
+                'histories_count' => History::count(),
+                'browses_count'   => Browse::count(),
             ];
         });
 

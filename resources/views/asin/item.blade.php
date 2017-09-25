@@ -3,7 +3,7 @@
      itemtype="http://schema.org/Product">
 
 
-  @include('asin.header')
+  {{--    @include('asin.header')--}}
 
 
   @include('item.image')
@@ -13,7 +13,7 @@
 
   @include('item.info')
 
-
+  @include('asin.imageset')
 
   @include('item.histories')
 

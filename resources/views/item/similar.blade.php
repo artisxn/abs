@@ -4,7 +4,9 @@
 
 @if(!empty($similar_products) and count($similar_products) > 0)
   <div class="uk-card-body">
-    <h4>関連商品</h4>
+
+    <h4 class="uk-heading-line"><span>関連商品</span></h4>
+
     <ul>
       @foreach($similar_products as $similar)
         <li>
