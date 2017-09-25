@@ -30,12 +30,18 @@ class AmazonController extends Controller
             return Item::latest('updated_at')->take(12)->get();
         });
 
-        $browse_items = array_merge($browse_items, [
-            'items_count'     => Item::count('asin'),
-            'histories_count' => History::count('id'),
-            'browses_count'   => Browse::count('id'),
-            'recent_items'    => $recent_items,
-        ]);
+        $count_info = cache()->remember('count_info', 60, function () {
+            return [
+                'items_count'     => Item::count('asin'),
+                'histories_count' => History::count('id'),
+                'browses_count'   => Browse::count('id'),
+            ];
+        });
+
+        $browse_items = array_merge($browse_items,
+            $count_info, [
+                'recent_items' => $recent_items,
+            ]);
 
         return view('home.index')->with($browse_items);
     }
