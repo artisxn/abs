@@ -19,6 +19,7 @@ Route::name('browse')->get('browse/{browse}', 'BrowseController@browse');
 Route::name('browse-new')->get('browse/{browse}/new', 'BrowseController@newRelease');
 
 Route::name('browselist')->get('browse', 'BrowseController@browseList');
+Route::name('browselist-all')->get('browse-all', 'BrowseListController@browseList');
 
 Route::name('search')->get('search', 'SearchController@search');
 
