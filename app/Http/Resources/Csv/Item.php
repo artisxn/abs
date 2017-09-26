@@ -38,6 +38,8 @@ class Item extends Resource
             array_get($this->browse, 'OfferSummary.TotalUsed'),
             array_get($this->browse, 'Offers.Offer.OfferListing.Availability'),
 
+            $this->updated_at,
+
             array_get($this->browse, 'LargeImage.URL'),
             $image,
 

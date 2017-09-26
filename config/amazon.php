@@ -18,6 +18,8 @@ return [
         'LowestUsedPrice',
         'TotalUsed',
         'Availability',
+        'Updated_at',
+
         'LargeImage',
         'ImageSets',
         'DetailPageURL',
