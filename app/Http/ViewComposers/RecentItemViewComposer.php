@@ -17,8 +17,8 @@ class RecentItemViewComposer
      */
     public function compose(View $view)
     {
-        $recent_items = cache()->remember('recent_items', 60, function () {
-            return Item::latest('updated_at')->take(12)->get();
+        $recent_items = cache()->remember('recent_items', 10, function () {
+            return Item::latest('updated_at')->take(15)->get();
         });
 
         $view->with(compact('recent_items'));

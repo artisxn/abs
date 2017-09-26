@@ -17,7 +17,7 @@ class HistoryCountViewComposer
      */
     public function compose(View $view)
     {
-        $histories_count = cache()->remember('histories_count', 60, function () {
+        $histories_count = cache()->remember('histories_count', 10, function () {
             return History::count('id');
         });
 
