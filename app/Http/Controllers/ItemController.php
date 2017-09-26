@@ -18,15 +18,6 @@ class ItemController extends Controller
      */
     public function index()
     {
-        //         特定カテゴリーのアイテムリスト
-        //        $i = Item::has('histories')->where('browse', 'LIKE', '%"BrowseNodeId": "___"%')->get();
-        //        $i->load([
-        //            'histories' => function ($query) {
-        //                $query->orderBy('day', 'desc')->take(2);
-        //            },
-        //        ]);
-        //        dd($i);
-
         return redirect('/');
     }
 
@@ -40,7 +31,7 @@ class ItemController extends Controller
     public function show(string $asin)
     {
         $item = cache()->remember('asin.' . $asin, 60, function () use ($asin) {
-            sleep(1);
+            //            sleep(1);
 
             return rescue(function () use ($asin) {
                 $results = AmazonProduct::item($asin);
@@ -101,9 +92,21 @@ class ItemController extends Controller
             'browse' => $item,
         ]);
 
-        $rank = array_get($item, 'SalesRank');
+        $browse_nodes = $this->browseNodes($item);
 
-        //        $offer = array_get($item, 'OfferSummary');
+        $new_item->browses()->sync($browse_nodes);
+
+        $this->createHistory($item);
+    }
+
+    /**
+     * @param array $item
+     */
+    private function createHistory(array $item)
+    {
+        $asin = array_get($item, 'ASIN');
+
+        $rank = array_get($item, 'SalesRank');
 
         $availability = array_get($item, 'Offers.Offer.OfferListing.Availability');
         $lowest_new_price = array_get($item, 'OfferSummary.LowestNewPrice.Amount');
@@ -125,5 +128,28 @@ class ItemController extends Controller
             'total_new'         => $total_new,
             'total_used'        => $total_used,
         ]);
+    }
+
+    /**
+     * @param array $item
+     *
+     * @return array
+     */
+    private function browseNodes(array $item)
+    {
+        $ids = [];
+        $browsenodes = array_get($item, 'BrowseNodes');
+
+        while ($browsenodes = array_get($browsenodes, 'BrowseNode')) {
+            if (!array_has($browsenodes, 'BrowseNodeId')) {
+                $browsenodes = head($browsenodes);
+            }
+
+            $ids[] = (int)array_get($browsenodes, 'BrowseNodeId');
+
+            $browsenodes = array_get($browsenodes, 'Ancestors');
+        }
+
+        return $ids;
     }
 }

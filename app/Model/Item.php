@@ -32,4 +32,9 @@ class Item extends Model
     {
         return $this->hasMany(Watch::class, 'asin_id', 'asin');
     }
+
+    public function browses()
+    {
+        return $this->belongsToMany(Browse::class);
+    }
 }
