@@ -18,13 +18,13 @@ class WatchController extends Controller
     {
         $asin_watches = auth()->user()
                               ->watches()
-                              ->with('item')
+                              ->with(['item'])
                               ->latest()
                               ->get();
 
         $browse_watches = auth()->user()
                                 ->browseWatches()
-                                ->with('browse')
+                                ->with(['browse', 'browse.items'])
                                 ->latest()
                                 ->get();
 

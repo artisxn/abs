@@ -14,6 +14,7 @@
           </form>
         </div>
 
+        {!! $watch->ranking() !!}
         <a href="{{ route('asin', $watch->asin_id) }}">{{ $watch->item->title or $watch->asin_id}}</a>
 
       </li>

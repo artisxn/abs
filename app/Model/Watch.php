@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Watch extends Model
 {
+    use Presenter\RankingTrait;
+
     /**
      * @var array
      */
@@ -22,5 +24,17 @@ class Watch extends Model
     public function item()
     {
         return $this->belongsTo(Item::class, 'asin_id', 'asin');
+    }
+
+    public function histories()
+    {
+        return $this->hasManyThrough(
+            History::class,
+            Item::class,
+            'asin',
+            'asin_id',
+            'asin_id',
+            'asin'
+        );
     }
 }

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
+    //    use Presenter\RankingTrait;
+
     public $primaryKey = 'asin';
 
     public $incrementing = false;
