@@ -17,7 +17,7 @@ class ItemCountViewComposer
      */
     public function compose(View $view)
     {
-        $items_count = cache()->remember('items_count',     0, function () {
+        $items_count = cache()->remember('items_count',     10, function () {
             return Item::count('asin');
         });
 
