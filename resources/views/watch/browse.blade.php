@@ -1,4 +1,3 @@
-
 <h3>カテゴリー</h3>
 @if($browse_watches->count() > 0)
   <ul class="uk-list uk-list-striped">
@@ -12,8 +11,12 @@
           </form>
         </div>
 
-        <a href="{{ route('download.category', $watch->browse_id) }}" class="uk-button uk-button-default uk-button-small">CSV</a>
-        <a href="{{ route('browse', $watch->browse_id) }}">{{ $watch->browse->title }}</a>
+        <a href="{{ route('download.category', $watch->browse_id) }}"
+           class="uk-button uk-button-default uk-button-small">CSV</a>
+        <a href="{{ route('browse', $watch->browse_id) }}">
+          {{ $watch->browse->title }}
+          （{{ $watch->browse->items()->count() }}）
+        </a>
 
       </li>
     @endforeach
