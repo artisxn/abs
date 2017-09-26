@@ -33,5 +33,10 @@
 
   <p>現時点では無料で使えます。ただし莫大な量のデータを保存するサービスに変わったので一部機能をオプションとして有料化の可能性はあります。</p>
 
+  <ul class="uk-list uk-list-bullet">
+    <li>ASINカウント : {{ $items_count or '0' }}</li>
+    <li>履歴カウント : {{ $histories_count or '0' }}</li>
+    <li>カテゴリーカウント : {{ $browses_count or '0' }}</li>
+  </ul>
 
 @endsection

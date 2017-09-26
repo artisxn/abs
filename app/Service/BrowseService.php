@@ -19,7 +19,7 @@ class BrowseService
         $cache_key = 'browse.' . $response . '.' . $browse;
 
         $result = cache()->remember($cache_key, 60, function () use ($browse, $response) {
-            sleep(1);
+            //            sleep(1);
 
             return rescue(function () use ($browse, $response) {
                 return AmazonProduct::browse($browse, $response);
