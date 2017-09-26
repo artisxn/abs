@@ -13,14 +13,22 @@ class Item extends Model
     protected $fillable = [
         'asin',
         'title',
-        'browse',
+        'attributes',
+        'offer_summary',
+        'offers',
+        'image_sets',
+        'large_image',
+        'detail_url',
     ];
 
     /**
      * @var array
      */
     protected $casts = [
-        'browse' => 'array',
+        'attributes'    => 'array',
+        'offer_summary' => 'array',
+        'offers'        => 'array',
+        'image_sets'    => 'array',
     ];
 
     public function histories()

@@ -41,21 +41,31 @@ class ItemService
      */
     public function createItem(array $item = null)
     {
-        if (is_null($item)) {
+        if (empty($item)) {
             return;
         }
 
         $asin = array_get($item, 'ASIN');
         $title = array_get($item, 'ItemAttributes.Title');
-
+        $attributes = array_get($item, 'ItemAttributes');
+        $offer_summary = array_get($item, 'OfferSummary');
+        $offers = array_get($item, 'Offers');
+        $image_sets = array_get($item, 'ImageSets');
+        $large_image = array_get($item, 'LargeImage.URL');
+        $detail_url = array_get($item, 'DetailPageURL');
 
         $new_item = Item::updateOrCreate([
             'asin' => $asin,
-        ], [
-            'asin'   => $asin,
-            'title'  => $title,
-            'browse' => $item,
-        ]);
+        ], compact([
+            'asin',
+            'title',
+            'attributes',
+            'offer_summary',
+            'offers',
+            'image_sets',
+            'large_image',
+            'detail_url',
+        ]));
 
         $browse_nodes = $this->browseNodes($item);
 

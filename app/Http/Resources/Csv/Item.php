@@ -15,12 +15,12 @@ class Item extends Resource
      */
     public function toArray($request)
     {
-        $image = '';
-        $image_sets = array_get($this->browse, 'ImageSets.ImageSet');
+        $images = [];
+        $image_sets = array_get($this->image_sets, 'ImageSet');
         if (!empty($image_sets)) {
             foreach ($image_sets as $image_set) {
                 if (array_has($image_set, 'HiResImage')) {
-                    $image .= array_get($image_set, 'HiResImage.URL') . ',';
+                    $images[] = array_get($image_set, 'HiResImage.URL');
                 }
             }
         }
@@ -28,22 +28,22 @@ class Item extends Resource
         return [
             $this->asin,
             $this->title,
-            array_get($this->browse, 'ItemAttributes.Binding'),
-            array_get($this->browse, 'ItemAttributes.Brand'),
-            array_get($this->browse, 'ItemAttributes.Publisher'),
-            array_get($this->browse, 'ItemAttributes.ReleaseDate'),
-            array_get($this->browse, 'OfferSummary.LowestNewPrice.Amount'),
-            array_get($this->browse, 'OfferSummary.TotalNew'),
-            array_get($this->browse, 'OfferSummary.LowestUsedPrice.Amount'),
-            array_get($this->browse, 'OfferSummary.TotalUsed'),
-            array_get($this->browse, 'Offers.Offer.OfferListing.Availability'),
+            array_get($this->attributes, 'Binding'),
+            array_get($this->attributes, 'Brand'),
+            array_get($this->attributes, 'Publisher'),
+            array_get($this->attributes, 'ReleaseDate'),
+            array_get($this->offer_summary, 'LowestNewPrice.Amount'),
+            array_get($this->offer_summary, 'TotalNew'),
+            array_get($this->offer_summary, 'LowestUsedPrice.Amount'),
+            array_get($this->offer_summary, 'TotalUsed'),
+            array_get($this->offers, 'Offer.OfferListing.Availability'),
 
             $this->updated_at,
 
-            array_get($this->browse, 'LargeImage.URL'),
-            $image,
+            $this->large_image,
+            implode(',', $images),
 
-            array_get($this->browse, 'DetailPageURL'),
+            $this->detail_url,
         ];
     }
 }

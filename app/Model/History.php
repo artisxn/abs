@@ -13,19 +13,11 @@ class History extends Model
         'asin_id',
         'rank',
         'day',
-        'offer',
         'lowest_new_price',
         'lowest_used_price',
         'availability',
         'total_new',
         'total_used',
-    ];
-
-    /**
-     * @var array
-     */
-    protected $casts = [
-        'offer' => 'array',
     ];
 
     /**

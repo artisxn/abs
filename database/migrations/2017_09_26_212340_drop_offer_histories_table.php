@@ -15,7 +15,6 @@ class DropOfferHistoriesTable extends Migration
     {
         Schema::table('histories', function (Blueprint $table) {
             $table->dropColumn('offer');
-
         });
     }
 
