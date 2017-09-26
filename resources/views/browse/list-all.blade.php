@@ -1,11 +1,13 @@
 @extends('layouts.master')
 
-@section('title', 'ブラウズリスト')
+@section('title', 'ブラウズリスト（すべて）')
 
 @section('content')
 
 
-  <h1 class="uk-heading-divider">ブラウズリスト</h1>
+  <h1 class="uk-heading-divider">ブラウズリスト（すべて）</h1>
+
+  <p>自動で保存したカテゴリーなので閲覧注意。古いIDは消えてることがあります。</p>
 
   @if($lists->count() > 0)
     <ul class="uk-list uk-list-striped">
@@ -16,6 +18,5 @@
       @endforeach
     </ul>
   @endif
-
 
 @endsection
