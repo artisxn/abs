@@ -4,6 +4,8 @@
 
   @include('item.header')
 
+  @include('item.browsenodes')
+
 
   @include('item.image')
 
@@ -11,8 +13,6 @@
   @include('item.editorial')
 
   @include('item.info')
-
-  @include('item.histories')
 
   @include('item.similar')
 

@@ -7,7 +7,7 @@
 
     <h4 class="uk-heading-line"><span>関連商品</span></h4>
 
-    <ul>
+    <ul class="uk-list uk-list-bullet">
       @foreach($similar_products as $similar)
         <li>
           <a href="{{ route('asin', ['asin' => array_get($similar, 'ASIN')]) }}">

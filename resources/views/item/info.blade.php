@@ -1,5 +1,5 @@
 <div class="uk-card-body">
-  <ul>
+  <ul class="uk-list uk-list-bullet">
 
     @php
       $publishers = array_get($item, 'ItemAttributes.Publisher');
@@ -85,5 +85,7 @@
 
     <li>ランキング：{{ array_get($item, 'SalesRank') }} ({{ array_get($item, 'ItemAttributes.Binding') }})</li>
 
+
   </ul>
+
 </div>

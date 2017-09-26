@@ -6,6 +6,9 @@
   {{--    @include('asin.header')--}}
 
 
+  @include('item.browsenodes')
+
+
   @include('item.image')
 
 
