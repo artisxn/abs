@@ -41,6 +41,7 @@ Route::middleware('auth')->namespace('Watch')->group(function () {
 
 Route::middleware('auth')->namespace('Download')->group(function () {
     Route::name('download.asin')->get('download/asin', 'AsinController');
+    Route::name('download.category')->get('download/category/{category}', 'CategoryController');
 });
 
 Route::view('privacy', 'pages.privacy')->name('privacy');

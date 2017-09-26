@@ -11,6 +11,11 @@ use League\Csv\Writer;
 
 class AsinController extends Controller
 {
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function __invoke(Request $request)
     {
         $file = storage_path($request->user()->id . '-asin-download.csv');

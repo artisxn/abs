@@ -5,7 +5,7 @@ return [
     'redirect_from' => env('REDIRECT_FROM'),
     'redirect_to'   => env('REDIRECT_TO'),
 
-    'csv_limit'  => 1000,
+    'csv_limit'  => env('CSV_LIMIT', 1000),
     'csv_header' => [
         'ASIN',
         'Title',
