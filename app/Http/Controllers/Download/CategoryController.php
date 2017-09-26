@@ -9,7 +9,7 @@ use App\Http\Resources\Csv\Item as ItemResource;
 
 use League\Csv\Writer;
 
-use App\Model\Item;
+use App\Model\Browse;
 
 class CategoryController extends Controller
 {
@@ -28,17 +28,17 @@ class CategoryController extends Controller
         $writer->insertOne(config('amazon.csv_header'));
 
         //         特定カテゴリーのアイテムリスト
-        Item::where('browse', 'LIKE', '%"BrowseNodeId": "' . $category . '"%')
-            ->latest('updated_at')
-            ->take(config('amazon.csv_limit'))
-            ->chunk(200, function ($items) use ($request, $writer) {
-                foreach ($items as $item) {
-                    $line = (new ItemResource($item))->toArray($request);
+        $items = Browse::findOrFail($category)
+                       ->items()
+                       ->latest('updated_at')
+                       ->take(config('amazon.csv_limit'))
+                       ->cursor();
 
-                    $writer->insertOne($line);
-                }
-            });
+        foreach ($items as $item) {
+            $line = (new ItemResource($item))->toArray($request);
 
+            $writer->insertOne($line);
+        }
 
         $file_name = 'abs-category-' . $category . '-' . today()->toDateString() . '.csv';
 

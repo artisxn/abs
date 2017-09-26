@@ -12,7 +12,7 @@
           </form>
         </div>
 
-{{--        <a href="{{ route('download.category', $watch->browse_id) }}" class="uk-button uk-button-default uk-button-small">CSV</a>--}}
+        <a href="{{ route('download.category', $watch->browse_id) }}" class="uk-button uk-button-default uk-button-small">CSV</a>
         <a href="{{ route('browse', $watch->browse_id) }}">{{ $watch->browse->title }}</a>
 
       </li>
