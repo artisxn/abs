@@ -1,7 +1,6 @@
-
 <h3>ASIN</h3>
 
-<button class="uk-button uk-button-default" disabled>CSVでダウンロード</button>
+<a href="{{ route('download.asin') }}" class="uk-button uk-button-default">CSVでダウンロード</a>
 
 @if($asin_watches->count() > 0)
   <ul class="uk-list uk-list-striped">

@@ -5,6 +5,24 @@ return [
     'redirect_from' => env('REDIRECT_FROM'),
     'redirect_to'   => env('REDIRECT_TO'),
 
+    'csv_limit'  => 1000,
+    'csv_header' => [
+        'ASIN',
+        'Title',
+        'Binding',
+        'Brand',
+        'Publisher',
+        'ReleaseDate',
+        'LowestNewPrice',
+        'TotalNew',
+        'LowestUsedPrice',
+        'TotalUsed',
+        'Availability',
+        'LargeImage',
+        'ImageSets',
+        'DetailPageURL',
+    ],
+
     'form' => [
         'All'                => 'すべて',
         'Books'              => '本',

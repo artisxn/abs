@@ -39,6 +39,9 @@ Route::middleware('auth')->namespace('Watch')->group(function () {
     Route::name('watch')->get('watch', 'WatchController@index');
 });
 
+Route::middleware('auth')->namespace('Download')->group(function () {
+    Route::name('download.asin')->get('download/asin', 'AsinController');
+});
 
 Route::view('privacy', 'pages.privacy')->name('privacy');
 Route::view('usage', 'pages.usage')->name('usage');
