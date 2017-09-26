@@ -28,16 +28,16 @@ class CategoryController extends Controller
         $writer->insertOne(config('amazon.csv_header'));
 
         //         特定カテゴリーのアイテムリスト
-        $items = Item::where('browse', 'LIKE', '%"BrowseNodeId": "' . $category . '"%')
-                     ->latest('updated_at')
-                     ->take(config('amazon.csv_limit'))
-                     ->cursor();
+        Item::where('browse', 'LIKE', '%"BrowseNodeId": "' . $category . '"%')
+            ->latest('updated_at')
+            ->take(config('amazon.csv_limit'))
+            ->chunk(200, function ($items) use ($request, $writer) {
+                foreach ($items as $item) {
+                    $line = (new ItemResource($item))->toArray($request);
 
-        foreach ($items as $item) {
-            $line = (new ItemResource($item))->toArray($request);
-
-            $writer->insertOne($line);
-        }
+                    $writer->insertOne($line);
+                }
+            });
 
 
         $file_name = 'abs-category-' . $category . '-' . today()->toDateString() . '.csv';
