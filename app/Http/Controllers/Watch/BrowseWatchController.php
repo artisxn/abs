@@ -99,7 +99,7 @@ class BrowseWatchController extends Controller
         if ($browse->user_id === auth()->user()->id) {
             $browse->delete();
 
-            return redirect()->route('brose', $browse->id);
+            return redirect()->route('browse', $browse->browse_id);
         } else {
             return back();
         }
