@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'ウォッチリスト')
+@section('title', 'ウォッチリスト | ')
 
 @section('content')
 
