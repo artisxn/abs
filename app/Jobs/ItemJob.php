@@ -1,50 +1,66 @@
 <?php
 
-namespace App\Service;
+namespace App\Jobs;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
 
 use AmazonProduct;
-
 use App\Model\Item;
 use App\Model\History;
 
-class ItemService
+class ItemJob implements ShouldQueue
 {
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
     /**
+     * @var string
+     */
+    protected $asin;
+
+    /**
+     * Create a new job instance.
+     *
      * @param string $asin
+     *
+     */
+    public function __construct(string $asin)
+    {
+        $this->asin = $asin;
+    }
+
+    /**
+     * Execute the job.
      *
      * @return array
      */
-    public function item(string $asin): array
+    public function handle(): array
     {
-        $item = cache()->remember('asin.' . $asin, 60, function () use ($asin) {
-            return rescue(function () use ($asin) {
-                $results = AmazonProduct::item($asin);
-                $item = array_get($results, 'Items.Item');
+        $item = cache()->remember('asin.' . $this->asin, 60, function () {
+            return rescue(function () {
+                $results = AmazonProduct::item($this->asin);
+                $item = array_get($results, 'Items.Item', []);
 
-                $this->createItem($item);
-
-                $this->createHistory($item);
+                if (!empty($item)) {
+                    $this->createItem($item);
+                    $this->createHistory($item);
+                }
 
                 return $item;
             });
         });
 
-        if (is_null($item)) {
-            $item = [];
-        }
-
         return $item;
     }
 
     /**
-     * @param array|null $item
+     * @param array $item
      */
-    public function createItem(array $item = null)
+    public function createItem(array $item)
     {
-        if (empty($item)) {
-            return;
-        }
-
         $asin = array_get($item, 'ASIN');
 
         if (empty($asin)) {
@@ -79,22 +95,19 @@ class ItemService
     }
 
     /**
-     * @param array|null $item
+     * @param array $item
      */
-    private function createHistory(array $item = null)
+    private function createHistory(array $item)
     {
-        if (empty($item)) {
-            return;
-        }
-
         $asin = array_get($item, 'ASIN');
 
         if (empty($asin)) {
             return;
         }
 
-        $rank = array_get($item, 'SalesRank');
+        $day = today();
 
+        $rank = array_get($item, 'SalesRank');
         $availability = array_get($item, 'Offers.Offer.OfferListing.Availability');
         $lowest_new_price = array_get($item, 'OfferSummary.LowestNewPrice.Amount');
         $lowest_used_price = array_get($item, 'OfferSummary.LowestUsedPrice.Amount');
@@ -103,18 +116,17 @@ class ItemService
 
         $history = History::updateOrCreate([
             'asin_id' => $asin,
-            'day'     => today(),
-        ], [
-            'asin_id'           => $asin,
-            'day'               => today(),
-            'rank'              => $rank,
-            //            'offer'             => $offer,
-            'availability'      => $availability,
-            'lowest_new_price'  => $lowest_new_price,
-            'lowest_used_price' => $lowest_used_price,
-            'total_new'         => $total_new,
-            'total_used'        => $total_used,
-        ]);
+            'day'     => $day,
+        ], compact([
+            'asin_id',
+            'day',
+            'rank',
+            'availability',
+            'lowest_new_price',
+            'lowest_used_price',
+            'total_new',
+            'total_used',
+        ]));
     }
 
     /**
@@ -125,16 +137,16 @@ class ItemService
     private function browseNodes(array $item): array
     {
         $ids = [];
-        $browsenodes = array_get($item, 'BrowseNodes');
+        $nodes = array_get($item, 'BrowseNodes');
 
-        while ($browsenodes = array_get($browsenodes, 'BrowseNode')) {
-            if (!array_has($browsenodes, 'BrowseNodeId')) {
-                $browsenodes = head($browsenodes);
+        while ($nodes = array_get($nodes, 'BrowseNode')) {
+            if (!array_has($nodes, 'BrowseNodeId')) {
+                $nodes = head($nodes);
             }
 
-            $ids[] = (int)array_get($browsenodes, 'BrowseNodeId');
+            $ids[] = (int)array_get($nodes, 'BrowseNodeId');
 
-            $browsenodes = array_get($browsenodes, 'Ancestors');
+            $nodes = array_get($nodes, 'Ancestors');
         }
 
         return $ids;

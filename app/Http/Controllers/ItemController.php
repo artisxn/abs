@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Service\ItemService;
+use App\Jobs\ItemJob;
 
 use App\Model\Item;
-use App\Model\History;
 
 class ItemController extends Controller
 {
@@ -24,17 +23,13 @@ class ItemController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param ItemService $service
      * @param  string     $asin
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(ItemService $service, string $asin)
+    public function show(string $asin)
     {
-        /**
-         * @var array $item
-         */
-        $item = $service->item($asin);
+        $item = dispatch_now(new ItemJob($asin));
 
         abort_if(empty($item), 404);
 
@@ -42,17 +37,9 @@ class ItemController extends Controller
 
         $asin_item->load([
             'histories' => function ($query) {
-                $query->latest()->limit(100);
+                $query->latest()->limit(30);
             },
         ]);
-
-        /**
-         * @var \Illuminate\Support\Collection $histories
-         */
-        //        $histories = History::whereAsinId($asin)
-        //                            ->latest()
-        //                            ->limit(100)
-        //                            ->get();
 
         //TODO: データが増えたらグラフ等を表示
         //        dd($histories);
