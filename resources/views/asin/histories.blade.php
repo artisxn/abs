@@ -1,4 +1,4 @@
-@if(isset($histories) and count($histories) > 0)
+@if($asin_item->histories->count() > 0)
   <div class="uk-card-body">
     <h4 class="uk-heading-line"><span>履歴</span></h4>
 
@@ -17,7 +17,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($histories as $history)
+        @foreach($asin_item->histories as $history)
           <tr>
             <td>{{ $history->day->toDateString()}}</td>
             <td>{{ $history->rank }}</td>

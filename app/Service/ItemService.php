@@ -17,21 +17,21 @@ class ItemService
     public function item(string $asin): array
     {
         $item = cache()->remember('asin.' . $asin, 60, function () use ($asin) {
-            //            sleep(1);
-
             return rescue(function () use ($asin) {
                 $results = AmazonProduct::item($asin);
                 $item = array_get($results, 'Items.Item');
 
                 $this->createItem($item);
 
-                return $item;
-            }, function () use ($asin) {
-                logger()->error('ASIN Error: ' . $asin);
+                $this->createHistory($item);
 
-                return [];
+                return $item;
             });
         });
+
+        if (is_null($item)) {
+            $item = [];
+        }
 
         return $item;
     }
@@ -46,6 +46,11 @@ class ItemService
         }
 
         $asin = array_get($item, 'ASIN');
+
+        if (empty($asin)) {
+            return;
+        }
+
         $title = array_get($item, 'ItemAttributes.Title');
         $attributes = array_get($item, 'ItemAttributes');
         $offer_summary = array_get($item, 'OfferSummary');
@@ -53,6 +58,7 @@ class ItemService
         $image_sets = array_get($item, 'ImageSets');
         $large_image = array_get($item, 'LargeImage.URL');
         $detail_url = array_get($item, 'DetailPageURL');
+
 
         $new_item = Item::updateOrCreate([
             'asin' => $asin,
@@ -70,16 +76,22 @@ class ItemService
         $browse_nodes = $this->browseNodes($item);
 
         $new_item->browses()->sync($browse_nodes);
-
-        $this->createHistory($item);
     }
 
     /**
-     * @param array $item
+     * @param array|null $item
      */
-    private function createHistory(array $item)
+    private function createHistory(array $item = null)
     {
+        if (empty($item)) {
+            return;
+        }
+
         $asin = array_get($item, 'ASIN');
+
+        if (empty($asin)) {
+            return;
+        }
 
         $rank = array_get($item, 'SalesRank');
 
@@ -110,7 +122,7 @@ class ItemService
      *
      * @return array
      */
-    private function browseNodes(array $item)
+    private function browseNodes(array $item): array
     {
         $ids = [];
         $browsenodes = array_get($item, 'BrowseNodes');

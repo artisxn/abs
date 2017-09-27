@@ -17,7 +17,7 @@
 
   @include('asin.imageset')
 
-  @include('item.histories')
+  @include('asin.histories')
 
   @include('item.similar')
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Service\ItemService;
 
+use App\Model\Item;
 use App\Model\History;
 
 class ItemController extends Controller
@@ -35,13 +36,23 @@ class ItemController extends Controller
          */
         $item = $service->item($asin);
 
+        abort_if(empty($item), 404);
+
+        $asin_item = Item::findOrFail($asin);
+
+        $asin_item->load([
+            'histories' => function ($query) {
+                $query->latest()->limit(100);
+            },
+        ]);
+
         /**
          * @var \Illuminate\Support\Collection $histories
          */
-        $histories = History::whereAsinId($asin)
-                            ->latest()
-                            ->limit(100)
-                            ->get();
+        //        $histories = History::whereAsinId($asin)
+        //                            ->latest()
+        //                            ->limit(100)
+        //                            ->get();
 
         //TODO: データが増えたらグラフ等を表示
         //        dd($histories);
@@ -56,6 +67,6 @@ class ItemController extends Controller
         //中古価格グラフ用
         //        dd($histories->pluck('offer.LowestUsedPrice.Amount'));
 
-        return view('asin.show')->with(compact('item', 'histories'));
+        return view('asin.show')->with(compact('item', 'asin_item'));
     }
 }
