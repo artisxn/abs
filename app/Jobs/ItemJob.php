@@ -53,6 +53,10 @@ class ItemJob implements ShouldQueue
             });
         });
 
+        if (is_null($item)) {
+            $item = [];
+        }
+
         return $item;
     }
 
