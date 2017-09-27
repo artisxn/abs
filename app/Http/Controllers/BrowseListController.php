@@ -25,7 +25,9 @@ class BrowseListController extends Controller
      */
     public function browseAll(Browse $browse)
     {
-        $lists = $browse->withCount('items')->get();
+        $lists = cache()->remember('browse.list.all', 60, function () use ($browse) {
+            return $browse->withCount('items')->get();
+        });
 
         return view('browse.list-all')->with(compact('lists'));
     }
