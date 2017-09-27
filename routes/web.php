@@ -18,8 +18,8 @@ Route::name('asin')->get('asin/{asin}', 'ItemController@show');
 Route::name('browse')->get('browse/{browse}', 'BrowseController@browse');
 Route::name('browse-new')->get('browse/{browse}/new', 'BrowseController@newRelease');
 
-Route::name('browselist')->get('browse', 'BrowseController@browseList');
-Route::name('browselist-all')->get('browse-all', 'BrowseListController@browseList');
+Route::name('browselist')->get('browse', 'BrowseListController@browseList');
+Route::name('browselist-all')->get('browse-all', 'BrowseListController@browseAll');
 
 Route::name('search')->get('search', 'SearchController@search');
 

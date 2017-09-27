@@ -13,7 +13,13 @@
     <ul class="uk-list uk-list-striped">
       @foreach($lists as $browse)
         <li>
-          <a href="{{ route('browse', ['browse' => $browse->id]) }}">{{ $browse->title }}</a> （<a href="{{ route('browse-new', ['browse' => $browse->id]) }}">ニューリリース</a>）[{{ $browse->id }}]
+          <a href="{{ route('browse', ['browse' => $browse->id]) }}">
+            {{ $browse->title }}
+          </a>
+          <span class="uk-badge">{{ $browse->items_count }}</span>
+
+          {{--（<a href="{{ route('browse-new', ['browse' => $browse->id]) }}">ニューリリース</a>）--}}
+          [{{ $browse->id }}]
         </li>
       @endforeach
     </ul>

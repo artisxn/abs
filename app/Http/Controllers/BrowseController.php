@@ -39,14 +39,4 @@ class BrowseController extends Controller
 
         return view('browse.index')->with($browse_items);
     }
-
-    /**
-     * @return \Illuminate\Http\Response
-     */
-    public function browseList()
-    {
-        $lists = config('amazon-browse');
-
-        return view('browse.list')->with(compact('lists'));
-    }
 }
