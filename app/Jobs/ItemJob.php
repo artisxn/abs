@@ -41,6 +41,8 @@ class ItemJob implements ShouldQueue
     {
         $item = cache()->remember('asin.' . $this->asin, 60, function () {
             return rescue(function () {
+                sleep(1);
+
                 $results = AmazonProduct::item($this->asin);
                 $item = array_get($results, 'Items.Item', []);
 
