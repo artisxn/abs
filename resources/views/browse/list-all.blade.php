@@ -10,6 +10,8 @@
   <p>自動で保存したカテゴリーなので閲覧注意。古いIDは消えてることがあります。</p>
 
   @if($lists->count() > 0)
+    {{ $lists->links() }}
+
     <ul class="uk-list uk-list-striped">
       @foreach($lists as $browse)
         <li>
@@ -23,6 +25,8 @@
         </li>
       @endforeach
     </ul>
+
+    {{ $lists->links() }}
   @endif
 
 @endsection
