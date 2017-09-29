@@ -29,9 +29,9 @@ class BrowseListController extends Controller
         $cache_key = 'browse.list.all.' . $request->input('page', 1);
 
         $lists = cache()->remember($cache_key, 60 * 6, function () use ($browse) {
-            return $browse->withCount('items')
-                          ->orderBy('items_count', 'desc')
-                          ->paginate(100);
+            return $browse->paginate(100);
+            //                ->withCount('items')
+            //                ->orderBy('items_count', 'desc')
         });
 
         return view('browse.list-all')->with(compact('lists'));
