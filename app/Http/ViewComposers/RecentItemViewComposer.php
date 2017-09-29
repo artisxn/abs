@@ -19,8 +19,8 @@ class RecentItemViewComposer
     {
         $recent_items = cache()->remember('recent_items', 10, function () {
             $items = Item::latest('updated_at')
-                         ->whereHas('browses', function ($query) {
-                             $query->whereNotIn('browse_id', config('amazon.recent_except', []));
+                         ->whereDoesntHave('browses', function ($query) {
+                             $query->whereIn('browse_id', config('amazon.recent_except', []));
                          })
                          ->take(15)
                          ->get();
