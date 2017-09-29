@@ -26,13 +26,15 @@ class BrowseListController extends Controller
      */
     public function browseAll(Request $request, Browse $browse)
     {
-        $cache_key = 'browse.list.all.' . $request->input('page', 1);
+        //        $cache_key = 'browse.list.all.' . $request->input('page', 1);
 
-        $lists = cache()->remember($cache_key, 60 * 6, function () use ($browse) {
-            return $browse->paginate(100);
-            //                ->withCount('items')
-            //                ->orderBy('items_count', 'desc')
-        });
+        $lists = $browse->paginate(100);
+
+        //        cache()->remember($cache_key, 60 * 6, function () use ($browse) {
+        //            return $browse->withCount('items')
+        //                ->orderBy('items_count', 'desc')
+        //            ->paginate(100);
+        //        });
 
         return view('browse.list-all')->with(compact('lists'));
     }
