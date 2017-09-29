@@ -25,7 +25,7 @@ return [
         'DetailPageURL',
     ],
 
-    'form' => [
+    'form'          => [
         'All'                => 'すべて',
         'Books'              => '本',
         'Music'              => 'ミュージック',
@@ -46,5 +46,11 @@ return [
         'Baby'               => 'ベビー&マタニティ',
         'Hobbies'            => 'ホビー',
         'Automotive'         => 'カー・バイク用品',
+    ],
+
+    //最近のアイテムから除外するカテゴリー
+    //洋書が多すぎなので除外。
+    'recent_except' => [
+        52033011,
     ],
 ];

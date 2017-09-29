@@ -18,7 +18,14 @@ class RecentItemViewComposer
     public function compose(View $view)
     {
         $recent_items = cache()->remember('recent_items', 10, function () {
-            return Item::latest('updated_at')->take(15)->get();
+            $items = Item::latest('updated_at')
+                         ->whereHas('browses', function ($query) {
+                             $query->whereNotIn('browse_id', config('amazon.recent_except', []));
+                         })
+                         ->take(15)
+                         ->get();
+
+            return $items;
         });
 
         $view->with(compact('recent_items'));
