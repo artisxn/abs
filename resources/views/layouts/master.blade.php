@@ -30,7 +30,7 @@
 @include('layouts.footer')
 
 
-<script src="{{ mix('/js/app.js') }}"></script>
+<script src="{{ mix('/js/app.js') }}" async></script>
 
 <!-- {{ app()->version() }} -->
 
