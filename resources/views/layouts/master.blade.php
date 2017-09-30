@@ -12,6 +12,8 @@
   <title>@yield('title'){{ config('app.name') }}</title>
 
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+  <meta name="google-site-verification" content="ze9To10Rt1BJ8MHvCYckSYUX63LQTID3bibf7gEbPkw">
 </head>
 <body>
 
