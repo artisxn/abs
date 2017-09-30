@@ -48,6 +48,8 @@ class RandomBrowse extends Command
      */
     public function handle()
     {
+        info('Random Browse');
+
         $browse = collect(config('amazon-browse'))->random();
 
         $browse_items = $this->service->browse($browse);

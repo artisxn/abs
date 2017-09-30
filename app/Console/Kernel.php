@@ -28,6 +28,9 @@ class Kernel extends ConsoleKernel
         $schedule->command('abs:random-browse')
                  ->hourlyAt(5);
 
+        $schedule->command('abs:recent-item')
+                 ->hourlyAt(35);
+
         $schedule->command('abs:watch-item')
                  ->dailyAt('00:10');
     }

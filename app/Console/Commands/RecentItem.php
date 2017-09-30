@@ -4,25 +4,23 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-use App\Jobs\ItemJob;
+use App\Model\Item;
 
-use App\Model\Watch;
-
-class WatchItem extends Command
+class RecentItem extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'abs:watch-item';
+    protected $signature = 'abs:recent-item';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'ウォッチリストのアイテム情報を更新';
+    protected $description = '最近のアイテム';
 
     /**
      * Create a new command instance.
@@ -41,13 +39,15 @@ class WatchItem extends Command
      */
     public function handle()
     {
-        info('Watch Item');
+        info('Recent Item');
 
-        $asins = Watch::groupBy('asin_id')->latest()->take(1000)->pluck('asin_id');
+        $items = Item::latest('updated_at')
+                     ->whereDoesntHave('browses', function ($query) {
+                         $query->whereIn('browse_id', config('amazon.recent_except', []));
+                     })
+                     ->take(15)
+                     ->get();
 
-        $asins->each(function ($asin, $key) {
-            //10秒空けてItemJobを実行
-            ItemJob::dispatch($asin)->delay(now()->addSeconds($key * 10));
-        });
+        cache()->forever('recent_items', $items);
     }
 }
