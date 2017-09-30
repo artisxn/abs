@@ -24,7 +24,7 @@ class WatchController extends Controller
 
         $browse_watches = auth()->user()
                                 ->browseWatches()
-                                ->with(['browse', 'browse.items'])
+                                ->with(['browse'])
                                 ->latest()
                                 ->get();
 

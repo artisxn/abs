@@ -15,7 +15,6 @@
            class="uk-button uk-button-default uk-button-small">CSV</a>
         <a href="{{ route('browse', $watch->browse_id) }}">
           {{ $watch->browse->title }}
-          （{{ $watch->browse->items->count() }}）
         </a>
 
       </li>
