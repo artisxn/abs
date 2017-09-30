@@ -4,22 +4,14 @@ namespace App\Http\ViewComposers;
 
 use Illuminate\View\View;
 
-use App\Service\BrowseService;
-
 class RandomBrowseViewComposer
 {
     /**
-     * @var BrowseService
-     */
-    protected $service;
-
-    /**
-     * @param  BrowseService $service
      *
      */
-    public function __construct(BrowseService $service)
+    public function __construct()
     {
-        $this->service = $service;
+        //
     }
 
     /**
@@ -31,11 +23,7 @@ class RandomBrowseViewComposer
      */
     public function compose(View $view)
     {
-        $browse_items = cache()->remember('random_items', 60, function () {
-            $browse = collect(config('amazon-browse'))->random();
-
-            return $this->service->browse($browse);
-        });
+        $browse_items = cache()->get('random_items');
 
         $view->with($browse_items);
     }

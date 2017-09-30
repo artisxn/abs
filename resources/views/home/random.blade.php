@@ -1,20 +1,28 @@
-<h2 class="uk-heading-line uk-text-center"><span>ランダムブラウズ：
-    <a href="{{ route('browse', $browse_id) }}">{{ $browse_name or '' }}</a>
-  </span></h2>
+@isset($browse_items)
 
-@if(count($browse_items) > 0)
-  <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
+  <h2 class="uk-heading-line uk-text-center">
+    <span>ランダムブラウズ：
+      <a href="{{ route('browse', $browse_id) }}">{{ $browse_name or '' }}</a>
+    </span>
+  </h2>
 
-    @foreach($browse_items as $item)
-      @include('home.item.item')
-    @endforeach
+  @if(count($browse_items) > 0)
 
-  </div>
 
-@else
-  <div class="uk-alert-warning" uk-alert>
-    <a class="uk-alert-close" uk-close></a>
-    <p>見つかりませんでした。(<a href="{{ route('browse', ['browse' => $browse_id]) }}">{{ $browse_id }}</a>)</p>
-  </div>
+    <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
 
-@endif
+      @foreach($browse_items as $item)
+        @include('home.item.item')
+      @endforeach
+
+    </div>
+
+  @else
+    <div class="uk-alert-warning" uk-alert>
+      <a class="uk-alert-close" uk-close></a>
+      <p>見つかりませんでした。(<a href="{{ route('browse', ['browse' => $browse_id]) }}">{{ $browse_id or '' }}</a>)</p>
+    </div>
+
+  @endif
+
+@endisset
