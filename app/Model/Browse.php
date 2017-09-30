@@ -25,4 +25,9 @@ class Browse extends Model
     {
         return $this->belongsToMany(Item::class);
     }
+
+    public function browseItems()
+    {
+        return $this->hasMany(BrowseItem::class);
+    }
 }
