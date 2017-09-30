@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 use Illuminate\Support\Facades\View;
 
+use App\Http\ViewComposers\RandomBrowseViewComposer;
 use App\Http\ViewComposers\ItemCountViewComposer;
 use App\Http\ViewComposers\HistoryCountViewComposer;
 use App\Http\ViewComposers\BrowseCountViewComposer;
@@ -20,6 +21,8 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer('home.index', RandomBrowseViewComposer::class);
+
         View::composer('home.index', RecentItemViewComposer::class);
 
         View::composer('pages.usage', BrowseCountViewComposer::class);

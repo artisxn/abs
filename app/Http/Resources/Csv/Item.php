@@ -26,17 +26,17 @@ class Item extends Resource
         }
 
         $authors = array_get($this->attributes, 'Author');
-        if(is_array($authors)){
+        if (is_array($authors)) {
             $authors = implode(',', $authors);
         }
 
         $creators = array_get($this->attributes, 'Creator');
-        if(is_array($creators)){
+        if (is_array($creators)) {
             $creators = implode(',', $creators);
         }
 
         $actors = array_get($this->attributes, 'Actor');
-        if(is_array($actors)){
+        if (is_array($actors)) {
             $actors = implode(',', $actors);
         }
 
