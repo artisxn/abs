@@ -17,10 +17,10 @@
            class="uk-button uk-button-default uk-button-small">CSV</a>
         <a href="{{ route('browse', $watch->browse_id) }}">
           {{ $watch->browse->title }}
+          <span class="uk-badge">
+            {{ $watch->browse_items_count }}
+          </span>
         </a>
-        <span class="uk-badge">
-          {{ $watch->browse_items_count }}
-        </span>
 
       </li>
     @endforeach
