@@ -7,7 +7,7 @@
   <h1 class="uk-heading-divider">ウォッチリスト</h1>
 
   <div class="uk-alert-primary" uk-alert>
-    <p>CSVには当サイト内で保存済みのデータのみ含まれます。上手くダウンロードできないカテゴリーもあります。{{ config('amazon.csv_limit') }}件分まで。</p>
+    <p>CSVには当サイト内で保存済みのデータのみ含まれます。{{ config('amazon.csv_limit') }}件分まで。</p>
   </div>
 
   @unless(empty($watch_delete))

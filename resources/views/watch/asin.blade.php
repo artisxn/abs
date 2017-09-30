@@ -1,8 +1,9 @@
 <h3>ASIN</h3>
 
-<a href="{{ route('download.asin') }}" class="uk-button uk-button-default">CSVでダウンロード</a>
-
 @if($asin_watches->count() > 0)
+
+  <a href="{{ route('download.asin') }}" class="uk-button uk-button-default">CSVでダウンロード</a>
+
   <ul class="uk-list uk-list-striped">
     @foreach($asin_watches as $watch)
       <li>
