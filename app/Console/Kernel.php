@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
                  ->hourlyAt(5);
 
         $schedule->command('abs:recent-item')
-                 ->hourlyAt(35);
+                 ->everyTenMinutes();
 
         $schedule->command('abs:watch-item')
                  ->dailyAt('00:10');
