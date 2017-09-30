@@ -39,7 +39,7 @@ class LoginController extends Controller
 
         auth()->login($loginUser, true);
 
-        return redirect('/');
+        return redirect()->route('watch');
     }
 
     public function logout()

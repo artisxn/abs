@@ -2,6 +2,8 @@
 @import "~uikit/src/scss/mixins-theme.scss";
 @import "~uikit/src/scss/uikit-theme.scss";
 
+@import "~font-awesome/scss/font-awesome";
+
 .abs {
   &-navbar {
     &-container:not(.uk-navbar-transparent) {

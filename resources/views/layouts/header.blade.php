@@ -16,7 +16,9 @@
           <li><a href="{{ route('logout') }}">ログアウト</a></li>
           @else
             <li>
-              <a href="{{ route('login') }}">Amazonアカウントでログイン</a>
+              <a href="{{ route('login') }}" rel="nofollow">
+                <i class="fa fa-amazon" aria-hidden="true"></i>
+                Amazonアカウントでログイン</a>
             </li>
             @endauth
       </ul>

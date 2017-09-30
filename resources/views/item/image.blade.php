@@ -10,7 +10,7 @@
 
 @unless(empty($img_size))
   <div class="uk-card-media uk-margin-large-left">
-    <a href="{{ array_get($item, 'DetailPageURL') }}" target="_blank">
+    <a href="{{ array_get($item, 'DetailPageURL') }}" target="_blank" rel="nofollow">
       <img src="{{ array_get($item, $img_size . '.URL') }}"
            width="{{ array_get($item, $img_size . '.Width') }}"
            height="{{ array_get($item, $img_size . '.Height') }}"

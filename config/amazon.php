@@ -25,6 +25,8 @@ return [
         'DetailPageURL',
     ],
 
+    'login_button_img' => 'https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_390x92.png',
+
     'form'          => [
         'All'                => 'すべて',
         'Books'              => '本',
