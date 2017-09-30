@@ -25,12 +25,31 @@ class Item extends Resource
             }
         }
 
+        $authors = array_get($this->attributes, 'Author');
+        if(is_array($authors)){
+            $authors = implode(',', $authors);
+        }
+
+        $creators = array_get($this->attributes, 'Creator');
+        if(is_array($creators)){
+            $creators = implode(',', $creators);
+        }
+
+        $actors = array_get($this->attributes, 'Actor');
+        if(is_array($actors)){
+            $actors = implode(',', $actors);
+        }
+
         return [
             $this->asin,
             $this->title,
+            $this->rank,
             array_get($this->attributes, 'Binding'),
             array_get($this->attributes, 'Brand'),
             array_get($this->attributes, 'Publisher'),
+            $authors,
+            $creators,
+            $actors,
             array_get($this->attributes, 'ReleaseDate'),
             array_get($this->offer_summary, 'LowestNewPrice.Amount'),
             array_get($this->offer_summary, 'TotalNew'),

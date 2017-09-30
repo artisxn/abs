@@ -73,6 +73,7 @@ class ItemJob implements ShouldQueue
             return;
         }
 
+        $rank = array_get($item, 'SalesRank');
         $title = array_get($item, 'ItemAttributes.Title');
         $attributes = array_get($item, 'ItemAttributes');
         $offer_summary = array_get($item, 'OfferSummary');
@@ -87,6 +88,7 @@ class ItemJob implements ShouldQueue
         ], compact([
             'asin',
             'title',
+            'rank',
             'attributes',
             'offer_summary',
             'offers',

@@ -9,9 +9,13 @@ return [
     'csv_header' => [
         'ASIN',
         'Title',
+        'Ranking',
         'Binding',
         'Brand',
         'Publisher',
+        'Author',
+        'Creator',
+        'Actor',
         'ReleaseDate',
         'LowestNewPrice',
         'TotalNew',
