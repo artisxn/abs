@@ -8,3 +8,4 @@ Homestead.json
 .vagrant
 Vagrantfile
 !/storage/app/public/users/default.png
+after.sh

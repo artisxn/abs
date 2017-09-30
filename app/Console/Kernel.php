@@ -26,7 +26,10 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('abs:random-browse')
-                 ->hourly();
+                 ->hourlyAt(5);
+
+        $schedule->command('abs:watch-item')
+                 ->dailyAt('00:10');
     }
 
     /**
