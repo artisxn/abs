@@ -16,6 +16,9 @@
         <a href="{{ route('browse', $watch->browse_id) }}">
           {{ $watch->browse->title }}
         </a>
+        <span class="uk-badge">
+          {{ $watch->browse_items_count }}
+        </span>
 
       </li>
     @endforeach

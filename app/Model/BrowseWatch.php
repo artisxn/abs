@@ -23,4 +23,9 @@ class BrowseWatch extends Model
     {
         return $this->belongsTo(Browse::class);
     }
+
+    public function browseItems()
+    {
+        return $this->hasMany(BrowseItem::class, 'browse_id', 'browse_id');
+    }
 }
