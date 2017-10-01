@@ -16,20 +16,21 @@
   <meta name="google-site-verification" content="ze9To10Rt1BJ8MHvCYckSYUX63LQTID3bibf7gEbPkw">
 </head>
 <body>
+<div id="app">
 
-@include('layouts.header')
+  @include('layouts.header')
 
-<main class="uk-container">
+  <main class="uk-container">
 
-  @include('home.form')
+    @include('home.form')
 
-  @yield('content')
+    @yield('content')
 
+  </main>
 
-</main>
+  @include('layouts.footer')
 
-@include('layouts.footer')
-
+</div>
 
 <script src="{{ mix('/js/app.js') }}" async></script>
 

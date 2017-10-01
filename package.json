@@ -13,10 +13,14 @@
     "ide-helper:models": "php artisan ide-helper:models -N"
   },
   "devDependencies": {
+    "axios": "^0.16.2",
     "cross-env": "^5.0.1",
-    "jquery": "^3.2.1",
     "font-awesome": "^4.7.0",
+    "hchs-vue-charts": "^1.2.8",
+    "jquery": "^3.2.1",
     "laravel-mix": "^1.0.0",
-    "uikit": "^3.0.0-beta.21"
+    "lodash": "^4.17.4",
+    "uikit": "^3.0.0-beta.30",
+    "vue": "^2.4.4"
   }
 }
