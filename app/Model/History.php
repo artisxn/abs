@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class History extends Model
 {
+    use Presenter\PriceFormatTrait;
+
     /**
      * @var array
      */
@@ -21,35 +23,10 @@ class History extends Model
     ];
 
     /**
-     * @var array
-     */
-    protected $dates = [
-        'day',
-    ];
-
-    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function item()
     {
         return $this->belongsTo(Item::class, 'asin_id', 'asin');
-    }
-
-    public function getLowestNewPriceAttribute($value)
-    {
-        if (!empty($value)) {
-            $value = '￥ ' . number_format($value);
-        }
-
-        return $value;
-    }
-
-    public function getLowestUsedPriceAttribute($value)
-    {
-        if (!empty($value)) {
-            $value = '￥ ' . number_format($value);
-        }
-
-        return $value;
     }
 }

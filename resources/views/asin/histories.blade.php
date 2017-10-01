@@ -19,12 +19,12 @@
         <tbody>
         @foreach($asin_item->histories as $history)
           <tr>
-            <td>{{ $history->day->toDateString()}}</td>
+            <td>{{ $history->day }}</td>
             <td>{{ $history->rank }}</td>
             <td>{{ $history->availability }}</td>
-            <td>{{ $history->lowest_new_price }}</td>
+            <td>{{ $history->priceFormat($history->lowest_new_price) }}</td>
             <td>{{ $history->total_new }}</td>
-            <td>{{ $history->lowest_used_price }}</td>
+            <td>{{ $history->priceFormat($history->lowest_used_price) }}</td>
             <td>{{ $history->total_used }}</td>
           </tr>
         @endforeach
