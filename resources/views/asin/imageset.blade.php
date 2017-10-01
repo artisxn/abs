@@ -10,7 +10,9 @@
     $image_size = 'LargeImage';
   }
 
-  $image_urls = array_pluck($image_sets, $image_size . '.URL');
+  if(!empty($image_sets)){
+    $image_urls = array_pluck($image_sets, $image_size . '.URL');
+  }
 @endphp
 
 @unless(empty($image_urls))
