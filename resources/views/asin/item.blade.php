@@ -17,6 +17,10 @@
 
   @include('asin.imageset')
 
+  @auth
+    @include('asin.graph')
+  @endauth
+
   @include('asin.histories')
 
   @include('item.similar')

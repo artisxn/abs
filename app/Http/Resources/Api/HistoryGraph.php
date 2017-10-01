@@ -17,11 +17,11 @@ class HistoryGraph extends Resource
     {
         return [
             'day'               => $this->day,
-            'rank'              => $this->rank,
-            'lowest_new_price'  => $this->lowest_new_price,
-            'lowest_used_price' => $this->lowest_used_price,
-            'total_new'         => $this->total_new,
-            'total_used'        => $this->total_used,
+            'rank'              => (int)$this->rank,
+            'lowest_new_price'  => (int)$this->lowest_new_price,
+            'lowest_used_price' => (int)$this->lowest_used_price,
+            'total_new'         => (int)$this->total_new,
+            'total_used'        => (int)$this->total_used,
         ];
     }
 }
