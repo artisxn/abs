@@ -23,14 +23,16 @@
     <div uk-lightbox>
 
       @foreach($image_urls as $image_url)
-        <a href="{{ $image_url }}">
-          <div class="uk-cover-container uk-height-medium">
-            <img src="{{ $image_url }}"
-                 alt=""
-                 itemprop="image"
-                 uk-cover>
-          </div>
-        </a>
+        @unless(empty($image_url))
+          <a href="{{ $image_url }}">
+            <div class="uk-cover-container uk-height-medium">
+              <img src="{{ $image_url }}"
+                   alt=""
+                   itemprop="image"
+                   uk-cover>
+            </div>
+          </a>
+        @endunless
       @endforeach
 
     </div>
