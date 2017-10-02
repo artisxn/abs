@@ -3,7 +3,12 @@
     <span>ピックアップ</span>
   </h2>
 
-  @foreach($pickup_posts as $post)
-    {!! $post->body !!}
-  @endforeach
+  <div class="uk-section uk-section-small uk-section-muted uk-padding">
+    <div class="uk-container">
+      @foreach($pickup_posts as $post)
+        {!! $post->body !!}
+      @endforeach
+    </div>
+  </div>
+
 @endif
