@@ -39,6 +39,16 @@
 
   <p>現在は{{ config('amazon.csv_limit') }}件分まで。CSVに含める項目や件数はいくらでも変更できるので需要次第。</p>
 
+  <h3>グラフ</h3>
+
+  <p>価格・ランキング・出品数のグラフ。ログイン中のユーザーにしか表示されません。スマホサイズでは綺麗に表示できないので非表示。</p>
+
+  <div class="uk-child-width-1-2@m" uk-grid>
+    <div class="uk-margin">
+      <img src="{{ asset('image/usage_graph.jpg') }}" alt="" class="uk-border-rounded uk-box-shadow-large uk-padding">
+    </div>
+  </div>
+
   <h3>禁止行為</h3>
 
   <p>当サイトに対するスクレイピングは禁止します。AmazonのAPI使えばいいだけのこと。</p>
