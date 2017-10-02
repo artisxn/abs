@@ -24,7 +24,7 @@ class ExportRequest extends FormRequest
     public function rules()
     {
         return [
-            'category' => 'required|integer|min:1|exists:browses,id',
+            'category_id' => 'required|integer|min:1|exists:browses,id',
             'limit'    => 'required|integer|min:1',
         ];
     }

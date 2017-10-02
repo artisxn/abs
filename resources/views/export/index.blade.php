@@ -18,10 +18,10 @@
       {{ csrf_field() }}
 
       <div class="uk-margin">
-        <label class="uk-form-label">カテゴリー</label>
+        <label class="uk-form-label">カテゴリーID</label>
 
         <div class="uk-form-controls">
-          <input name="category" value="{{ old('category') }}" class="uk-input" type="number" placeholder="カテゴリーID">
+          <input name="category_id" value="{{ old('category_id') }}" class="uk-input" type="number" placeholder="カテゴリーID">
         </div>
       </div>
 

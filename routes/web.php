@@ -42,9 +42,7 @@ Route::middleware('auth')->namespace('Watch')->group(function () {
 Route::middleware('auth')->namespace('Download')->group(function () {
     Route::name('download.asin')->get('download/asin', 'AsinController');
     Route::name('download.category')->get('download/category/{category}', 'CategoryController');
-});
 
-Route::middleware('auth')->group(function () {
     Route::name('export.index')->get('export', 'ExportController@index');
     Route::name('export.export')->post('export', 'ExportController@export');
 });

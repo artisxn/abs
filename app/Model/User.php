@@ -47,4 +47,12 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->hasMany(BrowseWatch::class);
     }
+
+    /**
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return $this->id === 1;
+    }
 }

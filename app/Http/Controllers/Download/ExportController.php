@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Download;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 use App\Jobs\ExportCategoryJob;
 use App\Http\Requests\ExportRequest;
@@ -22,7 +23,7 @@ class ExportController extends Controller
 
         $file = storage_path('cat-export.csv');
 
-        $category = $request->input('category');
+        $category = $request->input('category_id');
         $order = $request->input('order', 'updated_at');
         $sort = $request->input('sort', 'desc');
         $limit = $request->input('limit');
