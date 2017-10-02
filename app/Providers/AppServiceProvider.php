@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
         view()->share('keyword', request()->input('keyword'));
         view()->share('category', request()->input('category', 'All'));
 
-        Blade::if ('admin', function () {
+        Blade::if('admin', function () {
             return request()->user()->isAdmin();
         });
     }
