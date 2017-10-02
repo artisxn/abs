@@ -44,6 +44,11 @@ Route::middleware('auth')->namespace('Download')->group(function () {
     Route::name('download.category')->get('download/category/{category}', 'CategoryController');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::name('export.index')->get('export', 'ExportController@index');
+    Route::name('export.export')->post('export', 'ExportController@export');
+});
+
 Route::view('privacy', 'pages.privacy')->name('privacy');
 Route::view('usage', 'pages.usage')->name('usage');
 

@@ -5,11 +5,7 @@ namespace App\Http\Controllers\Download;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Http\Resources\Csv\Item as ItemResource;
-
-use League\Csv\Writer;
-
-use App\Model\Browse;
+use App\Jobs\ExportCategoryJob;
 
 class CategoryController extends Controller
 {
@@ -23,22 +19,7 @@ class CategoryController extends Controller
     {
         $file = storage_path($request->user()->id . '-cat-download.csv');
 
-        $writer = Writer::createFromPath($file, 'w+');
-
-        $writer->insertOne(config('amazon.csv_header'));
-
-        //         特定カテゴリーのアイテムリスト
-        $items = Browse::findOrFail($category)
-                       ->items()
-                       ->latest('updated_at')
-                       ->take(config('amazon.csv_limit'))
-                       ->cursor();
-
-        foreach ($items as $item) {
-            $line = (new ItemResource($item))->toArray($request);
-
-            $writer->insertOne($line);
-        }
+        $file = dispatch_now(new ExportCategoryJob($file, $category, 'updated_at', 'desc', config('amazon.csv_limit')));
 
         $file_name = 'abs-category-' . $category . '-' . today()->toDateString() . '.csv';
 
