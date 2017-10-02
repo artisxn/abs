@@ -4,6 +4,8 @@
 
   @include('home.about')
 
+  @include('home.pickup')
+
   @include('home.random')
 
   @include('home.recent')
