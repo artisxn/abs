@@ -4,21 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Service\BrowseService;
+use App\Jobs\BrowseJob;
 
 class BrowseController extends Controller
 {
     /**
      * Browse TopSellers
      *
-     * @param BrowseService $service
      * @param string $browse
      *
      * @return \Illuminate\Http\Response
      */
-    public function browse(BrowseService $service, string $browse)
+    public function browse(string $browse)
     {
-        $browse_items = $service->browse($browse);
+        $browse_items = dispatch_now(new BrowseJob($browse));
 
         return view('browse.index')->with($browse_items);
     }
@@ -26,14 +25,13 @@ class BrowseController extends Controller
     /**
      * Browse New Release
      *
-     * @param BrowseService $service
      * @param string $browse
      *
      * @return \Illuminate\Http\Response
      */
-    public function newRelease(BrowseService $service, string $browse)
+    public function newRelease(string $browse)
     {
-        $browse_items = $service->browse($browse, 'NewReleases');
+        $browse_items = dispatch_now(new BrowseJob($browse, 'NewReleases'));
 
         $browse_items = array_add($browse_items, 'browse_new', '（ニューリリース）');
 

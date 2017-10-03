@@ -4,15 +4,10 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-use App\Service\BrowseService;
+use App\Jobs\BrowseJob;
 
 class RandomBrowse extends Command
 {
-    /**
-     * @var BrowseService
-     */
-    protected $service;
-
     /**
      * The name and signature of the console command.
      *
@@ -34,11 +29,9 @@ class RandomBrowse extends Command
      *
      * @return void
      */
-    public function __construct(BrowseService $service)
+    public function __construct()
     {
         parent::__construct();
-
-        $this->service = $service;
     }
 
     /**
@@ -48,11 +41,9 @@ class RandomBrowse extends Command
      */
     public function handle()
     {
-        info('Random Browse');
-
         $browse = collect(config('amazon-browse'))->random();
 
-        $browse_items = $this->service->browse($browse);
+        $browse_items = dispatch_now(new BrowseJob($browse, 'NewReleases'));
 
         cache()->forever('random_items', $browse_items);
     }

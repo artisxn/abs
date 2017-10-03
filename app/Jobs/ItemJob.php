@@ -82,6 +82,7 @@ class ItemJob implements ShouldQueue
         $large_image = array_get($item, 'LargeImage.URL');
         $detail_url = array_get($item, 'DetailPageURL');
 
+        info($title);
 
         $new_item = Item::updateOrCreate([
             'asin' => $asin,

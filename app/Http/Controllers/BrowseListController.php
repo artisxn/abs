@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\BrowseJob;
 use Illuminate\Http\Request;
 
 use App\Model\Browse;
@@ -20,18 +21,13 @@ class BrowseListController extends Controller
 
     /**
      * @param Request $request
+     * @param Browse  $browse
      *
      * @return \Illuminate\Http\Response
      */
-    public function browseAll(Request $request)
+    public function browseAll(Request $request, Browse $browse)
     {
-        $cache_key = 'browse.list.all.' . $request->input('page', 1);
-
-        $lists = cache()->remember($cache_key, 60, function () {
-            return Browse::withCount('browseItems')
-                         ->orderBy('browse_items_count', 'desc')
-                         ->paginate(100);
-        });
+        $lists = $browse->listAll();
 
         return view('browse.list-all')->with(compact('lists'));
     }
