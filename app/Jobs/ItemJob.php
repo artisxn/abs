@@ -50,7 +50,6 @@ class ItemJob implements ShouldQueue
             sleep(1);
 
             return rescue(function () {
-
                 $results = retry(5, function () {
                     return AmazonProduct::item($this->asin);
                 }, 2000);
