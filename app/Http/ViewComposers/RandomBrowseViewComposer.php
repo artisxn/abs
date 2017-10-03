@@ -7,14 +7,6 @@ use Illuminate\View\View;
 class RandomBrowseViewComposer
 {
     /**
-     *
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
      * データをビューと結合
      *
      * @param  View $view
