@@ -12,6 +12,13 @@ use AmazonProduct;
 use App\Model\Item;
 use App\Model\History;
 
+/**
+ * Class ItemJob
+ *
+ * ASINからアイテム情報を取得
+ *
+ * @package App\Jobs
+ */
 class ItemJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -40,8 +47,9 @@ class ItemJob implements ShouldQueue
     public function handle(): array
     {
         $item = cache()->remember('asin.' . $this->asin, 60, function () {
+            sleep(1);
+
             return rescue(function () {
-                sleep(1);
 
                 $results = AmazonProduct::item($this->asin);
                 $item = array_get($results, 'Items.Item', []);
@@ -52,7 +60,7 @@ class ItemJob implements ShouldQueue
                 }
 
                 return $item;
-            });
+            }, []);
         });
 
         if (is_null($item)) {
@@ -82,7 +90,7 @@ class ItemJob implements ShouldQueue
         $large_image = array_get($item, 'LargeImage.URL');
         $detail_url = array_get($item, 'DetailPageURL');
 
-        info($title);
+        //        info($title);
 
         $new_item = Item::updateOrCreate([
             'asin' => $asin,
