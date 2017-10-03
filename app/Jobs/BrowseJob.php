@@ -96,6 +96,8 @@ class BrowseJob implements ShouldQueue
         $results = cache()->remember($cache_key_asin, 60, function () use ($asins) {
             sleep(1);
 
+            PreloadJob::dispatch($asins);
+
             return rescue(function () use ($asins) {
                 return AmazonProduct::items($asins);
             });
@@ -105,7 +107,6 @@ class BrowseJob implements ShouldQueue
             cache()->delete($cache_key_asin);
         }
 
-        PreloadJob::dispatch($asins);
 
         $browse_items = array_get($results, 'Items.Item');
 
