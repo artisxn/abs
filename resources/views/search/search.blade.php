@@ -4,7 +4,6 @@
 
 @section('content')
 
-
   <h1 class="uk-heading-divider">{{ $keyword }} ({{ $TotalResults or 0 }} 件)</h1>
 
   @if(count($items) > 0)
@@ -29,16 +28,18 @@
     <p>見つかりませんでした。もう一度検索してください。</p>
 
     @if($page >= 5 and !empty(session('MoreSearchResultsUrl')))
-      <p>
-        一定ページ数以上は表示できないので続きはAmazonで検索してください。(現在のページ：{{ $page }})
-      </p>
+      <div class="uk-alert-danger" uk-alert>
+        <p>
+          一定ページ数以上は表示できないので続きはAmazonで検索してください。(現在のページ：{{ $page }})
+        </p>
+      </div>
+
       <p>
         <a href="{{ session('MoreSearchResultsUrl') }}"
-           class="uk-button uk-button-primary uk-button-large uk-width-1-1 uk-margin-large-bottom">Amazonで検索</a>
+           class="uk-button uk-button-danger uk-button-large uk-width-1-1 uk-margin-large-bottom">Amazonで検索</a>
       </p>
     @endif
 
   @endif
-
 
 @endsection

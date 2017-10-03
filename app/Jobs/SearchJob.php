@@ -34,7 +34,7 @@ class SearchJob implements ShouldQueue
      *
      * @param string $category
      * @param string $keyword
-     * @param int $page
+     * @param int    $page
      */
     public function __construct(string $category, string $keyword, int $page)
     {
@@ -52,7 +52,9 @@ class SearchJob implements ShouldQueue
     {
         $page = $this->page;
 
-        $results = AmazonProduct::search($this->category, $this->keyword, $this->page);
+        $results = rescue(function () {
+            return AmazonProduct::search($this->category, $this->keyword, $this->page);
+        });
 
         $item = array_get($results, 'Items');
 
@@ -72,8 +74,10 @@ class SearchJob implements ShouldQueue
             session(['MoreSearchResultsUrl' => $MoreSearchResultsUrl]);
         }
 
-        $asins = array_pluck($items, 'ASIN');
-        PreloadJob::dispatch($asins);
+        if (!empty($items)) {
+            $asins = array_pluck($items, 'ASIN');
+            PreloadJob::dispatch($asins);
+        }
 
         return compact(
             'items',
