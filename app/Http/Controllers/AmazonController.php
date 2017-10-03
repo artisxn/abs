@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Model\Post;
-
 class AmazonController extends Controller
 {
     /**
@@ -13,10 +11,6 @@ class AmazonController extends Controller
      */
     public function index()
     {
-        $pickup_posts = cache()->remember('pickup_posts', 60, function () {
-            return Post::whereFeatured(true)->latest()->limit(5)->get();
-        });
-
-        return view('home.index')->with(compact('pickup_posts'));
+        return view('home.index');
     }
 }

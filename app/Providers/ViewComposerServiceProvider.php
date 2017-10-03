@@ -11,6 +11,7 @@ use App\Http\ViewComposers\ItemCountViewComposer;
 use App\Http\ViewComposers\HistoryCountViewComposer;
 use App\Http\ViewComposers\BrowseCountViewComposer;
 use App\Http\ViewComposers\RecentItemViewComposer;
+use App\Http\ViewComposers\PickupViewComposer;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,8 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        View::composer('home.index', PickupViewComposer::class);
+
         View::composer('home.index', RandomBrowseViewComposer::class);
 
         View::composer('home.index', RecentItemViewComposer::class);
