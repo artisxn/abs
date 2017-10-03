@@ -51,7 +51,10 @@ class ItemJob implements ShouldQueue
 
             return rescue(function () {
 
-                $results = AmazonProduct::item($this->asin);
+                $results = retry(5, function () {
+                    return AmazonProduct::item($this->asin);
+                }, 2000);
+
                 $item = array_get($results, 'Items.Item', []);
 
                 if (!empty($item)) {
