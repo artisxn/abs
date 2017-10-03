@@ -21,6 +21,21 @@
             position: 'top',
             text: '価格'
           },
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              },
+              gridLines: {
+                display: true
+              }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: true
+              }
+            }]
+          }
         }
       }
     },

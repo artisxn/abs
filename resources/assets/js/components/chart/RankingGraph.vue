@@ -21,6 +21,21 @@
             position: 'top',
             text: 'ランキング'
           },
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              },
+              gridLines: {
+                display: true
+              }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: true
+              }
+            }]
+          }
         }
       }
     },

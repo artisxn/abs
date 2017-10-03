@@ -21,6 +21,21 @@
             position: 'top',
             text: '出品数'
           },
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              },
+              gridLines: {
+                display: true
+              }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: true
+              }
+            }]
+          }
         }
       }
     },
