@@ -32,11 +32,11 @@ class SearchJob implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @param $category
-     * @param $keyword
-     * @param $page
+     * @param string $category
+     * @param string $keyword
+     * @param int $page
      */
-    public function __construct($category, $keyword, $page)
+    public function __construct(string $category, string $keyword, int $page)
     {
         $this->category = $category;
         $this->keyword = $keyword;
@@ -71,6 +71,9 @@ class SearchJob implements ShouldQueue
         if (!empty($MoreSearchResultsUrl)) {
             session(['MoreSearchResultsUrl' => $MoreSearchResultsUrl]);
         }
+
+        $asins = array_pluck($items, 'ASIN');
+        PreloadJob::dispatch($asins);
 
         return compact(
             'items',
