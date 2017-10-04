@@ -37,7 +37,7 @@ class Kernel extends ConsoleKernel
                  ->dailyAt('00:15');
 
         $schedule->command('abs:count-info')
-                 ->twiceDaily(6, 18)->at(52);
+                 ->twiceDaily(5, 17)->at(52);
     }
 
     /**
