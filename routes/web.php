@@ -47,6 +47,13 @@ Route::middleware('auth')->namespace('Download')->group(function () {
     Route::name('export.export')->post('export', 'ExportController@export');
 });
 
+Route::prefix('featured')->namespace('Featured')->group(function () {
+    Route::name('featured.game')->get('game', 'GameController');
+    Route::name('featured.task')->get('task', 'TaskUserController');
+
+});
+
+
 Route::view('privacy', 'pages.privacy')->name('privacy');
 Route::view('usage', 'pages.usage')->name('usage');
 

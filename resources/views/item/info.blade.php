@@ -1,5 +1,10 @@
 <div class="uk-card-body">
   <ul class="uk-list uk-list-bullet">
+    <li>ASIN：
+      <a href="{{ route('asin', array_get($item, 'ASIN')) }}">
+        {{ array_get($item, 'ASIN') }}
+      </a>
+    </li>
 
     @php
       $publishers = array_get($item, 'ItemAttributes.Publisher');
