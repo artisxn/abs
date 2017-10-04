@@ -4,8 +4,6 @@ namespace App\Http\ViewComposers;
 
 use Illuminate\View\View;
 
-use App\Model\History;
-
 class HistoryCountViewComposer
 {
     /**
@@ -17,9 +15,7 @@ class HistoryCountViewComposer
      */
     public function compose(View $view)
     {
-        $histories_count = cache()->remember('histories_count', 60 * 12, function () {
-            return History::count('id');
-        });
+        $histories_count = cache()->get('histories_count');
 
         $view->with(compact('histories_count'));
     }

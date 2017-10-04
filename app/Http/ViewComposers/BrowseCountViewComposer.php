@@ -4,8 +4,6 @@ namespace App\Http\ViewComposers;
 
 use Illuminate\View\View;
 
-use App\Model\Browse;
-
 class BrowseCountViewComposer
 {
     /**
@@ -17,9 +15,7 @@ class BrowseCountViewComposer
      */
     public function compose(View $view)
     {
-        $browses_count = cache()->remember('browses_count', 60, function () {
-            return Browse::count('id');
-        });
+        $browses_count = cache()->get('browses_count');
 
         $view->with(compact('browses_count'));
     }

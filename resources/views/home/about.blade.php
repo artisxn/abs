@@ -6,6 +6,7 @@
 
   <h4>今後の予定</h4>
   <ul class="uk-list uk-list-bullet">
+    <li>特集として特定のテーマで専用ページを作る</li>
     <li>価格が変動したアイテムを通知</li>
   </ul>
 

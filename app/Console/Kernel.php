@@ -33,6 +33,9 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('abs:watch-item')
                  ->dailyAt('00:10');
+
+        $schedule->command('abs:count-info')
+                 ->twiceDaily(6, 18)->at(52);
     }
 
     /**
