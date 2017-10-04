@@ -66,10 +66,12 @@ class ItemJob implements ShouldQueue
                 }
 
                 return $item;
-            }, []);
+            });
         });
 
         if (empty($item)) {
+            cache()->delete('asin.' . $this->asin);
+
             $item = [];
         }
 
