@@ -41,7 +41,7 @@ class CountInfo extends Command
      */
     public function handle()
     {
-        cache()->forever('items_count', Item::count('rank'));
+        cache()->forever('items_count', Item::count('asin'));
         cache()->forever('histories_count', History::count('id'));
 
         $browses_count = Browse::count('id');
