@@ -94,7 +94,7 @@ class BrowseJob implements ShouldQueue
 
         $cache_key_asin = 'items.' . implode('.', $asins);
         $results = cache()->remember($cache_key_asin, 60, function () use ($asins) {
-            if(empty($asins)){
+            if (empty($asins)) {
                 return [];
             }
 
@@ -110,7 +110,6 @@ class BrowseJob implements ShouldQueue
         if (empty($results)) {
             cache()->delete($cache_key_asin);
         }
-
 
         $browse_items = array_get($results, 'Items.Item');
 
