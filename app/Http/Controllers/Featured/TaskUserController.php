@@ -11,7 +11,7 @@ class TaskUserController extends Controller
 {
     public function __invoke()
     {
-        $users = User::where('id', '>', 3)->withCount('watches')->get();
+        $users = User::latest()->where('id', '>', 3)->with('watches')->get();
 
         return view('featured.task')->with(compact('users'));
     }

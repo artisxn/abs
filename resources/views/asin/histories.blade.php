@@ -4,7 +4,7 @@
 
     <div class="uk-overflow-auto">
 
-      <table class="uk-table uk-list-striped uk-table-hover uk-table-divider uk-table-small">
+      <table class="uk-table uk-table-striped uk-table-hover uk-table-divider uk-table-small">
         <thead>
         <tr>
           <th>日付</th>
