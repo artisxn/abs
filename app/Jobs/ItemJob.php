@@ -31,10 +31,10 @@ class ItemJob implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @param string $asin
+     * @param string|null $asin
      *
      */
-    public function __construct(string $asin)
+    public function __construct(string $asin = null)
     {
         $this->asin = $asin;
     }
@@ -46,6 +46,10 @@ class ItemJob implements ShouldQueue
      */
     public function handle(): array
     {
+        if (empty($this->asin)) {
+            return [];
+        }
+
         $item = cache()->remember('asin.' . $this->asin, 60, function () {
             sleep(1);
 
@@ -65,7 +69,7 @@ class ItemJob implements ShouldQueue
             }, []);
         });
 
-        if (is_null($item)) {
+        if (empty($item)) {
             $item = [];
         }
 

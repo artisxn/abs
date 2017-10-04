@@ -36,7 +36,7 @@ class SearchJob implements ShouldQueue
      * @param string $keyword
      * @param int    $page
      */
-    public function __construct(string $category, string $keyword, int $page)
+    public function __construct(string $category, string $keyword, int $page = 1)
     {
         $this->category = $category;
         $this->keyword = $keyword;
