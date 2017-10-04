@@ -35,7 +35,13 @@
         <tr>
           <td>{{ $item->asin }}</td>
           <td><a href="{{ route('asin', $item->asin) }}">{{ str_limit($item->title, 80) }}</a></td>
-          <td>{{ $item->browses[0]->title or '' }}</td>
+          <td>
+            @if(count($item->browses) >= 4)
+              {{ $item->browses[1]->title or '' }}
+            @else
+              {{ $item->browses[0]->title or '' }}
+            @endif
+          </td>
         </tr>
       @endforeach
       </tbody>

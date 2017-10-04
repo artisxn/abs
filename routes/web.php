@@ -50,7 +50,6 @@ Route::middleware('auth')->namespace('Download')->group(function () {
 Route::prefix('featured')->namespace('Featured')->group(function () {
     Route::name('featured.game')->get('game', 'GameController');
     Route::name('featured.task')->get('task', 'TaskUserController');
-
 });
 
 
