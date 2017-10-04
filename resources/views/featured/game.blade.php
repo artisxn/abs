@@ -8,7 +8,7 @@
 
   <div class="uk-section uk-section-primary uk-light uk-padding">
     <div class="uk-container">
-      <h3>取得済み件数 <strong>{{ $items->count() }}</strong>（目標：3万）</h3>
+      <h3>取得済み件数 <strong>{{ $items->total() }}</strong>（目標：3万）</h3>
     </div>
   </div>
 
@@ -19,6 +19,8 @@
       なるべく重複しないようにしてください
     </p>
   </div>
+
+  {{ $items->links() }}
 
   <div class="uk-overflow-auto">
 
@@ -47,5 +49,7 @@
       </tbody>
     </table>
   </div>
+
+  {{ $items->links() }}
 
 @endsection

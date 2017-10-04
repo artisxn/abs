@@ -5,17 +5,13 @@ namespace App\Http\Controllers\Featured;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Model\Item;
+use App\Model\Browse;
 
 class GameController extends Controller
 {
     public function __invoke()
     {
-        $items = cache()->remember('featured.game', 60, function () {
-            return Item::latest()->with('browses')->whereHas('browses', function ($query) {
-                $query->whereBrowseId(637394);
-            })->get();
-        });
+        $items = Browse::find(637394)->items()->with('browses')->paginate(500);
 
         return view('featured.game')->with(compact('items'));
     }
