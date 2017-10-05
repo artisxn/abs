@@ -32,7 +32,6 @@ class ItemJob implements ShouldQueue
      * Create a new job instance.
      *
      * @param string|null $asin
-     *
      */
     public function __construct(string $asin = null)
     {
@@ -50,22 +49,11 @@ class ItemJob implements ShouldQueue
             return [];
         }
 
-        $item = cache()->remember('asin.' . $this->asin, 60 * 3, function () {
-            sleep(1);
+        $item = cache()->remember('asin.' . $this->asin, 60 * 6, function () {
+            //            sleep(1);
 
             return rescue(function () {
-                $results = retry(5, function () {
-                    return AmazonProduct::item($this->asin);
-                }, 3000);
-
-                $item = array_get($results, 'Items.Item', []);
-
-                if (!empty($item)) {
-                    $this->createItem($item);
-                    $this->createHistory($item);
-                }
-
-                return $item;
+                return $this->get();
             });
         });
 
@@ -79,9 +67,28 @@ class ItemJob implements ShouldQueue
     }
 
     /**
-     * @param array $item
+     * @return array
      */
-    public function createItem(array $item)
+    public function get()
+    {
+        $results = retry(5, function () {
+            return AmazonProduct::item($this->asin);
+        }, 5000);
+
+        $item = array_get($results, 'Items.Item', []);
+
+        $this->createItem($item);
+        $this->createHistory($item);
+
+        //        $this->similar($item);
+
+        return $item;
+    }
+
+    /**
+     * @param array|null $item
+     */
+    public function createItem(array $item = null)
     {
         $asin = array_get($item, 'ASIN');
 
@@ -103,7 +110,6 @@ class ItemJob implements ShouldQueue
         $new_item = Item::updateOrCreate([
             'asin' => $asin,
         ], compact([
-            'asin',
             'title',
             'rank',
             'attributes',
@@ -117,41 +123,6 @@ class ItemJob implements ShouldQueue
         $browse_nodes = $this->browseNodes($item);
 
         $new_item->browses()->sync($browse_nodes);
-    }
-
-    /**
-     * @param array $item
-     */
-    private function createHistory(array $item)
-    {
-        $asin = array_get($item, 'ASIN');
-
-        if (empty($asin)) {
-            return;
-        }
-
-        $day = today();
-
-        $rank = array_get($item, 'SalesRank');
-        $availability = array_get($item, 'Offers.Offer.OfferListing.Availability');
-        $lowest_new_price = array_get($item, 'OfferSummary.LowestNewPrice.Amount');
-        $lowest_used_price = array_get($item, 'OfferSummary.LowestUsedPrice.Amount');
-        $total_new = array_get($item, 'OfferSummary.TotalNew');
-        $total_used = array_get($item, 'OfferSummary.TotalUsed');
-
-        $history = History::updateOrCreate([
-            'asin_id' => $asin,
-            'day'     => $day,
-        ], compact([
-            'asin_id',
-            'day',
-            'rank',
-            'availability',
-            'lowest_new_price',
-            'lowest_used_price',
-            'total_new',
-            'total_used',
-        ]));
     }
 
     /**
@@ -175,5 +146,57 @@ class ItemJob implements ShouldQueue
         }
 
         return $ids;
+    }
+
+    /**
+     * @param array|null $item
+     */
+    private function createHistory(array $item = null)
+    {
+        $asin_id = array_get($item, 'ASIN');
+
+        if (empty($asin_id)) {
+            return;
+        }
+
+        $day = today();
+
+        $rank = array_get($item, 'SalesRank');
+        $availability = array_get($item, 'Offers.Offer.OfferListing.Availability');
+        $lowest_new_price = array_get($item, 'OfferSummary.LowestNewPrice.Amount');
+        $lowest_used_price = array_get($item, 'OfferSummary.LowestUsedPrice.Amount');
+        $total_new = array_get($item, 'OfferSummary.TotalNew');
+        $total_used = array_get($item, 'OfferSummary.TotalUsed');
+
+        $history = History::updateOrCreate([
+            'asin_id' => $asin_id,
+            'day'     => $day,
+        ], compact([
+            'rank',
+            'availability',
+            'lowest_new_price',
+            'lowest_used_price',
+            'total_new',
+            'total_used',
+        ]));
+    }
+
+    /**
+     * 関連商品の情報も取得。永遠に終わらないので使用するかはよく考える。
+     *
+     * @param array|null $item
+     */
+    public function similar(array $item = null)
+    {
+        if (empty($item)) {
+            return;
+        }
+
+        $similar_products = array_get($item, 'SimilarProducts.SimilarProduct');
+        $asins = array_pluck($similar_products, 'ASIN');
+
+        if (!empty($asins)) {
+            PreloadJob::dispatch($asins);
+        }
     }
 }
