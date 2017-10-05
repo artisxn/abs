@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\BrowseJob;
 use Illuminate\Http\Request;
 
 use App\Model\Browse;

@@ -22,9 +22,9 @@ class CreateHistoryJob implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @param array|null $item
+     * @param array $item
      */
-    public function __construct(array $item = null)
+    public function __construct(array $item)
     {
         $this->item = $item;
     }
@@ -32,9 +32,11 @@ class CreateHistoryJob implements ShouldQueue
     /**
      * Execute the job.
      *
+     * @param History $history
+     *
      * @return void
      */
-    public function handle()
+    public function handle(History $history)
     {
         $asin_id = array_get($this->item, 'ASIN');
 
@@ -51,7 +53,7 @@ class CreateHistoryJob implements ShouldQueue
         $total_new = array_get($this->item, 'OfferSummary.TotalNew');
         $total_used = array_get($this->item, 'OfferSummary.TotalUsed');
 
-        $history = History::updateOrCreate([
+        $history->updateOrCreate([
             'asin_id' => $asin_id,
             'day'     => $day,
         ], compact([

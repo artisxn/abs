@@ -154,6 +154,10 @@ class ItemJob implements ShouldQueue
      */
     private function createHistory(array $item = null)
     {
+        if (empty($item)) {
+            return;
+        }
+
         dispatch_now(new CreateHistoryJob($item));
     }
 
