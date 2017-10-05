@@ -12,7 +12,7 @@
 */
 
 
-Route::get('asin', 'ItemController@index');
+Route::redirect('asin', '/');
 Route::name('asin')->get('asin/{asin}', 'ItemController@show');
 
 Route::name('browse')->get('browse/{browse}', 'BrowseController@browse');

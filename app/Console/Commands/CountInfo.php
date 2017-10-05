@@ -4,9 +4,10 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-use App\Model\Item;
 use App\Model\History;
 use App\Model\Browse;
+
+use App\Repository\Item\ItemRepositoryInterface as Item;
 
 class CountInfo extends Command
 {
@@ -37,11 +38,13 @@ class CountInfo extends Command
     /**
      * Execute the console command.
      *
+     * @param Item $item
+     *
      * @return mixed
      */
-    public function handle()
+    public function handle(Item $item)
     {
-        $items_count = Item::count('asin');
+        $items_count = $item->count();
         info('Item count: ' . $items_count);
         cache()->forever('items_count', $items_count);
 

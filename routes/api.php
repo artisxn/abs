@@ -18,5 +18,5 @@ use Illuminate\Http\Request;
 //});
 
 Route::namespace('Api')->group(function () {
-    Route::get('graph/{item}', 'HistoryGraphController');
+    Route::get('graph/{asin}', 'HistoryGraphController');
 });

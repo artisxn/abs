@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-use App\Model\Item;
+use App\Repository\Item\ItemRepositoryInterface;
 
 class RecentItem extends Command
 {
@@ -35,18 +35,15 @@ class RecentItem extends Command
     /**
      * Execute the console command.
      *
+     * @param ItemRepositoryInterface $repository
+     *
      * @return mixed
      */
-    public function handle()
+    public function handle(ItemRepositoryInterface $repository)
     {
         info('Recent Item');
 
-        $items = Item::latest('updated_at')
-                     ->whereDoesntHave('browses', function ($query) {
-                         $query->whereIn('browse_id', config('amazon.recent_except'));
-                     })
-                     ->take(24)
-                     ->get();
+        $items = $repository->recent();
 
         cache()->forever('recent_items', $items);
     }

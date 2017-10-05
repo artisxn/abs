@@ -46,8 +46,8 @@ class WatchItem extends Command
         info('Watch Item: ' . $asins->count());
 
         $asins->each(function ($asin, $key) {
-            //30秒空けてItemJobを実行
-            ItemJob::dispatch($asin)->delay(now()->addSeconds($key * 30));
+            //1分空けてItemJobを実行
+            ItemJob::dispatch($asin)->delay(now()->addMinutes($key));
         });
     }
 }

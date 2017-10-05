@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
 use AmazonProduct;
-use App\Model\Item;
+use App\Repository\Item\ItemRepositoryInterface;
 
 /**
  * Class ItemJob
@@ -28,6 +28,11 @@ class ItemJob implements ShouldQueue
     protected $asin;
 
     /**
+     * @var ItemRepositoryInterface
+     */
+    protected $repository;
+
+    /**
      * Create a new job instance.
      *
      * @param string|null $asin
@@ -40,10 +45,14 @@ class ItemJob implements ShouldQueue
     /**
      * Execute the job.
      *
+     * @param ItemRepositoryInterface $repository
+     *
      * @return array
      */
-    public function handle(): array
+    public function handle(ItemRepositoryInterface $repository): array
     {
+        $this->repository = $repository;
+
         if (empty($this->asin)) {
             return [];
         }
@@ -74,79 +83,16 @@ class ItemJob implements ShouldQueue
             return AmazonProduct::item($this->asin);
         }, 5000);
 
-        $item = array_get($results, 'Items.Item', []);
+        $item = array_get($results, 'Items.Item');
 
-        $this->createItem($item);
+        $this->repository->create($item);
+
+        //必ずItemの後にHistory
+        $this->createHistory($item);
 
         //        $this->similar($item);
 
         return $item;
-    }
-
-    /**
-     * @param array|null $item
-     */
-    public function createItem(array $item = null)
-    {
-        $asin = array_get($item, 'ASIN');
-
-        if (empty($asin)) {
-            return;
-        }
-
-        $rank = array_get($item, 'SalesRank');
-        $title = array_get($item, 'ItemAttributes.Title');
-        $attributes = array_get($item, 'ItemAttributes');
-        $offer_summary = array_get($item, 'OfferSummary');
-        $offers = array_get($item, 'Offers');
-        $image_sets = array_get($item, 'ImageSets');
-        $large_image = array_get($item, 'LargeImage.URL');
-        $detail_url = array_get($item, 'DetailPageURL');
-
-        info($title);
-
-        $new_item = Item::updateOrCreate([
-            'asin' => $asin,
-        ], compact([
-            'title',
-            'rank',
-            'attributes',
-            'offer_summary',
-            'offers',
-            'image_sets',
-            'large_image',
-            'detail_url',
-        ]));
-
-        $browse_nodes = $this->browseNodes($item);
-
-        $new_item->browses()->sync($browse_nodes);
-
-        //必ずItemの後にHistory
-        $this->createHistory($item);
-    }
-
-    /**
-     * @param array $item
-     *
-     * @return array
-     */
-    private function browseNodes(array $item): array
-    {
-        $ids = [];
-        $nodes = array_get($item, 'BrowseNodes');
-
-        while ($nodes = array_get($nodes, 'BrowseNode')) {
-            if (!array_has($nodes, 'BrowseNodeId')) {
-                $nodes = head($nodes);
-            }
-
-            $ids[] = (int)array_get($nodes, 'BrowseNodeId');
-
-            $nodes = array_get($nodes, 'Ancestors');
-        }
-
-        return $ids;
     }
 
     /**
