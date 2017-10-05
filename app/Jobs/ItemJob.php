@@ -10,7 +10,6 @@ use Illuminate\Foundation\Bus\Dispatchable;
 
 use AmazonProduct;
 use App\Model\Item;
-use App\Model\History;
 
 /**
  * Class ItemJob
@@ -78,7 +77,6 @@ class ItemJob implements ShouldQueue
         $item = array_get($results, 'Items.Item', []);
 
         $this->createItem($item);
-        $this->createHistory($item);
 
         //        $this->similar($item);
 
@@ -123,6 +121,9 @@ class ItemJob implements ShouldQueue
         $browse_nodes = $this->browseNodes($item);
 
         $new_item->browses()->sync($browse_nodes);
+
+        //必ずItemの後にHistory
+        $this->createHistory($item);
     }
 
     /**
@@ -153,32 +154,7 @@ class ItemJob implements ShouldQueue
      */
     private function createHistory(array $item = null)
     {
-        $asin_id = array_get($item, 'ASIN');
-
-        if (empty($asin_id)) {
-            return;
-        }
-
-        $day = today();
-
-        $rank = array_get($item, 'SalesRank');
-        $availability = array_get($item, 'Offers.Offer.OfferListing.Availability');
-        $lowest_new_price = array_get($item, 'OfferSummary.LowestNewPrice.Amount');
-        $lowest_used_price = array_get($item, 'OfferSummary.LowestUsedPrice.Amount');
-        $total_new = array_get($item, 'OfferSummary.TotalNew');
-        $total_used = array_get($item, 'OfferSummary.TotalUsed');
-
-        $history = History::updateOrCreate([
-            'asin_id' => $asin_id,
-            'day'     => $day,
-        ], compact([
-            'rank',
-            'availability',
-            'lowest_new_price',
-            'lowest_used_price',
-            'total_new',
-            'total_used',
-        ]));
+        dispatch_now(new CreateHistoryJob($item));
     }
 
     /**
@@ -192,8 +168,7 @@ class ItemJob implements ShouldQueue
             return;
         }
 
-        $similar_products = array_get($item, 'SimilarProducts.SimilarProduct');
-        $asins = array_pluck($similar_products, 'ASIN');
+        $asins = data_get($item, 'SimilarProducts.SimilarProduct.*.ASIN');
 
         if (!empty($asins)) {
             PreloadJob::dispatch($asins);
