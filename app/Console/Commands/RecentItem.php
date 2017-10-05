@@ -43,9 +43,9 @@ class RecentItem extends Command
 
         $items = Item::latest('updated_at')
                      ->whereDoesntHave('browses', function ($query) {
-                         $query->whereIn('browse_id', config('amazon.recent_except', []));
+                         $query->whereIn('browse_id', config('amazon.recent_except'));
                      })
-                     ->take(15)
+                     ->take(24)
                      ->get();
 
         cache()->forever('recent_items', $items);
