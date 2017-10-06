@@ -1,14 +1,15 @@
 <h3>カテゴリー</h3>
 
 @admin
-  <a href="{{ route('export.index') }}" class="uk-button uk-button-default">エクスポート</a>
+<a href="{{ route('export.index') }}" class="uk-button uk-button-default">エクスポート</a>
 @endadmin
 
 @if($browse_watches->count() > 0)
   <ul class="uk-list uk-list-striped">
     @foreach($browse_watches as $watch)
       <li>
-        @unless(empty($watch_delete))
+
+        @if(request()->has('mode'))
           <div class="uk-float-right">
             <form action="{{ route('browse-watch.destroy', $watch->id) }}" method="POST">
               {{ method_field('DELETE') }}
@@ -16,7 +17,7 @@
               <button class="uk-button uk-button-danger uk-button-small">削除</button>
             </form>
           </div>
-        @endunless
+        @endif
 
         <a href="{{ route('download.category', $watch->browse_id) }}"
            class="uk-button uk-button-default uk-button-small">CSV</a>

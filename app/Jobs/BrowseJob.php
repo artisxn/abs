@@ -10,7 +10,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 
 use AmazonProduct;
 
-use App\Repository\Browse\BrowseRepositoryInterface;
+use App\Repository\Browse\BrowseRepositoryInterface as Browse;
 
 class BrowseJob implements ShouldQueue
 {
@@ -41,12 +41,15 @@ class BrowseJob implements ShouldQueue
     /**
      * Execute the job.
      *
-     * @param BrowseRepositoryInterface $repository
+     * @param Browse $repository
      *
      * @return array
      */
-    public function handle(BrowseRepositoryInterface $repository)
+    public function handle(Browse $repository)
     {
+        /**
+         * 1. BrowseNodeLookup は詳細なデータを返さないので一度ブラウズノードを取得してから
+         */
         $browse = $this->browse();
 
         if (empty($browse)) {
@@ -61,6 +64,17 @@ class BrowseJob implements ShouldQueue
 
         $browse_name = array_get($nodes, 'BrowseNode.Name');
 
+        if (!empty($browse_name)) {
+            $repository->updateOrCreate([
+                'id' => $this->browse_id,
+            ], [
+                'title' => $browse_name,
+            ]);
+        }
+
+        /**
+         * 2. 各ASINで再度詳細データを取得する
+         */
         $items = array_get($nodes, 'BrowseNode.' . $this->response . '.' . str_singular($this->response));
 
         if (empty($items)) {
@@ -74,12 +88,6 @@ class BrowseJob implements ShouldQueue
         $asins = array_pluck($items, 'ASIN');
 
         $browse_items = $this->items($asins);
-
-        $repository->updateOrCreate([
-            'id' => $this->browse_id,
-        ], [
-            'title' => $browse_name,
-        ]);
 
         return [
             'browse_name'  => $browse_name,
@@ -96,8 +104,6 @@ class BrowseJob implements ShouldQueue
         $cache_key = 'browse.' . $this->response . '.' . $this->browse_id;
 
         $browse = cache()->remember($cache_key, 60, function () {
-            //            sleep(1);
-
             return rescue(function () {
                 return AmazonProduct::browse($this->browse_id, $this->response);
             });
@@ -111,19 +117,21 @@ class BrowseJob implements ShouldQueue
     }
 
     /**
-     * @param $asins
+     * @param array|null $asins
      *
      * @return array
      */
-    protected function items($asins)
+    protected function items(array $asins = null)
     {
+        if (empty($asins)) {
+            return [];
+        }
+
+        $asins = array_sort($asins);
+
         $cache_key_asin = 'items.' . implode('.', $asins);
 
         $results = cache()->remember($cache_key_asin, 60, function () use ($asins) {
-            if (empty($asins)) {
-                return [];
-            }
-
             sleep(1);
 
             PreloadJob::dispatch($asins);
