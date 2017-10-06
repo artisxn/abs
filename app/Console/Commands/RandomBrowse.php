@@ -43,7 +43,7 @@ class RandomBrowse extends Command
     {
         $browse = collect(config('amazon-browse'))->random();
 
-        $browse_items = dispatch_now(new BrowseJob($browse, 'NewReleases'));
+        $browse_items = dispatch_now(new BrowseJob($browse));
 
         cache()->forever('random_items', $browse_items);
     }
