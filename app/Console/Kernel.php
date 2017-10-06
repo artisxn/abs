@@ -28,10 +28,10 @@ class Kernel extends ConsoleKernel
         //負荷分散のため時間は多少ずらす
 
         $schedule->command('abs:random-browse')
-                 ->hourlyAt(33);
+                 ->hourlyAt(3);
 
         $schedule->command('abs:recent-item')
-                 ->everyTenMinutes();
+                 ->hourlyAt(33);
 
         $schedule->command('abs:watch-item')
                  ->dailyAt('00:15');
