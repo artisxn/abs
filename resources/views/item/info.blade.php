@@ -36,7 +36,7 @@
     @endphp
 
     @unless(empty($brand))
-      <li itemscope itemtype="http://schema.org/CreativeWork">ブランド(Brand)：
+      <li>ブランド(Brand)：
         <span itemprop="brand">
           <a href="{{ route('search', ['category' => 'All', 'keyword' => $brand]) }}">
             {{ $brand }}
@@ -100,8 +100,10 @@
       {{ array_get($item, 'OfferSummary.LowestUsedPrice.FormattedPrice') }}
     </li>
 
-    <li>在庫：
+    <li itemscope itemtype="http://schema.org/Offer">在庫：
+      <span itemprop="availability">
       {{ array_get($item, 'Offers.Offer.OfferListing.Availability') }}
+      </span>
     </li>
 
     <li>ランキング：{{ array_get($item, 'SalesRank') }} ({{ array_get($item, 'ItemAttributes.Binding') }})</li>
