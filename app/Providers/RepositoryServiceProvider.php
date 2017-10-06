@@ -7,6 +7,9 @@ use Illuminate\Support\ServiceProvider;
 use App\Repository\Item\ItemRepositoryInterface;
 use App\Repository\Item\EloquentItemRepository;
 
+use App\Repository\Browse\BrowseRepositoryInterface;
+use App\Repository\Browse\EloquentBrowseRepository;
+
 class RepositoryServiceProvider extends ServiceProvider
 {
     /**
@@ -29,6 +32,11 @@ class RepositoryServiceProvider extends ServiceProvider
         app()->singleton(
             ItemRepositoryInterface::class,
             EloquentItemRepository::class
+        );
+
+        app()->singleton(
+            BrowseRepositoryInterface::class,
+            EloquentBrowseRepository::class
         );
     }
 }

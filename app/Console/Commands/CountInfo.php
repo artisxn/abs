@@ -5,9 +5,9 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 
 use App\Model\History;
-use App\Model\Browse;
 
 use App\Repository\Item\ItemRepositoryInterface as Item;
+use App\Repository\Browse\BrowseRepositoryInterface as Browse;
 
 class CountInfo extends Command
 {
@@ -39,10 +39,11 @@ class CountInfo extends Command
      * Execute the console command.
      *
      * @param Item $item
+     * @param Browse $browse
      *
      * @return mixed
      */
-    public function handle(Item $item)
+    public function handle(Item $item, Browse $browse)
     {
         $items_count = $item->count();
         info('Item count: ' . $items_count);
@@ -52,7 +53,7 @@ class CountInfo extends Command
         info('History count: ' . $histories_count);
         cache()->forever('histories_count', $histories_count);
 
-        $browses_count = Browse::count('id');
+        $browses_count = $browse->count();
         info('Browse count: ' . $browses_count);
         cache()->forever('browses_count', $browses_count);
     }

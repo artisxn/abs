@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-use App\Repository\Item\ItemRepositoryInterface;
+use App\Repository\Item\ItemRepositoryInterface as Item;
 
 class RecentItem extends Command
 {
@@ -35,11 +35,11 @@ class RecentItem extends Command
     /**
      * Execute the console command.
      *
-     * @param ItemRepositoryInterface $repository
+     * @param Item $repository
      *
      * @return mixed
      */
-    public function handle(ItemRepositoryInterface $repository)
+    public function handle(Item $repository)
     {
         info('Recent Item');
 

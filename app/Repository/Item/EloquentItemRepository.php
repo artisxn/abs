@@ -12,7 +12,6 @@ class EloquentItemRepository implements ItemRepositoryInterface
     protected $item;
 
     /**
-     * EloquentAspRepository constructor.
      *
      * @param Item $item
      */

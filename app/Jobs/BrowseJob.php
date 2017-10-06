@@ -10,7 +10,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 
 use AmazonProduct;
 
-use App\Model\Browse;
+use App\Repository\Browse\BrowseRepositoryInterface;
 
 class BrowseJob implements ShouldQueue
 {
@@ -19,7 +19,7 @@ class BrowseJob implements ShouldQueue
     /**
      * @var string
      */
-    protected $browse;
+    protected $browse_id;
 
     /**
      * @var string
@@ -29,70 +29,96 @@ class BrowseJob implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @param string $browse
+     * @param string $browse_id
      * @param string $response
      */
-    public function __construct(string $browse, string $response = 'TopSellers')
+    public function __construct(string $browse_id, string $response = 'TopSellers')
     {
-        $this->browse = $browse;
+        $this->browse_id = $browse_id;
         $this->response = $response;
     }
 
     /**
      * Execute the job.
      *
+     * @param BrowseRepositoryInterface $repository
+     *
      * @return array
      */
-    public function handle()
+    public function handle(BrowseRepositoryInterface $repository)
     {
-        $cache_key = 'browse.' . $this->response . '.' . $this->browse;
+        $browse = $this->browse();
 
-        $result = cache()->remember($cache_key, 60, function () {
-            //            sleep(1);
-
-            return rescue(function () {
-                return AmazonProduct::browse($this->browse, $this->response);
-            });
-        });
-
-        if (empty($result)) {
-            cache()->delete($cache_key);
-
+        if (empty($browse)) {
             return [
                 'browse_name'  => '',
                 'browse_items' => [],
-                'browse_id'    => $this->browse,
+                'browse_id'    => $this->browse_id,
             ];
         }
 
-        $nodes = array_get($result, 'BrowseNodes');
+        $nodes = array_get($browse, 'BrowseNodes');
 
         $browse_name = array_get($nodes, 'BrowseNode.Name');
-
 
         $items = array_get($nodes, 'BrowseNode.' . $this->response . '.' . str_singular($this->response));
 
         if (empty($items)) {
-            cache()->delete($cache_key);
-
             return [
                 'browse_name'  => $browse_name,
                 'browse_items' => [],
-                'browse_id'    => $this->browse,
+                'browse_id'    => $this->browse_id,
             ];
         }
 
+        $asins = array_pluck($items, 'ASIN');
 
-        $br = Browse::updateOrCreate([
-            'id' => $this->browse,
+        $browse_items = $this->items($asins);
+
+        $repository->updateOrCreate([
+            'id' => $this->browse_id,
         ], [
-            'id'    => $this->browse,
             'title' => $browse_name,
         ]);
 
-        $asins = array_pluck($items, 'ASIN');
+        return [
+            'browse_name'  => $browse_name,
+            'browse_items' => $browse_items,
+            'browse_id'    => $this->browse_id,
+        ];
+    }
 
+    /**
+     * @return array
+     */
+    protected function browse()
+    {
+        $cache_key = 'browse.' . $this->response . '.' . $this->browse_id;
+
+        $browse = cache()->remember($cache_key, 60, function () {
+            //            sleep(1);
+
+            return rescue(function () {
+                return AmazonProduct::browse($this->browse_id, $this->response);
+            });
+        });
+
+        if (empty($browse)) {
+            cache()->delete($cache_key);
+        }
+
+        return $browse;
+    }
+
+    /**
+     * @param $asins
+     *
+     * @return array
+     */
+    protected function items($asins)
+    {
         $cache_key_asin = 'items.' . implode('.', $asins);
+
         $results = cache()->remember($cache_key_asin, 60, function () use ($asins) {
             if (empty($asins)) {
                 return [];
@@ -111,12 +137,6 @@ class BrowseJob implements ShouldQueue
             cache()->delete($cache_key_asin);
         }
 
-        $browse_items = array_get($results, 'Items.Item');
-
-        return [
-            'browse_name'  => $browse_name,
-            'browse_items' => $browse_items,
-            'browse_id'    => $this->browse,
-        ];
+        return array_get($results, 'Items.Item');
     }
 }

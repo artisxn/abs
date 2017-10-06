@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
 use AmazonProduct;
-use App\Repository\Item\ItemRepositoryInterface;
+use App\Repository\Item\ItemRepositoryInterface as Item;
 
 /**
  * Class ItemJob
@@ -28,7 +28,7 @@ class ItemJob implements ShouldQueue
     protected $asin;
 
     /**
-     * @var ItemRepositoryInterface
+     * @var Item
      */
     protected $repository;
 
@@ -45,11 +45,11 @@ class ItemJob implements ShouldQueue
     /**
      * Execute the job.
      *
-     * @param ItemRepositoryInterface $repository
+     * @param Item $repository
      *
      * @return array
      */
-    public function handle(ItemRepositoryInterface $repository): array
+    public function handle(Item $repository): array
     {
         $this->repository = $repository;
 

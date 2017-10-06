@@ -12,7 +12,7 @@ use App\Http\Resources\Csv\Item as ItemResource;
 
 use League\Csv\Writer;
 
-use App\Model\Browse;
+use App\Repository\Browse\BrowseRepositoryInterface as Browse;
 
 class ExportCategoryJob implements ShouldQueue
 {
@@ -69,19 +69,17 @@ class ExportCategoryJob implements ShouldQueue
     /**
      * Execute the job.
      *
+     * @param Browse $repository
+     *
      * @return string
      */
-    public function handle()
+    public function handle(Browse $repository)
     {
         $writer = Writer::createFromPath($this->file, 'w+');
 
         $writer->insertOne(config('amazon.csv_header'));
 
-        $items = Browse::findOrFail($this->category)
-                       ->items()
-                       ->orderBy($this->order, $this->sort)
-                       ->take($this->limit)
-                       ->cursor();
+        $items = $repository->exportCursor($this->category, $this->order, $this->sort, $this->limit);
 
         foreach ($items as $item) {
             $line = (new ItemResource($item))->toArray(request());

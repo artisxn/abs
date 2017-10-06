@@ -50,6 +50,8 @@ class SearchJob implements ShouldQueue
      */
     public function handle()
     {
+        info('Search: ' . $this->keyword);
+
         $page = $this->page;
 
         $results = rescue(function () {

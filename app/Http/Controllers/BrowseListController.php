@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Model\Browse;
+use App\Repository\Browse\BrowseRepositoryInterface as Browse;
 
 class BrowseListController extends Controller
 {
@@ -20,13 +20,13 @@ class BrowseListController extends Controller
 
     /**
      * @param Request $request
-     * @param Browse  $browse
+     * @param Browse  $repository
      *
      * @return \Illuminate\Http\Response
      */
-    public function browseAll(Request $request, Browse $browse)
+    public function browseAll(Request $request, Browse $repository)
     {
-        $lists = $browse->listAll();
+        $lists = $repository->listAll();
 
         return view('browse.list-all')->with(compact('lists'));
     }

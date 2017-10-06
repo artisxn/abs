@@ -47,10 +47,10 @@ class PreloadJob implements ShouldQueue
 
         foreach ($this->items as $asin) {
             if (!empty($asin)) {
-                ItemJob::dispatch($asin)->delay(now()->addMinutes($delay + 4));
+                ItemJob::dispatch($asin)->delay(now()->addMinutes($delay));
             }
 
-            $delay++;
+            $delay = $delay + 5;
         }
     }
 }
