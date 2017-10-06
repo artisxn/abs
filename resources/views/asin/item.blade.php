@@ -3,7 +3,7 @@
      itemtype="http://schema.org/Product">
 
 
-  {{--    @include('asin.header')--}}
+  @include('asin.header')
 
 
   @include('item.browsenodes')
