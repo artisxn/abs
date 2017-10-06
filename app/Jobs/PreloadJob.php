@@ -50,7 +50,7 @@ class PreloadJob implements ShouldQueue
                 ItemJob::dispatch($asin)->delay(now()->addMinutes($delay));
             }
 
-            $delay = $delay + 5;
+            $delay = $delay * 5;
         }
     }
 }

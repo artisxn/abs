@@ -47,5 +47,4 @@ interface BrowseRepositoryInterface
      * @return \Illuminate\Database\Eloquent\Model
      */
     public function updateOrCreate(array $attributes, array $values = []);
-
 }
