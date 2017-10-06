@@ -17,13 +17,31 @@
 
     @unless(empty($publisher))
 
-      <li itemscope itemtype="http://schema.org/CreativeWork">発売元(Publisher)：<span
-          itemprop="publisher">
-        <a
-          href="{{ route('search', ['category' => 'All', 'keyword' => $publisher]) }}">
-          {{ $publisher }}
-        </a>
+      <li itemscope itemtype="http://schema.org/CreativeWork">発売元(Publisher)：
+        <span itemprop="publisher">
+          <a href="{{ route('search', ['category' => 'All', 'keyword' => $publisher]) }}">
+            {{ $publisher }}
+          </a>
       </span>
+      </li>
+    @endunless
+
+    @php
+      $brands = array_get($item, 'ItemAttributes.Brand');
+      if(is_array($brands)){
+      $brand = implode(', ', $brands);
+      }elseif(is_string($brands)){
+      $brand = $brands;
+      }
+    @endphp
+
+    @unless(empty($brand))
+      <li itemscope itemtype="http://schema.org/CreativeWork">ブランド(Brand)：
+        <span itemprop="brand">
+          <a href="{{ route('search', ['category' => 'All', 'keyword' => $brand]) }}">
+            {{ $brand }}
+          </a>
+        </span>
       </li>
     @endunless
 
@@ -37,10 +55,9 @@
     @endphp
 
     @unless(empty($author))
-      <li>著者(Author)：
+      <li itemscope itemtype="http://schema.org/CreativeWork">著者(Author)：
         <span itemprop="author">
-        <a
-          href="{{ route('search', ['category' => 'All', 'keyword' => $author]) }}">
+        <a href="{{ route('search', ['category' => 'All', 'keyword' => $author]) }}">
           {{ $author }}
         </a>
         </span>
@@ -57,10 +74,9 @@
     @endphp
 
     @unless(empty($creator))
-      <li>作者(Creator)：
+      <li itemscope itemtype="http://schema.org/CreativeWork">作者(Creator)：
         <span itemprop="author">
-          <a
-            href="{{ route('search', ['category' => 'All', 'keyword' => $creator]) }}">
+          <a href="{{ route('search', ['category' => 'All', 'keyword' => $creator]) }}">
           {{ $creator }}
         </a>
         </span>
