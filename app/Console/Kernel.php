@@ -38,6 +38,9 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('abs:count-info')
                  ->hourlyAt(52);
+
+        $schedule->command('abs:old-item')
+                 ->hourlyAt(11);
     }
 
     /**

@@ -17,6 +17,13 @@ interface ItemRepositoryInterface
     public function recent();
 
     /**
+     * @param int $limit
+     *
+     * @return \Generator
+     */
+    public function oldCursor(int $limit = 100);
+
+    /**
      * グラフ用の履歴データ
      *
      * @param string $asin
