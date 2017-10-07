@@ -83,7 +83,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
      */
     public function count()
     {
-        return $this->item->count('asin');
+        return $this->item->count('updated_at');
     }
 
     /**
