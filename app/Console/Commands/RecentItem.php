@@ -41,10 +41,12 @@ class RecentItem extends Command
      */
     public function handle(Item $repository)
     {
-        info('Recent Item');
+        info('Recent Item: Start');
 
         $items = $repository->recent();
 
         cache()->forever('recent_items', $items);
+
+        info('Recent Item: End');
     }
 }
