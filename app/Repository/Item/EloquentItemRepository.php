@@ -41,12 +41,25 @@ class EloquentItemRepository implements ItemRepositoryInterface
      */
     public function recent()
     {
-        return $this->item->latest('updated_at')
-                          ->whereDoesntHave('browses', function ($query) {
-                              $query->whereIn('browse_id', config('amazon.recent_except'));
-                          })
-                          ->take(24)
-                          ->get();
+        $limit = 24;
+
+        $recent = collect([]);
+
+        $items = $this->item->latest('updated_at')->with('browses')->cursor();
+
+        foreach ($items as $item) {
+            $browses = collect($item->browses)->whereIn('id', config('amazon.recent_except'));
+
+            if (blank($browses)) {
+                $recent->push($item);
+            }
+
+            if ($recent->count() >= $limit) {
+                break;
+            }
+        }
+
+        return $recent;
     }
 
     /**
