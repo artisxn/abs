@@ -1,12 +1,12 @@
 <?php
 /*******************************************************************************
  * Copyright 2009-2017 Amazon Services. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * Licensed under the Apache License, Version 2.0 (the "License");
  *
- * You may not use this file except in compliance with the License. 
+ * You may not use this file except in compliance with the License.
  * You may obtain a copy of the License at: http://aws.amazon.com/apache2.0
- * This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
- * CONDITIONS OF ANY KIND, either express or implied. See the License for the 
+ * This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  *******************************************************************************
  * PHP Version 5
@@ -17,14 +17,8 @@
  * Generated: Wed Mar 22 23:24:40 UTC 2017
  */
 
-/**
- *  @see MarketplaceWebServiceProducts_Interface
- */
-require_once (dirname(__FILE__) . '/Interface.php'); 
-
-class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProducts_Interface
+interface  MarketplaceWebServiceProducts_Interface
 {
-    // Public API ------------------------------------------------------------//
 
     /**
      * Get Competitive Pricing For ASIN
@@ -32,16 +26,13 @@ class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProduct
      * the MarketplaceId and ASIN.
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_GetCompetitivePricingForASIN request or MarketplaceWebServiceProducts_Model_GetCompetitivePricingForASIN object itself
-     * @see MarketplaceWebServiceProducts_Model_GetCompetitivePricingForASIN
+     *
+     * @see MarketplaceWebServiceProducts_Model_GetCompetitivePricingForASINRequest
      * @return MarketplaceWebServiceProducts_Model_GetCompetitivePricingForASINResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function getCompetitivePricingForASIN($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/GetCompetitivePricingForASINResponse.php');
-        return MarketplaceWebServiceProducts_Model_GetCompetitivePricingForASINResponse::fromXML($this->_invoke('GetCompetitivePricingForASIN'));
-    }
+    public function getCompetitivePricingForASIN($request);
 
     /**
      * Get Competitive Pricing For SKU
@@ -49,16 +40,13 @@ class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProduct
      * the SellerId and SKU.
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_GetCompetitivePricingForSKU request or MarketplaceWebServiceProducts_Model_GetCompetitivePricingForSKU object itself
-     * @see MarketplaceWebServiceProducts_Model_GetCompetitivePricingForSKU
+     *
+     * @see MarketplaceWebServiceProducts_Model_GetCompetitivePricingForSKURequest
      * @return MarketplaceWebServiceProducts_Model_GetCompetitivePricingForSKUResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function getCompetitivePricingForSKU($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/GetCompetitivePricingForSKUResponse.php');
-        return MarketplaceWebServiceProducts_Model_GetCompetitivePricingForSKUResponse::fromXML($this->_invoke('GetCompetitivePricingForSKU'));
-    }
+    public function getCompetitivePricingForSKU($request);
 
     /**
      * Get Lowest Offer Listings For ASIN
@@ -66,16 +54,13 @@ class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProduct
      * MarketplaceId and ASIN.
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_GetLowestOfferListingsForASIN request or MarketplaceWebServiceProducts_Model_GetLowestOfferListingsForASIN object itself
-     * @see MarketplaceWebServiceProducts_Model_GetLowestOfferListingsForASIN
+     *
+     * @see MarketplaceWebServiceProducts_Model_GetLowestOfferListingsForASINRequest
      * @return MarketplaceWebServiceProducts_Model_GetLowestOfferListingsForASINResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function getLowestOfferListingsForASIN($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/GetLowestOfferListingsForASINResponse.php');
-        return MarketplaceWebServiceProducts_Model_GetLowestOfferListingsForASINResponse::fromXML($this->_invoke('GetLowestOfferListingsForASIN'));
-    }
+    public function getLowestOfferListingsForASIN($request);
 
     /**
      * Get Lowest Offer Listings For SKU
@@ -83,16 +68,13 @@ class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProduct
      * SellerId and SKU.
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_GetLowestOfferListingsForSKU request or MarketplaceWebServiceProducts_Model_GetLowestOfferListingsForSKU object itself
-     * @see MarketplaceWebServiceProducts_Model_GetLowestOfferListingsForSKU
+     *
+     * @see MarketplaceWebServiceProducts_Model_GetLowestOfferListingsForSKURequest
      * @return MarketplaceWebServiceProducts_Model_GetLowestOfferListingsForSKUResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function getLowestOfferListingsForSKU($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/GetLowestOfferListingsForSKUResponse.php');
-        return MarketplaceWebServiceProducts_Model_GetLowestOfferListingsForSKUResponse::fromXML($this->_invoke('GetLowestOfferListingsForSKU'));
-    }
+    public function getLowestOfferListingsForSKU($request);
 
     /**
      * Get Lowest Priced Offers For ASIN
@@ -100,16 +82,13 @@ class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProduct
      *     ASIN.
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_GetLowestPricedOffersForASIN request or MarketplaceWebServiceProducts_Model_GetLowestPricedOffersForASIN object itself
-     * @see MarketplaceWebServiceProducts_Model_GetLowestPricedOffersForASIN
+     *
+     * @see MarketplaceWebServiceProducts_Model_GetLowestPricedOffersForASINRequest
      * @return MarketplaceWebServiceProducts_Model_GetLowestPricedOffersForASINResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function getLowestPricedOffersForASIN($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/GetLowestPricedOffersForASINResponse.php');
-        return MarketplaceWebServiceProducts_Model_GetLowestPricedOffersForASINResponse::fromXML($this->_invoke('GetLowestPricedOffersForASIN'));
-    }
+    public function getLowestPricedOffersForASIN($request);
 
     /**
      * Get Lowest Priced Offers For SKU
@@ -117,16 +96,13 @@ class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProduct
      *     SellerId and SKU.
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_GetLowestPricedOffersForSKU request or MarketplaceWebServiceProducts_Model_GetLowestPricedOffersForSKU object itself
-     * @see MarketplaceWebServiceProducts_Model_GetLowestPricedOffersForSKU
+     *
+     * @see MarketplaceWebServiceProducts_Model_GetLowestPricedOffersForSKURequest
      * @return MarketplaceWebServiceProducts_Model_GetLowestPricedOffersForSKUResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function getLowestPricedOffersForSKU($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/GetLowestPricedOffersForSKUResponse.php');
-        return MarketplaceWebServiceProducts_Model_GetLowestPricedOffersForSKUResponse::fromXML($this->_invoke('GetLowestPricedOffersForSKU'));
-    }
+    public function getLowestPricedOffersForSKU($request);
 
     /**
      * Get Matching Product
@@ -134,16 +110,13 @@ class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProduct
      * given ASIN.
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_GetMatchingProduct request or MarketplaceWebServiceProducts_Model_GetMatchingProduct object itself
-     * @see MarketplaceWebServiceProducts_Model_GetMatchingProduct
+     *
+     * @see MarketplaceWebServiceProducts_Model_GetMatchingProductRequest
      * @return MarketplaceWebServiceProducts_Model_GetMatchingProductResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function getMatchingProduct($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/GetMatchingProductResponse.php');
-        return MarketplaceWebServiceProducts_Model_GetMatchingProductResponse::fromXML($this->_invoke('GetMatchingProduct'));
-    }
+    public function getMatchingProduct($request);
 
     /**
      * Get Matching Product For Id
@@ -151,16 +124,13 @@ class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProduct
      * given Identifier list. Identifer type can be one of [SKU|ASIN|UPC|EAN|ISBN|GTIN|JAN]
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_GetMatchingProductForId request or MarketplaceWebServiceProducts_Model_GetMatchingProductForId object itself
-     * @see MarketplaceWebServiceProducts_Model_GetMatchingProductForId
+     *
+     * @see MarketplaceWebServiceProducts_Model_GetMatchingProductForIdRequest
      * @return MarketplaceWebServiceProducts_Model_GetMatchingProductForIdResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function getMatchingProductForId($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/GetMatchingProductForIdResponse.php');
-        return MarketplaceWebServiceProducts_Model_GetMatchingProductForIdResponse::fromXML($this->_invoke('GetMatchingProductForId'));
-    }
+    public function getMatchingProductForId($request);
 
     /**
      * Get My Fees Estimate
@@ -169,48 +139,39 @@ class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProduct
      *         ASIN/SKU list.
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_GetMyFeesEstimate request or MarketplaceWebServiceProducts_Model_GetMyFeesEstimate object itself
-     * @see MarketplaceWebServiceProducts_Model_GetMyFeesEstimate
+     *
+     * @see MarketplaceWebServiceProducts_Model_GetMyFeesEstimateRequest
      * @return MarketplaceWebServiceProducts_Model_GetMyFeesEstimateResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function getMyFeesEstimate($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/GetMyFeesEstimateResponse.php');
-        return MarketplaceWebServiceProducts_Model_GetMyFeesEstimateResponse::fromXML($this->_invoke('GetMyFeesEstimate'));
-    }
+    public function getMyFeesEstimate($request);
 
     /**
      * Get My Price For ASIN
      * <!-- Wrong doc in current code -->
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_GetMyPriceForASIN request or MarketplaceWebServiceProducts_Model_GetMyPriceForASIN object itself
-     * @see MarketplaceWebServiceProducts_Model_GetMyPriceForASIN
+     *
+     * @see MarketplaceWebServiceProducts_Model_GetMyPriceForASINRequest
      * @return MarketplaceWebServiceProducts_Model_GetMyPriceForASINResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function getMyPriceForASIN($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/GetMyPriceForASINResponse.php');
-        return MarketplaceWebServiceProducts_Model_GetMyPriceForASINResponse::fromXML($this->_invoke('GetMyPriceForASIN'));
-    }
+    public function getMyPriceForASIN($request);
 
     /**
      * Get My Price For SKU
      * <!-- Wrong doc in current code -->
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_GetMyPriceForSKU request or MarketplaceWebServiceProducts_Model_GetMyPriceForSKU object itself
-     * @see MarketplaceWebServiceProducts_Model_GetMyPriceForSKU
+     *
+     * @see MarketplaceWebServiceProducts_Model_GetMyPriceForSKURequest
      * @return MarketplaceWebServiceProducts_Model_GetMyPriceForSKUResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function getMyPriceForSKU($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/GetMyPriceForSKUResponse.php');
-        return MarketplaceWebServiceProducts_Model_GetMyPriceForSKUResponse::fromXML($this->_invoke('GetMyPriceForSKU'));
-    }
+    public function getMyPriceForSKU($request);
 
     /**
      * Get Product Categories For ASIN
@@ -218,16 +179,13 @@ class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProduct
      * the MarketplaceId and ASIN.
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_GetProductCategoriesForASIN request or MarketplaceWebServiceProducts_Model_GetProductCategoriesForASIN object itself
-     * @see MarketplaceWebServiceProducts_Model_GetProductCategoriesForASIN
+     *
+     * @see MarketplaceWebServiceProducts_Model_GetProductCategoriesForASINRequest
      * @return MarketplaceWebServiceProducts_Model_GetProductCategoriesForASINResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function getProductCategoriesForASIN($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/GetProductCategoriesForASINResponse.php');
-        return MarketplaceWebServiceProducts_Model_GetProductCategoriesForASINResponse::fromXML($this->_invoke('GetProductCategoriesForASIN'));
-    }
+    public function getProductCategoriesForASIN($request);
 
     /**
      * Get Product Categories For SKU
@@ -235,16 +193,13 @@ class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProduct
      * the SellerId and SKU.
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_GetProductCategoriesForSKU request or MarketplaceWebServiceProducts_Model_GetProductCategoriesForSKU object itself
-     * @see MarketplaceWebServiceProducts_Model_GetProductCategoriesForSKU
+     *
+     * @see MarketplaceWebServiceProducts_Model_GetProductCategoriesForSKURequest
      * @return MarketplaceWebServiceProducts_Model_GetProductCategoriesForSKUResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function getProductCategoriesForSKU($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/GetProductCategoriesForSKUResponse.php');
-        return MarketplaceWebServiceProducts_Model_GetProductCategoriesForSKUResponse::fromXML($this->_invoke('GetProductCategoriesForSKU'));
-    }
+    public function getProductCategoriesForSKU($request);
 
     /**
      * Get Service Status
@@ -253,16 +208,13 @@ class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProduct
      * All API sections within the API are required to implement this operation.
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_GetServiceStatus request or MarketplaceWebServiceProducts_Model_GetServiceStatus object itself
-     * @see MarketplaceWebServiceProducts_Model_GetServiceStatus
+     *
+     * @see MarketplaceWebServiceProducts_Model_GetServiceStatusRequest
      * @return MarketplaceWebServiceProducts_Model_GetServiceStatusResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function getServiceStatus($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/GetServiceStatusResponse.php');
-        return MarketplaceWebServiceProducts_Model_GetServiceStatusResponse::fromXML($this->_invoke('GetServiceStatus'));
-    }
+    public function getServiceStatus($request);
 
     /**
      * List Matching Products
@@ -270,22 +222,12 @@ class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProduct
      * find products that match the given criteria.
      *
      * @param mixed $request array of parameters for MarketplaceWebServiceProducts_Model_ListMatchingProducts request or MarketplaceWebServiceProducts_Model_ListMatchingProducts object itself
-     * @see MarketplaceWebServiceProducts_Model_ListMatchingProducts
+     *
+     * @see MarketplaceWebServiceProducts_Model_ListMatchingProductsRequest
      * @return MarketplaceWebServiceProducts_Model_ListMatchingProductsResponse
      *
      * @throws MarketplaceWebServiceProducts_Exception
      */
-    public function listMatchingProducts($request)
-    {
-        require_once (dirname(__FILE__) . '/Model/ListMatchingProductsResponse.php');
-        return MarketplaceWebServiceProducts_Model_ListMatchingProductsResponse::fromXML($this->_invoke('ListMatchingProducts'));
-    }
-
-    // Private API ------------------------------------------------------------//
-
-    private function _invoke($actionName)
-    {
-        return $xml = file_get_contents(dirname(__FILE__) . '/Mock/' . $actionName . 'Response.xml', /** search include path */ TRUE);
-    }
+    public function listMatchingProducts($request);
 
 }

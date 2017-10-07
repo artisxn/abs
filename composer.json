@@ -40,7 +40,7 @@
             "App\\": "app/"
         },
         "psr-0": {
-            "MarketplaceWebServiceProducts_": "lib/amazon-mws-api/Products"
+            "MarketplaceWebServiceProducts_": "lib/amazon-mws-api/src/MarketplaceWebServiceProducts"
         }
     },
     "autoload-dev": {
