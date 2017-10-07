@@ -22,7 +22,11 @@ class ItemController extends Controller
     {
         $item = dispatch_now(new ItemJob($asin));
 
-        abort_if(empty($item), 503);
+        if (empty($item)) {
+            $alert_message = true;
+
+            return view('asin.show')->with(compact('alert_message'));
+        }
 
         $asin_item = $repository->show($asin);
 
