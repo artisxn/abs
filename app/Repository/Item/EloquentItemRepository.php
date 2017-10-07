@@ -69,7 +69,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function oldCursor(int $limit = 100)
+    public function oldCursor(int $limit = 10)
     {
         return $this->item->oldest('updated_at')
                           ->select('asin')
