@@ -7,9 +7,6 @@ use Illuminate\Console\Command;
 use App\Model\History;
 use App\Model\BrowseItem;
 
-use App\Repository\Item\ItemRepositoryInterface as Item;
-use App\Repository\Browse\BrowseRepositoryInterface as Browse;
-
 class CountInfo extends Command
 {
     /**
@@ -39,14 +36,10 @@ class CountInfo extends Command
     /**
      * Execute the console command.
      *
-     * @param Item   $item
-     * @param Browse $browse
-     *
      * @return mixed
      */
-    public function handle(Item $item, Browse $browse)
+    public function handle()
     {
-        //        $items_count = $item->count();
         $items_count = BrowseItem::distinct()->count('item_asin');
         info('Item count: ' . $items_count);
         cache()->forever('items_count', $items_count);
@@ -55,7 +48,6 @@ class CountInfo extends Command
         info('History count: ' . $histories_count);
         cache()->forever('histories_count', $histories_count);
 
-        //        $browses_count = $browse->count();
         $browses_count = BrowseItem::distinct()->count('browse_id');
         info('Browse count: ' . $browses_count);
         cache()->forever('browses_count', $browses_count);
