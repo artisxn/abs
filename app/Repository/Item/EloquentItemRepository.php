@@ -45,9 +45,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
 
         $recent = collect([]);
 
-        //        $items = $this->item->latest('updated_at')->with('browses')->cursor();
-
-        $this->item->latest('updated_at')->with('browses')->chunk(24, function ($items) use (&$recent, $limit) {
+        $this->item->latest('updated_at')->chunk($limit, function ($items) use (&$recent, $limit) {
             foreach ($items as $item) {
                 $browses = collect($item->browses)->whereIn('id', config('amazon.recent_except'));
 

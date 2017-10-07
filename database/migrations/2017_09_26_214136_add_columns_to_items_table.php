@@ -16,10 +16,10 @@ class AddColumnsToItemsTable extends Migration
         Schema::table('items', function (Blueprint $table) {
             $table->text('detail_url')->nullable()->after('title');
             $table->string('large_image')->nullable()->after('title');
-            $table->json('image_sets')->nullable()->after('title');
-            $table->json('offers')->nullable()->after('title');
-            $table->json('offer_summary')->nullable()->after('title');
-            $table->json('attributes')->nullable()->after('title');
+            $table->longText('image_sets')->nullable()->after('title');
+            $table->text('offers')->nullable()->after('title');
+            $table->text('offer_summary')->nullable()->after('title');
+            $table->text('attributes')->nullable()->after('title');
         });
     }
 
