@@ -57,6 +57,10 @@ class EloquentItemRepository implements ItemRepositoryInterface
                     break;
                 }
             }
+
+            if ($recent->count() >= $limit) {
+                return false;
+            }
         });
 
         return $recent;
