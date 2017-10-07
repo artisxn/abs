@@ -1,12 +1,12 @@
 <?php
 /*******************************************************************************
  * Copyright 2009-2017 Amazon Services. All Rights Reserved.
- * Licensed under the Apache License, Version 2.0 (the "License"); 
+ * Licensed under the Apache License, Version 2.0 (the "License");
  *
- * You may not use this file except in compliance with the License. 
+ * You may not use this file except in compliance with the License.
  * You may obtain a copy of the License at: http://aws.amazon.com/apache2.0
- * This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR 
- * CONDITIONS OF ANY KIND, either express or implied. See the License for the 
+ * This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, either express or implied. See the License for the
  * specific language governing permissions and limitations under the License.
  *******************************************************************************
  * PHP Version 5
@@ -41,7 +41,7 @@ require_once('.config.inc.php');
 //$serviceUrl = "https://mws.amazonservices.com.cn/Products/2011-10-01";
 
 
- $config = array (
+ $config = array(
    'ServiceURL' => $serviceUrl,
    'ProxyHost' => null,
    'ProxyPort' => -1,
@@ -91,26 +91,24 @@ require_once('.config.inc.php');
   function invokeGetProductCategoriesForASIN(MarketplaceWebServiceProducts_Interface $service, $request)
   {
       try {
-        $response = $service->GetProductCategoriesForASIN($request);
+          $response = $service->GetProductCategoriesForASIN($request);
 
-        echo ("Service Response\n");
-        echo ("=============================================================================\n");
+          echo("Service Response\n");
+          echo("=============================================================================\n");
 
-        $dom = new DOMDocument();
-        $dom->loadXML($response->toXML());
-        $dom->preserveWhiteSpace = false;
-        $dom->formatOutput = true;
-        echo $dom->saveXML();
-        echo("ResponseHeaderMetadata: " . $response->getResponseHeaderMetadata() . "\n");
-
-     } catch (MarketplaceWebServiceProducts_Exception $ex) {
-        echo("Caught Exception: " . $ex->getMessage() . "\n");
-        echo("Response Status Code: " . $ex->getStatusCode() . "\n");
-        echo("Error Code: " . $ex->getErrorCode() . "\n");
-        echo("Error Type: " . $ex->getErrorType() . "\n");
-        echo("Request ID: " . $ex->getRequestId() . "\n");
-        echo("XML: " . $ex->getXML() . "\n");
-        echo("ResponseHeaderMetadata: " . $ex->getResponseHeaderMetadata() . "\n");
-     }
- }
-
+          $dom = new DOMDocument();
+          $dom->loadXML($response->toXML());
+          $dom->preserveWhiteSpace = false;
+          $dom->formatOutput = true;
+          echo $dom->saveXML();
+          echo("ResponseHeaderMetadata: " . $response->getResponseHeaderMetadata() . "\n");
+      } catch (MarketplaceWebServiceProducts_Exception $ex) {
+          echo("Caught Exception: " . $ex->getMessage() . "\n");
+          echo("Response Status Code: " . $ex->getStatusCode() . "\n");
+          echo("Error Code: " . $ex->getErrorCode() . "\n");
+          echo("Error Type: " . $ex->getErrorType() . "\n");
+          echo("Request ID: " . $ex->getRequestId() . "\n");
+          echo("XML: " . $ex->getXML() . "\n");
+          echo("ResponseHeaderMetadata: " . $ex->getResponseHeaderMetadata() . "\n");
+      }
+  }

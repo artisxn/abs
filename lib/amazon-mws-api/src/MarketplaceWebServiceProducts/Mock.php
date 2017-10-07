@@ -319,5 +319,4 @@ class MarketplaceWebServiceProducts_Mock implements MarketplaceWebServiceProduct
             /** search include path */
             true);
     }
-
 }

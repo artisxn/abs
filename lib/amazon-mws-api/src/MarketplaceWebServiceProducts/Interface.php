@@ -17,7 +17,7 @@
  * Generated: Wed Mar 22 23:24:40 UTC 2017
  */
 
-interface  MarketplaceWebServiceProducts_Interface
+interface MarketplaceWebServiceProducts_Interface
 {
 
     /**
@@ -229,5 +229,4 @@ interface  MarketplaceWebServiceProducts_Interface
      * @throws MarketplaceWebServiceProducts_Exception
      */
     public function listMatchingProducts($request);
-
 }
