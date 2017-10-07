@@ -39,7 +39,7 @@ abstract class MarketplaceWebServiceProducts_Model
             } elseif ($this->_isDOMElement($data)) {
                 $this->_fromDOMElement($data);
             } else {
-                throw new Exception ("Unable to construct from provided data. Please be sure to pass associative array or DOMElement");
+                throw new Exception("Unable to construct from provided data. Please be sure to pass associative array or DOMElement");
             }
         }
     }
@@ -156,7 +156,7 @@ abstract class MarketplaceWebServiceProducts_Model
                         $attribute = $xpath->query("./@$fieldName", $dom);
                         if ($attribute->length == 1) {
                             $this->_fields[$fieldName]['FieldValue'] = $attribute->item(0)->nodeValue;
-                            if (isset ($this->_fields['Value'])) {
+                            if (isset($this->_fields['Value'])) {
                                 $parentNode = $attribute->item(0)->parentNode;
                                 $this->_fields['Value']['FieldValue'] = $parentNode->nodeValue;
                             }
@@ -175,12 +175,11 @@ abstract class MarketplaceWebServiceProducts_Model
                     $attribute = $xpath->query("./@$fieldName", $dom);
                     if ($attribute->length == 1) {
                         $this->_fields[$fieldName]['FieldValue'] = $attribute->item(0)->nodeValue;
-                        if (isset ($this->_fields['Value'])) {
+                        if (isset($this->_fields['Value'])) {
                             $parentNode = $attribute->item(0)->parentNode;
                             $this->_fields['Value']['FieldValue'] = $parentNode->nodeValue;
                         }
                     }
-
                 }
             }
         }
@@ -282,7 +281,6 @@ abstract class MarketplaceWebServiceProducts_Model
                     $this->__toQueryParameterArray($indexedPrefix,
                         $memberType, $fieldValue[$i - 1], null));
             }
-
         } else {
             if ($this->_isComplexType($fieldType)) {
                 // Struct
@@ -468,5 +466,4 @@ abstract class MarketplaceWebServiceProducts_Model
 
         return ($sz === 0 || array_keys($var) === range(0, sizeof($var) - 1));
     }
-
 }

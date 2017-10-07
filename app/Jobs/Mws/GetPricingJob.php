@@ -82,7 +82,7 @@ class GetPricingJob implements ShouldQueue
      * @param \MarketplaceWebServiceProducts_Interface $service instance of MarketplaceWebServiceProducts_Interface
      * @param mixed                                    $request MarketplaceWebServiceProducts_Model_GetLowestPricedOffersForASIN or array of parameters
      */
-    function invokeGetLowestPricedOffersForASIN(\MarketplaceWebServiceProducts_Interface $service, $request)
+    public function invokeGetLowestPricedOffersForASIN(\MarketplaceWebServiceProducts_Interface $service, $request)
     {
         try {
             $response = $service->GetLowestPricedOffersForASIN($request);
@@ -99,7 +99,6 @@ class GetPricingJob implements ShouldQueue
             //            $dom->formatOutput = true;
             //            echo $dom->saveXML();
             //            echo("ResponseHeaderMetadata: " . $response->getResponseHeaderMetadata() . "\n");
-
         } catch (\MarketplaceWebServiceProducts_Exception $ex) {
             echo("Caught Exception: " . $ex->getMessage() . "\n");
             echo("Response Status Code: " . $ex->getStatusCode() . "\n");

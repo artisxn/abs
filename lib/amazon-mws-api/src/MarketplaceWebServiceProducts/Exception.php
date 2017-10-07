@@ -24,7 +24,6 @@
  *
  */
 class MarketplaceWebServiceProducts_Exception extends Exception
-
 {
     /** @var string */
     private $_message = null;
