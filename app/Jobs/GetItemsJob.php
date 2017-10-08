@@ -53,6 +53,8 @@ class GetItemsJob implements ShouldQueue
     {
         $this->repository = $repository;
 
+        info(self::class);
+
         if (empty($this->asins)) {
             return [];
         }
@@ -78,7 +80,7 @@ class GetItemsJob implements ShouldQueue
                 $this->createHistory($item);
 
                 cache()->put(
-                    'asin.' . array_get($item, 'ASIN'),
+                    'asin.' . $asin,
                     $item,
                     60 * 6
                 );
