@@ -47,8 +47,6 @@ class BrowseJob implements ShouldQueue
      */
     public function handle(Browse $repository)
     {
-        info(self::class);
-
         /**
          * 1. BrowseNodeLookup は詳細なデータを返さないので一度ブラウズノードを取得してから
          */
