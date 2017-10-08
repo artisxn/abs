@@ -65,7 +65,7 @@ class GetItemsJob implements ShouldQueue
             return $this->get();
         });
 
-        if (empty($items) or array_has($items, 'ASIN') === false) {
+        if (empty($items) or array_has(array_first($items), 'ASIN') === false) {
             return [];
         }
 
