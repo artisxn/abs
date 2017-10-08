@@ -70,12 +70,19 @@ class GetItemsJob implements ShouldQueue
         }
 
         foreach ($items as $item) {
-            $this->repository->create($item);
+            $asin = array_get($item, 'ASIN');
+            if (!empty($asin)) {
+                $this->repository->create($item);
 
-            //必ずItemの後にHistory
-            $this->createHistory($item);
+                //必ずItemの後にHistory
+                $this->createHistory($item);
 
-            cache()->put('asin.' . array_get($item, 'ASIN'), $item, 60 * 6);
+                cache()->put(
+                    'asin.' . array_get($item, 'ASIN'),
+                    $item,
+                    60 * 6
+                );
+            }
         }
 
         return $items;
