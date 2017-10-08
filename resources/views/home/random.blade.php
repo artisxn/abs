@@ -1,4 +1,4 @@
-@isset($browse_items)
+@isset($browse_id)
 
   <h2 class="uk-heading-line uk-text-center">
     <span>ランダムブラウズ：
@@ -7,7 +7,6 @@
   </h2>
 
   @if(count($browse_items) > 0)
-
 
     <div class="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
 
