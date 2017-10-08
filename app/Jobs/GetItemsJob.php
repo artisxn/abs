@@ -95,13 +95,19 @@ class GetItemsJob implements ShouldQueue
      */
     public function get()
     {
-        //        $results = retry(5, function () {
+        $results = retry(5, function () {
+            return AmazonProduct::items($this->asins);
+        }, 3000);
+
+        //        $results = rescue(function () {
         //            return AmazonProduct::items($this->asins);
-        //        }, 5000);
+        //        });
 
-        $results = AmazonProduct::items($this->asins);
-
-        $items = array_get($results, 'Items.Item');
+        if (empty($results)) {
+            $items = [];
+        } else {
+            $items = array_get($results, 'Items.Item');
+        }
 
         return $items;
     }
