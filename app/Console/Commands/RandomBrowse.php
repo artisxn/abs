@@ -45,6 +45,8 @@ class RandomBrowse extends Command
 
         $browse_items = dispatch_now(new BrowseJob($browse));
 
+        info('Random Browse: ' . $browse_items['browse_name'] . ' ' . count($browse_items['browse_items']));
+
         cache()->forever('random_items', $browse_items);
     }
 }
