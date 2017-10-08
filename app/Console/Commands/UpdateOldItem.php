@@ -43,17 +43,23 @@ class UpdateOldItem extends Command
      */
     public function handle(Item $repository)
     {
-        $asins = [];
+        $asins = collect([]);
 
-        $items = $repository->oldCursor();
+        $items = $repository->oldCursor(100);
 
 
         foreach ($items as $item) {
-            $asins[] = $item->asin;
+            $asins->push($item->asin);
         }
 
         info('Update Old Item: ' . count($asins));
 
-        PreloadJob::dispatch($asins);
+        $delay = 1;
+
+        foreach ($asins->chunk(10) as $items) {
+            PreloadJob::dispatch($items->toArray())->delay(now()->addMinutes($delay * 5));
+
+            $delay++;
+        }
     }
 }

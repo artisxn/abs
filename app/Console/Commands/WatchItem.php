@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-use App\Jobs\ItemJob;
+use App\Jobs\PreloadJob;
 
 use App\Model\Watch;
 
@@ -45,9 +45,12 @@ class WatchItem extends Command
 
         info('Watch Item: ' . $asins->count());
 
-        $asins->each(function ($asin, $key) {
-            //1分空けてItemJobを実行
-            ItemJob::dispatch($asin)->delay(now()->addMinutes($key));
-        });
+        $delay = 1;
+
+        foreach ($asins->chunk(10) as $items) {
+            PreloadJob::dispatch($items->toArray())->delay(now()->addMinutes($delay * 5));
+
+            $delay++;
+        }
     }
 }

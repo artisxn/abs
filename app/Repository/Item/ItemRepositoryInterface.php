@@ -21,7 +21,7 @@ interface ItemRepositoryInterface
      *
      * @return \Generator
      */
-    public function oldCursor(int $limit = 10);
+    public function oldCursor(int $limit = 100);
 
     /**
      * グラフ用の履歴データ
