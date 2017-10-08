@@ -23,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('admin', function () {
             return request()->user()->isAdmin();
         });
+
+        Blade::if('feature', function ($feature) {
+            return config('amazon-feature.' . $feature);
+        });
     }
 
     /**

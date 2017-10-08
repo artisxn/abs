@@ -9,7 +9,7 @@
     @php
       $publishers = array_get($item, 'ItemAttributes.Publisher');
       if(is_array($publishers)){
-      $publisher = implode(', ', $publishers);
+      $publisher = implode(' ', $publishers);
       }elseif(is_string($publishers)){
       $publisher = $publishers;
       }
@@ -29,7 +29,7 @@
     @php
       $brands = array_get($item, 'ItemAttributes.Brand');
       if(is_array($brands)){
-      $brand = implode(', ', $brands);
+      $brand = implode(' ', $brands);
       }elseif(is_string($brands)){
       $brand = $brands;
       }
@@ -48,7 +48,7 @@
     @php
       $authors = array_get($item, 'ItemAttributes.Author');
       if(is_array($authors)){
-      $author = implode(', ', $authors);
+      $author = implode(' ', $authors);
       }elseif(is_string($authors)){
       $author = $authors;
       }
@@ -67,7 +67,7 @@
     @php
       $creators = array_get($item, 'ItemAttributes.Creator');
       if(is_array($creators)){
-      $creator = implode(', ', $creators);
+      $creator = implode(' ', $creators);
       }elseif(is_string($creators)){
       $creator = $creators;
       }

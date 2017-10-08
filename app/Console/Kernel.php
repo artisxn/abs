@@ -27,8 +27,10 @@ class Kernel extends ConsoleKernel
     {
         //負荷分散のため時間は多少ずらす
 
-        $schedule->command('abs:random-browse')
-                 ->hourlyAt(21);
+        if (config('amazon-feature.random-browse')) {
+            $schedule->command('abs:random-browse')
+                     ->hourlyAt(21);
+        }
 
         $schedule->command('abs:recent-item')
                  ->hourlyAt(33);

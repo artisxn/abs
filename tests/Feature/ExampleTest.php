@@ -27,4 +27,11 @@ class ExampleTest extends TestCase
 
         $response->assertRedirect('/login');
     }
+
+    public function testExportRedirect()
+    {
+        $response = $this->get('/export');
+
+        $response->assertRedirect('/login');
+    }
 }

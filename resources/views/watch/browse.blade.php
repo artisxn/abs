@@ -1,8 +1,8 @@
 <h3>カテゴリー</h3>
 
-@admin
+@can('export')
 <a href="{{ route('export.index') }}" class="uk-button uk-button-default">エクスポート</a>
-@endadmin
+@endcan
 
 @if($browse_watches->count() > 0)
   <ul class="uk-list uk-list-striped">
