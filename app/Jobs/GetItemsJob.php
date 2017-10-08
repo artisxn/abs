@@ -79,11 +79,11 @@ class GetItemsJob implements ShouldQueue
                 //必ずItemの後にHistory
                 $this->createHistory($item);
 
-                cache()->put(
-                    'asin.' . $asin,
-                    $item,
-                    60 * 6
-                );
+//                cache()->put(
+//                    'asin.' . $asin,
+//                    $item,
+//                    60 * 6
+//                );
             }
         }
 
@@ -95,9 +95,11 @@ class GetItemsJob implements ShouldQueue
      */
     public function get()
     {
-        $results = retry(5, function () {
-            return AmazonProduct::items($this->asins);
-        }, 5000);
+//        $results = retry(5, function () {
+//            return AmazonProduct::items($this->asins);
+//        }, 5000);
+
+        $results = AmazonProduct::items($this->asins);
 
         $items = array_get($results, 'Items.Item');
 
