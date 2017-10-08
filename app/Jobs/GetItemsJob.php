@@ -53,8 +53,6 @@ class GetItemsJob implements ShouldQueue
     {
         $this->repository = $repository;
 
-        info(self::class);
-
         if (empty($this->asins)) {
             return [];
         }
@@ -95,19 +93,15 @@ class GetItemsJob implements ShouldQueue
      */
     public function get()
     {
-        $results = retry(5, function () {
-            return AmazonProduct::items($this->asins);
-        }, 3000);
-
-        //        $results = rescue(function () {
+        //        $results = retry(2, function () {
         //            return AmazonProduct::items($this->asins);
-        //        });
+        //        }, 3000);
 
-        if (empty($results)) {
-            $items = [];
-        } else {
-            $items = array_get($results, 'Items.Item');
-        }
+        $results = rescue(function () {
+            return AmazonProduct::items($this->asins);
+        }, []);
+
+        $items = array_get($results, 'Items.Item');
 
         return $items;
     }

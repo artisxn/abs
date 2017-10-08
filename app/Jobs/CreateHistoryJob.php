@@ -38,8 +38,6 @@ class CreateHistoryJob implements ShouldQueue
      */
     public function handle(History $history)
     {
-        info(self::class);
-
         $asin_id = array_get($this->item, 'ASIN');
 
         if (empty($asin_id)) {
