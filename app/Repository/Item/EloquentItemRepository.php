@@ -3,6 +3,7 @@
 namespace App\Repository\Item;
 
 use App\Model\Item;
+use App\Model\BrowseItem;
 
 class EloquentItemRepository implements ItemRepositoryInterface
 {
@@ -170,6 +171,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
         })->oldest()->limit($limit)->cursor();
 
         foreach ($items as $item) {
+            BrowseItem::whereItemAsin($item->asin)->delete();
             $item->delete();
         }
     }
