@@ -44,8 +44,8 @@ class Kernel extends ConsoleKernel
                  ->hourlyAt(11);
 
         $schedule->command('abs:delete-category')
-            //                 ->hourlyAt(44)
-                 ->everyTenMinutes()
+                 ->hourlyAt(44)
+            //                 ->everyTenMinutes()
                  ->when(config('amazon-feature.delete_category'));
     }
 
