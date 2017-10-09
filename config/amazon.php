@@ -2,10 +2,9 @@
 return [
     'analytics' => env('GOOGLE_ANALYTICS', ''),
 
-    'redirect_from' => env('REDIRECT_FROM'),
-    'redirect_to'   => env('REDIRECT_TO'),
-
     'csv_limit'  => env('CSV_LIMIT', 1000),
+
+    //CSVのヘッダー。ItemResourceと合わせる。
     'csv_header' => [
         'ASIN',
         'Title',
@@ -23,7 +22,6 @@ return [
         'TotalUsed',
         'Availability',
         'Updated_at',
-
         'LargeImage',
         'ImageSets',
         'DetailPageURL',
@@ -31,7 +29,7 @@ return [
 
     'login_button_img' => 'https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_390x92.png',
 
-    'form'          => [
+    'form'            => [
         'All'                => 'すべて',
         'Books'              => '本',
         'Music'              => 'ミュージック',
@@ -56,7 +54,17 @@ return [
 
     //最近のアイテムから除外するカテゴリー
     //洋書が多すぎなので除外。
-    'recent_except' => [
+    'recent_except'   => [
         52033011,
     ],
+
+    //アイテム情報を削除するカテゴリー
+    //洋書だけ多すぎなので削除していく
+    'delete_category' => [
+        52033011,
+    ],
+
+    //旧URLからのリダイレクト
+    'redirect_from'   => env('REDIRECT_FROM'),
+    'redirect_to'     => env('REDIRECT_TO'),
 ];
