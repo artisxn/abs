@@ -64,6 +64,8 @@ class BrowseJob implements ShouldQueue
 
         $browse_name = array_get($nodes, 'BrowseNode.Name');
 
+        info(self::class . ': ' . $browse_name);
+
         if (!empty($browse_name)) {
             $repository->updateOrCreate([
                 'id' => $this->browse_id,
