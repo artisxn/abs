@@ -174,7 +174,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
                        ->cursor();
 
         foreach ($items as $item) {
-            info('Delete ASIN: ' . $item->asin . '/' . $item->title);
+            //            info('Delete ASIN: ' . $item->asin . '/' . $item->title);
 
             BrowseItem::whereItemAsin($item->asin)->delete();
             $item->delete();
