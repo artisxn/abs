@@ -163,6 +163,16 @@ class EloquentItemRepository implements ItemRepositoryInterface
     /**
      * @inheritDoc
      */
+    public function deleteCategory(int $browse_id, int $limit = 1000)
+    {
+        $this->item->whereHas('browses', function ($query) use ($browse_id) {
+            $query->where('browse_id', $browse_id);
+        })->oldest()->limit($limit)->delete();
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function findOrFail(string $asin)
     {
         return $this->item->findOrFail($asin);

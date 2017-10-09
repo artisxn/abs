@@ -46,6 +46,16 @@ interface ItemRepositoryInterface
     public function create(array $item = null);
 
     /**
+     * 指定カテゴリーのアイテムを削除
+     *
+     * @param int $browse_id
+     * @param int $limit
+     *
+     * @return void
+     */
+    public function deleteCategory(int $browse_id, int $limit = 1000);
+
+    /**
      * @param string $asin
      *
      * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection
