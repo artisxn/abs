@@ -4,6 +4,7 @@ namespace App\Repository\Item;
 
 use App\Model\Item;
 use App\Model\BrowseItem;
+use App\Model\Browse;
 
 class EloquentItemRepository implements ItemRepositoryInterface
 {
@@ -166,13 +167,17 @@ class EloquentItemRepository implements ItemRepositoryInterface
      */
     public function deleteCategory(int $browse_id, int $limit = 1000)
     {
-        $items = $this->item->whereHas('browses', function ($query) use ($browse_id) {
-            $query->where('browse_id', $browse_id);
-        })->oldest()->limit($limit)->cursor();
+        $items = Browse::findOrFail($browse_id)
+                       ->items()
+                       ->oldest()
+                       ->limit($limit)
+                       ->cursor();
 
         foreach ($items as $item) {
             BrowseItem::whereItemAsin($item->asin)->delete();
             $item->delete();
+
+            info('Delete ASIN: ' . $item->asin);
         }
     }
 
