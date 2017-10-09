@@ -165,9 +165,13 @@ class EloquentItemRepository implements ItemRepositoryInterface
      */
     public function deleteCategory(int $browse_id, int $limit = 1000)
     {
-        $this->item->whereHas('browses', function ($query) use ($browse_id) {
+        $items = $this->item->whereHas('browses', function ($query) use ($browse_id) {
             $query->where('browse_id', $browse_id);
-        })->oldest()->limit($limit)->delete();
+        })->oldest()->limit($limit)->cursor();
+
+        foreach ($items as $item) {
+            $item->delete();
+        }
     }
 
     /**
