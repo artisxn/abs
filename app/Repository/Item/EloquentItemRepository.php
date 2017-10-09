@@ -167,6 +167,8 @@ class EloquentItemRepository implements ItemRepositoryInterface
      */
     public function deleteCategory(int $browse_id, int $limit = 1000)
     {
+        info('Delete Category: Start');
+
         $items = Browse::findOrFail($browse_id)
                        ->items()
             //                       ->oldest('updated_at')
@@ -179,6 +181,8 @@ class EloquentItemRepository implements ItemRepositoryInterface
             BrowseItem::whereItemAsin($item->asin)->delete();
             $item->delete();
         }
+
+        info('Delete Category: End');
     }
 
     /**
