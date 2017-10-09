@@ -36,6 +36,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\Redirect::class,
             \App\Http\Middleware\FeatureClosed::class,
+            \App\Http\Middleware\FeatureSingleUser::class,
         ],
 
         'api' => [
