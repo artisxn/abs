@@ -169,15 +169,15 @@ class EloquentItemRepository implements ItemRepositoryInterface
     {
         $items = Browse::findOrFail($browse_id)
                        ->items()
-                       ->oldest()
+                       ->oldest('updated_at')
                        ->limit($limit)
                        ->cursor();
 
         foreach ($items as $item) {
+            info('Delete ASIN: ' . $item->asin . '/' . $item->title);
+
             BrowseItem::whereItemAsin($item->asin)->delete();
             $item->delete();
-
-            info('Delete ASIN: ' . $item->asin);
         }
     }
 
