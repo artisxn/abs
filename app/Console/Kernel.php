@@ -27,10 +27,9 @@ class Kernel extends ConsoleKernel
     {
         //負荷分散のため時間は多少ずらす
 
-        if (config('amazon-feature.random_browse')) {
-            $schedule->command('abs:random-browse')
-                     ->hourlyAt(21);
-        }
+        $schedule->command('abs:random-browse')
+                 ->hourlyAt(21)
+                 ->when(config('amazon-feature.random_browse'));
 
         $schedule->command('abs:recent-item')
                  ->hourlyAt(33);
@@ -44,10 +43,9 @@ class Kernel extends ConsoleKernel
         $schedule->command('abs:old-item')
                  ->hourlyAt(11);
 
-        if (config('amazon-feature.delete_category')) {
-            $schedule->command('abs:delete-category')
-                     ->hourlyAt(44);
-        }
+        $schedule->command('abs:delete-category')
+                 ->hourlyAt(44)
+                 ->when(config('amazon-feature.delete_category'));
     }
 
     /**
