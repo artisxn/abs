@@ -55,6 +55,7 @@ Route::prefix('featured')->namespace('Featured')->group(function () {
 
 Route::view('privacy', 'pages.privacy')->name('privacy');
 Route::view('usage', 'pages.usage')->name('usage');
+Route::view('plan', 'pages.plan')->name('plan');
 
 
 Route::group(['prefix' => 'admin'], function () {
