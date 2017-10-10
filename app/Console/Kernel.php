@@ -32,7 +32,8 @@ class Kernel extends ConsoleKernel
                  ->when(config('amazon-feature.random_browse'));
 
         $schedule->command('abs:recent-item')
-                 ->hourlyAt(33);
+                 ->hourlyAt(33)
+                 ->when(config('amazon-feature.recent_item'));
 
         $schedule->command('abs:watch-item')
                  ->dailyAt('00:15')
@@ -42,7 +43,8 @@ class Kernel extends ConsoleKernel
                  ->hourlyAt(52);
 
         $schedule->command('abs:old-item')
-                 ->hourlyAt(11);
+                 ->hourlyAt(11)
+                 ->when(config('amazon-feature.old_item'));
 
         $schedule->command('abs:delete-category')
                  ->hourlyAt(44)

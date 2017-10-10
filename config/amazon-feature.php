@@ -25,6 +25,16 @@ return [
     'random_browse'   => env('FEATURE_RANDOM_BROWSE', true),
 
     /**
+     * 最近のアイテム
+     */
+    'recent_item'   => env('FEATURE_RECENT_ITEM', true),
+
+    /**
+     * 更新日の古いアイテムを更新
+     */
+    'old_item'   => env('FEATURE_OLD_ITEM', true),
+
+    /**
      * 除外リスト(amazon.delete_category)のカテゴリーのアイテム情報をDBから削除
      */
     'delete_category' => env('FEATURE_DELETE_CATEGORY', true),
