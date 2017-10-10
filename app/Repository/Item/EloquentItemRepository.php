@@ -171,7 +171,6 @@ class EloquentItemRepository implements ItemRepositoryInterface
 
         $items = Browse::findOrFail($browse_id)
                        ->items()
-            //                       ->oldest('updated_at')
                        ->limit($limit)
                        ->cursor();
 

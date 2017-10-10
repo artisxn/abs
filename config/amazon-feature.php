@@ -28,4 +28,16 @@ return [
      * 除外リスト(amazon.delete_category)のカテゴリーのアイテム情報をDBから削除
      */
     'delete_category' => env('FEATURE_DELETE_CATEGORY', true),
+
+    /**
+     * 海外のアイテム情報も集める。ウォッチリストのアイテムのみ。
+     */
+    'world' => env('FEATURE_WORLD', false),
+
+    /**
+     * ウォッチリストのアイテムを1日1回更新
+     * 上のworld有効時に不要ならオフ
+     */
+    'watch_item'   => env('FEATURE_WATCH_ITEM', true),
+
 ];
