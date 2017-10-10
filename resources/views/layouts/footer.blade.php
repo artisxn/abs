@@ -1,7 +1,7 @@
 <footer>
   <nav class="uk-navbar-container" uk-navbar>
     <div class="uk-navbar-left">
-      <div class="uk-navbar-item uk-logo">{{ config('app.name') }}</div>
+      <a href="{{ route('index') }}" class="uk-navbar-item uk-logo">{{ config('app.name') }}</a>
 
       <ul class="uk-navbar-nav">
         <li><a href="{{ route('index') }}">ホーム</a></li>
@@ -17,4 +17,8 @@
       </ul>
     </div>
   </nav>
+
+  <div class="uk-text-center uk-margin-bottom">
+    <a href="https://abs.kawax.biz/" class="uk-button uk-button-text" target="_blank">©ABS</a>
+  </div>
 </footer>
