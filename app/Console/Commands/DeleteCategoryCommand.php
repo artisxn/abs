@@ -41,12 +41,10 @@ class DeleteCategoryCommand extends Command
      */
     public function handle(Item $repository)
     {
-        info('Delete Category');
-
         $cats = config('amazon.delete_category');
 
         foreach ($cats as $cat) {
-            $repository->deleteCategory($cat, 10000);
+            $repository->deleteCategory($cat, 5000);
         }
     }
 }

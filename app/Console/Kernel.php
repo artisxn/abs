@@ -35,7 +35,8 @@ class Kernel extends ConsoleKernel
                  ->hourlyAt(33);
 
         $schedule->command('abs:watch-item')
-                 ->dailyAt('00:15');
+                 ->dailyAt('00:15')
+                 ->when(config('amazon-feature.watch_item'));
 
         $schedule->command('abs:count-info')
                  ->hourlyAt(52);
@@ -45,7 +46,6 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('abs:delete-category')
                  ->hourlyAt(44)
-            //                 ->everyTenMinutes()
                  ->when(config('amazon-feature.delete_category'));
     }
 
