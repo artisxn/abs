@@ -181,7 +181,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
             $browseItem->delete();
 
             $item = $this->item->find($browseItem->item_asin);
-            if ($item->exists) {
+            if (!empty($item) and $item->exists()) {
                 info('Delete ASIN: ' . $item->asin . '/' . $item->title);
 
                 $item->delete();
