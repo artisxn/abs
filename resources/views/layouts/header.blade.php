@@ -29,7 +29,7 @@
     <nav class="uk-navbar-container uk-light abs-navbar-container-sub uk-padding-large uk-padding-remove-vertical"
          uk-navbar>
       <div class="uk-navbar-left">
-        <ul class="uk-navbar-nav uk-text-bold">
+        <ul class="uk-navbar-nav">
           <li>
             <a href="{{ route('watch') }}">
               <span uk-icon="icon: list"></span>
