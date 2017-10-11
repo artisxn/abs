@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "appstract/laravel-blade-directives",
-            "version": "0.4.5",
+            "version": "0.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/appstract/laravel-blade-directives.git",
-                "reference": "d27d2afe01bf9b97e18ff2c9ac7e691844a12a7b"
+                "reference": "0302664c5c2176872bd42312a69218cf342beaa8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/appstract/laravel-blade-directives/zipball/d27d2afe01bf9b97e18ff2c9ac7e691844a12a7b",
-                "reference": "d27d2afe01bf9b97e18ff2c9ac7e691844a12a7b",
+                "url": "https://api.github.com/repos/appstract/laravel-blade-directives/zipball/0302664c5c2176872bd42312a69218cf342beaa8",
+                "reference": "0302664c5c2176872bd42312a69218cf342beaa8",
                 "shasum": ""
             },
             "require": {
@@ -57,7 +57,7 @@
                 "appstract",
                 "laravel-blade-directives"
             ],
-            "time": "2017-10-04T09:26:16+00:00"
+            "time": "2017-10-09T09:22:20+00:00"
         },
         {
             "name": "arrilot/laravel-widgets",
@@ -1551,16 +1551,16 @@
         },
         {
             "name": "justinrainbow/json-schema",
-            "version": "5.2.4",
+            "version": "5.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/justinrainbow/json-schema.git",
-                "reference": "7ccb0e67ea8ace0f84c40900ca3c8a234467628c"
+                "reference": "0d4fda8efdf216ade084a7f0aad5637572ce9835"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/7ccb0e67ea8ace0f84c40900ca3c8a234467628c",
-                "reference": "7ccb0e67ea8ace0f84c40900ca3c8a234467628c",
+                "url": "https://api.github.com/repos/justinrainbow/json-schema/zipball/0d4fda8efdf216ade084a7f0aad5637572ce9835",
+                "reference": "0d4fda8efdf216ade084a7f0aad5637572ce9835",
                 "shasum": ""
             },
             "require": {
@@ -1613,7 +1613,7 @@
                 "json",
                 "schema"
             ],
-            "time": "2017-10-04T20:57:36+00:00"
+            "time": "2017-10-10T13:22:37+00:00"
         },
         {
             "name": "larapack/doctrine-support",
@@ -2831,16 +2831,16 @@
         },
         {
             "name": "revolution/laravel-amazon-product-api",
-            "version": "0.2.3",
+            "version": "0.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-amazon-product-api.git",
-                "reference": "d013fe850dbb1b885685ee198c3872a2a4c86fbe"
+                "reference": "6446a3c8ba275a64a53be0edd32a5b8efab9e4ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-amazon-product-api/zipball/d013fe850dbb1b885685ee198c3872a2a4c86fbe",
-                "reference": "d013fe850dbb1b885685ee198c3872a2a4c86fbe",
+                "url": "https://api.github.com/repos/kawax/laravel-amazon-product-api/zipball/6446a3c8ba275a64a53be0edd32a5b8efab9e4ea",
+                "reference": "6446a3c8ba275a64a53be0edd32a5b8efab9e4ea",
                 "shasum": ""
             },
             "require": {
@@ -2884,7 +2884,7 @@
                 "amazon",
                 "laravel"
             ],
-            "time": "2017-09-25T14:14:51+00:00"
+            "time": "2017-10-11T05:42:41+00:00"
         },
         {
             "name": "revolution/socialite-amazon",
@@ -4525,16 +4525,16 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "v2.0.6",
+            "version": "v2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "322de1489d7b5a09b7a04758e2dd71586a07b046"
+                "reference": "29127c21d72ab5bff53ed3b8eb914c0059c77763"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/322de1489d7b5a09b7a04758e2dd71586a07b046",
-                "reference": "322de1489d7b5a09b7a04758e2dd71586a07b046",
+                "url": "https://api.github.com/repos/laravel/dusk/zipball/29127c21d72ab5bff53ed3b8eb914c0059c77763",
+                "reference": "29127c21d72ab5bff53ed3b8eb914c0059c77763",
                 "shasum": ""
             },
             "require": {
@@ -4582,20 +4582,20 @@
                 "testing",
                 "webdriver"
             ],
-            "time": "2017-10-02T14:18:54+00:00"
+            "time": "2017-10-09T16:10:59+00:00"
         },
         {
             "name": "laravel/homestead",
-            "version": "v6.2.2",
+            "version": "v6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/homestead.git",
-                "reference": "f40f5f723880b5d7f64833c85da77cf0a25adf0c"
+                "reference": "588bff42937c1392838af58b122a568508b55567"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/homestead/zipball/f40f5f723880b5d7f64833c85da77cf0a25adf0c",
-                "reference": "f40f5f723880b5d7f64833c85da77cf0a25adf0c",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/588bff42937c1392838af58b122a568508b55567",
+                "reference": "588bff42937c1392838af58b122a568508b55567",
                 "shasum": ""
             },
             "require": {
@@ -4632,7 +4632,7 @@
                 }
             ],
             "description": "A virtual machine for web artisans.",
-            "time": "2017-09-14T14:44:24+00:00"
+            "time": "2017-10-09T17:43:46+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -5304,16 +5304,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "6.4.0",
+            "version": "6.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "a1bcaca096998de32c29535fdd2dea0c475e8f61"
+                "reference": "b770d8ba7e60295ee91d69d5a5e01ae833cac220"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a1bcaca096998de32c29535fdd2dea0c475e8f61",
-                "reference": "a1bcaca096998de32c29535fdd2dea0c475e8f61",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/b770d8ba7e60295ee91d69d5a5e01ae833cac220",
+                "reference": "b770d8ba7e60295ee91d69d5a5e01ae833cac220",
                 "shasum": ""
             },
             "require": {
@@ -5384,7 +5384,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2017-10-06T03:14:57+00:00"
+            "time": "2017-10-07T17:53:53+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
