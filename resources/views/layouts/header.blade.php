@@ -11,18 +11,43 @@
         <li><a href="{{ route('index') }}">ホーム</a></li>
         <li><a href="{{ route('usage') }}">使い方</a></li>
         <li><a href="{{ route('browselist') }}">ブラウズリスト</a></li>
-        @auth
-          <li><a href="{{ route('watch') }}">ウォッチリスト</a></li>
-          <li><a href="{{ route('logout') }}">ログアウト</a></li>
-          @else
-            <li>
-              <a href="{{ route('login') }}" rel="nofollow">
-                <i class="fa fa-amazon" aria-hidden="true"></i>
-                Amazonアカウントでログイン</a>
-            </li>
-            @endauth
+        @guest
+          <li>
+            <a href="{{ route('login') }}" rel="nofollow">
+              <i class="fa fa-amazon" aria-hidden="true"></i>
+              Amazonアカウントでログイン</a>
+          </li>
+        @endguest
       </ul>
 
     </div>
   </nav>
+
+  @auth
+    <nav class="uk-navbar-container uk-light abs-navbar-container-sub uk-padding-large uk-padding-remove-vertical" uk-navbar>
+      <div class="uk-navbar-left">
+        <ul class="uk-navbar-nav uk-text-bold">
+          <li>
+            <a href="{{ route('watch') }}">
+              <span uk-icon="icon: list"></span>
+              ウォッチリスト
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span uk-icon="icon: settings"></span>
+              設定
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+      <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
+          <li><a href="{{ route('logout') }}">ログアウト</a></li>
+        </ul>
+      </div>
+    </nav>
+  @endauth
 </header>

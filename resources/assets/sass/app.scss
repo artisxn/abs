@@ -7,7 +7,12 @@
 .abs {
   &-navbar {
     &-container:not(.uk-navbar-transparent) {
-      background: linear-gradient(to left, #28a5f5, #1e87f0);
+      background: linear-gradient(to right, #28a5f5, #1e87f0);
+    }
+
+    &-container-sub:not(.uk-navbar-transparent) {
+      height: 3.0rem;
+      background: linear-gradient(to left, lighten(#28a5f5, 10%), lighten(#1e87f0, 5%));
     }
   }
 }
