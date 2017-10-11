@@ -5,26 +5,29 @@
         <span uk-icon="icon: bolt"></span>
         {{ config('app.name') }}
       </a>
-    </div>
-    <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
         <li><a href="{{ route('index') }}">ホーム</a></li>
         <li><a href="{{ route('usage') }}">使い方</a></li>
         <li><a href="{{ route('browselist') }}">ブラウズリスト</a></li>
-        @guest
+      </ul>
+    </div>
+
+    @guest
+      <div class="uk-navbar-right">
+        <ul class="uk-navbar-nav">
           <li>
             <a href="{{ route('login') }}" rel="nofollow">
               <i class="fa fa-amazon" aria-hidden="true"></i>
               Amazonアカウントでログイン</a>
           </li>
-        @endguest
-      </ul>
-
-    </div>
+        </ul>
+      </div>
+    @endguest
   </nav>
 
   @auth
-    <nav class="uk-navbar-container uk-light abs-navbar-container-sub uk-padding-large uk-padding-remove-vertical" uk-navbar>
+    <nav class="uk-navbar-container uk-light abs-navbar-container-sub uk-padding-large uk-padding-remove-vertical"
+         uk-navbar>
       <div class="uk-navbar-left">
         <ul class="uk-navbar-nav uk-text-bold">
           <li>
