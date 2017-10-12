@@ -79,9 +79,11 @@ class ItemJob implements ShouldQueue
      */
     public function get()
     {
-        $results = retry(5, function () {
-            return AmazonProduct::setIdType('ASIN')->item($this->asin);
-        }, 5000);
+        $results = rescue(function () {
+            retry(5, function () {
+                return AmazonProduct::setIdType('ASIN')->item($this->asin);
+            }, 5000);
+        });
 
         $item = array_get($results, 'Items.Item');
 
