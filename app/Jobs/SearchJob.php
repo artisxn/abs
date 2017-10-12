@@ -54,11 +54,9 @@ class SearchJob implements ShouldQueue
 
         $page = $this->page;
 
-        $results = rescue(function () {
-            retry(3, function () {
-                return AmazonProduct::search($this->category, $this->keyword, $this->page);
-            }, 5000);
-        });
+        $results = retry(3, function () {
+            return AmazonProduct::search($this->category, $this->keyword, $this->page);
+        }, 5000);
 
         //        $results = rescue(function () {
         //            return AmazonProduct::search($this->category, $this->keyword, $this->page);
