@@ -38,13 +38,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
 
-        $this->middleware(function ($request, $next) {
-            if (!config('amazon-feature.password_login')) {
-                return abort(404);
-            }
-
-            return $next($request);
-        });
+        $this->middleware('password_login');
     }
 
     public function username()

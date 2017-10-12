@@ -14,7 +14,7 @@ class CreateWorldItemsTable extends Migration
     public function up()
     {
         Schema::create('world_items', function (Blueprint $table) {
-            $table->bigInteger('id');
+            $table->bigIncrements('id');
             $table->string('asin', 10)->index();
             $table->string('ean', 13)->index()->nullable();
             $table->string('country', 2)->index();

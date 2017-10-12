@@ -71,6 +71,11 @@ Route::prefix('featured')->namespace('Featured')->group(function () {
 });
 
 
+Route::prefix('world')->namespace('World')->group(function () {
+    Route::name('world.index')->get('/', 'WorldController@index');
+});
+
+
 Route::view('privacy', 'pages.privacy')->name('privacy');
 Route::view('usage', 'pages.usage')->name('usage');
 Route::view('plan', 'pages.plan')->name('plan');

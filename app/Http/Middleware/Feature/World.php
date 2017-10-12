@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middleware\Feature;
 
 use Closure;
 
 /**
- * 機能スイッチ：非公開
+ * 機能スイッチ：世界
  *
- * Class FeatureClosed
+ * Class World
  * @package App\Http\Middleware
  */
-class FeatureClosed
+class World
 {
     /**
      * Handle an incoming request.
@@ -22,10 +22,8 @@ class FeatureClosed
      */
     public function handle($request, Closure $next)
     {
-        if (config('amazon-feature.closed') and auth()->check() === false) {
-            if (!$request->is('login') and !$request->is('callback')) {
-                return redirect()->route('login');
-            }
+        if (!config('amazon-feature.world')) {
+            return abort(404);
         }
 
         return $next($request);

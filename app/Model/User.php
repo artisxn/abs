@@ -48,6 +48,18 @@ class User extends \TCG\Voyager\Models\User
         return $this->hasMany(BrowseWatch::class);
     }
 
+    public function worldItems()
+    {
+        return $this->hasManyThrough(
+            WorldItem::class,
+            Watch::class,
+            'user_id',
+            'asin',
+            'id',
+            'asin_id'
+        );
+    }
+
     /**
      * @return bool
      */

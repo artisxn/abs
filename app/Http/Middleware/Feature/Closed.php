@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middleware\Feature;
 
 use Closure;
 
 /**
- * 機能スイッチ：シングルユーザー
+ * 機能スイッチ：非公開
  *
+ * Class Closed
  * @package App\Http\Middleware
  */
-class FeatureSingleUser
+class Closed
 {
     /**
      * Handle an incoming request.
@@ -21,11 +22,9 @@ class FeatureSingleUser
      */
     public function handle($request, Closure $next)
     {
-        if (config('amazon-feature.single_user')) {
-            if (auth()->check()) {
-                if (auth()->user()->id != config('amazon-feature.single_user_id')) {
-                    abort(404);
-                }
+        if (config('amazon-feature.closed') and auth()->check() === false) {
+            if (!$request->is('login') and !$request->is('callback')) {
+                return redirect()->route('login');
             }
         }
 

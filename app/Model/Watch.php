@@ -37,4 +37,9 @@ class Watch extends Model
             'asin'
         );
     }
+
+    public function worldItems()
+    {
+        return $this->hasMany(WorldItem::class, 'asin', 'asin_id');
+    }
 }

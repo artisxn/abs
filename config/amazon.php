@@ -15,7 +15,7 @@ return [
     ],
 
 
-    'country' => [
+    'locales' => [
         'BR' => [
             'name' => 'Brazil',
             'tld'  => 'com.br',
