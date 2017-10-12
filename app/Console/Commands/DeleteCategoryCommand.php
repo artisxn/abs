@@ -44,7 +44,7 @@ class DeleteCategoryCommand extends Command
         $cats = config('amazon.delete_category');
 
         foreach ($cats as $cat) {
-            $repository->deleteCategory($cat, 1000);
+            $repository->deleteCategory($cat, 5000);
         }
     }
 }

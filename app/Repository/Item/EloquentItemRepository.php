@@ -167,7 +167,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
      */
     public function deleteCategory(int $browse_id, int $limit = 1000)
     {
-        info('Delete Category: Start');
+        info('Delete Category: Start ' . $browse_id);
 
         $browseItems = Browse::findOrFail($browse_id)
                              ->browseItems()
@@ -179,7 +179,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
 
             $item = $this->item->find($browseItem->item_asin);
             if (!empty($item) and $item->exists()) {
-                info('Delete ASIN: ' . $item->asin . '/' . $item->title);
+                //                info('Delete ASIN: ' . $item->asin . '/' . $item->title);
 
                 $item->delete();
 
@@ -187,7 +187,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
             }
         }
 
-        info('Delete Category: End');
+        info('Delete Category: End ' . $browse_id);
     }
 
     /**
