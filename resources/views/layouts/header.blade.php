@@ -36,6 +36,14 @@
               ウォッチリスト
             </a>
           </li>
+          @can('export')
+            <li>
+              <a href="{{ route('export.index') }}">
+                <span uk-icon="icon: download"></span>
+                エクスポート
+              </a>
+            </li>
+          @endcan
           <li>
             <a href="#">
               <span uk-icon="icon: settings"></span>

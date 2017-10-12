@@ -21,9 +21,11 @@ class FeatureSingleUser
      */
     public function handle($request, Closure $next)
     {
-        if (config('amazon-feature.single_user') and auth()->check()) {
-            if (auth()->user()->id != config('amazon-feature.single_user_id')) {
-                abort(404);
+        if (config('amazon-feature.single_user')) {
+            if (auth()->check()) {
+                if (auth()->user()->id != config('amazon-feature.single_user_id')) {
+                    abort(404);
+                }
             }
         }
 

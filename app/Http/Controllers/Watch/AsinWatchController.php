@@ -16,7 +16,7 @@ class AsinWatchController extends Controller
      */
     public function index()
     {
-        //
+        return view('watch.asin.index');
     }
 
     /**

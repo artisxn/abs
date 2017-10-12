@@ -12,6 +12,8 @@ use App\Http\ViewComposers\HistoryCountViewComposer;
 use App\Http\ViewComposers\BrowseCountViewComposer;
 use App\Http\ViewComposers\RecentItemViewComposer;
 use App\Http\ViewComposers\PickupViewComposer;
+use App\Http\ViewComposers\AsinWatchViewComposer;
+use App\Http\ViewComposers\BrowseWatchViewComposer;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
@@ -33,6 +35,10 @@ class ViewComposerServiceProvider extends ServiceProvider
         View::composer('pages.usage', ItemCountViewComposer::class);
 
         View::composer('pages.usage', HistoryCountViewComposer::class);
+
+        View::composer(['watch.index', 'watch.asin.index'], AsinWatchViewComposer::class);
+
+        View::composer(['watch.index', 'watch.browse.index'], BrowseWatchViewComposer::class);
     }
 
     /**

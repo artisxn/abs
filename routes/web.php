@@ -29,14 +29,32 @@ Route::name('login')->get('login', 'LoginController@login');
 Route::get('callback', 'LoginController@callback');
 Route::name('logout')->get('logout', 'LoginController@logout');
 
-Route::middleware('auth')->namespace('Watch')->group(function () {
-    Route::resource('asin-watch', 'AsinWatchController')
-         ->only(['store', 'destroy']);
+Route::middleware('auth')->prefix('watch')->namespace('Watch')->group(function () {
+    Route::resource('asin', 'AsinWatchController')
+         ->only(['index', 'store', 'destroy'])
+         ->names([
+             'index'   => 'watch.asin.index',
+             'store'   => 'watch.asin.store',
+             'destroy' => 'watch.asin.destroy',
+         ])
+         ->parameters([
+             'asin' => 'asin-watch',
+         ]);
 
-    Route::resource('browse-watch', 'BrowseWatchController')
-         ->only(['store', 'destroy']);
+    Route::resource('browse', 'BrowseWatchController')
+         ->only(['index', 'store', 'destroy'])
+         ->names([
+             'index'   => 'watch.browse.index',
+             'store'   => 'watch.browse.store',
+             'destroy' => 'watch.browse.destroy',
+         ])
+         ->parameters([
+             'browse' => 'browse-watch',
+         ]);
 
-    Route::name('watch')->get('watch', 'WatchController@index');
+    Route::name('watch')->get('/', 'WatchController@index');
+
+    Route::name('watch.import')->post('import', 'ImportController');
 });
 
 Route::middleware('auth')->namespace('Download')->group(function () {
@@ -56,6 +74,12 @@ Route::prefix('featured')->namespace('Featured')->group(function () {
 Route::view('privacy', 'pages.privacy')->name('privacy');
 Route::view('usage', 'pages.usage')->name('usage');
 Route::view('plan', 'pages.plan')->name('plan');
+
+
+Route::prefix('auth')->namespace('Auth')->group(function () {
+    Route::get('login', 'LoginController@showLoginForm')->name('auth.login.form');
+    Route::post('login', 'LoginController@login')->name('auth.login.post');
+});
 
 
 Route::group(['prefix' => 'admin'], function () {

@@ -17,7 +17,7 @@ class BrowseWatchController extends Controller
      */
     public function index()
     {
-        //
+        return view('watch.browse.index');
     }
 
     /**

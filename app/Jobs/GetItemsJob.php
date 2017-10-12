@@ -100,7 +100,7 @@ class GetItemsJob implements ShouldQueue
         //        }, 3000);
 
         $results = rescue(function () {
-            return AmazonProduct::items($this->asins);
+            return AmazonProduct::setIdType('ASIN')->items($this->asins);
         }, []);
 
         $items = array_get($results, 'Items.Item');

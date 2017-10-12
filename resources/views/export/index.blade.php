@@ -30,6 +30,7 @@
 
         <div class="uk-form-controls">
           <input name="limit" value="{{ old('limit', 1000) }}" class="uk-input" type="number" placeholder="件数">
+          <small class="uk-text-muted">多すぎると時間がかかります</small>
         </div>
       </div>
 

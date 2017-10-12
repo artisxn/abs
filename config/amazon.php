@@ -11,10 +11,11 @@ return [
     //洋書だけ多すぎなので削除していく
     'delete_category' => [
         52033011,
+        52231011,
     ],
 
 
-    'locale' => [
+    'country' => [
         'BR' => [
             'name' => 'Brazil',
             'tld'  => 'com.br',
