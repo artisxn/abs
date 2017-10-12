@@ -60,7 +60,7 @@ return [
     'world_watch_item_user_id' => env('FEATURE_WORLD_WATCH_ITEM_USER_ID', 1),
     'world_watch_item_locales' => [
         'JP',
-//        'US',
+        //        'US',
     ],
 
     /**
@@ -74,5 +74,9 @@ return [
      */
     'jan_import'               => env('FEATURE_JAN_IMPORT', false),
 
+    /**
+     * プランページ
+     */
+    'plan'                     => env('FEATURE_PLAN', false),
 
 ];

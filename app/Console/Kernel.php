@@ -49,6 +49,15 @@ class Kernel extends ConsoleKernel
         $schedule->command('abs:delete-category')
                  ->hourlyAt(44)
                  ->when(config('amazon-feature.delete_category'));
+
+        $schedule->command('abs:world-watch')
+                 ->dailyAt('07:10')
+                 ->when(config('amazon-feature.world_watch_item'));
+
+        //優先度の高いものは多く更新
+        $schedule->command('abs:world-watch --priority=1')
+                 ->twiceDaily(1, 13)
+                 ->when(config('amazon-feature.world_watch_item'));
     }
 
     /**

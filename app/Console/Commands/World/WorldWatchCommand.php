@@ -14,7 +14,7 @@ class WorldWatchCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'abs:world-watch';
+    protected $signature = 'abs:world-watch {--P|priority=0}';
 
     /**
      * The console command description.
@@ -43,11 +43,14 @@ class WorldWatchCommand extends Command
         //指定のユーザーIDのみ
         $user = User::findOrFail(config('amazon-feature.world_watch_item_user_id'));
 
-        $locales = config('amazon-feature.world_watch_item_locales');
+        $priority = $this->option('priority');
+        info('Priority: ' . $priority);
 
-        $asins = $user->watches()->pluck('asin_id');
+        $asins = $user->watches()->where('priority', '>=', $priority)->pluck('asin_id');
 
         info('World Watch: ' . $asins->count());
+
+        $locales = config('amazon-feature.world_watch_item_locales');
 
         $delay = 1;
 

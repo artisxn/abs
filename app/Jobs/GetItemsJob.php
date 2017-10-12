@@ -63,11 +63,9 @@ class GetItemsJob implements ShouldQueue
             return [];
         }
 
-        $items = rescue(function () {
-            return $this->get();
-        });
+        $items = $this->get();
 
-        if (empty($items) or array_has(array_first($items), 'ASIN') === false) {
+        if (empty($items)) {
             return [];
         }
 
@@ -101,7 +99,7 @@ class GetItemsJob implements ShouldQueue
 
         $results = rescue(function () {
             return AmazonProduct::setIdType('ASIN')->items($this->asins);
-        }, []);
+        });
 
         $items = array_get($results, 'Items.Item');
 

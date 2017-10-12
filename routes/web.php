@@ -71,14 +71,18 @@ Route::prefix('featured')->namespace('Featured')->group(function () {
 });
 
 
-Route::prefix('world')->namespace('World')->group(function () {
-    Route::name('world.index')->get('/', 'WorldController@index');
+Route::namespace('World')->group(function () {
+    Route::resource('world', 'WorldController')
+         ->only(['index']);
 });
 
 
 Route::view('privacy', 'pages.privacy')->name('privacy');
 Route::view('usage', 'pages.usage')->name('usage');
-Route::view('plan', 'pages.plan')->name('plan');
+
+if (config('amazon-feature.plan')) {
+    Route::view('plan', 'pages.plan')->name('plan');
+}
 
 
 Route::prefix('auth')->namespace('Auth')->group(function () {

@@ -72,6 +72,9 @@ class SaveJob implements ShouldQueue
             'asin_id' => $asin,
         ]);
 
+        //優先度。最初にインポートする時だけ1にする。
+        $watch->priority = config('amazon.default_priority', 0);
+
         $user->watches()->save($watch);
     }
 }

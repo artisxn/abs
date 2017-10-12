@@ -7,6 +7,9 @@
       </a>
       <ul class="uk-navbar-nav">
         <li><a href="{{ route('index') }}">ホーム</a></li>
+        @feature('plan')
+        <li><a href="{{ route('plan') }}">プラン</a></li>
+        @endfeature
         <li><a href="{{ route('usage') }}">使い方</a></li>
         <li><a href="{{ route('browselist') }}">ブラウズリスト</a></li>
       </ul>
@@ -36,6 +39,14 @@
               ウォッチリスト
             </a>
           </li>
+          @feature('plan')
+          <li>
+            <a href="{{ route('world.index') }}">
+              <span uk-icon="icon: world"></span>
+              ワールド
+            </a>
+          </li>
+          @endfeature
           @can('export')
             <li>
               <a href="{{ route('export.index') }}">

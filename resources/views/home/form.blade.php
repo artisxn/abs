@@ -1,4 +1,4 @@
-<div class="uk-section">
+<div class="uk-section uk-section-xsmall">
 
   <form action="{{ route('search') }}" method="get" class="uk-grid-small" uk-grid>
     <div class="uk-width-1-4">

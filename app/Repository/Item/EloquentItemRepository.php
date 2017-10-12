@@ -182,6 +182,8 @@ class EloquentItemRepository implements ItemRepositoryInterface
                 info('Delete ASIN: ' . $item->asin . '/' . $item->title);
 
                 $item->delete();
+
+                cache()->forget('asin.' . $item->asin);
             }
         }
 

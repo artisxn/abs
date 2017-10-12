@@ -66,6 +66,9 @@ return [
         ],
     ],
 
+    'default_priority' => env('DEFAULT_PRIORITY', 0),
+
+
     'csv_limit'  => env('CSV_LIMIT', 1000),
 
     //CSVのヘッダー。ItemResourceと合わせる。
