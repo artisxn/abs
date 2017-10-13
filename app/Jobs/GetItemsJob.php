@@ -51,7 +51,7 @@ class GetItemsJob implements ShouldQueue
      */
     public function handle(Item $repository): array
     {
-        info(self::class);
+        //        info(self::class);
 
         $this->repository = $repository;
 
