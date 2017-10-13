@@ -12,7 +12,7 @@
 
     <table class="uk-table uk-table-striped uk-table-hover uk-table-divider uk-table-small">
       <thead>
-      <tr>
+      <tr class="uk-text-nowrap">
         <th>ASIN</th>
         <th>国</th>
         <th>タイトル</th>
@@ -26,7 +26,7 @@
       <tbody>
       @foreach($world_items as $world_item)
         <tr>
-          <td>{{ $world_item->asin }}</td>
+          <td><a href="{{ route('asin', $world_item->asin) }}">{{ $world_item->asin }}</a></td>
           <td>{{ $world_item->country }}</td>
           <td>{{ $world_item->title }}</td>
           <td>{{ $world_item->availability }}</td>

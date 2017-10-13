@@ -2,7 +2,10 @@
 
 @section('title', 'ウォッチリスト | ')
 
+
 @section('content')
+
+  @include('home.form')
 
   <h1 class="uk-heading-divider">ウォッチリスト</h1>
 

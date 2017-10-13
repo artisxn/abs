@@ -11,6 +11,8 @@
 
 @section('content')
 
+  @include('home.form')
+
   @empty($alert_message)
     @include('item.watchlist')
 

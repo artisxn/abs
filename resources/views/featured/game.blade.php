@@ -4,6 +4,8 @@
 
 @section('content')
 
+  @include('home.form')
+
   <h1 class="uk-heading-divider">特集ページ：ゲーム</h1>
 
   <div class="uk-section uk-section-primary uk-light uk-padding">

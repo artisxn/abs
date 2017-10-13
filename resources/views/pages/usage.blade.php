@@ -2,9 +2,9 @@
 
 @section('title', '使い方' . ' | ')
 
-
 @section('content')
 
+  @include('home.form')
 
   <h2 class="uk-heading-divider">使い方</h2>
 

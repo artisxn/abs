@@ -2,6 +2,8 @@
 
 @section('content')
 
+  @include('home.form')
+
   @include('home.about')
 
   @include('home.pickup')

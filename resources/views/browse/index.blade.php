@@ -5,6 +5,8 @@
 
 @section('content')
 
+  @include('home.form')
+
   @include('browse.browse-watch')
 
 

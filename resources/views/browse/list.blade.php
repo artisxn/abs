@@ -4,6 +4,7 @@
 
 @section('content')
 
+  @include('home.form')
 
   <h1 class="uk-heading-divider">ブラウズリスト</h1>
 

@@ -4,6 +4,8 @@
 
 @section('content')
 
+  @include('home.form')
+
   <h1 class="uk-heading-divider">カテゴリーウォッチリスト</h1>
 
   <div class="uk-grid-divider" uk-grid>

@@ -14,7 +14,7 @@ trait PriceFormatTrait
         if (empty($price)) {
             $formatted = '';
         } else {
-            $formatted = '￥ ' . number_format($price);
+            $formatted = '￥' . number_format($price);
         }
 
         return $formatted;

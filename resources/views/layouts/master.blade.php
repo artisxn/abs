@@ -22,10 +22,6 @@
 
   <main class="uk-container">
 
-    @routeisnot('export.index')
-      @include('home.form')
-    @endrouteisnot
-
     @yield('content')
 
   </main>

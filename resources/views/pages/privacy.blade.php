@@ -2,9 +2,9 @@
 
 @section('title', 'プライバシーポリシー' . ' | ')
 
-
 @section('content')
 
+  @include('home.form')
 
   <h2 class="uk-heading-divider">プライバシーポリシー</h2>
 
