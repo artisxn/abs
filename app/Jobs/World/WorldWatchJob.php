@@ -154,7 +154,7 @@ class WorldWatchJob implements ShouldQueue
         $total_used = array_get($item, 'OfferSummary.TotalUsed');
         $editorial_review = array_get($item, 'EditorialReviews.EditorialReview.Content');
 
-        $availability = array_get($item, 'Offers.Offer.OfferListing.Availability');
+        $availability = array_get($item, 'Offers.Offer.OfferListing.Availability', '');
 
         $ava = Availability::firstOrCreate(compact('availability'));
 
