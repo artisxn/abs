@@ -95,7 +95,7 @@ class ItemJob implements ShouldQueue
 
         $new_item = $this->itemRepository->create($item);
 
-        if(empty($new_item)){
+        if (empty($new_item)) {
             return null;
         }
 
