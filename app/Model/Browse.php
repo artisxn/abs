@@ -30,4 +30,9 @@ class Browse extends Model
     {
         return $this->hasMany(BrowseItem::class);
     }
+
+    public function worldItems()
+    {
+        return $this->belongsToMany(WorldItem::class);
+    }
 }

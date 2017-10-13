@@ -11,6 +11,13 @@ return [
     //洋書だけ多すぎなので削除していく
     'delete_category' => [
         52033011,
+        52231011,
+        97181011,
+        2129039051,
+        2570983051,
+        100052011,
+        2624415051,
+        97635011,
     ],
 
 
@@ -18,50 +25,62 @@ return [
         'BR' => [
             'name' => 'Brazil',
             'tld'  => 'com.br',
+            'tag'  => env('AMAZON_ASSOCIATE_TAG_BR'),
         ],
         'CA' => [
             'name' => 'Canada',
             'tld'  => 'ca',
+            'tag'  => env('AMAZON_ASSOCIATE_TAG_CA'),
         ],
         'CN' => [
             'name' => 'China',
             'tld'  => 'cn',
+            'tag'  => env('AMAZON_ASSOCIATE_TAG_CN'),
         ],
         'FR' => [
             'name' => 'France',
             'tld'  => 'fr',
+            'tag'  => env('AMAZON_ASSOCIATE_TAG_FR'),
         ],
         'DE' => [
             'name' => 'Germany',
             'tld'  => 'de',
+            'tag'  => env('AMAZON_ASSOCIATE_TAG_DE'),
         ],
         'IN' => [
             'name' => 'India',
             'tld'  => 'in',
+            'tag'  => env('AMAZON_ASSOCIATE_TAG_IN'),
         ],
         'IT' => [
             'name' => 'Italy',
             'tld'  => 'it',
+            'tag'  => env('AMAZON_ASSOCIATE_TAG_IT'),
         ],
         'JP' => [
             'name' => 'Japan',
             'tld'  => 'co.jp',
+            'tag'  => env('AMAZON_ASSOCIATE_TAG_JP'),
         ],
         'MX' => [
             'name' => 'Mexico',
             'tld'  => 'com.mx',
+            'tag'  => env('AMAZON_ASSOCIATE_TAG_MX'),
         ],
         'ES' => [
             'name' => 'Spain',
             'tld'  => 'es',
+            'tag'  => env('AMAZON_ASSOCIATE_TAG_ES'),
         ],
         'UK' => [
             'name' => 'United Kingdom',
             'tld'  => 'co.uk',
+            'tag'  => env('AMAZON_ASSOCIATE_TAG_UK'),
         ],
         'US' => [
             'name' => 'United States',
             'tld'  => 'com',
+            'tag'  => env('AMAZON_ASSOCIATE_TAG_US'),
         ],
     ],
 

@@ -41,7 +41,7 @@ interface ItemRepositoryInterface
     /**
      * @param array|null $item
      *
-     * @return void
+     * @return mixed
      */
     public function create(array $item = null);
 

@@ -7,6 +7,20 @@ use App\Model\Browse;
 class EloquentBrowseRepository implements BrowseRepositoryInterface
 {
     /**
+     * @var Browse
+     */
+    protected $browse;
+
+    /**
+     *
+     * @param Browse $browse
+     */
+    public function __construct(Browse $browse)
+    {
+        $this->browse = $browse;
+    }
+
+    /**
      * @inheritDoc
      */
     public function listAll($paginate = 100)
@@ -23,17 +37,21 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
     }
 
     /**
-     * @var Browse
+     * @inheritDoc
      */
-    protected $browse;
-
-    /**
-     *
-     * @param Browse $browse
-     */
-    public function __construct(Browse $browse)
+    public function createNodes(array $browse_nodes)
     {
-        $this->browse = $browse;
+        if (empty($browse_nodes)) {
+            return;
+        }
+
+        foreach ($browse_nodes as $title => $browse_id) {
+            $this->updateOrCreate([
+                'id' => $browse_id,
+            ], [
+                'title' => $title,
+            ]);
+        }
     }
 
     /**

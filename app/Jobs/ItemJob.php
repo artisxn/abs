@@ -10,6 +10,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 
 use AmazonProduct;
 use App\Repository\Item\ItemRepositoryInterface as Item;
+use App\Repository\Browse\BrowseRepositoryInterface as Browse;
 
 /**
  * Class ItemJob
@@ -30,7 +31,12 @@ class ItemJob implements ShouldQueue
     /**
      * @var Item
      */
-    protected $repository;
+    protected $itemRepository;
+
+    /**
+     * @var Browse
+     */
+    protected $browseRepository;
 
     /**
      * Create a new job instance.
@@ -45,13 +51,15 @@ class ItemJob implements ShouldQueue
     /**
      * Execute the job.
      *
-     * @param Item $repository
+     * @param Item   $itemRepository
+     * @param Browse $browseRepository
      *
      * @return array
      */
-    public function handle(Item $repository): array
+    public function handle(Item $itemRepository, Browse $browseRepository): array
     {
-        $this->repository = $repository;
+        $this->itemRepository = $itemRepository;
+        $this->browseRepository = $browseRepository;
 
         if (empty($this->asin)) {
             return [];
@@ -85,7 +93,12 @@ class ItemJob implements ShouldQueue
 
         $item = array_get($results, 'Items.Item');
 
-        $this->repository->create($item);
+        $new_item = $this->itemRepository->create($item);
+
+        $browse_nodes = browse_nodes($item);
+        $this->browseRepository->createNodes($browse_nodes);
+
+        $new_item->browses()->sync(array_values($browse_nodes));
 
         //必ずItemの後にHistory
         $this->createHistory($item);

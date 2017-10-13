@@ -12,6 +12,13 @@ interface BrowseRepositoryInterface
     public function listAll($paginate = 100);
 
     /**
+     * @param array $browse_nodes
+     *
+     * @return void
+     */
+    public function createNodes(array $browse_nodes);
+
+    /**
      * @param string $category
      * @param string $order
      * @param string $sort

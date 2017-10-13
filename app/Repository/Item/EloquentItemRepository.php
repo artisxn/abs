@@ -3,7 +3,6 @@
 namespace App\Repository\Item;
 
 use App\Model\Item;
-use App\Model\BrowseItem;
 use App\Model\Browse;
 
 class EloquentItemRepository implements ItemRepositoryInterface
@@ -107,7 +106,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
         $asin = array_get($item, 'ASIN');
 
         if (empty($asin)) {
-            return;
+            return null;
         }
 
         $rank = array_get($item, 'SalesRank');
@@ -134,9 +133,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
             'detail_url',
         ]));
 
-        $browse_nodes = $this->browseNodes($item);
-
-        $new_item->browses()->sync($browse_nodes);
+        return $new_item;
     }
 
     /**

@@ -21,4 +21,14 @@ class WorldItem extends Model
         'total_used',
         'editorial_review',
     ];
+
+    public function binding()
+    {
+        return $this->belongsTo(Binding::class);
+    }
+
+    public function browses()
+    {
+        return $this->belongsToMany(Browse::class);
+    }
 }

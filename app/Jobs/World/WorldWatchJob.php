@@ -9,6 +9,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
 use App\Model\WorldItem;
+use App\Model\Binding;
+
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\RequestException;
 
 use Revolution\Amazon\ProductAdvertising\AmazonClient;
 
@@ -17,6 +21,8 @@ use ApaiIO\Configuration\GenericConfiguration;
 use ApaiIO\Request\GuzzleRequest;
 use ApaiIO\ResponseTransformer\XmlToArray;
 use GuzzleHttp\Client;
+
+use App\Repository\Browse\BrowseRepositoryInterface as Browse;
 
 class WorldWatchJob implements ShouldQueue
 {
@@ -53,9 +59,11 @@ class WorldWatchJob implements ShouldQueue
     /**
      * Execute the job.
      *
+     * @param Browse $browseRepository
+     *
      * @return void
      */
-    public function handle()
+    public function handle(Browse $browseRepository)
     {
         info(self::class);
 
@@ -71,8 +79,26 @@ class WorldWatchJob implements ShouldQueue
 
         $items = $this->get();
 
+        if (empty($items)) {
+            return;
+        }
+
         foreach ($items as $item) {
-            $this->create($item);
+            if (!is_array($item)) {
+                continue;
+            }
+
+            $world_item = $this->create($item);
+            if (empty($world_item)) {
+                continue;
+            }
+
+            $browse_nodes = browse_nodes($item);
+            if (!empty($browse_nodes)) {
+                $browseRepository->createNodes($browse_nodes);
+
+                $world_item->browses()->sync(array_values($browse_nodes));
+            }
         }
     }
 
@@ -81,27 +107,46 @@ class WorldWatchJob implements ShouldQueue
      */
     public function get()
     {
+        //        try {
+        //            $results = $this->amazon->setIdType('ASIN')->items($this->asins);
+        //        } catch (ClientException $e) {
+        //            logger()->error($e->getResponse()->getBody());
+        //            $results = [];
+        //        } catch (RequestException $e) {
+        //            logger()->error($e->getResponse()->getBody());
+        //            $results = [];
+        //        }
+
         $results = rescue(function () {
             return $this->amazon->setIdType('ASIN')->items($this->asins);
         }, []);
 
-        $items = array_get($results, 'Items.Item');
+        $items = array_get($results, 'Items.Item', []);
+        if (count($this->asins) === 1) {
+            $items = [$items];
+        }
 
         return $items;
     }
 
+    /**
+     * @param array|null $item
+     *
+     * @return WorldItem|\Illuminate\Database\Eloquent\Model|null
+     */
     public function create(array $item = null)
     {
         $asin = array_get($item, 'ASIN');
 
         if (empty($asin)) {
-            return;
+            return null;
         }
 
         $ean = array_get($item, 'ItemAttributes.EAN');
 
         $rank = array_get($item, 'SalesRank');
         $title = array_get($item, 'ItemAttributes.Title');
+
 
         $availability = array_get($item, 'Offers.Offer.OfferListing.Availability');
         $lowest_new_price = array_get($item, 'OfferSummary.LowestNewPrice.Amount');
@@ -110,7 +155,10 @@ class WorldWatchJob implements ShouldQueue
         $total_used = array_get($item, 'OfferSummary.TotalUsed');
         $editorial_review = array_get($item, 'EditorialReviews.EditorialReview.Content');
 
-        WorldItem::updateOrCreate([
+        /**
+         * @var WorldItem $world_item
+         */
+        $world_item = WorldItem::updateOrCreate([
             'asin'    => $asin,
             'country' => $this->locale,
         ], compact([
@@ -124,6 +172,16 @@ class WorldWatchJob implements ShouldQueue
             'total_used',
             'editorial_review',
         ]));
+
+        $binding = array_get($item, 'ItemAttributes.Binding');
+
+        if (!empty($binding)) {
+            $world_item->binding()
+                       ->associate(Binding::firstOrCreate(compact('binding')))
+                       ->save();
+        }
+
+        return $world_item;
     }
 
     /**
@@ -131,9 +189,6 @@ class WorldWatchJob implements ShouldQueue
      */
     private function factory()
     {
-        $tld = config('amazon.locales.' . $this->locale . '.tld');
-        info($tld);
-
         $client = new Client();
 
         $request = new GuzzleRequest($client);
@@ -141,12 +196,24 @@ class WorldWatchJob implements ShouldQueue
 
         $config = config('amazon-product');
 
+        $api_key = config('amazon-feature.world_amazon_api_key');
+        $secret_key = config('amazon-feature.world_amazon_api_secret_key');
+
+        $tld = config('amazon.locales.' . $this->locale . '.tld');
+        info($tld);
+
+        $tag = config('amazon.locales.' . $this->locale . '.tag');
+
+        if (empty($tag)) {
+            $tag = $config['associate_tag'];
+        }
+
         $conf = new GenericConfiguration();
 
         $conf->setCountry($tld)
-             ->setAccessKey($config['api_key'])
-             ->setSecretKey($config['api_secret_key'])
-             ->setAssociateTag($config['associate_tag'])
+             ->setAccessKey($api_key)
+             ->setSecretKey($secret_key)
+             ->setAssociateTag($tag)
              ->setResponseTransformer(new XmlToArray())
              ->setRequest($request);
 
