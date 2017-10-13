@@ -5,12 +5,16 @@ if (!function_exists('browse_nodes')) {
     /**
      * ASINのデータからブラウズノードのリスト
      *
-     * @param array $item
+     * @param array|null $item
      *
      * @return array
      */
-    function browse_nodes(array $item): array
+    function browse_nodes(array $item = null): array
     {
+        if (empty($item)) {
+            return [];
+        }
+
         $browse_nodes = [];
 
         $nodes = array_get($item, 'BrowseNodes');
