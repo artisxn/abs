@@ -119,7 +119,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
         $large_image = array_get($item, 'LargeImage.URL');
         $detail_url = array_get($item, 'DetailPageURL');
 
-        info($title);
+        //        info($title);
 
         $new_item = $this->updateOrCreate([
             'asin' => $asin,
