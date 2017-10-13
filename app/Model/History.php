@@ -29,4 +29,9 @@ class History extends Model
     {
         return $this->belongsTo(Item::class, 'asin_id', 'asin');
     }
+
+    public function availability()
+    {
+        return $this->belongsTo(Availability::class);
+    }
 }

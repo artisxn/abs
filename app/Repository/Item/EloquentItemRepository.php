@@ -34,6 +34,8 @@ class EloquentItemRepository implements ItemRepositoryInterface
             },
         ]);
 
+        //        $asin_item->load('histories.availability');
+
         return $asin_item;
     }
 

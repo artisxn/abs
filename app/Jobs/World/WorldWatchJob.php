@@ -10,6 +10,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 
 use App\Model\WorldItem;
 use App\Model\Binding;
+use App\Model\Availability;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\RequestException;
@@ -147,13 +148,15 @@ class WorldWatchJob implements ShouldQueue
         $rank = array_get($item, 'SalesRank');
         $title = array_get($item, 'ItemAttributes.Title');
 
-
-        $availability = array_get($item, 'Offers.Offer.OfferListing.Availability');
         $lowest_new_price = array_get($item, 'OfferSummary.LowestNewPrice.Amount');
         $lowest_used_price = array_get($item, 'OfferSummary.LowestUsedPrice.Amount');
         $total_new = array_get($item, 'OfferSummary.TotalNew');
         $total_used = array_get($item, 'OfferSummary.TotalUsed');
         $editorial_review = array_get($item, 'EditorialReviews.EditorialReview.Content');
+
+        $availability = array_get($item, 'Offers.Offer.OfferListing.Availability');
+
+        $ava = Availability::firstOrCreate(compact('availability'));
 
         /**
          * @var WorldItem $world_item
@@ -165,7 +168,7 @@ class WorldWatchJob implements ShouldQueue
             'ean',
             'title',
             'rank',
-            'availability',
+            //            'availability',
             'lowest_new_price',
             'lowest_used_price',
             'total_new',
@@ -173,13 +176,16 @@ class WorldWatchJob implements ShouldQueue
             'editorial_review',
         ]));
 
+        $world_item->availability()->associate($ava);
+
         $binding = array_get($item, 'ItemAttributes.Binding');
 
         if (!empty($binding)) {
             $world_item->binding()
-                       ->associate(Binding::firstOrCreate(compact('binding')))
-                       ->save();
+                       ->associate(Binding::firstOrCreate(compact('binding')));
         }
+
+        $world_item->save();
 
         return $world_item;
     }

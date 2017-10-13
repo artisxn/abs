@@ -58,6 +58,9 @@ class Kernel extends ConsoleKernel
         $schedule->command('abs:world-watch --priority=1')
                  ->twiceDaily(1, 13)
                  ->when(config('amazon-feature.world_watch_item'));
+
+        $schedule->command(Commands\Mainte\UpdateAvailabilityCommand::class)
+                 ->everyTenMinutes();
     }
 
     /**
