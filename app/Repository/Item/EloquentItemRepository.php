@@ -175,6 +175,10 @@ class EloquentItemRepository implements ItemRepositoryInterface
                                  ->cursor();
 
             foreach ($browseItems as $browseItem) {
+                if (!$browseItem->exists()) {
+                    continue;
+                }
+
                 $browseItem->delete();
 
                 $item = $this->item->find($browseItem->item_asin);
