@@ -79,7 +79,7 @@ class ExportCategoryJob implements ShouldQueue
 
         $writer->insertOne(config('amazon.csv_header'));
 
-        $items = $repository->export($this->category, $this->order, $this->sort, $this->limit);
+        $items = $repository->exportCursor($this->category, $this->order, $this->sort, $this->limit);
 
         foreach ($items as $item) {
             $line = (new ItemResource($item))->toArray(request());
