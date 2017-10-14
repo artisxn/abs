@@ -60,7 +60,7 @@ class ExportCategoryJob implements ShouldQueue
         string $category,
         string $order = 'updated_at',
         string $sort = 'desc',
-        int $limit = 1000
+        int $limit = 7
     ) {
         $this->file = $file;
         $this->category = $category;
@@ -84,25 +84,25 @@ class ExportCategoryJob implements ShouldQueue
 
         $writer->insertOne(config('amazon.csv_header'));
 
-        Browse::findOrFail($this->category)
-              ->items()
-              ->orderBy($this->order, $this->sort)
-              ->take($this->limit)
-              ->chunk(200, function ($items) use ($writer) {
-                  foreach ($items as $item) {
-                      $line = (new ItemResource($item))->toArray(request());
-
-                      $writer->insertOne($line);
-                  }
-              });
-
-        //        $items = $repository->exportCursor($this->category, $this->order, $this->sort, $this->limit);
+        //        Browse::findOrFail($this->category)
+        //              ->items()
+        //              ->whereDate('updated_at', '>', now()->subDays($this->limit))
+        //              ->orderBy($this->order, $this->sort)
+        //              ->chunk(200, function ($items) use ($writer) {
+        //                foreach ($items as $item) {
+        //                    $line = (new ItemResource($item))->toArray(request());
         //
-        //        foreach ($items as $item) {
-        //            $line = (new ItemResource($item))->toArray(request());
-        //
-        //            $writer->insertOne($line);
-        //        }
+        //                    $writer->insertOne($line);
+        //                }
+        //            });
+
+        $items = $repository->exportCursor($this->category, $this->order, $this->sort, $this->limit);
+
+        foreach ($items as $item) {
+            $line = (new ItemResource($item))->toArray(request());
+
+            $writer->insertOne($line);
+        }
 
         return $this->file;
     }

@@ -63,23 +63,23 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
         string $category,
         string $order = 'updated_at',
         string $sort = 'desc',
-        int $limit = 1000
+        int $limit = 7
     ) {
-        $browse_item = BrowseItem::where('browse_id', $category);
-        $asins = $browse_item->pluck('item_asin');
+        //        $browse_item = BrowseItem::where('browse_id', $category);
+        //        $asins = $browse_item->pluck('item_asin');
+        //
+        //        $items = Item::whereIn('asin', $asins)
+        //                     ->orderBy($order, $sort)
+        //                     ->take($limit)
+        //                     ->get();
+        //
+        //        return $items;
 
-        $items = Item::whereIn('asin', $asins)
-                     ->orderBy($order, $sort)
-                     ->take($limit)
-                     ->get();
-
-        return $items;
-
-        //        return $this->browse->findOrFail($category)
-        //                            ->items()
-        //                            ->orderBy($order, $sort)
-        //                            ->take($limit)
-        //                            ->get();
+        return $this->browse->findOrFail($category)
+                            ->items()
+                            ->whereDate('updated_at', '>', now()->subDays($limit))
+                            ->orderBy($order, $sort)
+                            ->get();
     }
 
     /**
@@ -89,23 +89,23 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
         string $category,
         string $order = 'updated_at',
         string $sort = 'desc',
-        int $limit = 1000
+        int $limit = 7
     ) {
-        $browse_item = BrowseItem::where('browse_id', $category);
-        $asins = $browse_item->pluck('item_asin');
+        //        $browse_item = BrowseItem::where('browse_id', $category);
+        //        $asins = $browse_item->pluck('item_asin');
+        //
+        //        $items = Item::whereIn('asin', $asins)
+        //                     ->orderBy($order, $sort)
+        //                     ->take($limit)
+        //                     ->cursor();
+        //
+        //        return $items;
 
-        $items = Item::whereIn('asin', $asins)
-                     ->orderBy($order, $sort)
-                     ->take($limit)
-                     ->cursor();
-
-        return $items;
-
-        //        return $this->browse->findOrFail($category)
-        //                            ->items()
-        //                            ->orderBy($order, $sort)
-        //                            ->take($limit)
-        //                            ->cursor();
+        return $this->browse->findOrFail($category)
+                            ->items()
+                            ->whereDate('updated_at', '>', now()->subDays($limit))
+                            ->orderBy($order, $sort)
+                            ->cursor();
     }
 
     /**
