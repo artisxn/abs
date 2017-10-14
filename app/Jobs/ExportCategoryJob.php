@@ -12,7 +12,8 @@ use App\Http\Resources\Csv\Item as ItemResource;
 
 use League\Csv\Writer;
 
-use App\Repository\Browse\BrowseRepositoryInterface as Browse;
+use App\Repository\Browse\BrowseRepositoryInterface as BrowseRepository;
+use App\Model\Browse;
 
 class ExportCategoryJob implements ShouldQueue
 {
@@ -69,23 +70,35 @@ class ExportCategoryJob implements ShouldQueue
     /**
      * Execute the job.
      *
-     * @param Browse $repository
+     * @param BrowseRepository $repository
      *
      * @return string
      */
-    public function handle(Browse $repository)
+    public function handle(BrowseRepository $repository)
     {
         $writer = Writer::createFromPath($this->file, 'w+');
 
         $writer->insertOne(config('amazon.csv_header'));
 
-        $items = $repository->exportCursor($this->category, $this->order, $this->sort, $this->limit);
+        Browse::findOrFail($this->category)
+              ->items()
+              ->orderBy($this->order, $this->sort)
+              ->take($this->limit)
+              ->chunk(200, function ($items) use ($writer) {
+                  foreach ($items as $item) {
+                      $line = (new ItemResource($item))->toArray(request());
 
-        foreach ($items as $item) {
-            $line = (new ItemResource($item))->toArray(request());
+                      $writer->insertOne($line);
+                  }
+              });
 
-            $writer->insertOne($line);
-        }
+        //        $items = $repository->exportCursor($this->category, $this->order, $this->sort, $this->limit);
+        //
+        //        foreach ($items as $item) {
+        //            $line = (new ItemResource($item))->toArray(request());
+        //
+        //            $writer->insertOne($line);
+        //        }
 
         return $this->file;
     }
