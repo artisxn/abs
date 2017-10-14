@@ -16,10 +16,6 @@ class AddBrowseForeignToBrowseItemTable extends Migration
     public function up()
     {
         Schema::table('browse_item', function (Blueprint $table) {
-            DB::table('browse_item')
-              ->whereNotIn('browse_id', Browse::pluck('id'))
-              ->delete();
-
             $table->foreign('browse_id')
                   ->references('id')
                   ->on('browses')

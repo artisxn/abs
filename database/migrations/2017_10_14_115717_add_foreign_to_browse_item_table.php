@@ -18,10 +18,6 @@ class AddForeignToBrowseItemTable extends Migration
         Schema::table('browse_item', function (Blueprint $table) {
             $table->string('item_asin', 10)->change();
 
-            DB::table('browse_item')
-              ->whereNotIn('item_asin', Item::pluck('asin'))
-              ->delete();
-
             $table->foreign('item_asin')
                   ->references('asin')
                   ->on('items')
