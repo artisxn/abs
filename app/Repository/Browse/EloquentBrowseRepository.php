@@ -104,7 +104,7 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
         return $this->browse->findOrFail($category)
                             ->items()
                             ->whereDate('updated_at', '>', now()->subDays($limit))
-                            ->orderBy($order, $sort)
+            //                            ->orderBy($order, $sort)
                             ->cursor();
     }
 
