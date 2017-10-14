@@ -15,8 +15,12 @@ class LoginController extends Controller
         return Socialite::driver('amazon')->redirect();
     }
 
-    public function callback()
+    public function callback(Request $request)
     {
+        if (!$request->has('code')) {
+            return redirect('/');
+        }
+
         /**
          * @var \Laravel\Socialite\Two\User $user
          */
