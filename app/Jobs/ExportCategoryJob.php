@@ -8,6 +8,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
+use DB;
+
 use App\Http\Resources\Csv\Item as ItemResource;
 
 use League\Csv\Writer;
@@ -76,6 +78,8 @@ class ExportCategoryJob implements ShouldQueue
      */
     public function handle(BrowseRepository $repository)
     {
+        DB::disableQueryLog();
+
         $writer = Writer::createFromPath($this->file, 'w+');
 
         $writer->insertOne(config('amazon.csv_header'));
