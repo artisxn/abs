@@ -175,11 +175,9 @@ class EloquentItemRepository implements ItemRepositoryInterface
                            ->cursor();
 
             foreach ($items as $item) {
-                if (!empty($item) and $item->exists()) {
-                    $item->delete();
+                $item->delete();
 
-                    cache()->forget('asin.' . $item->asin);
-                }
+                cache()->forget('asin.' . $item->asin);
             }
         } catch (\Exception $e) {
             report($e);
