@@ -169,22 +169,13 @@ class EloquentItemRepository implements ItemRepositoryInterface
         info('Delete Category: Start ' . $browse_id);
 
         try {
-            $browseItems = Browse::findOrFail($browse_id)
-                                 ->browseItems()
-                                 ->limit($limit)
-                                 ->cursor();
+            $items = Browse::findOrFail($browse_id)
+                           ->items()
+                           ->limit($limit)
+                           ->cursor();
 
-            foreach ($browseItems as $browseItem) {
-                if (!$browseItem->exists()) {
-                    continue;
-                }
-
-                $browseItem->delete();
-
-                $item = $this->item->find($browseItem->item_asin);
+            foreach ($items as $item) {
                 if (!empty($item) and $item->exists()) {
-                    //                info('Delete ASIN: ' . $item->asin . '/' . $item->title);
-
                     $item->delete();
 
                     cache()->forget('asin.' . $item->asin);
