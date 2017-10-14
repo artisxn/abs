@@ -43,7 +43,7 @@ class Kernel extends ConsoleKernel
                  ->hourlyAt(52);
 
         $schedule->command('abs:old-item')
-                 ->hourlyAt(11)
+                 ->hourlyAt(25)
                  ->when(config('amazon-feature.old_item'));
 
         $schedule->command('abs:delete-category')

@@ -15,6 +15,7 @@
             {{ $watch->browse_items_count }}
           </span>
         </a>
+        [{{ $watch->browse->id }}]
 
       </li>
     @endforeach

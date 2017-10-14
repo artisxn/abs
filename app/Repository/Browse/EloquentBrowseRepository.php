@@ -57,6 +57,22 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
     /**
      * @inheritDoc
      */
+    public function export(
+        string $category,
+        string $order = 'updated_at',
+        string $sort = 'desc',
+        int $limit = 1000
+    ) {
+        return $this->browse->findOrFail($category)
+                            ->items()
+                            ->orderBy($order, $sort)
+                            ->take($limit)
+                            ->get();
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function exportCursor(
         string $category,
         string $order = 'updated_at',
