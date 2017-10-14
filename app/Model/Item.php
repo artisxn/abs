@@ -32,23 +32,43 @@ class Item extends Model
         'image_sets'    => 'array',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function histories()
     {
         return $this->hasMany(History::class, 'asin_id', 'asin');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function watches()
     {
         return $this->hasMany(Watch::class, 'asin_id', 'asin');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
     public function browses()
     {
         return $this->belongsToMany(Browse::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function availability()
     {
-        return $this->belongsTo(Availability::class);
+        return $this->belongsTo(Availability::class)->withDefault();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function item_attribute()
+    {
+        return $this->hasOne(ItemAttribute::class)->withDefault();
     }
 }

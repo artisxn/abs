@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAvailabilityIdToItemsTable extends Migration
+class DeleteAttributesFromItems extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +14,7 @@ class AddAvailabilityIdToItemsTable extends Migration
     public function up()
     {
         Schema::table('items', function (Blueprint $table) {
-            if (!Schema::hasColumn('items', 'availability_id')) {
-                $table->unsignedInteger('availability_id')
-                      ->nullable()
-                      ->after('rank');
-            }
-
-            $table->foreign('availability_id')->references('id')->on('availabilities');
+            $table->dropColumn('attributes');
         });
     }
 
@@ -32,8 +26,7 @@ class AddAvailabilityIdToItemsTable extends Migration
     public function down()
     {
         Schema::table('items', function (Blueprint $table) {
-            $table->dropForeign(['availability_id']);
-            $table->dropColumn('availability_id');
+            $table->text('attributes')->nullable()->after('title');
         });
     }
 }

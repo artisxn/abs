@@ -5,6 +5,7 @@ namespace App\Repository\Item;
 use App\Model\Item;
 use App\Model\Browse;
 use App\Model\Availability;
+use App\Model\ItemAttribute;
 
 class EloquentItemRepository implements ItemRepositoryInterface
 {
@@ -114,7 +115,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
 
         $rank = array_get($item, 'SalesRank');
         $title = array_get($item, 'ItemAttributes.Title');
-        $attributes = array_get($item, 'ItemAttributes');
+        $attributes = null;//array_get($item, 'ItemAttributes');
         $offer_summary = array_get($item, 'OfferSummary');
 
         $offers = null;//array_get($item, 'Offers');
@@ -131,17 +132,30 @@ class EloquentItemRepository implements ItemRepositoryInterface
         ], compact([
             'title',
             'rank',
-            'attributes',
-            'offer_summary',
-            'offers',
-            'image_sets',
+            //            'attributes',
+            //            'offer_summary',
+            //            'offers',
+            //            'image_sets',
             'large_image',
             'detail_url',
         ]));
 
+        //Availability
         $availability = array_get($item, 'Offers.Offer.OfferListing.Availability', '');
         $ava = Availability::firstOrCreate(compact('availability'));
         $new_item->availability()->associate($ava)->save();
+
+        //ItemAttribute
+        $attributes = array_get($item, 'ItemAttributes');
+        $attr = ItemAttribute::firstOrCreate([
+            'item_asin' => $asin,
+        ]);
+        $attr->fill([
+            'item_asin'  => $asin,
+            'attributes' => $attributes,
+        ])->save();
+        $attr->item()->associate($new_item)->save();
+
 
         return $new_item;
     }

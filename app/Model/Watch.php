@@ -16,16 +16,25 @@ class Watch extends Model
         'user_id',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function item()
     {
         return $this->belongsTo(Item::class, 'asin_id', 'asin');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
     public function histories()
     {
         return $this->hasManyThrough(
@@ -38,6 +47,9 @@ class Watch extends Model
         );
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function worldItems()
     {
         return $this->hasMany(WorldItem::class, 'asin', 'asin_id');

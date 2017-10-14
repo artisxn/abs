@@ -14,16 +14,25 @@ class BrowseWatch extends Model
         'user_id',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function browse()
     {
         return $this->belongsTo(Browse::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function browseItems()
     {
         return $this->hasMany(BrowseItem::class, 'browse_id', 'browse_id');

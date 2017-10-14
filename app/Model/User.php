@@ -48,6 +48,9 @@ class User extends \TCG\Voyager\Models\User
         return $this->hasMany(BrowseWatch::class);
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
     public function worldItems()
     {
         return $this->hasManyThrough(

@@ -25,17 +25,22 @@ class Item extends Resource
             }
         }
 
-        $authors = array_get($this->attributes, 'Author');
+        $attr = $this->item_attribute->attributes;
+        if (empty($attr)) {
+            $attr = $this->attributes;
+        }
+
+        $authors = array_get($attr, 'Author');
         if (is_array($authors)) {
             $authors = implode(',', $authors);
         }
 
-        $creators = array_get($this->attributes, 'Creator');
+        $creators = array_get($attr, 'Creator');
         if (is_array($creators)) {
             $creators = implode(',', $creators);
         }
 
-        $actors = array_get($this->attributes, 'Actor');
+        $actors = array_get($attr, 'Actor');
         if (is_array($actors)) {
             $actors = implode(',', $actors);
         }
@@ -44,13 +49,13 @@ class Item extends Resource
             $this->asin,
             $this->title,
             $this->rank,
-            array_get($this->attributes, 'Binding'),
-            array_get($this->attributes, 'Brand'),
-            array_get($this->attributes, 'Publisher'),
+            array_get($attr, 'Binding'),
+            array_get($attr, 'Brand'),
+            array_get($attr, 'Publisher'),
             $authors,
             $creators,
             $actors,
-            array_get($this->attributes, 'ReleaseDate'),
+            array_get($attr, 'ReleaseDate'),
             array_get($this->offer_summary, 'LowestNewPrice.Amount'),
             array_get($this->offer_summary, 'TotalNew'),
             array_get($this->offer_summary, 'LowestUsedPrice.Amount'),

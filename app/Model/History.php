@@ -30,6 +30,9 @@ class History extends Model
         return $this->belongsTo(Item::class, 'asin_id', 'asin');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function availability()
     {
         return $this->belongsTo(Availability::class);
