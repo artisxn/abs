@@ -24,21 +24,6 @@ interface BrowseRepositoryInterface
      * @param string $sort
      * @param int    $limit
      *
-     * @return \App\Model\Browse
-     */
-    public function export(
-        string $category,
-        string $order = 'updated_at',
-        string $sort = 'desc',
-        int $limit = 1000
-    );
-
-    /**
-     * @param string $category
-     * @param string $order
-     * @param string $sort
-     * @param int    $limit
-     *
      * @return \Generator
      */
     public function exportCursor(

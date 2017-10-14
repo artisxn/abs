@@ -59,51 +59,14 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
     /**
      * @inheritDoc
      */
-    public function export(
-        string $category,
-        string $order = 'updated_at',
-        string $sort = 'desc',
-        int $limit = 7
-    ) {
-        //        $browse_item = BrowseItem::where('browse_id', $category);
-        //        $asins = $browse_item->pluck('item_asin');
-        //
-        //        $items = Item::whereIn('asin', $asins)
-        //                     ->orderBy($order, $sort)
-        //                     ->take($limit)
-        //                     ->get();
-        //
-        //        return $items;
-
-        return $this->browse->findOrFail($category)
-                            ->items()
-                            ->whereDate('updated_at', '>', now()->subDays($limit))
-                            ->orderBy($order, $sort)
-                            ->get();
-    }
-
-    /**
-     * @inheritDoc
-     */
     public function exportCursor(
         string $category,
         string $order = 'updated_at',
         string $sort = 'desc',
         int $limit = 1000
     ) {
-        //        $browse_item = BrowseItem::where('browse_id', $category);
-        //        $asins = $browse_item->pluck('item_asin');
-        //
-        //        $items = Item::whereIn('asin', $asins)
-        //                     ->orderBy($order, $sort)
-        //                     ->take($limit)
-        //                     ->cursor();
-        //
-        //        return $items;
-
         return $this->browse->findOrFail($category)
                             ->items()
-            //                            ->whereDate('updated_at', '>', now()->subDays($limit))
                             ->orderBy($order, $sort)
                             ->cursor();
     }

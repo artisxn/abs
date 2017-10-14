@@ -84,18 +84,6 @@ class ExportCategoryJob implements ShouldQueue
 
         $writer->insertOne(config('amazon.csv_header'));
 
-        //        Browse::findOrFail($this->category)
-        //              ->items()
-        //              ->whereDate('updated_at', '>', now()->subDays($this->limit))
-        //              ->orderBy($this->order, $this->sort)
-        //              ->chunk(200, function ($items) use ($writer) {
-        //                foreach ($items as $item) {
-        //                    $line = (new ItemResource($item))->toArray(request());
-        //
-        //                    $writer->insertOne($line);
-        //                }
-        //            });
-
         $items = $repository->exportCursor($this->category, $this->order, $this->sort, $this->limit);
 
         $count = 0;
