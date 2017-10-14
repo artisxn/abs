@@ -21,18 +21,20 @@
         <label class="uk-form-label">カテゴリーID</label>
 
         <div class="uk-form-controls">
-          <input name="category_id" value="{{ old('category_id') }}" class="uk-input" type="number" placeholder="カテゴリーID">
+          <input name="category_id" value="{{ old('category_id') }}" class="uk-input" type="number"
+                 placeholder="カテゴリーID">
           <small class="uk-text-muted"><a href="{{ route('browselist') }}" target="_blank">ブラウズリスト</a>などでIDを確認。</small>
 
         </div>
       </div>
 
       <div class="uk-margin">
-        <label class="uk-form-label">期限</label>
+        <label class="uk-form-label">件数</label>
 
         <div class="uk-form-controls">
-          <input name="limit" value="{{ old('limit', config('amazon.csv_limit')) }}" class="uk-input" type="number" placeholder="期限">
-          <small class="uk-text-muted">指定日数以内に更新されたアイテム。多すぎると時間がかかります</small>
+          <input name="limit" value="{{ old('limit', config('amazon.csv_limit')) }}" class="uk-input" type="number"
+                 placeholder="件数">
+          <small class="uk-text-muted">多すぎると時間がかかり失敗します。</small>
         </div>
       </div>
 
