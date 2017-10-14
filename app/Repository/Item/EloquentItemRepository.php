@@ -4,6 +4,7 @@ namespace App\Repository\Item;
 
 use App\Model\Item;
 use App\Model\Browse;
+use App\Model\Availability;
 
 class EloquentItemRepository implements ItemRepositoryInterface
 {
@@ -48,23 +49,24 @@ class EloquentItemRepository implements ItemRepositoryInterface
 
         $recent = collect([]);
 
-        $this->item->latest('updated_at')->whereNotNull('large_image')->with('browses')->chunk($limit, function ($items) use (&$recent, $limit) {
-            foreach ($items as $item) {
-                $browses = collect($item->browses)->whereIn('id', config('amazon.recent_except'));
+        $this->item->latest('updated_at')->whereNotNull('large_image')->with('browses')->chunk($limit,
+            function ($items) use (&$recent, $limit) {
+                foreach ($items as $item) {
+                    $browses = collect($item->browses)->whereIn('id', config('amazon.recent_except'));
 
-                if (blank($browses)) {
-                    $recent->push($item);
+                    if (blank($browses)) {
+                        $recent->push($item);
+                    }
+
+                    if ($recent->count() >= $limit) {
+                        break;
+                    }
                 }
 
                 if ($recent->count() >= $limit) {
-                    break;
+                    return false;
                 }
-            }
-
-            if ($recent->count() >= $limit) {
-                return false;
-            }
-        });
+            });
 
         return $recent;
     }
@@ -114,10 +116,13 @@ class EloquentItemRepository implements ItemRepositoryInterface
         $title = array_get($item, 'ItemAttributes.Title');
         $attributes = array_get($item, 'ItemAttributes');
         $offer_summary = array_get($item, 'OfferSummary');
-        $offers = array_get($item, 'Offers');
+
+        $offers = null;//array_get($item, 'Offers');
+
         $image_sets = array_get($item, 'ImageSets');
         $large_image = array_get($item, 'LargeImage.URL');
         $detail_url = array_get($item, 'DetailPageURL');
+
 
         //        info($title);
 
@@ -133,6 +138,10 @@ class EloquentItemRepository implements ItemRepositoryInterface
             'large_image',
             'detail_url',
         ]));
+
+        $availability = array_get($item, 'Offers.Offer.OfferListing.Availability', '');
+        $ava = Availability::firstOrCreate(compact('availability'));
+        $new_item->availability()->associate($ava)->save();
 
         return $new_item;
     }

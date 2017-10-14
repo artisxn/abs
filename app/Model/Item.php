@@ -46,4 +46,9 @@ class Item extends Model
     {
         return $this->belongsToMany(Browse::class);
     }
+
+    public function availability()
+    {
+        return $this->belongsTo(Availability::class);
+    }
 }
