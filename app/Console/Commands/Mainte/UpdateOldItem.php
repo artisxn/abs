@@ -22,7 +22,7 @@ class UpdateOldItem extends Command
      *
      * @var string
      */
-    protected $description = '更新時間の古いアイテムを更新';
+    protected $description = '更新時間の古いアイテムのデータを減らす';
 
     /**
      * Create a new command instance.
@@ -43,23 +43,19 @@ class UpdateOldItem extends Command
      */
     public function handle(Item $repository)
     {
-        $asins = collect([]);
-
-        $items = $repository->oldCursor(100);
-
+        $items = $repository->oldCursor(1000);
 
         foreach ($items as $item) {
-            $asins->push($item->asin);
+            $item->update([
+                'attributes'    => null,
+                'offer_summary' => null,
+                'offers'        => null,
+                'image_sets'    => null,
+                'large_image'   => null,
+                'detail_url'    => null,
+            ]);
         }
 
-        info('Update Old Item: ' . count($asins));
-
-        $delay = 1;
-
-        foreach ($asins->chunk(10) as $items) {
-            PreloadJob::dispatch($items->toArray())->delay(now()->addMinutes($delay * 5));
-
-            $delay++;
-        }
+        info('Update Old Item');
     }
 }

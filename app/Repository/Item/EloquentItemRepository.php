@@ -48,7 +48,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
 
         $recent = collect([]);
 
-        $this->item->latest('updated_at')->with('browses')->chunk($limit, function ($items) use (&$recent, $limit) {
+        $this->item->latest('updated_at')->whereNotNull('large_image')->with('browses')->chunk($limit, function ($items) use (&$recent, $limit) {
             foreach ($items as $item) {
                 $browses = collect($item->browses)->whereIn('id', config('amazon.recent_except'));
 
@@ -75,7 +75,6 @@ class EloquentItemRepository implements ItemRepositoryInterface
     public function oldCursor(int $limit = 100)
     {
         return $this->item->oldest('updated_at')
-                          ->select('asin')
                           ->limit($limit)
                           ->cursor();
     }
@@ -136,29 +135,6 @@ class EloquentItemRepository implements ItemRepositoryInterface
         ]));
 
         return $new_item;
-    }
-
-    /**
-     * @param array $item
-     *
-     * @return array
-     */
-    private function browseNodes(array $item): array
-    {
-        $ids = [];
-        $nodes = array_get($item, 'BrowseNodes');
-
-        while ($nodes = array_get($nodes, 'BrowseNode')) {
-            if (!array_has($nodes, 'BrowseNodeId')) {
-                $nodes = head($nodes);
-            }
-
-            $ids[] = (int)array_get($nodes, 'BrowseNodeId');
-
-            $nodes = array_get($nodes, 'Ancestors');
-        }
-
-        return $ids;
     }
 
     /**
