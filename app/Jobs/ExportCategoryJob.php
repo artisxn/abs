@@ -60,7 +60,7 @@ class ExportCategoryJob implements ShouldQueue
         string $category,
         string $order = 'updated_at',
         string $sort = 'desc',
-        int $limit = 7
+        int $limit = 1000
     ) {
         $this->file = $file;
         $this->category = $category;
@@ -98,10 +98,17 @@ class ExportCategoryJob implements ShouldQueue
 
         $items = $repository->exportCursor($this->category, $this->order, $this->sort, $this->limit);
 
+        $count = 0;
+
         foreach ($items as $item) {
             $line = (new ItemResource($item))->toArray(request());
 
             $writer->insertOne($line);
+
+            $count++;
+            if ($count >= $this->limit) {
+                break;
+            }
         }
 
         return $this->file;

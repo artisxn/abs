@@ -89,7 +89,7 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
         string $category,
         string $order = 'updated_at',
         string $sort = 'desc',
-        int $limit = 7
+        int $limit = 1000
     ) {
         //        $browse_item = BrowseItem::where('browse_id', $category);
         //        $asins = $browse_item->pluck('item_asin');
@@ -103,8 +103,8 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
 
         return $this->browse->findOrFail($category)
                             ->items()
-                            ->whereDate('updated_at', '>', now()->subDays($limit))
-            //                            ->orderBy($order, $sort)
+            //                            ->whereDate('updated_at', '>', now()->subDays($limit))
+                            ->orderBy($order, $sort)
                             ->cursor();
     }
 

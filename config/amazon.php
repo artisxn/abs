@@ -87,10 +87,9 @@ return [
     'default_priority' => env('DEFAULT_PRIORITY', 0),
 
     /**
-     * CSVダウンロード。◯日以内に更新されたアイテム。
-     * 件数指定では遅すぎるのでwhereDate
+     * CSVダウンロードの制限
      */
-    'csv_limit'        => env('CSV_LIMIT', 7),
+    'csv_limit'        => env('CSV_LIMIT', 1000),
 
     //CSVのヘッダー。ItemResourceと合わせる。
     'csv_header'       => [
