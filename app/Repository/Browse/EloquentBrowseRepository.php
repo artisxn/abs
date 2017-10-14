@@ -3,6 +3,8 @@
 namespace App\Repository\Browse;
 
 use App\Model\Browse;
+use App\Model\BrowseItem;
+use App\Model\Item;
 
 class EloquentBrowseRepository implements BrowseRepositoryInterface
 {
@@ -63,11 +65,21 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
         string $sort = 'desc',
         int $limit = 1000
     ) {
-        return $this->browse->findOrFail($category)
-                            ->items()
-                            ->orderBy($order, $sort)
-                            ->take($limit)
-                            ->get();
+        $browse_item = BrowseItem::where('browse_id', $category);
+        $asins = $browse_item->pluck('item_asin');
+
+        $items = Item::whereIn('asin', $asins)
+                     ->orderBy($order, $sort)
+                     ->take($limit)
+                     ->get();
+
+        return $items;
+
+        //        return $this->browse->findOrFail($category)
+        //                            ->items()
+        //                            ->orderBy($order, $sort)
+        //                            ->take($limit)
+        //                            ->get();
     }
 
     /**
