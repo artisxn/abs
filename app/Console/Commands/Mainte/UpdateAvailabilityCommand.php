@@ -40,7 +40,7 @@ class UpdateAvailabilityCommand extends Command
      */
     public function handle()
     {
-        $histories = History::doesntHave('availability')->limit(1000)->get();
+        $histories = History::doesntHave('availability')->limit(5000)->get();
 
         info('Update Availability: Start ' . $histories->count());
 

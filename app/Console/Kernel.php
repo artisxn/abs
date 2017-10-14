@@ -60,7 +60,7 @@ class Kernel extends ConsoleKernel
                  ->when(config('amazon-feature.world_watch_item'));
 
         $schedule->command(Commands\Mainte\UpdateAvailabilityCommand::class)
-                 ->everyTenMinutes();
+                 ->everyThirtyMinutes();
     }
 
     /**
