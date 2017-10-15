@@ -160,28 +160,42 @@ class EloquentItemRepository implements ItemRepositoryInterface
                 'item_asin'  => $asin,
                 'attributes' => $attributes,
             ])->save();
-            $attr->item()->associate($new_item)->save();
         }
 
         //OfferSummary
         $offer_summary = array_get($item, 'OfferSummary');
         if (!empty($offer_summary)) {
-            $os = OfferSummary::firstOrCreate(compact('offer_summary'));
-            $new_item->offer_summary()->associate($os)->save();
+            $summary = OfferSummary::firstOrCreate([
+                'item_asin' => $asin,
+            ]);
+            $summary->fill([
+                'item_asin'     => $asin,
+                'offer_summary' => json_encode($offer_summary),
+            ])->save();
         }
 
         //Offers
         $offers = array_get($item, 'Offers');
         if (!empty($offers)) {
-            $offer = Offer::firstOrCreate(compact('offers'));
-            $new_item->offers()->associate($offer)->save();
+            $offer = Offer::firstOrCreate([
+                'item_asin' => $asin,
+            ]);
+            $offer->fill([
+                'item_asin' => $asin,
+                'offers'    => $offers,
+            ])->save();
         }
 
         //ImageSet
         $image_sets = array_get($item, 'ImageSets');
         if (!empty($image_sets)) {
-            $image = ImageSet::firstOrCreate(compact('image_sets'));
-            $new_item->image_sets()->associate($image)->save();
+            $image = ImageSet::firstOrCreate([
+                'item_asin' => $asin,
+            ]);
+            $image->fill([
+                'item_asin'  => $asin,
+                'image_sets' => $image_sets,
+            ])->save();
         }
 
         return $new_item;

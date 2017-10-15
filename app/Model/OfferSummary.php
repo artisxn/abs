@@ -18,7 +18,7 @@ class OfferSummary extends Model
      * @var array
      */
     protected $casts = [
-        'offer_summery' => 'array',
+        'offer_summary' => 'array',
     ];
 
     /**

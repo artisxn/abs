@@ -43,6 +43,8 @@ class Item extends Resource
             $actors = implode(',', $actors);
         }
 
+        $offer_summary = $this->offer_summary->offer_summary;
+
         return [
             $this->asin,
             $this->title,
@@ -54,10 +56,10 @@ class Item extends Resource
             $creators,
             $actors,
             array_get($attr, 'ReleaseDate'),
-            array_get($this->offer_summary->offer_summary, 'LowestNewPrice.Amount'),
-            array_get($this->offer_summary->offer_summary, 'TotalNew'),
-            array_get($this->offer_summary->offer_summary, 'LowestUsedPrice.Amount'),
-            array_get($this->offer_summary->offer_summary, 'TotalUsed'),
+            array_get($offer_summary, 'LowestNewPrice.Amount'),
+            array_get($offer_summary, 'TotalNew'),
+            array_get($offer_summary, 'LowestUsedPrice.Amount'),
+            array_get($offer_summary, 'TotalUsed'),
             array_get($this->offers->offers, 'Offer.OfferListing.Availability'),
 
             $this->updated_at,
