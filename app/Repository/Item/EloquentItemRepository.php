@@ -170,7 +170,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
             ]);
             $summary->fill([
                 'item_asin'     => $asin,
-                'offer_summary' => json_encode($offer_summary),
+                'offer_summary' => $offer_summary,
             ])->save();
         }
 
