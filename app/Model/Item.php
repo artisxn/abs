@@ -71,4 +71,28 @@ class Item extends Model
     {
         return $this->hasOne(ItemAttribute::class)->withDefault();
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function offers()
+    {
+        return $this->hasOne(Offer::class)->withDefault();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function offer_summary()
+    {
+        return $this->hasOne(OfferSummary::class)->withDefault();
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function image_sets()
+    {
+        return $this->hasOne(ImageSet::class)->withDefault();
+    }
 }

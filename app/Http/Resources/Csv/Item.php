@@ -16,7 +16,8 @@ class Item extends Resource
     public function toArray($request)
     {
         $images = [];
-        $image_sets = array_get($this->image_sets, 'ImageSet');
+
+        $image_sets = array_get($this->image_sets->image_sets, 'ImageSet');
         if (!empty($image_sets)) {
             foreach ($image_sets as $image_set) {
                 if (array_has($image_set, 'HiResImage')) {
@@ -26,9 +27,6 @@ class Item extends Resource
         }
 
         $attr = $this->item_attribute->attributes;
-        if (empty($attr)) {
-            $attr = $this->attributes;
-        }
 
         $authors = array_get($attr, 'Author');
         if (is_array($authors)) {
@@ -56,11 +54,11 @@ class Item extends Resource
             $creators,
             $actors,
             array_get($attr, 'ReleaseDate'),
-            array_get($this->offer_summary, 'LowestNewPrice.Amount'),
-            array_get($this->offer_summary, 'TotalNew'),
-            array_get($this->offer_summary, 'LowestUsedPrice.Amount'),
-            array_get($this->offer_summary, 'TotalUsed'),
-            array_get($this->offers, 'Offer.OfferListing.Availability'),
+            array_get($this->offer_summary->offer_summary, 'LowestNewPrice.Amount'),
+            array_get($this->offer_summary->offer_summary, 'TotalNew'),
+            array_get($this->offer_summary->offer_summary, 'LowestUsedPrice.Amount'),
+            array_get($this->offer_summary->offer_summary, 'TotalUsed'),
+            array_get($this->offers->offers, 'Offer.OfferListing.Availability'),
 
             $this->updated_at,
 

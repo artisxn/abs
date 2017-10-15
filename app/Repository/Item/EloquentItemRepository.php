@@ -6,6 +6,9 @@ use App\Model\Item;
 use App\Model\Browse;
 use App\Model\Availability;
 use App\Model\ItemAttribute;
+use App\Model\OfferSummary;
+use App\Model\Offer;
+use App\Model\ImageSet;
 
 class EloquentItemRepository implements ItemRepositoryInterface
 {
@@ -142,20 +145,44 @@ class EloquentItemRepository implements ItemRepositoryInterface
 
         //Availability
         $availability = array_get($item, 'Offers.Offer.OfferListing.Availability', '');
-        $ava = Availability::firstOrCreate(compact('availability'));
-        $new_item->availability()->associate($ava)->save();
+        if (!empty($availability)) {
+            $ava = Availability::firstOrCreate(compact('availability'));
+            $new_item->availability()->associate($ava)->save();
+        }
 
         //ItemAttribute
         $attributes = array_get($item, 'ItemAttributes');
-        $attr = ItemAttribute::firstOrCreate([
-            'item_asin' => $asin,
-        ]);
-        $attr->fill([
-            'item_asin'  => $asin,
-            'attributes' => $attributes,
-        ])->save();
-        $attr->item()->associate($new_item)->save();
+        if (!empty($attributes)) {
+            $attr = ItemAttribute::firstOrCreate([
+                'item_asin' => $asin,
+            ]);
+            $attr->fill([
+                'item_asin'  => $asin,
+                'attributes' => $attributes,
+            ])->save();
+            $attr->item()->associate($new_item)->save();
+        }
 
+        //OfferSummary
+        $offer_summary = array_get($item, 'OfferSummary');
+        if (!empty($offer_summary)) {
+            $os = OfferSummary::firstOrCreate(compact('offer_summary'));
+            $new_item->offer_summary()->associate($os)->save();
+        }
+
+        //Offers
+        $offers = array_get($item, 'Offers');
+        if (!empty($offers)) {
+            $offer = Offer::firstOrCreate(compact('offers'));
+            $new_item->offers()->associate($offer)->save();
+        }
+
+        //ImageSet
+        $image_sets = array_get($item, 'ImageSets');
+        if (!empty($image_sets)) {
+            $image = ImageSet::firstOrCreate(compact('image_sets'));
+            $new_item->image_sets()->associate($image)->save();
+        }
 
         return $new_item;
     }

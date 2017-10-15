@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateItemAttributesTable extends Migration
+class CreateOffersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateItemAttributesTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_attributes', function (Blueprint $table) {
+        Schema::create('offers', function (Blueprint $table) {
             $table->bigIncrements('id');
 
             $table->string('item_asin', 10)->unique();
@@ -22,7 +22,7 @@ class CreateItemAttributesTable extends Migration
                   ->on('items')
                   ->onDelete('cascade');
 
-            $table->json('attributes');
+            $table->json('offers');
 
             $table->timestamps();
         });
@@ -35,6 +35,6 @@ class CreateItemAttributesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_attributes');
+        Schema::dropIfExists('offers');
     }
 }
