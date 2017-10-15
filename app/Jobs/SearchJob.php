@@ -50,17 +50,17 @@ class SearchJob implements ShouldQueue
      */
     public function handle()
     {
-        info('Search: ' . $this->keyword);
+        //        info('Search: ' . $this->keyword);
 
         $page = $this->page;
 
-        $results = retry(3, function () {
-            return AmazonProduct::search($this->category, $this->keyword, $this->page);
-        }, 5000);
-
-        //        $results = rescue(function () {
+        //        $results = retry(3, function () {
         //            return AmazonProduct::search($this->category, $this->keyword, $this->page);
-        //        });
+        //        }, 5000);
+
+        $results = rescue(function () {
+            return AmazonProduct::search($this->category, $this->keyword, $this->page);
+        });
 
         $item = array_get($results, 'Items');
 
