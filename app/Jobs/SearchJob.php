@@ -67,6 +67,7 @@ class SearchJob implements ShouldQueue
                 return AmazonProduct::search($this->category, $this->keyword, $this->page);
             });
         }, function () {
+            info('Amazon API Throttle: Search');
             return [];
         });
 
