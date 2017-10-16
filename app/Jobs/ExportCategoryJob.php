@@ -86,17 +86,17 @@ class ExportCategoryJob implements ShouldQueue
 
         $items = $repository->exportCursor($this->category, $this->order, $this->sort, $this->limit);
 
-        $count = 0;
+        //        $count = 0;
 
         foreach ($items as $item) {
             $line = (new ItemResource($item))->toArray(request());
 
             $writer->insertOne($line);
 
-            $count++;
-            if ($count >= $this->limit) {
-                break;
-            }
+            //            $count++;
+            //            if ($count >= $this->limit) {
+            //                break;
+            //            }
         }
 
         return $this->file;

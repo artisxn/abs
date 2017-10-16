@@ -68,6 +68,7 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
         return $this->browse->findOrFail($category)
                             ->items()
                             ->orderBy($order, $sort)
+                            ->limit($limit)
                             ->cursor();
     }
 
