@@ -200,26 +200,15 @@ class WorldWatchJob implements ShouldQueue
         $request = new GuzzleRequest($client);
         $request->setScheme('https');
 
-        $config = config('amazon-product');
-
-        $api_key = config('amazon-feature.world_amazon_api_key');
-        $secret_key = config('amazon-feature.world_amazon_api_secret_key');
-
-        $tld = config('amazon.locales.' . $this->locale . '.tld');
-        info($tld);
-
-        $tag = config('amazon.locales.' . $this->locale . '.tag');
-
-        if (empty($tag)) {
-            $tag = $config['associate_tag'];
-        }
+        $world_config = config('amazon-world.locales.' . $this->locale);
+        info($world_config);
 
         $conf = new GenericConfiguration();
 
-        $conf->setCountry($tld)
-             ->setAccessKey($api_key)
-             ->setSecretKey($secret_key)
-             ->setAssociateTag($tag)
+        $conf->setCountry(array_get($world_config, 'tld'))
+             ->setAccessKey(array_get($world_config, 'api_key'))
+             ->setSecretKey(array_get($world_config, 'api_secret'))
+             ->setAssociateTag(array_get($world_config, 'tag'))
              ->setResponseTransformer(new XmlToArray())
              ->setRequest($request);
 
