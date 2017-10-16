@@ -69,6 +69,13 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
                             ->items()
                             ->orderBy($order, $sort)
                             ->limit($limit)
+                            ->with([
+                                'availability',
+                                'item_attribute',
+                                'offers',
+                                'offer_summary',
+                                'image_sets',
+                            ])
                             ->cursor();
     }
 
