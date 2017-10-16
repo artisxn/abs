@@ -27,8 +27,11 @@
     @endif
 
   @else
-    <p>見つかりませんでした。もう一度検索してください。</p>
-
+    <div class="uk-alert-warning" uk-alert>
+      <p>見つかりませんでした。しばらくしてからもう一度検索してください。
+      </p>
+    </div>
+    
     @if($page >= 5 and !empty(session('MoreSearchResultsUrl')))
       <div class="uk-alert-danger" uk-alert>
         <p>

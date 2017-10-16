@@ -21,7 +21,6 @@
     @endforeach
   @else
     <div class="uk-alert-warning" uk-alert>
-      <a class="uk-alert-close" uk-close></a>
       <p>見つかりませんでした。しばらくしてからもう一度検索してください。(<a href="{{ route('browse', ['browse' => $browse_id]) }}">{{ $browse_id }}</a>)
       </p>
     </div>
