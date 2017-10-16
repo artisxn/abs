@@ -114,12 +114,11 @@ class GetItemsJob implements ShouldQueue
         //            return AmazonProduct::setIdType('ASIN')->items($this->asins);
         //        });
 
-        \Redis::throttle('amazon-api')->allow(1)->every(1)->then(function () use (&$results) {
+        \Redis::throttle('amazon-api')->allow(1)->every(5)->then(function () use (&$results) {
             $results = rescue(function () {
                 return AmazonProduct::setIdType('ASIN')->items($this->asins);
             });
         }, function () {
-            // ロックできなかった場合の処理…
             return [];
         });
 

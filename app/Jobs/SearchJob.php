@@ -62,12 +62,11 @@ class SearchJob implements ShouldQueue
         //            return AmazonProduct::search($this->category, $this->keyword, $this->page);
         //        });
 
-        \Redis::throttle('amazon-api')->allow(1)->every(1)->then(function () use (&$results) {
+        \Redis::throttle('amazon-api')->allow(1)->every(5)->then(function () use (&$results) {
             $results = rescue(function () {
                 return AmazonProduct::search($this->category, $this->keyword, $this->page);
             });
         }, function () {
-            // ロックできなかった場合の処理…
             return [];
         });
 
