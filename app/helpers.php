@@ -9,9 +9,9 @@ if (!function_exists('browse_nodes')) {
      *
      * @return array
      */
-    function browse_nodes(array $item = null): array
+    function browse_nodes($item): array
     {
-        if (empty($item)) {
+        if (empty($item) or !is_array($item)) {
             return [];
         }
 
