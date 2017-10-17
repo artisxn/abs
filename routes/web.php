@@ -29,6 +29,10 @@ Route::name('login')->get('login', 'LoginController@login');
 Route::get('callback', 'LoginController@callback');
 Route::name('logout')->get('logout', 'LoginController@logout');
 
+Route::middleware('auth')->namespace('My')->group(function () {
+    Route::name('notifications')->get('notifications', 'NotificationController');
+});
+
 Route::middleware('auth')->prefix('watch')->namespace('Watch')->group(function () {
     Route::resource('asin', 'AsinWatchController')
          ->only(['index', 'store', 'destroy'])
@@ -60,6 +64,8 @@ Route::middleware('auth')->prefix('watch')->namespace('Watch')->group(function (
 Route::middleware('auth')->namespace('Download')->group(function () {
     Route::name('download.asin')->get('download/asin', 'AsinController');
     Route::name('download.category')->get('download/category/{category}', 'CategoryController');
+
+    Route::name('download.csv')->get('download/csv/{file_name}', 'CsvController');
 
     Route::name('export.index')->get('export', 'ExportController@index');
     Route::name('export.export')->post('export', 'ExportController@export');

@@ -56,13 +56,15 @@
             </li>
           @endcan
           <li>
-            <a href="#">
-              <span uk-icon="icon: settings"></span>
-              設定
+            <a href="{{ route('notifications') }}">
+              <span uk-icon="icon: bell"></span>
+              通知
+              <span class="uk-badge">
+              {{ auth()->user()->unreadNotifications()->count() }}
+              </span>
             </a>
           </li>
         </ul>
-
       </div>
 
       <div class="uk-navbar-right">

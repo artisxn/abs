@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Download;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Jobs\ExportCategoryJob;
+use App\Jobs\Download\ExportCategoryJob;
 
 class CategoryController extends Controller
 {
@@ -17,13 +17,8 @@ class CategoryController extends Controller
      */
     public function __invoke(Request $request, $category)
     {
-        $file = storage_path($request->user()->id . '-cat-download.csv');
+        ExportCategoryJob::dispatch($request->user(), $category, 'updated_at', 'desc', config('amazon.csv_limit'));
 
-        $file = dispatch_now(new ExportCategoryJob($file, $category, 'updated_at', 'desc', config('amazon.csv_limit')));
-
-        $file_name = 'abs-category-' . $category . '-' . today()->toDateString() . '.csv';
-
-        return response()->download($file, $file_name)
-                         ->deleteFileAfterSend(true);
+        return view('export.queue');
     }
 }

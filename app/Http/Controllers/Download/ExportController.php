@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Download;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Jobs\ExportCategoryJob;
+use App\Jobs\Download\ExportCategoryJob;
 use App\Http\Requests\ExportRequest;
 
 class ExportController extends Controller
 {
+    /**
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $this->authorize('export');
@@ -17,22 +20,22 @@ class ExportController extends Controller
         return view('export.index');
     }
 
+    /**
+     * @param ExportRequest $request
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function export(ExportRequest $request)
     {
         $this->authorize('export');
-
-        $file = storage_path('cat-export.csv');
 
         $category = $request->input('category_id');
         $order = $request->input('order', 'updated_at');
         $sort = $request->input('sort', 'desc');
         $limit = $request->input('limit');
 
-        $file = dispatch_now(new ExportCategoryJob($file, $category, $order, $sort, $limit));
+        ExportCategoryJob::dispatch($request->user(), $category, $order, $sort, $limit);
 
-        $file_name = 'abs-category-' . $category . '-' . today()->toDateString() . '.csv';
-
-        return response()->download($file, $file_name)
-                         ->deleteFileAfterSend(true);
+        return view('export.queue');
     }
 }

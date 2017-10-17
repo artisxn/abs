@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace App\Jobs\Download;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -8,23 +8,23 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
-use DB;
-
 use App\Http\Resources\Csv\Item as ItemResource;
 
 use League\Csv\Writer;
 
 use App\Repository\Browse\BrowseRepositoryInterface as BrowseRepository;
-use App\Model\Browse;
+use App\Model\User;
+
+use App\Notifications\CsvEported;
 
 class ExportCategoryJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
-     * @var string
+     * @var User
      */
-    protected $file;
+    protected $user;
 
     /**
      * @var string
@@ -49,20 +49,20 @@ class ExportCategoryJob implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @param string $file
+     * @param User   $user
      * @param string $category
      * @param string $order
      * @param string $sort
      * @param int    $limit
      */
     public function __construct(
-        string $file,
+        User $user,
         string $category,
         string $order = 'updated_at',
         string $sort = 'desc',
         int $limit = 1000
     ) {
-        $this->file = $file;
+        $this->user = $user;
         $this->category = $category;
         $this->order = $order;
         $this->sort = $sort;
@@ -78,27 +78,23 @@ class ExportCategoryJob implements ShouldQueue
      */
     public function handle(BrowseRepository $repository)
     {
-        DB::disableQueryLog();
+        \DB::disableQueryLog();
 
-        $writer = Writer::createFromPath($this->file, 'w+');
+        $file_name = 'abs-category-' . $this->category . '-' . today()->toDateString() . '.csv';
+        $file = storage_path('app/csv/' . $this->user->id . '/' . $file_name);
+
+        $writer = Writer::createFromPath($file, 'w+');
 
         $writer->insertOne(config('amazon.csv_header'));
 
         $items = $repository->exportCursor($this->category, $this->order, $this->sort, $this->limit);
 
-        //        $count = 0;
-
         foreach ($items as $item) {
             $line = (new ItemResource($item))->toArray(request());
 
             $writer->insertOne($line);
-
-            //            $count++;
-            //            if ($count >= $this->limit) {
-            //                break;
-            //            }
         }
 
-        return $this->file;
+        $this->user->notify(new CsvEported('CSVダウンロード(カテゴリー)', $file_name));
     }
 }
