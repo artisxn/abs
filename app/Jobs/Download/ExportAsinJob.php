@@ -55,7 +55,7 @@ class ExportAsinJob implements ShouldQueue
         if (!Storage::exists($path)) {
             Storage::makeDirectory($path);
         }
-        $file = storage_path('app/' . $path . $file_name);
+        $file = Storage::path($path . $file_name);
 
         $writer = Writer::createFromPath($file, 'w');
 
