@@ -86,9 +86,7 @@ class ExportCategoryJob implements ShouldQueue
 
         $path = 'csv/' . $this->user->id . '/';
 
-        if (!Storage::exists($path)) {
-            Storage::makeDirectory($path);
-        }
+        Storage::makeDirectory($path);
 
         $file = Storage::path($path . $file_name);
         info($file);

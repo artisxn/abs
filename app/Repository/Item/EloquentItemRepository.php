@@ -222,11 +222,13 @@ class EloquentItemRepository implements ItemRepositoryInterface
                 /**
                  * @var Item $item
                  */
-                $item->item_attribute()->delete();
-                $item->offers()->delete();
-                $item->offer_summary()->delete();
-                $item->image_sets()->delete();
-                $item->histories()->delete();
+                rescue(function () use ($item) {
+                    $item->item_attribute()->delete();
+                    $item->offers()->delete();
+                    $item->offer_summary()->delete();
+                    $item->image_sets()->delete();
+                    $item->histories()->delete();
+                });
 
                 //                $item->delete();
 
