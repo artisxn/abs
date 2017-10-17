@@ -59,8 +59,11 @@ return [
     'world_watch_item'         => env('FEATURE_WORLD_WATCH_ITEM', false),
     'world_watch_item_user_id' => env('FEATURE_WORLD_WATCH_ITEM_USER_ID', 1),
 
-    'world_watch_item_locales' => explode(',', env('FEATURE_WORLD_LOCALES', 'JP,US')),
+    'world_watch_item_locales'    => explode(',', env('FEATURE_WORLD_LOCALES', 'JP,US')),
 
+    /**
+     * APIキー。基本的にはJPアカウントで作ったもの。上手く動かない場合は各国でキーを作ってamazon-worldで指定
+     */
     'world_amazon_api_key'        => env('AMAZON_API_KEY_WORLD'),
     'world_amazon_api_secret_key' => env('AMAZON_API_SECRET_KEY_WORLD'),
 

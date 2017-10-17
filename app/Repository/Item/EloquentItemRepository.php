@@ -216,7 +216,19 @@ class EloquentItemRepository implements ItemRepositoryInterface
                            ->cursor();
 
             foreach ($items as $item) {
-                $item->delete();
+                /**
+                 * itemsは残して詳細データのみ削除
+                 */
+                /**
+                 * @var Item $item
+                 */
+                $item->item_attribute()->delete();
+                $item->offers()->delete();
+                $item->offer_summary()->delete();
+                $item->image_sets()->delete();
+                $item->histories()->delete();
+
+                //                $item->delete();
 
                 cache()->forget('asin.' . $item->asin);
             }
