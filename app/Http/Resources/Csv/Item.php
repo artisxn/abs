@@ -17,11 +17,13 @@ class Item extends Resource
     {
         $images = [];
 
-        $image_sets = array_get($this->image_sets->image_sets, 'ImageSet');
-        if (!empty($image_sets)) {
-            foreach ($image_sets as $image_set) {
-                if (array_has($image_set, 'HiResImage')) {
-                    $images[] = array_get($image_set, 'HiResImage.URL');
+        if (config('amazon-feature.export_image_sets')) {
+            $image_sets = array_get($this->image_sets->image_sets, 'ImageSet');
+            if (!empty($image_sets)) {
+                foreach ($image_sets as $image_set) {
+                    if (array_has($image_set, 'HiResImage')) {
+                        $images[] = array_get($image_set, 'HiResImage.URL');
+                    }
                 }
             }
         }
@@ -60,7 +62,7 @@ class Item extends Resource
             array_get($offer_summary, 'TotalNew'),
             array_get($offer_summary, 'LowestUsedPrice.Amount'),
             array_get($offer_summary, 'TotalUsed'),
-            array_get($this->offers->offers, 'Offer.OfferListing.Availability'),
+            $this->availability->availability,
 
             $this->updated_at,
 

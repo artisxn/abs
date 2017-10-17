@@ -83,4 +83,8 @@ return [
      */
     'plan'                        => env('FEATURE_PLAN', false),
 
+    /**
+     * CSVにImageSetsを含める
+     */
+    'export_image_sets'           => env('FEATURE_EXPORT_IMAGE_SETS', false),
 ];

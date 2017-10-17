@@ -65,6 +65,9 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
         string $sort = 'desc',
         int $limit = 1000
     ) {
+
+        $image_sets = config('amazon-feature.export_image_sets');
+
         return $this->browse->findOrFail($category)
                             ->items()
                             ->orderBy($order, $sort)
@@ -72,10 +75,11 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
                             ->with([
                                 'availability',
                                 'item_attribute',
-                                'offers',
                                 'offer_summary',
-                                'image_sets',
                             ])
+                            ->when($image_sets, function ($query) {
+                                return $query->with(['image_sets']);
+                            })
                             ->cursor();
     }
 
