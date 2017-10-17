@@ -56,6 +56,7 @@ class ExportAsinJob implements ShouldQueue
             Storage::makeDirectory($path);
         }
         $file = Storage::path($path . $file_name);
+        info($file);
 
         $writer = Writer::createFromPath($file, 'w');
 

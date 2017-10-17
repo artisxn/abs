@@ -91,6 +91,7 @@ class ExportCategoryJob implements ShouldQueue
         }
 
         $file = Storage::path($path . $file_name);
+        info($file);
 
         $writer = Writer::createFromPath($file, 'w');
 
