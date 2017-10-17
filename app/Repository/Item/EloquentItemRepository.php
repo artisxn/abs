@@ -212,7 +212,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
         try {
             $items = Browse::findOrFail($browse_id)
                            ->items()
-                           ->latest('updated_at')
+                //                           ->latest('updated_at')
                            ->limit($limit)
                            ->cursor();
 
@@ -223,16 +223,19 @@ class EloquentItemRepository implements ItemRepositoryInterface
                 /**
                  * @var Item $item
                  */
-                rescue(function () use ($item) {
-                    $item->item_attribute()->delete();
-                    $item->offers()->delete();
-                    $item->offer_summary()->delete();
-                    $item->image_sets()->delete();
-                    $item->histories()->delete();
-                    $item->touch();
-                });
+                //                rescue(function () use ($item) {
+                //                    $item->item_attribute()->delete();
+                //                    $item->offers()->delete();
+                //                    $item->offer_summary()->delete();
+                //                    $item->image_sets()->delete();
+                //                    $item->histories()->delete();
+                //                    $item->touch();
+                //                });
 
-                //                $item->delete();
+                /**
+                 * itemごと全部削除。こっちのほうが早いのでどちらか選ぶ。
+                 */
+                $item->delete();
 
                 cache()->forget('asin.' . $item->asin);
             }
