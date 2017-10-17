@@ -16,6 +16,8 @@ use League\Csv\Writer;
 
 use App\Notifications\CsvEported;
 
+use Storage;
+
 class ExportAsinJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -47,9 +49,15 @@ class ExportAsinJob implements ShouldQueue
         \DB::disableQueryLog();
 
         $file_name = 'abs-asin-' . today()->toDateString() . '.csv';
-        $file = storage_path('app/csv/' . $this->user->id . '/' . $file_name);
 
-        $writer = Writer::createFromPath($file, 'w+');
+        $path = 'csv/' . $this->user->id . '/';
+
+        if (!Storage::exists($path)) {
+            Storage::makeDirectory($path);
+        }
+        $file = storage_path('app/' . $path . $file_name);
+
+        $writer = Writer::createFromPath($file, 'w');
 
         $writer->insertOne(config('amazon.csv_header'));
 
