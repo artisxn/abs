@@ -46,6 +46,8 @@ class ExportAsinJob implements ShouldQueue
      */
     public function handle()
     {
+        info(self::class);
+
         \DB::disableQueryLog();
 
         $file_name = 'abs-asin-' . today()->toDateString() . '.csv';

@@ -80,6 +80,8 @@ class ExportCategoryJob implements ShouldQueue
      */
     public function handle(BrowseRepository $repository)
     {
+        info(self::class);
+
         \DB::disableQueryLog();
 
         $file_name = 'abs-category-' . $this->category . '-' . today()->toDateString() . '.csv';
