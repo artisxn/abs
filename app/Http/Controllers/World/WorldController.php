@@ -18,9 +18,11 @@ class WorldController extends Controller
     {
         $world_items = User::findOrFail(config('amazon-feature.world_watch_item_user_id'))
                            ->worldItems()
-                           ->groupBy('asin')
+                           ->with(['availability'])
                            ->latest('updated_at')
-                           ->paginate(50);
+                           ->paginate(100);
+
+        //        dd($world_items->groupBy('asin'));
 
         return view('world.index')->with(compact('world_items'));
     }

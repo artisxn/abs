@@ -29,10 +29,10 @@
           <td><a href="{{ route('asin', $world_item->asin) }}">{{ $world_item->asin }}</a></td>
           <td>{{ $world_item->country }}</td>
           <td>{{ $world_item->title }}</td>
-          <td>{{ $world_item->availability }}</td>
-          <td>{{ $world_item->priceFormat($world_item->lowest_new_price) }}</td>
+          <td>{{ $world_item->availability->availability }}</td>
+          <td>{{ $world_item->lowest_new_price }}</td>
           <td>{{ $world_item->total_new }}</td>
-          <td>{{ $world_item->priceFormat($world_item->lowest_used_price) }}</td>
+          <td>{{ $world_item->lowest_used_price }}</td>
           <td>{{ $world_item->total_used }}</td>
         </tr>
       @endforeach
