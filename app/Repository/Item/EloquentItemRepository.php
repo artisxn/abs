@@ -212,6 +212,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
         try {
             $items = Browse::findOrFail($browse_id)
                            ->items()
+                           ->latest('updated_at')
                            ->limit($limit)
                            ->cursor();
 
@@ -228,6 +229,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
                     $item->offer_summary()->delete();
                     $item->image_sets()->delete();
                     $item->histories()->delete();
+                    $item->touch();
                 });
 
                 //                $item->delete();
