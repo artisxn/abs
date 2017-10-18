@@ -39,7 +39,7 @@
               ウォッチリスト
             </a>
           </li>
-          @feature('plan')
+          @feature('world')
           <li>
             <a href="{{ route('world.index') }}">
               <span uk-icon="icon: world"></span>
