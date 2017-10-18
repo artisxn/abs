@@ -89,10 +89,10 @@ class SearchJob implements ShouldQueue
             session(['MoreSearchResultsUrl' => $MoreSearchResultsUrl]);
         }
 
-        if (!empty($items)) {
-            $asins = array_pluck($items, 'ASIN');
-            GetItemsJob::dispatch($asins);
-        }
+//        if (!empty($items)) {
+        //            $asins = array_pluck($items, 'ASIN');
+        //            GetItemsJob::dispatch($asins);
+        //        }
 
         return compact(
             'items',
