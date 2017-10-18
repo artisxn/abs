@@ -87,9 +87,17 @@ class ItemJob implements ShouldQueue
      */
     public function get()
     {
-        $results = retry(5, function () {
-            return AmazonProduct::setIdType('ASIN')->item($this->asin);
-        }, 5000);
+        //        $results = retry(5, function () {
+        //            return AmazonProduct::setIdType('ASIN')->item($this->asin);
+        //        }, 5000);
+
+        \Redis::throttle('amazon-api')->allow(1)->every(3)->then(function () use (&$results) {
+            $results = rescue(function () {
+                return AmazonProduct::setIdType('ASIN')->item($this->asin);
+            }, []);
+        }, function () {
+            return [];
+        });
 
         $item = array_get($results, 'Items.Item');
 
@@ -138,7 +146,7 @@ class ItemJob implements ShouldQueue
         $asins = data_get($item, 'SimilarProducts.SimilarProduct.*.ASIN');
 
         if (!empty($asins)) {
-            PreloadJob::dispatch($asins);
+            GetItemsJob::dispatch($asins)->delay(now()->addMinutes(10));
         }
     }
 }

@@ -10,7 +10,7 @@
   @include('item.image')
 
 
-  @include('item.editorial')
+  {{--  @include('item.editorial')--}}
 
   @include('item.info')
 

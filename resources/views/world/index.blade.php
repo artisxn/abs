@@ -26,7 +26,7 @@
       <tbody>
       @foreach($world_items as $world_item)
         <tr>
-          <td><a href="{{ route('asin', $world_item->asin) }}">{{ $world_item->asin }}</a></td>
+          <td><a href="{{ route('world.show', $world_item->asin) }}">{{ $world_item->asin }}</a></td>
           <td>{{ $world_item->country }}</td>
           <td>{{ $world_item->title }}</td>
           <td>{{ $world_item->availability->availability }}</td>

@@ -119,15 +119,8 @@ class EloquentItemRepository implements ItemRepositoryInterface
 
         $rank = array_get($item, 'SalesRank');
         $title = array_get($item, 'ItemAttributes.Title');
-        $attributes = null;//array_get($item, 'ItemAttributes');
-        $offer_summary = array_get($item, 'OfferSummary');
-
-        $offers = null;//array_get($item, 'Offers');
-
-        $image_sets = array_get($item, 'ImageSets');
         $large_image = array_get($item, 'LargeImage.URL');
         $detail_url = array_get($item, 'DetailPageURL');
-
 
         //        info($title);
 
@@ -136,10 +129,6 @@ class EloquentItemRepository implements ItemRepositoryInterface
         ], compact([
             'title',
             'rank',
-            //            'attributes',
-            //            'offer_summary',
-            //            'offers',
-            //            'image_sets',
             'large_image',
             'detail_url',
         ]));
@@ -154,49 +143,41 @@ class EloquentItemRepository implements ItemRepositoryInterface
         //ItemAttribute
         $attributes = array_get($item, 'ItemAttributes');
         if (!empty($attributes)) {
-            $attr = ItemAttribute::firstOrCreate([
+            $attr = ItemAttribute::updateOrCreate([
                 'item_asin' => $asin,
-            ]);
-            $attr->fill([
-                'item_asin'  => $asin,
+            ], [
                 'attributes' => $attributes,
-            ])->save();
+            ]);
         }
 
         //OfferSummary
         $offer_summary = array_get($item, 'OfferSummary');
         if (!empty($offer_summary)) {
-            $summary = OfferSummary::firstOrCreate([
+            $summary = OfferSummary::updateOrCreate([
                 'item_asin' => $asin,
-            ]);
-            $summary->fill([
-                'item_asin'     => $asin,
+            ], [
                 'offer_summary' => $offer_summary,
-            ])->save();
+            ]);
         }
 
         //Offers
         $offers = array_get($item, 'Offers');
         if (!empty($offers)) {
-            $offer = Offer::firstOrCreate([
+            $offer = Offer::updateOrCreate([
                 'item_asin' => $asin,
+            ], [
+                'offers' => $offers,
             ]);
-            $offer->fill([
-                'item_asin' => $asin,
-                'offers'    => $offers,
-            ])->save();
         }
 
         //ImageSet
         $image_sets = array_get($item, 'ImageSets');
         if (!empty($image_sets)) {
-            $image = ImageSet::firstOrCreate([
+            $image = ImageSet::updateOrCreate([
                 'item_asin' => $asin,
-            ]);
-            $image->fill([
-                'item_asin'  => $asin,
+            ], [
                 'image_sets' => $image_sets,
-            ])->save();
+            ]);
         }
 
         return $new_item;

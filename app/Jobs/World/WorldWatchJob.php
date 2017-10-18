@@ -154,9 +154,6 @@ class WorldWatchJob implements ShouldQueue
         $total_used = array_get($item, 'OfferSummary.TotalUsed');
         $editorial_review = array_get($item, 'EditorialReviews.EditorialReview.Content');
 
-        $availability = array_get($item, 'Offers.Offer.OfferListing.Availability', '');
-
-        $ava = Availability::firstOrCreate(compact('availability'));
 
         /**
          * @var WorldItem $world_item
@@ -176,13 +173,17 @@ class WorldWatchJob implements ShouldQueue
             'editorial_review',
         ]));
 
+        //Availability
+        $availability = array_get($item, 'Offers.Offer.OfferListing.Availability', '');
+        $ava = Availability::firstOrCreate(compact('availability'));
         $world_item->availability()->associate($ava);
 
+        //Binding
         $binding = array_get($item, 'ItemAttributes.Binding');
 
         if (!empty($binding)) {
-            $world_item->binding()
-                       ->associate(Binding::firstOrCreate(compact('binding')));
+            $bind = Binding::firstOrCreate(compact('binding'));
+            $world_item->binding()->associate($bind);
         }
 
         $world_item->save();

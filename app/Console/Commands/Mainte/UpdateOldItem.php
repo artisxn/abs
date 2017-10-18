@@ -4,7 +4,7 @@ namespace App\Console\Commands\Mainte;
 
 use Illuminate\Console\Command;
 
-use App\Jobs\PreloadJob;
+use App\Jobs\GetItemsJob;
 
 use App\Repository\Item\ItemRepositoryInterface as Item;
 
@@ -57,7 +57,7 @@ class UpdateOldItem extends Command
         $delay = 1;
 
         foreach ($asins->chunk(10) as $items) {
-            PreloadJob::dispatch($items->toArray())->delay(now()->addMinutes($delay * 5));
+            GetItemsJob::dispatch($items->toArray())->delay(now()->addMinutes($delay * 4));
 
             $delay++;
         }

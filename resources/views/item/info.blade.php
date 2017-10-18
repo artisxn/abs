@@ -1,4 +1,6 @@
 <div class="uk-card-body">
+  <h4 class="uk-heading-line"><span>商品情報</span></h4>
+
   <ul class="uk-list uk-list-bullet">
     <li>ASIN：
       <a href="{{ route('asin', array_get($item, 'ASIN')) }}">

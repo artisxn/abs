@@ -312,16 +312,16 @@
         },
         {
             "name": "caouecs/laravel-lang",
-            "version": "3.0.37",
+            "version": "3.0.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/caouecs/Laravel-lang.git",
-                "reference": "869a3c0d0a6791768ff320e9b9631b6afa5d033e"
+                "reference": "bf9ea6852183d04487bbf706df8052fc0a749f42"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/869a3c0d0a6791768ff320e9b9631b6afa5d033e",
-                "reference": "869a3c0d0a6791768ff320e9b9631b6afa5d033e",
+                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/bf9ea6852183d04487bbf706df8052fc0a749f42",
+                "reference": "bf9ea6852183d04487bbf706df8052fc0a749f42",
                 "shasum": ""
             },
             "require-dev": {
@@ -350,7 +350,7 @@
                 "laravel",
                 "lpm"
             ],
-            "time": "2017-09-25T07:19:55+00:00"
+            "time": "2017-10-18T15:54:55+00:00"
         },
         {
             "name": "composer/ca-bundle",

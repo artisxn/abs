@@ -16,10 +16,14 @@ class WorldItem extends Model
         'rank',
         'lowest_new_price',
         'lowest_used_price',
-        'availability',
         'total_new',
         'total_used',
         'editorial_review',
+    ];
+
+    protected $hidden = [
+        'availability_id',
+        'binding_id',
     ];
 
     public function binding()

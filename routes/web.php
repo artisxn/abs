@@ -81,7 +81,7 @@ Route::prefix('featured')->namespace('Featured')->group(function () {
 
 Route::namespace('World')->group(function () {
     Route::resource('world', 'WorldController')
-         ->only(['index']);
+         ->only(['index', 'show']);
 });
 
 

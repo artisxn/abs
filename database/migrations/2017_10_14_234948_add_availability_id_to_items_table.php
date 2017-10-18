@@ -14,11 +14,9 @@ class AddAvailabilityIdToItemsTable extends Migration
     public function up()
     {
         Schema::table('items', function (Blueprint $table) {
-            if (!Schema::hasColumn('items', 'availability_id')) {
-                $table->unsignedInteger('availability_id')
-                      ->nullable()
-                      ->after('rank');
-            }
+            $table->unsignedInteger('availability_id')
+                  ->nullable()
+                  ->after('rank');
 
             $table->foreign('availability_id')->references('id')->on('availabilities');
         });

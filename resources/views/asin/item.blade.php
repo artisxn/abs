@@ -13,6 +13,8 @@
 
   @include('item.editorial')
 
+  @include('item.feature')
+
   @include('item.info')
 
   @include('asin.imageset')

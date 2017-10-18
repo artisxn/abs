@@ -20,3 +20,12 @@ use Illuminate\Http\Request;
 Route::namespace('Api')->group(function () {
     Route::get('graph/{asin}', 'HistoryGraphController');
 });
+
+Route::namespace('Api')->group(function () {
+    Route::apiResource('world', 'WorldController')
+         ->only(['index', 'show'])
+         ->names([
+             'index' => 'api.world.index',
+             'show'  => 'api.world.show',
+         ]);
+});

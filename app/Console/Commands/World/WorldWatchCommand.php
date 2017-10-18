@@ -52,13 +52,13 @@ class WorldWatchCommand extends Command
 
         $locales = config('amazon-feature.world_watch_item_locales');
 
-        $delay = 1;
+        $delay = 0;
 
         foreach ($asins->chunk(10) as $items) {
             foreach ($locales as $locale) {
                 info($locale);
 
-                WorldWatchJob::dispatch($items->toArray(), $locale)->delay(now()->addSeconds($delay * 20));
+                WorldWatchJob::dispatch($items->toArray(), $locale)->delay(now()->addSeconds($delay * 30));
 
                 $delay++;
             }
