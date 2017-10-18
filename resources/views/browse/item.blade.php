@@ -12,6 +12,8 @@
 
   {{--  @include('item.editorial')--}}
 
+  {{--  @include('item.feature')--}}
+
   @include('item.info')
 
   @include('item.similar')
