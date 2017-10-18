@@ -28,7 +28,11 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('export', function (User $user) {
-            return $user->isAdmin();
+            return $user->isAdmin() or $user->plan() === 'business';
+        });
+
+        Gate::define('jan-import', function (User $user) {
+            return $user->isAdmin() or $user->plan() === 'business';
         });
     }
 }

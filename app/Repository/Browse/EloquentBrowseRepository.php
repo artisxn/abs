@@ -30,9 +30,10 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
         $cache_key = 'browse.list.all.' . request()->input('page', 1);
 
         $lists = cache()->remember($cache_key, 60, function () use ($paginate) {
-            return $this->browse->withCount('browseItems')
-                                ->orderBy('browse_items_count', 'desc')
-                                ->paginate($paginate);
+            return $this->browse
+                //                ->withCount('browseItems')
+                //                ->orderBy('browse_items_count', 'desc')
+                ->paginate($paginate);
         });
 
         return $lists;
@@ -65,7 +66,6 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
         string $sort = 'desc',
         int $limit = 1000
     ) {
-
         $image_sets = config('amazon-feature.export_image_sets');
 
         return $this->browse->findOrFail($category)

@@ -17,7 +17,13 @@ class CategoryController extends Controller
      */
     public function __invoke(Request $request, $category)
     {
-        ExportCategoryJob::dispatch($request->user(), $category, 'updated_at', 'desc', config('amazon.csv_limit'))->onQueue('export');
+        ExportCategoryJob::dispatch(
+            $request->user(),
+            $category,
+            'updated_at',
+            'desc',
+            $request->user()->csvLimit()
+        )->onQueue('export');
 
         return view('export.queue');
     }

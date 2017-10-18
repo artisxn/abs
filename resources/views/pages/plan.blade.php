@@ -7,10 +7,6 @@
 
   <h2 class="uk-heading-divider">プラン</h2>
 
-  <div class="uk-alert-danger" uk-alert>
-    <p>内容はすべて未定です。将来的に始めるかもしれないサービスです。</p>
-  </div>
-
   <table class="uk-table uk-table-striped uk-table-hover uk-table-divider">
     <caption></caption>
     <thead>
@@ -48,9 +44,25 @@
     </tr>
 
     <tr>
+      <th><strong>JAN/EANリストインポート</strong></th>
+      <td><span uk-icon="icon: close"></span></td>
+      <td><span uk-icon="icon: close"></span></td>
+      <td><span uk-icon="icon: check"></span></td>
+      <td><span uk-icon="icon: check"></span></td>
+    </tr>
+
+    <tr>
       <th><strong>エクスポート機能</strong><br>
         カテゴリーIDや件数を指定してのCSVダウンロード
       </th>
+      <td><span uk-icon="icon: close"></span></td>
+      <td><span uk-icon="icon: close"></span></td>
+      <td><span uk-icon="icon: check"></span></td>
+      <td><span uk-icon="icon: check"></span></td>
+    </tr>
+
+    <tr>
+      <th><strong>API</strong></th>
       <td><span uk-icon="icon: close"></span></td>
       <td><span uk-icon="icon: close"></span></td>
       <td><span uk-icon="icon: check"></span></td>
@@ -88,7 +100,7 @@
       <td><span uk-icon="icon: close"></span></td>
       <td>Enty（特典キー入力）</td>
       <td>Enty（特典キー入力）</td>
-      <td>チャットワークで問い合わせ後Enty</td>
+      <td>チャットワークで問い合わせ</td>
     </tr>
 
     <tr>
@@ -138,14 +150,15 @@
         <li>機能スイッチで不要な機能をオン・オフ。</li>
         <li>RDSから直接データを参照できる。</li>
         <li>自社Amazonアカウントで運営することでAPIの使用制限を受けにくくなる。たまに取得できないのはAPIの制限。</li>
-        <li>非公開モードとシングルユーザーモードで社内向け限定で運営できる。</li>
+        <li>非公開モードとシングルユーザーモードで社内向け限定で運営。</li>
+        <li>不要なカテゴリーのデータを削除して必要なデータのみ収集。</li>
       </ul>
 
       <h4>必要なこと</h4>
       <ul class="uk-list uk-list-bullet">
-        <li>Amazon/AWS/API用のアカウント。</li>
+        <li>Amazon/AWS/API用のアカウント。海外の情報も取得するには各国のアカウントも。</li>
         <li>ドメイン。サブドメインでも可。</li>
-        <li>ソースを提供して自分で設置する方式ではありません。EC2+RDSの管理はこちらに任せてもらいます。バージョンアップは当サイトと同時に行います。</li>
+        <li>ソースを提供して自分で設置する方式ではありません。EC2+RDSの管理はこちらに任せてもらいます。バージョンアップは当サイトと同時に行います。料金は継続的なバージョンアップ作業の分。</li>
         <li>連絡手段としてチャットワークが必須です。</li>
       </ul>
 

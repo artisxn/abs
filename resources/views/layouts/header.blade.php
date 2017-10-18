@@ -64,6 +64,12 @@
               </span>
             </a>
           </li>
+          <li>
+            <a href="{{ route('settings.index') }}">
+              <span uk-icon="icon: settings"></span>
+              設定
+            </a>
+          </li>
         </ul>
       </div>
 

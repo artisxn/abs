@@ -31,6 +31,8 @@ Route::name('logout')->get('logout', 'LoginController@logout');
 
 Route::middleware('auth')->namespace('My')->group(function () {
     Route::name('notifications')->get('notifications', 'NotificationController');
+    Route::resource('settings', 'SettingController')
+         ->only(['index', 'store']);
 });
 
 Route::middleware('auth')->prefix('watch')->namespace('Watch')->group(function () {

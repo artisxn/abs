@@ -18,7 +18,9 @@
         <li>
           <a href="{{ route('browse', ['browse' => $browse->id]) }}">
             {{ $browse->title }}
-            <span class="uk-badge">{{ $browse->browse_items_count }}</span>
+            @if($browse->browse_items_count > 0)
+              <span class="uk-badge">{{ $browse->browse_items_count }}</span>
+            @endif
           </a>
 
           {{--（<a href="{{ route('browse-new', ['browse' => $browse->id]) }}">ニューリリース</a>）--}}

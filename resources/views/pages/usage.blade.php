@@ -35,9 +35,7 @@
 
   <p>ウォッチリストに追加したアイテムの商品情報をCSVでダウンロードできます。</p>
 
-  <p>文字コード：UTF-8</p>
-
-  <p>現在は{{ config('amazon.csv_limit') }}件分まで。CSVに含める項目や件数はいくらでも変更できるので需要次第。</p>
+  <p>現在は100件〜プラン次第で無制限まで。CSVに含める項目や件数はいくらでも変更できるので需要次第。</p>
 
   <h3>グラフ</h3>
 
@@ -55,7 +53,10 @@
 
   <h3>無料で使えますか？</h3>
 
-  <p>現時点では無料で使えます。ただし莫大な量のデータを保存するサービスに変わったので一部機能をオプションとして有料化の可能性はあります。</p>
+  <p>現時点では無料で使えます。
+    <del>ただし莫大な量のデータを保存するサービスに変わったので一部機能をオプションとして有料化の可能性はあります。</del>
+    データ量がどうしようもならないサイズになってきたので有料プラン始めました。
+  </p>
 
   <ul class="uk-list uk-list-bullet">
     <li>ASINカウント : {{ $items_count or '0' }}</li>
@@ -63,5 +64,61 @@
     <li>カテゴリーカウント : {{ $browses_count or '0' }}</li>
   </ul>
 
-  <p>洋書カテゴリーは日本向けとしてはそんなに需要ない割に異常に数が多すぎて圧迫してるので定期的に削除するようにしました。洋書だけで半分以上。洋書のデータが欲しい場合は今後始めるかもしれない有料サービスをお待ち下さい。</p>
+  <p>洋書カテゴリーは日本向けとしてはそんなに需要ない割に異常に数が多すぎて圧迫してるので定期的に削除。洋書だけで半分以上。</p>
+
+  <h3>機能スイッチ</h3>
+
+  <table class="uk-table uk-table-striped uk-table-hover uk-table-divider">
+    <tbody>
+    <tr>
+      <th>ランダムブラウズ</th>
+      <td>{{ config('amazon-feature.random_browse') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
+      <th>最近のアイテム</th>
+      <td>{{ config('amazon-feature.recent_item') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
+      <th>ウォッチリストのアイテムを1日1回更新</th>
+      <td>{{ config('amazon-feature.watch_item') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
+      <th>更新日の古いアイテムを更新</th>
+      <td>{{ config('amazon-feature.old_item') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
+      <th>除外カテゴリーのアイテムを削除</th>
+      <td>{{ config('amazon-feature.delete_category') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
+      <th>JAN/EANリストのCSVファイルをウォッチリストへインポート</th>
+      <td>{{ config('amazon-feature.jan_import') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
+      <th>ワールド</th>
+      <td>{{ config('amazon-feature.world') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
+      <th>プラン</th>
+      <td>{{ config('amazon-feature.plan') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
+      <th>非公開モード</th>
+      <td>{{ config('amazon-feature.closed') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
+      <th>シングルユーザーモード</th>
+      <td>{{ config('amazon-feature.single_user') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
+      <th>CSVにImageSetsを含める</th>
+      <td>{{ config('amazon-feature.image_sets') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
+      <th>API</th>
+      <td>{{ config('amazon-feature.api') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    </tbody>
+  </table>
+
 @endsection

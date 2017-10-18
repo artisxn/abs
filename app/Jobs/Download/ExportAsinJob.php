@@ -66,9 +66,8 @@ class ExportAsinJob implements ShouldQueue
         $items = $this->user->watches()
                             ->with('item')
                             ->latest()
-                            ->take(config('amazon.csv_limit'))
+                            ->limit($this->user->csvLimit())
                             ->cursor();
-
 
         foreach ($items as $item) {
             $line = (new ItemResource($item->item))->toArray(request());

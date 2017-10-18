@@ -24,6 +24,14 @@ class Availability extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function worldItems()
     {
         return $this->hasMany(WorldItem::class);

@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends \TCG\Voyager\Models\User
 {
     use Notifiable;
+    use Presenter\PlanTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -20,6 +21,8 @@ class User extends \TCG\Voyager\Models\User
         'user_id',
         'access_token',
         'refresh_token',
+        'special_key',
+        'api_token',
     ];
 
     /**
@@ -30,6 +33,10 @@ class User extends \TCG\Voyager\Models\User
     protected $hidden = [
         'password',
         'remember_token',
+        'access_token',
+        'refresh_token',
+        'special_key',
+        'api_token',
     ];
 
     /**

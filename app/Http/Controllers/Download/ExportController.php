@@ -34,7 +34,13 @@ class ExportController extends Controller
         $sort = $request->input('sort', 'desc');
         $limit = $request->input('limit');
 
-        ExportCategoryJob::dispatch($request->user(), $category, $order, $sort, $limit)->onQueue('export');
+        ExportCategoryJob::dispatch(
+            $request->user(),
+            $category,
+            $order,
+            $sort,
+            $limit
+        )->onQueue('export');
 
         return view('export.queue');
     }

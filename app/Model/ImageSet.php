@@ -22,6 +22,11 @@ class ImageSet extends Model
     ];
 
     /**
+     * @var array
+     */
+    protected $touches = ['item'];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function item()
