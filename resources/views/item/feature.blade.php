@@ -1,5 +1,6 @@
 @php
   $features = array_get($item, 'ItemAttributes.Feature');
+  $features = array_wrap($features);
 @endphp
 
 @unless(empty($features))
