@@ -114,12 +114,12 @@ class GetItemsJob implements ShouldQueue
         //            return AmazonProduct::setIdType('ASIN')->items($this->asins);
         //        });
 
-        \Redis::throttle('amazon-api')->allow(1)->every(3)->then(function () use (&$results) {
+        \Redis::throttle('amazon-api')->allow(1)->every(2)->then(function () use (&$results) {
             $results = rescue(function () {
                 return AmazonProduct::setIdType('ASIN')->items($this->asins);
             });
         }, function () {
-            //            info('Amazon API Throttle: Get Items Job');
+            info('Amazon API Throttle: Get Items Job');
 
             return [];
         });
