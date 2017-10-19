@@ -50,7 +50,7 @@ class SearchJob implements ShouldQueue
      */
     public function handle()
     {
-        //        info('Search: ' . $this->keyword);
+        info('Search: ' . $this->keyword);
 
         $page = $this->page;
 
@@ -89,7 +89,7 @@ class SearchJob implements ShouldQueue
             session(['MoreSearchResultsUrl' => $MoreSearchResultsUrl]);
         }
 
-//        if (!empty($items)) {
+        //        if (!empty($items)) {
         //            $asins = array_pluck($items, 'ASIN');
         //            GetItemsJob::dispatch($asins);
         //        }
