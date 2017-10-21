@@ -21,7 +21,7 @@ class Watch extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withDefault();
     }
 
     /**
@@ -29,7 +29,7 @@ class Watch extends Model
      */
     public function item()
     {
-        return $this->belongsTo(Item::class, 'asin_id', 'asin');
+        return $this->belongsTo(Item::class, 'asin_id', 'asin')->withDefault();
     }
 
     /**

@@ -149,7 +149,11 @@ class WorldWatchJob implements ShouldQueue
         $title = array_get($item, 'ItemAttributes.Title');
 
         $lowest_new_price = array_get($item, 'OfferSummary.LowestNewPrice.Amount');
+        $lowest_new_formatted_price = array_get($item, 'OfferSummary.LowestNewPrice.FormattedPrice');
+
         $lowest_used_price = array_get($item, 'OfferSummary.LowestUsedPrice.Amount');
+        $lowest_used_formatted_price = array_get($item, 'OfferSummary.LowestUsedPrice.FormattedPrice');
+
         $total_new = array_get($item, 'OfferSummary.TotalNew');
         $total_used = array_get($item, 'OfferSummary.TotalUsed');
         $editorial_review = array_get($item, 'EditorialReviews.EditorialReview.Content');
@@ -165,9 +169,10 @@ class WorldWatchJob implements ShouldQueue
             'ean',
             'title',
             'rank',
-            //            'availability',
             'lowest_new_price',
+            'lowest_new_formatted_price',
             'lowest_used_price',
+            'lowest_used_formatted_price',
             'total_new',
             'total_used',
             'editorial_review',

@@ -30,9 +30,13 @@ class WorldController extends Controller
 
         $items = auth()->user()->worldItems()
                        ->latest('updated_at')
+                       ->with(['availability', 'binding', 'browses'])
+                       ->when($request->filled('search'), function ($query) use ($request) {
+                           return $query->where('title', 'LIKE', '%' . $request->input('search') . '%');
+                       })
                        ->when($request->filled('country'), function ($query) use ($request) {
                            return $query->whereIn('country', explode(',', $request->input('country')));
-                       })->paginate(50);
+                       })->paginate($request->input('limit', 50));
 
         return WorldItemResource::collection($items);
     }
@@ -46,6 +50,7 @@ class WorldController extends Controller
     public function show(Request $request, $asin)
     {
         $item = WorldItem::whereAsin($asin)
+                         ->with(['availability', 'binding', 'browses'])
                          ->when($request->has('country'), function ($query) use ($request) {
                              return $query->filled('country', explode(',', $request->input('country')));
                          })->get();

@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Post extends \TCG\Voyager\Models\Post
 {
     /**
      *
@@ -14,6 +14,6 @@ class Post extends Model
      */
     public function scopePickup($query)
     {
-        return $query->whereFeatured(true)->latest()->limit(5);
+        return $query->whereCategoryId(1)->latest()->limit(5);
     }
 }

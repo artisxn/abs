@@ -15,7 +15,9 @@ class WorldItem extends Model
         'title',
         'rank',
         'lowest_new_price',
+        'lowest_new_formatted_price',
         'lowest_used_price',
+        'lowest_used_formatted_price',
         'total_new',
         'total_used',
         'editorial_review',
@@ -28,7 +30,7 @@ class WorldItem extends Model
 
     public function binding()
     {
-        return $this->belongsTo(Binding::class);
+        return $this->belongsTo(Binding::class)->withDefault();
     }
 
     public function browses()
@@ -38,6 +40,6 @@ class WorldItem extends Model
 
     public function availability()
     {
-        return $this->belongsTo(Availability::class);
+        return $this->belongsTo(Availability::class)->withDefault();
     }
 }

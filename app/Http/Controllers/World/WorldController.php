@@ -18,18 +18,22 @@ class WorldController extends Controller
     {
         $world_items = $request->user()
                                ->worldItems()
-                               ->with(['availability'])
+                               ->with(['availability', 'binding', 'browses'])
                                ->latest('updated_at')
+                               ->when($request->filled('search'), function ($query) use ($request) {
+                                   return $query->where('title', 'LIKE', '%' . $request->input('search') . '%');
+                               })
                                ->paginate(100);
-
-        //        dd($world_items->groupBy('asin'));
 
         return view('world.index')->with(compact('world_items'));
     }
 
     public function show($asin)
     {
-        $item = WorldItem::whereAsin($asin)->get();
-        dd($item);
+        $world_items = WorldItem::whereAsin($asin)
+                                ->with(['availability', 'binding', 'browses'])
+                                ->get();
+
+        return view('world.show')->with(compact('world_items'));
     }
 }

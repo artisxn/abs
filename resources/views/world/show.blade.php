@@ -1,12 +1,10 @@
 @extends('layouts.master')
 
-@section('title', 'ワールド | ')
+@section('title', 'ワールド / ' . $world_items->first()->asin . ' | ')
 
 @section('content')
 
-  <h1 class="uk-heading-divider">ワールド</h1>
-
-  {{ $world_items->links() }}
+  <h1 class="uk-heading-divider">ワールド / {{ $world_items->first()->asin }}</h1>
 
   <div class="uk-overflow-auto">
 
@@ -37,6 +35,5 @@
     </table>
   </div>
 
-  {{ $world_items->links() }}
 
 @endsection

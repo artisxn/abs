@@ -46,7 +46,10 @@ class WorldWatchCommand extends Command
         $priority = $this->option('priority');
         info('Priority: ' . $priority);
 
-        $asins = $user->watches()->where('priority', '>=', $priority)->pluck('asin_id');
+        $asins = $user->watches()
+                      ->where('priority', '>=', $priority)
+            //                      ->latest('updated_at')
+                      ->pluck('asin_id');
 
         info('World Watch: ' . $asins->count());
 
@@ -54,7 +57,7 @@ class WorldWatchCommand extends Command
 
         $delay = 0;
 
-        foreach ($asins->chunk(10) as $items) {
+        foreach ($asins->chunk(5) as $items) {
             foreach ($locales as $locale) {
                 info($locale);
 

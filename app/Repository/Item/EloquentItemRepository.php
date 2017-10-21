@@ -29,6 +29,28 @@ class EloquentItemRepository implements ItemRepositoryInterface
     /**
      * @inheritDoc
      */
+    public function priceAlert()
+    {
+        $items = $this->item->latest('updated_at')
+                            ->limit(1000)
+                            ->where('rank', '<', 1000)
+                            ->has('histories', '>', 5)
+                            ->whereHas('histories', function ($query) {
+                                $query->whereNotNull('lowest_new_price');
+                            })
+//                            ->with([
+//                                'histories' => function ($query) {
+//                                    $query->orderBy('day', 'desc');
+//                                },
+//                            ])
+                            ->get();
+
+        return $items;
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function show(string $asin)
     {
         $asin_item = $this->item->findOrFail($asin);
@@ -38,8 +60,6 @@ class EloquentItemRepository implements ItemRepositoryInterface
                 $query->latest()->limit(30);
             },
         ]);
-
-        //        $asin_item->load('histories.availability');
 
         return $asin_item;
     }

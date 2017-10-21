@@ -5,6 +5,13 @@ namespace App\Repository\Item;
 interface ItemRepositoryInterface
 {
     /**
+     * 価格チェック用
+     *
+     * @return mixed
+     */
+    public function priceAlert();
+
+    /**
      * @param string $asin
      *
      * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection
