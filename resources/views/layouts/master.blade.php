@@ -16,7 +16,7 @@
   <meta name="google-site-verification" content="ze9To10Rt1BJ8MHvCYckSYUX63LQTID3bibf7gEbPkw">
 </head>
 <body>
-<div id="app">
+<div id="app" class="uk-offcanvas-content">
 
   @include('layouts.header')
 

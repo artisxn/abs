@@ -5,7 +5,7 @@
         <span uk-icon="icon: bolt"></span>
         {{ config('app.name') }}
       </a>
-      <ul class="uk-navbar-nav">
+      <ul class="uk-navbar-nav uk-visible@s">
         <li><a href="{{ route('index') }}">ホーム</a></li>
         @feature('plan')
         <li><a href="{{ route('plan') }}">プラン</a></li>
@@ -15,22 +15,29 @@
       </ul>
     </div>
 
-    @guest
-      <div class="uk-navbar-right">
-        <ul class="uk-navbar-nav">
+    <div class="uk-navbar-right">
+      <ul class="uk-navbar-nav">
+        @guest
           <li>
             <a href="{{ route('login') }}" rel="nofollow">
               <i class="fa fa-amazon" aria-hidden="true"></i>
               Amazonアカウントでログイン</a>
           </li>
-        </ul>
-      </div>
-    @endguest
+        @endguest
+
+        <li class="uk-hidden@s">
+          <a class="uk-navbar-toggle" uk-navbar-toggle-icon uk-toggle="target: #abs-off-canvas"></a>
+        </li>
+      </ul>
+    </div>
   </nav>
 
+  @include('layouts.off')
+
   @auth
-    <nav class="uk-navbar-container uk-light abs-navbar-container-sub uk-padding-large uk-padding-remove-vertical"
-         uk-navbar>
+    <nav
+      class="uk-navbar-container uk-light abs-navbar-container-sub uk-padding-large uk-padding-remove-vertical uk-visible@s"
+      uk-navbar>
       <div class="uk-navbar-left">
         <ul class="uk-navbar-nav">
           <li>
