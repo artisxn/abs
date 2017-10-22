@@ -21,19 +21,23 @@ class ApiTest extends TestCase
      */
     protected $user;
 
-    public function setUp()
+    protected function setUp()
     {
         parent::setUp();
 
         $this->user = factory(User::class)->create();
+
         $watch = factory(Watch::class)->create([
             'user_id' => $this->user->id,
             'asin_id' => 'test_asin',
         ]);
+
         $item = factory(WorldItem::class)->create([
             'asin' => 'test_asin',
             'ean'  => 'test_ean',
         ]);
+
+        config(['amazon-feature.world' => true]);
     }
 
     public function testWorldIndex()
@@ -42,14 +46,14 @@ class ApiTest extends TestCase
                          ->json('GET', '/api/world');
 
         $response->assertSuccessful()
-                 ->assertJson([
-                     'data' => [
-                         [
-                             'id'   => true,
-                             'asin' => true,
-                         ],
-                     ],
-                 ]);
+            ->assertJson([
+                'data' => [
+                    [
+                        'id'   => true,
+                        'asin' => 'test_asin',
+                    ],
+                ],
+            ]);
     }
 
     public function testWorldShowAsin()
@@ -104,17 +108,19 @@ class ApiTest extends TestCase
     {
         Bus::fake();
 
+        $asin = 'test_asin_';
+
         $item = factory(WorldItem::class)->create([
-            'asin'    => 'test_asin_',
+            'asin'    => $asin,
             'country' => 'JP',
         ]);
 
-        $asins = ['test_asin_'];
+        $asins = [$asin];
         $country = 'JP';
 
         $response = $this->actingAs($this->user, 'api')
                          ->json('POST', '/api/world/update', [
-                             'asin'    => 'test_asin_',
+                             'asin'    => $asin,
                              'country' => 'JP',
                          ]);
 
@@ -127,7 +133,7 @@ class ApiTest extends TestCase
                      'data' => [
                          [
                              'id'      => true,
-                             'asin'    => 'test_asin_',
+                             'asin'    => $asin,
                              'country' => 'JP',
                          ],
                      ],
