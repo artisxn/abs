@@ -106,5 +106,7 @@ class PriceAlertJob implements ShouldQueue
                 //                break;
             }
         }
+
+        info(self::class . ': End');
     }
 }
