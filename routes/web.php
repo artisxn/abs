@@ -79,7 +79,10 @@ Route::middleware('auth')->namespace('Download')->group(function () {
 //});
 
 
-Route::namespace('World')->group(function () {
+Route::namespace('World')->middleware(['auth', 'world'])->group(function () {
+    Route::name('world.new')->get('world/new', 'WorldNewController');
+    Route::name('world.api')->get('world/api', 'WorldApiController');
+
     Route::resource('world', 'WorldController')
          ->only(['index', 'show']);
 });

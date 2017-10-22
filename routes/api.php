@@ -21,11 +21,13 @@ Route::namespace('Api')->group(function () {
     Route::get('graph/{asin}', 'HistoryGraphController');
 });
 
-Route::namespace('Api')->group(function () {
-    Route::apiResource('world', 'WorldController')
-         ->only(['index', 'show'])
-         ->names([
-             'index' => 'api.world.index',
-             'show'  => 'api.world.show',
-         ]);
+Route::namespace('Api\World')->middleware(['auth:api', 'world'])->group(function () {
+
+    Route::name('api.world.index')->get('world', 'WorldIndexController');
+
+    Route::name('api.world.show.asin')->get('world/asin/{asin}', 'WorldShowController@asin');
+    Route::name('api.world.show.ean')->get('world/ean/{ean}', 'WorldShowController@ean');
+
+    Route::name('api.world.update')->any('world/update', 'WorldUpdateController');
+    Route::name('api.world.new')->get('world/new', 'WorldNewController');
 });

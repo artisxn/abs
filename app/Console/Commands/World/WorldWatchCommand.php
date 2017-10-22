@@ -46,18 +46,23 @@ class WorldWatchCommand extends Command
         $priority = $this->option('priority');
         info('Priority: ' . $priority);
 
-        $asins = $user->watches()
-                      ->where('priority', '>=', $priority)
-            //                      ->latest('updated_at')
-                      ->pluck('asin_id');
+        $watches = $user->watches()
+                        ->where('priority', '>=', $priority)
+                        ->oldest('updated_at')
+                        ->limit(100)
+                        ->get();
+
+        $watches->each->touch();
+
+        $asins = $watches->pluck('asin_id');
 
         info('World Watch: ' . $asins->count());
 
         $locales = config('amazon-feature.world_watch_item_locales');
 
-        $delay = 0;
+        $delay = 1;
 
-        foreach ($asins->chunk(5) as $items) {
+        foreach ($asins->chunk(10) as $items) {
             foreach ($locales as $locale) {
                 info($locale);
 

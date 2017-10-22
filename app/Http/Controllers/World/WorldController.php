@@ -9,11 +9,11 @@ use App\Model\WorldItem;
 
 class WorldController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('world');
-    }
-
+    /**
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index(Request $request)
     {
         $world_items = $request->user()
@@ -28,6 +28,11 @@ class WorldController extends Controller
         return view('world.index')->with(compact('world_items'));
     }
 
+    /**
+     * @param string $asin
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function show($asin)
     {
         $world_items = WorldItem::whereAsin($asin)
