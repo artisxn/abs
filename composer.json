@@ -22,7 +22,7 @@
         "revolution/laravel-amazon-product-api": "^0.2",
         "revolution/socialite-amazon": "^1.0",
         "tcg/voyager": "^1.0",
-        "morrislaptop/laravel-queue-clear": "~1.0",
+        "morrislaptop/laravel-queue-clear": "^1.1",
         "overtrue/laravel-lang": "~3.0"
     },
     "require-dev": {
