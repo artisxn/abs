@@ -107,6 +107,8 @@ class PriceAlertJob implements ShouldQueue
             }
         }
 
+        cache()->delete('price_alert_posts');
+
         info(self::class . ': End');
     }
 }

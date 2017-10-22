@@ -118,6 +118,10 @@
       <th>API</th>
       <td>{{ config('amazon-feature.api') ? 'ON' : 'OFF' }}</td>
     </tr>
+    <tr>
+      <th>価格変動チェック</th>
+      <td>{{ config('amazon-feature.price_alert') ? 'ON' : 'OFF' }}</td>
+    </tr>
     </tbody>
   </table>
 
