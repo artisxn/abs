@@ -3,12 +3,12 @@
     <span>価格変動チェック</span>
   </h2>
 
-  <p>価格が20%以上増減したアイテム</p>
+  <p>最低新品価格が20%以上増減したアイテム</p>
 
   <div class="uk-section uk-section-small uk-section-secondary uk-padding">
     <div class="uk-container">
 
-      <table class="uk-table uk-table-divider uk-table-middle">
+      <table class="uk-table uk-table-divider uk-table-middle uk-table-responsive">
         <tbody>
         @foreach($price_alert_posts as $post)
           <tr>
