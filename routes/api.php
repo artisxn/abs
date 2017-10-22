@@ -22,7 +22,6 @@ Route::namespace('Api')->group(function () {
 });
 
 Route::namespace('Api\World')->middleware(['auth:api', 'world'])->group(function () {
-
     Route::name('api.world.index')->get('world', 'WorldIndexController');
 
     Route::name('api.world.show.asin')->get('world/asin/{asin}', 'WorldShowController@asin');
