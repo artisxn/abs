@@ -29,12 +29,12 @@ class WorldWatchJob implements ShouldQueue
     /**
      * @var array
      */
-    protected $asins;
+    public $asins;
 
     /**
      * @var string
      */
-    protected $country;
+    public $country;
 
     /**
      * @var AmazonClient
