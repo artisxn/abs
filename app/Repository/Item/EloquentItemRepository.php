@@ -48,13 +48,15 @@ class EloquentItemRepository implements ItemRepositoryInterface
      */
     public function show(string $asin)
     {
-        $asin_item = $this->item->findOrFail($asin);
+        $asin_item = $this->item->find($asin);
 
-        $asin_item->load([
-            'histories' => function ($query) {
-                $query->latest()->limit(30);
-            },
-        ]);
+        if (!is_null($asin_item)) {
+            $asin_item->load([
+                'histories' => function ($query) {
+                    $query->latest()->limit(30);
+                },
+            ]);
+        }
 
         return $asin_item;
     }

@@ -3,7 +3,7 @@
 @empty($alert_message)
 
   @php
-    $title = array_get($item, 'ItemAttributes.Title');
+    $title = $asin_item->title;
   @endphp
 
   @section('title', $title . ' | ')

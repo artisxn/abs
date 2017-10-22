@@ -9,7 +9,7 @@
   @include('item.browsenodes')
 
 
-  @include('item.image')
+  @include('asin.image')
 
   @include('item.editorial')
 

@@ -96,6 +96,8 @@ class ItemJob implements ShouldQueue
                 return AmazonProduct::setIdType('ASIN')->item($this->asin);
             }, []);
         }, function () {
+            info('Amazon API Throttle: Item Job');
+
             return [];
         });
 

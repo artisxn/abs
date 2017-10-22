@@ -1,5 +1,9 @@
 @php
   $image_sets = array_get($item, 'ImageSets.ImageSet');
+  if(is_null($image_sets)){
+    $image_sets = $asin_item->image_sets->image_sets;
+  }
+
   if(array_has($image_sets, '@attributes')){
     $image_sets =[$image_sets];
   }
