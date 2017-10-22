@@ -5,22 +5,21 @@ namespace App\Http\Controllers\Api\World;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Model\WorldItem;
-
 use App\Http\Resources\Api\WorldItem as WorldItemResource;
+
+use App\Repository\WorldItem\WorldItemRepositoryInterface as WorldItem;
 
 class WorldNewController extends Controller
 {
-    public function __invoke(Request $request)
+    /**
+     * @param Request   $request
+     * @param WorldItem $repository
+     *
+     * @return mixed
+     */
+    public function __invoke(Request $request, WorldItem $repository)
     {
-        $items = WorldItem::latest()
-                          ->with(['availability', 'binding', 'browses'])
-                          ->when($request->filled('since'), function ($query) use ($request) {
-                              return $query->whereDate('created_at', '>=', $request->input('since'));
-                          })
-                          ->when($request->filled('country'), function ($query) use ($request) {
-                              return $query->whereIn('country', explode(',', $request->input('country')));
-                          })->paginate($request->input('limit', 10));
+        $items = $repository->apiNew();
 
         return WorldItemResource::collection($items);
     }

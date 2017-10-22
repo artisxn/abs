@@ -5,20 +5,19 @@ namespace App\Http\Controllers\World;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Repository\WorldItem\WorldItemRepositoryInterface as WorldItem;
+
 class WorldNewController extends Controller
 {
     /**
-     * @param Request $request
+     * @param Request   $request
+     * @param WorldItem $repository
      *
      * @return \Illuminate\Http\Response
      */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request, WorldItem $repository)
     {
-        $world_items = $request->user()
-                               ->worldItems()
-                               ->with(['availability', 'binding', 'browses'])
-                               ->latest()
-                               ->paginate(100);
+        $world_items = $repository->newIndex();
 
         return view('world.new')->with(compact('world_items'));
     }

@@ -10,6 +10,9 @@ use App\Repository\Item\EloquentItemRepository;
 use App\Repository\Browse\BrowseRepositoryInterface;
 use App\Repository\Browse\EloquentBrowseRepository;
 
+use App\Repository\WorldItem\WorldItemRepositoryInterface;
+use App\Repository\WorldItem\EloquentWorldItemRepository;
+
 class RepositoryServiceProvider extends ServiceProvider
 {
     /**
@@ -37,6 +40,11 @@ class RepositoryServiceProvider extends ServiceProvider
         app()->singleton(
             BrowseRepositoryInterface::class,
             EloquentBrowseRepository::class
+        );
+
+        app()->singleton(
+            WorldItemRepositoryInterface::class,
+            EloquentWorldItemRepository::class
         );
     }
 }

@@ -5,12 +5,27 @@ namespace App\Http\Controllers\Api\World;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Model\WorldItem;
+use App\Repository\WorldItem\WorldItemRepositoryInterface as WorldItem;
 
 use App\Http\Resources\Api\WorldItem as WorldItemResource;
 
 class WorldShowController extends Controller
 {
+    /**
+     * @var WorldItem
+     */
+    protected $repository;
+
+    /**
+     * WorldShowController constructor.
+     *
+     * @param WorldItem $repository
+     */
+    public function __construct(WorldItem $repository)
+    {
+        $this->repository = $repository;
+    }
+
     /**
      * @param Request $request
      * @param         $asin
@@ -45,12 +60,7 @@ class WorldShowController extends Controller
      */
     private function get($column, $asin)
     {
-        $item = WorldItem::where($column, $asin)
-                         ->latest('updated_at')
-                         ->with(['availability', 'binding', 'browses'])
-                         ->when(request()->filled('country'), function ($query) {
-                             return $query->whereIn('country', explode(',', request()->input('country')));
-                         })->get();
+        $item = $this->repository->apiShow($column, $asin);
 
         abort_if($item->isEmpty(), 404, 'Not Found');
 

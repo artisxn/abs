@@ -2,6 +2,8 @@
 
 namespace App\Repository\Item;
 
+use App\Model\Item;
+
 interface ItemRepositoryInterface
 {
     /**
@@ -75,7 +77,7 @@ interface ItemRepositoryInterface
      * @param array $attributes
      * @param array $values
      *
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return \Illuminate\Database\Eloquent\Model|Item
      */
     public function updateOrCreate(array $attributes, array $values = []);
 }

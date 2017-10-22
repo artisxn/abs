@@ -5,25 +5,31 @@ namespace App\Http\Controllers\World;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Model\WorldItem;
+use App\Repository\WorldItem\WorldItemRepositoryInterface as WorldItem;
 
 class WorldController extends Controller
 {
     /**
-     * @param Request $request
+     * @var WorldItem
+     */
+    protected $repository;
+
+    /**
+     * WorldController constructor.
      *
+     * @param WorldItem $repository
+     */
+    public function __construct(WorldItem $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    /**
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        $world_items = $request->user()
-                               ->worldItems()
-                               ->with(['availability', 'binding', 'browses'])
-                               ->latest('updated_at')
-                               ->when($request->filled('search'), function ($query) use ($request) {
-                                   return $query->where('title', 'LIKE', '%' . $request->input('search') . '%');
-                               })
-                               ->paginate(100);
+        $world_items = $this->repository->index();
 
         return view('world.index')->with(compact('world_items'));
     }
@@ -35,9 +41,7 @@ class WorldController extends Controller
      */
     public function show($asin)
     {
-        $world_items = WorldItem::whereAsin($asin)
-                                ->with(['availability', 'binding', 'browses'])
-                                ->get();
+        $world_items = $this->repository->show($asin);
 
         return view('world.show')->with(compact('world_items'));
     }
