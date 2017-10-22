@@ -12,6 +12,7 @@ use App\Http\ViewComposers\HistoryCountViewComposer;
 use App\Http\ViewComposers\BrowseCountViewComposer;
 use App\Http\ViewComposers\RecentItemViewComposer;
 use App\Http\ViewComposers\PickupViewComposer;
+use App\Http\ViewComposers\PriceAlertViewComposer;
 use App\Http\ViewComposers\AsinWatchViewComposer;
 use App\Http\ViewComposers\BrowseWatchViewComposer;
 
@@ -25,6 +26,8 @@ class ViewComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('home.index', PickupViewComposer::class);
+
+        View::composer('home.index', PriceAlertViewComposer::class);
 
         View::composer('home.index', RandomBrowseViewComposer::class);
 

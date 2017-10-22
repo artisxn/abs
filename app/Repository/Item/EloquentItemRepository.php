@@ -38,11 +38,6 @@ class EloquentItemRepository implements ItemRepositoryInterface
                             ->whereHas('histories', function ($query) {
                                 $query->whereNotNull('lowest_new_price');
                             })
-//                            ->with([
-//                                'histories' => function ($query) {
-//                                    $query->orderBy('day', 'desc');
-//                                },
-//                            ])
                             ->get();
 
         return $items;

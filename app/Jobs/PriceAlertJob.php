@@ -10,6 +10,8 @@ use Illuminate\Foundation\Bus\Dispatchable;
 
 use App\Repository\Item\ItemRepositoryInterface as Item;
 
+use App\Model\Post;
+
 class PriceAlertJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -33,6 +35,8 @@ class PriceAlertJob implements ShouldQueue
      */
     public function handle(Item $repository)
     {
+        info(self::class);
+
         $items = $repository->priceAlert();
 
         //        dd($items);
@@ -46,10 +50,10 @@ class PriceAlertJob implements ShouldQueue
 
             $price = $histories->pluck('lowest_new_price');
 
-            $price_today = $price->first();
-            $price_yesterday = $price->last();
+            $price_today = (int)$price->first();
+            $price_yesterday = (int)$price->last();
 
-            if ($price_yesterday == 0) {
+            if ($price_today == 0 or $price_yesterday == 0) {
                 continue;
             }
 
@@ -59,14 +63,47 @@ class PriceAlertJob implements ShouldQueue
 
             //20%以上アップ
             if ($price_move >= 1.2) {
-                info('Price UP: ' . $item->title . ' ' . $price_yesterday . ' => ' . $price_today);
+                //                info('Price UP: ' . $item->title . ' ' . $price_yesterday . ' => ' . $price_today);
+
+                $slug = 'up_' . $item->asin;
+
                 //Postに追加
+                $post = Post::updateOrCreate([
+                    'slug' => $slug,
+                ], [
+                    'author_id'   => 1,
+                    'category_id' => 2,
+                    'title'       => $item->title,
+                    'body'        => $price_yesterday . '円 => ' . $price_today . '円',
+                    'excerpt'     => $item->asin,
+                    'slug'        => $slug,
+                    //                    'image'       => $item->large_image,
+                    'status'      => Post::PUBLISHED,
+                ]);
+
+                //                break;
             }
 
             //20%以上ダウン
             if ($price_move <= 0.8) {
-                info('Price DOWN: ' . $item->title . ' ' . $price_yesterday . ' => ' . $price_today);
+                //                info('Price DOWN: ' . $item->title . ' ' . $price_yesterday . ' => ' . $price_today);
 
+                $slug = 'down_' . $item->asin;
+
+                $post = Post::updateOrCreate([
+                    'slug' => $slug,
+                ], [
+                    'author_id'   => 1,
+                    'category_id' => 3,
+                    'title'       => $item->title,
+                    'body'        => $price_yesterday . '円 => ' . $price_today . '円',
+                    'excerpt'     => $item->asin,
+                    'slug'        => $slug,
+                    //                    'image'       => $item->large_image,
+                    'status'      => Post::PUBLISHED,
+                ]);
+
+                //                break;
             }
         }
     }

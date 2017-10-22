@@ -92,5 +92,10 @@ return [
     /**
      * API
      */
-    'api' => env('FEATURE_API', true),
+    'api'                         => env('FEATURE_API', true),
+
+    /**
+     * 価格チェック
+     */
+    'price_alert'                 => env('FEATURE_PRICE_ALERT', true),
 ];

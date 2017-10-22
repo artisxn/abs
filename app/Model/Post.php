@@ -14,6 +14,6 @@ class Post extends \TCG\Voyager\Models\Post
      */
     public function scopePickup($query)
     {
-        return $query->whereCategoryId(1)->latest()->limit(5);
+        return $query->whereCategoryId(1)->published()->latest()->limit(3);
     }
 }

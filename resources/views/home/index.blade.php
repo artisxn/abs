@@ -6,6 +6,8 @@
 
   @include('home.about')
 
+  @include('home.price_alert')
+
   @include('home.pickup')
 
   @feature('random_browse')
