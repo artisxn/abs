@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 use Illuminate\Support\Facades\Blade;
 
-use Laravel\Horizon\Horizon;
+use Horizon;
 
 class AppServiceProvider extends ServiceProvider
 {
