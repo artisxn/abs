@@ -54,9 +54,11 @@ class UpdateOldItem extends Command
 
         info('Update Old Item: ' . count($asins));
 
-        $delay = 1;
+        $delay = 0;
 
         foreach ($asins->chunk(10) as $items) {
+            info('Update Old Item: ' . $items->first());
+
             GetItemsJob::dispatch($items->toArray())->delay(now()->addMinutes($delay * 4));
 
             $delay++;
