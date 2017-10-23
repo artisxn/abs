@@ -25,6 +25,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $schedule->command('horizon:snapshot')
+                 ->everyFiveMinutes();
+
+
         //負荷分散のため時間は多少ずらす
 
         $schedule->command('abs:random-browse')

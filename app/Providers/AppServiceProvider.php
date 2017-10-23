@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 
 use Illuminate\Support\Facades\Blade;
 
-use Laravel\Dusk\DuskServiceProvider;
+use Horizon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +19,10 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->share('keyword', request()->input('keyword'));
         view()->share('category', request()->input('category', 'All'));
+
+        Horizon::auth(function ($request) {
+            return $request->user()->isAdmin();
+        });
 
         Blade::if('admin', function () {
             return request()->user()->isAdmin();
