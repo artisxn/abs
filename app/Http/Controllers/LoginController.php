@@ -39,12 +39,12 @@ class LoginController extends Controller
                 'user_id'       => $user->id,
                 'access_token'  => $user->token,
                 'refresh_token' => $user->refreshToken,
-                'api_token'       => str_random(60),
+                'api_token'     => str_random(60),
             ]);
 
         auth()->login($loginUser, true);
 
-        return redirect()->route('watch');
+        return view('auth.callback');
     }
 
     public function logout()
