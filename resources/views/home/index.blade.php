@@ -4,7 +4,9 @@
 
   @include('home.form')
 
+  @feature('about')
   @include('home.about')
+  @endfeature
 
   @include('home.price_alert')
 

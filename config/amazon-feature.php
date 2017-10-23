@@ -4,6 +4,10 @@ return [
      * 機能スイッチ
      */
 
+    /**
+     * ホームのabout
+     */
+    'about'                    => env('FEATURE_ABOUT', true),
 
     /**
      * 非公開
