@@ -35,6 +35,23 @@ class Item extends Model
     }
 
     /**
+     * ウォッチリストに入れてるユーザー
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function users()
+    {
+        return $this->hasManyThrough(
+            User::class,
+            Watch::class,
+            'asin_id',
+            'id',
+            'asin',
+            'user_id'
+        );
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function browses()

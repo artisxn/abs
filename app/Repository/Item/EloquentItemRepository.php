@@ -33,6 +33,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
     {
         $items = $this->item->latest('updated_at')
                             ->limit(1000)
+                            ->whereNotNull('rank')
                             ->where('rank', '<', 1000)
                             ->has('histories', '>', 5)
                             ->whereHas('histories', function ($query) {

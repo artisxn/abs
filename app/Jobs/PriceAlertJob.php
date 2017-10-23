@@ -12,6 +12,9 @@ use App\Repository\Item\ItemRepositoryInterface as Item;
 
 use App\Model\Post;
 
+use Notification;
+use App\Notifications\PriceAlertNotification;
+
 class PriceAlertJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -39,12 +42,13 @@ class PriceAlertJob implements ShouldQueue
 
         $items = $repository->priceAlert();
 
-        //        dd($items);
-
         foreach ($items as $item) {
             if ($item->histories->count() < 2) {
                 continue;
             }
+
+            $slug = null;
+            $category_id = null;
 
             $histories = $item->histories()->latest('day')->limit(2);
 
@@ -59,20 +63,25 @@ class PriceAlertJob implements ShouldQueue
 
             $price_move = $price_today / $price_yesterday;
 
-            //            info('Price Alert: ' . $price_move);
-
             //20%以上アップ
             if ($price_move >= 1.2) {
-                //                info('Price UP: ' . $item->title . ' ' . $price_yesterday . ' => ' . $price_today);
-
                 $slug = 'up_' . $item->asin;
+                $category_id = 2;
+            }
 
+            //20%以上ダウン
+            if ($price_move <= 0.8) {
+                $slug = 'down_' . $item->asin;
+                $category_id = 3;
+            }
+
+            if (filled($slug)) {
                 //Postに追加
                 $post = Post::updateOrCreate([
                     'slug' => $slug,
                 ], [
                     'author_id'   => 1,
-                    'category_id' => 2,
+                    'category_id' => $category_id,
                     'title'       => $item->title,
                     'body'        => $price_yesterday . '円 => ' . $price_today . '円',
                     'excerpt'     => $item->asin,
@@ -81,29 +90,10 @@ class PriceAlertJob implements ShouldQueue
                     'status'      => Post::PUBLISHED,
                 ]);
 
-                //                break;
-            }
-
-            //20%以上ダウン
-            if ($price_move <= 0.8) {
-                //                info('Price DOWN: ' . $item->title . ' ' . $price_yesterday . ' => ' . $price_today);
-
-                $slug = 'down_' . $item->asin;
-
-                $post = Post::updateOrCreate([
-                    'slug' => $slug,
-                ], [
-                    'author_id'   => 1,
-                    'category_id' => 3,
-                    'title'       => $item->title,
-                    'body'        => $price_yesterday . '円 => ' . $price_today . '円',
-                    'excerpt'     => $item->asin,
-                    'slug'        => $slug,
-                    //                    'image'       => $item->large_image,
-                    'status'      => Post::PUBLISHED,
-                ]);
-
-                //                break;
+                //ウォッチリストにあるアイテムなら通知
+                if ($item->users()->count() > 0) {
+                    Notification::send($item->users()->get(), new PriceAlertNotification($post));
+                }
             }
         }
 

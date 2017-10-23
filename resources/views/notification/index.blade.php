@@ -24,14 +24,22 @@
       <tbody>
       @foreach($notifications as $notification)
         <tr>
-          @if($notification->type === App\Notifications\CsvEported::class)
+          @switch($notification->type)
+            @case(App\Notifications\CsvEported::class)
+            @include('notification.type.csv')
+            @break
+
+            @case(App\Notifications\PriceAlertNotification::class)
+            @include('notification.type.price')
+            @break
+
+            @default
             <td>{{ $notification->created_at }}</td>
             <td>
-              <a href="{{ route('download.csv', array_get($notification->data, 'file')) }}">
-                {{ array_get($notification->data, 'title') }}
-              </a>
+              {{ array_get($notification->data, 'message') }}
             </td>
-          @endif
+          @endswitch
+
         </tr>
       @endforeach
       </tbody>
