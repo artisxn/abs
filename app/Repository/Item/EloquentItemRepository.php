@@ -107,6 +107,14 @@ class EloquentItemRepository implements ItemRepositoryInterface
     /**
      * @inheritDoc
      */
+    public function deleteOld(int $days = 30)
+    {
+        return $this->item->whereDate('updated_at', '<', now()->subDays($days));
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function histories(string $asin, int $limit)
     {
         return $this->item->findOrFail($asin)

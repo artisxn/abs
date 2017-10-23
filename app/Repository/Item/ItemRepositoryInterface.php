@@ -33,6 +33,13 @@ interface ItemRepositoryInterface
     public function oldCursor(int $limit = 100);
 
     /**
+     * @param int $days
+     *
+     * @return mixed
+     */
+    public function deleteOld(int $days = 30);
+
+    /**
      * グラフ用の履歴データ
      *
      * @param string $asin

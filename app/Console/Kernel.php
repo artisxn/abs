@@ -46,9 +46,13 @@ class Kernel extends ConsoleKernel
         $schedule->command('abs:count-info')
                  ->hourlyAt(52);
 
-        $schedule->command('abs:old-item')
+        $schedule->command(Commands\Mainte\UpdateOldItem::class)
                  ->hourlyAt(25)
-                 ->when(config('amazon-feature.old_item'));
+                 ->when(config('amazon-feature.update_old_item'));
+
+        $schedule->command(Commands\Mainte\DeleteOldItem::class)
+                 ->dailyAt('23:12')
+                 ->when(config('amazon-feature.delete_old_item'));
 
         $schedule->command('abs:delete-category')
                  ->hourlyAt(44)

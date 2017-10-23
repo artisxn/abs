@@ -50,7 +50,12 @@ return [
     /**
      * 更新日の古いアイテムを更新
      */
-    'old_item'                 => env('FEATURE_OLD_ITEM', true),
+    'update_old_item'          => env('FEATURE_UPDATE_OLD_ITEM', true),
+
+    /**
+     * 更新日の古いアイテムを削除
+     */
+    'delete_old_item'          => env('FEATURE_DELETE_OLD_ITEM', false),
 
     /**
      * 除外リスト(amazon.delete_category)のカテゴリーのアイテム情報をDBから削除
