@@ -10,6 +10,11 @@ return [
     'about'                    => env('FEATURE_ABOUT', true),
 
     /**
+     * プライバシーポリシーページ
+     */
+    'privacy'                  => env('FEATURE_PRIVACY', true),
+
+    /**
      * 非公開
      * 社内専用など非公開にしたい場合オン
      */
