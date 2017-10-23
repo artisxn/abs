@@ -13,7 +13,8 @@
 
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-  <meta name="google-site-verification" content="ze9To10Rt1BJ8MHvCYckSYUX63LQTID3bibf7gEbPkw">
+  @include('layouts.analytics_verification')
+
 </head>
 <body>
 <div id="app" class="uk-offcanvas-content">

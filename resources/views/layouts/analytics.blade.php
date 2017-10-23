@@ -1,3 +1,4 @@
+@unless(empty(config('amazon.analytics')))
 <!-- Global Site Tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('amazon.analytics') }}"></script>
 <script>
@@ -7,3 +8,4 @@
 
   gtag('config', '{{ config('amazon.analytics') }}');
 </script>
+@endunless
