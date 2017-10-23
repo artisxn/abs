@@ -91,7 +91,7 @@ class PriceAlertJob implements ShouldQueue
                 ]);
 
                 //ウォッチリストにあるアイテムなら通知
-                if ($item->users()->count() > 0) {
+                if ($post->wasRecentlyCreated and $item->users()->count() > 0) {
                     Notification::send($item->users()->get(), new PriceAlertNotification($post));
                 }
             }
