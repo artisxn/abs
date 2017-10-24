@@ -102,6 +102,6 @@ Route::prefix('auth')->namespace('Auth')->group(function () {
 });
 
 
-Route::group(['prefix' => 'admin'], function () {
+Route::middleware('can:admin-voyager')->prefix('admin')->group(function () {
     Voyager::routes();
 });

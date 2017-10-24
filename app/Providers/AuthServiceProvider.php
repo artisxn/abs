@@ -34,5 +34,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('jan-import', function (User $user) {
             return $user->isAdmin() or $user->plan() === 'business';
         });
+
+        Gate::define('admin-voyager', function (User $user) {
+            return $user->isAdmin() and session('guest_login') == false;
+        });
     }
 }
