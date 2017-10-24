@@ -53,6 +53,10 @@ class LoginController extends Controller
     {
         auth()->logout();
 
+        if (session('guest_login')) {
+            return redirect()->route('auth.login.form');
+        }
+
         return redirect('/');
     }
 }
