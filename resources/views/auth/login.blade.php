@@ -4,7 +4,7 @@
   <div class="uk-container">
     <div class="uk-card uk-card-default uk-margin-top">
       <div class="uk-card-header">
-        <h3 class="uk-card-title">デバッグ用パスワードログイン</h3>
+        <h3 class="uk-card-title">パスワードログイン</h3>
       </div>
 
       <div class="uk-card-body">
