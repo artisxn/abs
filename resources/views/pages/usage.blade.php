@@ -117,6 +117,11 @@
       <td>{{ config('amazon-feature.single_user') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
+    <tr>
+      <th>ゲストログイン</th>
+      <td>{{ config('amazon-feature.password_login') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
       <th>CSVにImageSetsを含める</th>
       <td>{{ config('amazon-feature.image_sets') ? 'ON' : 'OFF' }}</td>
     </tr>
