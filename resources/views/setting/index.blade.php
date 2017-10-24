@@ -17,6 +17,7 @@
     <form action="{{ route('settings.store') }}" method="post" class="uk-form-horizontal">
       {{ csrf_field() }}
 
+      @feature('plan')
       <div class="uk-margin">
         <label class="uk-form-label">プラン</label>
 
@@ -35,6 +36,7 @@
 
         </div>
       </div>
+      @endfeature
 
       @feature('api')
       <div class="uk-margin">
