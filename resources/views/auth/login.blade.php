@@ -4,7 +4,7 @@
   <div class="uk-container">
     <div class="uk-card uk-card-default uk-margin-top">
       <div class="uk-card-header">
-        <h3 class="uk-card-title">パスワードログイン</h3>
+        <h3 class="uk-card-title">ゲストログイン</h3>
       </div>
 
       <div class="uk-card-body">
@@ -15,7 +15,8 @@
             <label for="id" class="uk-form-label">ユーザーID</label>
 
             <div class="uk-form-controls">
-              <input id="id" type="number" name="id" value="{{ old('id') or '1' }}" class="uk-input uk-form-width-large{{ $errors->has('id') ? ' uk-form-danger' : '' }}">
+              <input id="id" type="number" name="id" value="{{ old('id') or '1' }}"
+                     class="uk-input uk-form-width-large{{ $errors->has('id') ? ' uk-form-danger' : '' }}">
 
               @if($errors->has('id'))
                 <div class="uk-form-help-block uk-text-danger">

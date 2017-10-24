@@ -44,6 +44,8 @@ class LoginController extends Controller
 
         auth()->login($loginUser, true);
 
+        session(['guest_login' => false]);
+
         return view('auth.callback');
     }
 
