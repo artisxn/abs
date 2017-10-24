@@ -51,7 +51,7 @@ class Kernel extends ConsoleKernel
                  ->when(config('amazon-feature.update_old_item'));
 
         $schedule->command(Commands\Mainte\DeleteOldItem::class)
-                 ->dailyAt('23:12')
+                 ->daily()
                  ->when(config('amazon-feature.delete_old_item'));
 
         $schedule->command('abs:delete-category')

@@ -90,7 +90,11 @@
     </tr>
     <tr>
       <th>更新日の古いアイテムを更新</th>
-      <td>{{ config('amazon-feature.old_item') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('amazon-feature.update_old_item') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
+      <th>一定期間更新のないアイテムを削除</th>
+      <td>{{ config('amazon-feature.delete_old_item') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>除外カテゴリーのアイテムを削除</th>
