@@ -59,12 +59,12 @@ class Kernel extends ConsoleKernel
                  ->when(config('amazon-feature.delete_category'));
 
         $schedule->command('abs:world-watch')
-                 ->dailyAt('07:10')
+                 ->hourlyAt(2)
                  ->when(config('amazon-feature.world_watch_item'));
 
         //優先度の高いものは多く更新
         $schedule->command('abs:world-watch --priority=1')
-                 ->twiceDaily(1, 13)
+                 ->hourlyAt(32)
                  ->when(config('amazon-feature.world_watch_item'));
 
         $schedule->command(Commands\PriceAlertCommand::class)
