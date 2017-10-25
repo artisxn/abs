@@ -72,7 +72,7 @@ class PriceAlertNotification extends Notification
      */
     public function toDatabase($notifiable)
     {
-        $cat = $this->post->category_id === 2 ? 'up' : 'down';
+        $cat = $this->post->category_id === config('amazon.price_alert.up') ? 'up' : 'down';
 
         return [
             'title'       => $this->post->title,

@@ -112,4 +112,11 @@ return [
      * 価格チェック
      */
     'price_alert'                 => env('FEATURE_PRICE_ALERT', true),
+
+    /**
+     * PriceAlertカテゴリーの古いPostを削除
+     * Postに残ってる間は再通知しない→一定期間後に削除して再通知可能に。
+     */
+    'delete_old_post'             => env('FEATURE_DELETE_OLD_POST', true),
+
 ];

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace App\Jobs\Watch;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -8,9 +8,11 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
-use App\Repository\Item\ItemRepositoryInterface as Item;
+use App\Model\Watch;
 
-class PriceAlertJob implements ShouldQueue
+use App\Jobs\PriceCheckJob;
+
+class WatchPriceAlertJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -27,21 +29,17 @@ class PriceAlertJob implements ShouldQueue
     /**
      * Execute the job.
      *
-     * @param Item $repository
-     *
      * @return void
      */
-    public function handle(Item $repository)
+    public function handle()
     {
         info(self::class);
 
-        $items = $repository->priceAlert();
+        $watches = Watch::groupBy('asin_id')->cursor();
 
-        foreach ($items as $item) {
-            dispatch_now(new PriceCheckJob($item));
+        foreach ($watches as $watch) {
+            dispatch_now(new PriceCheckJob($watch->item));
         }
-
-        cache()->delete('price_alert_posts');
 
         info(self::class . ': End');
     }

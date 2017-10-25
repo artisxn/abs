@@ -79,6 +79,14 @@ return [
         'Automotive'         => 'カー・バイク用品',
     ],
 
+    /**
+     * PriceAlertのカテゴリー
+     */
+    'price_alert'       => [
+        'up'   => 2,
+        'down' => 3,
+    ],
+
     // Login with Amazonの画像
     'login_button_img' => 'https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_390x92.png',
 

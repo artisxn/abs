@@ -54,6 +54,10 @@ class Kernel extends ConsoleKernel
                  ->daily()
                  ->when(config('amazon-feature.delete_old_item'));
 
+        $schedule->command(Commands\Mainte\DeleteOldPost::class)
+                 ->dailyAt('06:06')
+                 ->when(config('amazon-feature.delete_old_post'));
+
         $schedule->command('abs:delete-category')
                  ->hourlyAt(44)
                  ->when(config('amazon-feature.delete_category'));
@@ -69,6 +73,10 @@ class Kernel extends ConsoleKernel
 
         $schedule->command(Commands\PriceAlertCommand::class)
                  ->hourly()
+                 ->when(config('amazon-feature.price_alert'));
+
+        $schedule->command(Commands\WatchPriceAlertCommand::class)
+                 ->hourlyAt(3)
                  ->when(config('amazon-feature.price_alert'));
     }
 

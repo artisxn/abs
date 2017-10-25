@@ -47,6 +47,9 @@ class JanImportJob implements ShouldQueue
     {
         info(self::class);
 
+        /**
+         * @var Reader $reader
+         */
         $reader = Reader::createFromPath($this->file_path);
         $records = $reader->getRecords();
 

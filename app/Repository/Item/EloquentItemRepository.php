@@ -39,6 +39,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
                             ->whereHas('histories', function ($query) {
                                 $query->whereNotNull('lowest_new_price');
                             })
+                            ->doesntHave('watches')
                             ->get();
 
         return $items;
