@@ -71,24 +71,26 @@ class EloquentItemRepository implements ItemRepositoryInterface
 
         $recent = collect([]);
 
-        $this->item->latest('updated_at')->whereNotNull('large_image')->with('browses')->chunk($limit,
-            function ($items) use (&$recent, $limit) {
-                foreach ($items as $item) {
-                    $browses = collect($item->browses)->whereIn('id', config('amazon.recent_except'));
+        $this->item->latest('updated_at')
+                   ->whereNotNull('large_image')
+                   ->with('browses')
+                   ->chunk($limit, function ($items) use (&$recent, $limit) {
+                       foreach ($items as $item) {
+                           $browses = collect($item->browses)->whereIn('id', config('amazon.recent_except'));
 
-                    if (blank($browses)) {
-                        $recent->push($item);
-                    }
+                           if (blank($browses)) {
+                               $recent->push($item);
+                           }
 
-                    if ($recent->count() >= $limit) {
-                        break;
-                    }
-                }
+                           if ($recent->count() >= $limit) {
+                               break;
+                           }
+                       }
 
-                if ($recent->count() >= $limit) {
-                    return false;
-                }
-            });
+                       if ($recent->count() >= $limit) {
+                           return false;
+                       }
+                   });
 
         return $recent;
     }
@@ -109,7 +111,8 @@ class EloquentItemRepository implements ItemRepositoryInterface
      */
     public function deleteOld(int $days = 30)
     {
-        return $this->item->whereDate('updated_at', '<', now()->subDays($days));
+        return $this->item->whereDate('updated_at', '<', now()->subDays($days))
+                          ->has('histories', '<', 10);
     }
 
     /**
@@ -161,10 +164,8 @@ class EloquentItemRepository implements ItemRepositoryInterface
 
         //Availability
         $availability = array_get($item, 'Offers.Offer.OfferListing.Availability', '');
-        if (!empty($availability)) {
-            $ava = Availability::firstOrCreate(compact('availability'));
-            $new_item->availability()->associate($ava)->save();
-        }
+        $ava = Availability::firstOrCreate(compact('availability'));
+        $new_item->availability()->associate($ava)->save();
 
         //ItemAttribute
         $attributes = array_get($item, 'ItemAttributes');
