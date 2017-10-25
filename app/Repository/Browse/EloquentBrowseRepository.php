@@ -71,6 +71,9 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
         return $this->browse->findOrFail($category)
                             ->items()
                             ->orderBy($order, $sort)
+                            ->when($order === 'rank', function ($query) {
+                                return $query->whereNotNull('rank');
+                            })
                             ->limit($limit)
                             ->with([
                                 'availability',
