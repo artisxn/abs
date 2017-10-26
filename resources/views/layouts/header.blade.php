@@ -38,7 +38,7 @@
     <nav
       class="uk-navbar-container uk-light abs-navbar-container-sub uk-padding-large uk-padding-remove-vertical uk-visible@s"
       uk-navbar>
-      <div class="uk-navbar-left">
+      <div class="uk-navbar-left uk-flex-nowrap">
         <ul class="uk-navbar-nav">
           <li>
             <a href="{{ route('watch') }}">
@@ -80,7 +80,7 @@
         </ul>
       </div>
 
-      <div class="uk-navbar-right">
+      <div class="uk-navbar-right uk-flex-nowrap">
         <ul class="uk-navbar-nav">
           <li><a href="{{ route('logout') }}">ログアウト</a></li>
         </ul>

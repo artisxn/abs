@@ -104,7 +104,7 @@ class PriceAlertNotification extends Notification
         return WebPushMessage::create()
                              ->id($notification->id)
                              ->title($this->post->title)
-//                             ->icon($this->post->image)
+                             ->icon($this->post->image)
                              ->body($this->post->body)//                             ->action('View app', 'view_app')
             ;
     }

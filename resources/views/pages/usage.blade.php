@@ -47,6 +47,11 @@
 
   <p><a href="/notifications" rel="nofollow">ウェブプッシュ通知</a>を有効にするとブラウザを起動していればいつでも通知されます。対応しているのは一部ブラウザのみ。</p>
 
+  <div class="uk-child-width-1-2@m" uk-grid>
+    <div class="uk-margin">
+      <img src="{{ asset('image/web_push.png') }}" alt="Web Push" class="uk-border-rounded uk-box-shadow-large">
+    </div>
+  </div>
 
   <h3>CSVファイルでダウンロード</h3>
 
