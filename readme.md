@@ -80,5 +80,8 @@ Vue.jsで表示してるのでログイン中のみ。スマホサイズだと�
 
 Postのcategory_idが2か3かで固定なのが微妙。
 
+### Web Push 2017-10-26
+プッシュ通知対応。ただし対応してるのはChromeとFirefoxのみのはず。
+
 ## インストールメモ
 - `php artisan voyager:install` が途中で失敗するので残りのseedは手動で実行する。

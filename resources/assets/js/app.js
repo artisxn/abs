@@ -17,6 +17,7 @@ require('./bootstrap');
 // Vue.component('example', require('./components/Example.vue'));
 
 Vue.component('history-graph', require('./components/HistoryGraph.vue'));
+Vue.component('web-push', require('./components/WebPush.vue'));
 
 const app = new Vue({
   el: '#app'

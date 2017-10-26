@@ -95,10 +95,19 @@ if (config('amazon-feature.plan')) {
     Route::view('plan', 'pages.plan')->name('plan');
 }
 
-
+//Password Login
 Route::prefix('auth')->namespace('Auth')->group(function () {
     Route::get('login', 'LoginController@showLoginForm')->name('auth.login.form');
     Route::post('login', 'LoginController@login')->name('auth.login.post');
+});
+
+//WebPush
+Route::namespace('Push')->prefix('push')->group(function () {
+    Route::get('notifications/last', 'NotificationController@last');
+    Route::post('notifications/{id}/dismiss', 'NotificationController@dismiss');
+
+    Route::post('subscriptions', 'PushSubscriptionController@update');
+    Route::post('subscriptions/delete', 'PushSubscriptionController@destroy');
 });
 
 

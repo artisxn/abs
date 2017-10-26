@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "7098bdfcc153953acc1e3af3a47f0b0c",
+    "content-hash": "6c726db8ee1e30b6308fd4679a9dc880",
     "packages": [
         {
             "name": "appstract/laravel-blade-directives",
@@ -309,6 +309,61 @@
                 }
             ],
             "time": "2016-06-13T19:28:20+00:00"
+        },
+        {
+            "name": "beberlei/assert",
+            "version": "v2.7.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/beberlei/assert.git",
+                "reference": "be6aa40e3f2d2f0766f159409ab9a80c8db6ca23"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/beberlei/assert/zipball/be6aa40e3f2d2f0766f159409ab9a80c8db6ca23",
+                "reference": "be6aa40e3f2d2f0766f159409ab9a80c8db6ca23",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.1.1",
+                "phpunit/phpunit": "^4|^5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Assert\\": "lib/Assert"
+                },
+                "files": [
+                    "lib/Assert/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Benjamin Eberlei",
+                    "email": "kontakt@beberlei.de",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Richard Quadling",
+                    "email": "rquadling@gmail.com",
+                    "role": "Collaborator"
+                }
+            ],
+            "description": "Thin assertion library for input validation in business models.",
+            "keywords": [
+                "assert",
+                "assertion",
+                "validation"
+            ],
+            "time": "2017-10-20T15:59:40+00:00"
         },
         {
             "name": "cakephp/chronos",
@@ -1347,6 +1402,75 @@
             "time": "2017-01-03T13:21:43+00:00"
         },
         {
+            "name": "fgrosse/phpasn1",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fgrosse/PHPASN1.git",
+                "reference": "101e378aa9c82c76d9928fa6698471c9282df048"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fgrosse/PHPASN1/zipball/101e378aa9c82c76d9928fa6698471c9282df048",
+                "reference": "101e378aa9c82c76d9928fa6698471c9282df048",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gmp": "*",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.3",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "suggest": {
+                "php-curl": "For loading OID information from the web if they have not bee defined statically"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FG\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Friedrich Große",
+                    "email": "friedrich.grosse@gmail.com",
+                    "homepage": "https://github.com/FGrosse",
+                    "role": "Author"
+                },
+                {
+                    "name": "All contributors",
+                    "homepage": "https://github.com/FGrosse/PHPASN1/contributors"
+                }
+            ],
+            "description": "A PHP Framework that allows you to encode and decode arbitrary ASN.1 structures using the ITU-T X.690 Encoding Rules.",
+            "homepage": "https://github.com/FGrosse/PHPASN1",
+            "keywords": [
+                "DER",
+                "asn.1",
+                "asn1",
+                "ber",
+                "binary",
+                "decoding",
+                "encoding",
+                "x.509",
+                "x.690",
+                "x509",
+                "x690"
+            ],
+            "time": "2017-09-17T14:43:07+00:00"
+        },
+        {
             "name": "fideloper/proxy",
             "version": "3.3.4",
             "source": {
@@ -1812,16 +1936,16 @@
         },
         {
             "name": "larapack/voyager-hooks",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/larapack/voyager-hooks.git",
-                "reference": "ad4107167d6eca8e348dfd7e6fa3774fff4afec0"
+                "reference": "7843095c17a5f776704c06dff19d26cd2abc9d01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larapack/voyager-hooks/zipball/ad4107167d6eca8e348dfd7e6fa3774fff4afec0",
-                "reference": "ad4107167d6eca8e348dfd7e6fa3774fff4afec0",
+                "url": "https://api.github.com/repos/larapack/voyager-hooks/zipball/7843095c17a5f776704c06dff19d26cd2abc9d01",
+                "reference": "7843095c17a5f776704c06dff19d26cd2abc9d01",
                 "shasum": ""
             },
             "require": {
@@ -1831,6 +1955,13 @@
                 "orchestra/testbench": "~3.0"
             },
             "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Larapack\\VoyagerHooks\\VoyagerHooksServiceProvider"
+                    ]
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Larapack\\VoyagerHooks\\": "src/"
@@ -1853,20 +1984,74 @@
                 "laravel",
                 "voyager"
             ],
-            "time": "2017-09-22T16:10:18+00:00"
+            "time": "2017-10-25T06:42:36+00:00"
         },
         {
-            "name": "laravel/framework",
-            "version": "v5.5.18",
+            "name": "laravel-notification-channels/webpush",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "1cc21baac11551377734b8c17ead17db4c34fe21"
+                "url": "https://github.com/laravel-notification-channels/webpush.git",
+                "reference": "17b68b69bd44f53da68e3a28f2653bbac960216e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/1cc21baac11551377734b8c17ead17db4c34fe21",
-                "reference": "1cc21baac11551377734b8c17ead17db4c34fe21",
+                "url": "https://api.github.com/repos/laravel-notification-channels/webpush/zipball/17b68b69bd44f53da68e3a28f2653bbac960216e",
+                "reference": "17b68b69bd44f53da68e3a28f2653bbac960216e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/notifications": "^5.3",
+                "illuminate/support": "^5.1",
+                "minishlink/web-push": "^2.0",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "orchestra/testbench": "^3.5",
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NotificationChannels\\WebPush\\WebPushServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NotificationChannels\\WebPush\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cretu Eusebiu",
+                    "email": "me@cretueusebiu.com",
+                    "homepage": "http://cretueusebiu.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Web Push Notifications driver for Laravel.",
+            "homepage": "https://github.com/laravel-notification-channels/webpush",
+            "time": "2017-10-23T16:22:35+00:00"
+        },
+        {
+            "name": "laravel/framework",
+            "version": "v5.5.19",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c678100e84934ec85c9f8bc26bd0a60222682719",
+                "reference": "c678100e84934ec85c9f8bc26bd0a60222682719",
                 "shasum": ""
             },
             "require": {
@@ -1984,7 +2169,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-10-19T12:50:26+00:00"
+            "time": "2017-10-25T19:10:45+00:00"
         },
         {
             "name": "laravel/horizon",
@@ -2453,6 +2638,132 @@
             "time": "2017-08-17T07:17:00+00:00"
         },
         {
+            "name": "mdanter/ecc",
+            "version": "v0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpecc/phpecc.git",
+                "reference": "ed5c6d496f5310de1b7071b8375fafa3559a1344"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpecc/phpecc/zipball/ed5c6d496f5310de1b7071b8375fafa3559a1344",
+                "reference": "ed5c6d496f5310de1b7071b8375fafa3559a1344",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gmp": "*",
+                "fgrosse/phpasn1": "v2.0.x",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0",
+                "squizlabs/php_codesniffer": "~2",
+                "symfony/yaml": "~2.6|~3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mdanter\\Ecc\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matyas Danter",
+                    "homepage": "http://matejdanter.com/",
+                    "role": "Author"
+                },
+                {
+                    "name": "Thibaud Fabre",
+                    "email": "thibaud@aztech.io",
+                    "homepage": "http://aztech.io",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Thomas Kerin",
+                    "email": "afk11@users.noreply.github.com",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "PHP Elliptic Curve Cryptography library",
+            "homepage": "https://github.com/phpecc/phpecc",
+            "keywords": [
+                "Diffie",
+                "ECDSA",
+                "Hellman",
+                "curve",
+                "ecdh",
+                "elliptic",
+                "nistp192",
+                "nistp224",
+                "nistp256",
+                "nistp384",
+                "nistp521",
+                "phpecc",
+                "secp256k1",
+                "secp256r1"
+            ],
+            "time": "2017-10-09T16:05:37+00:00"
+        },
+        {
+            "name": "minishlink/web-push",
+            "version": "v2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/web-push-libs/web-push-php.git",
+                "reference": "c92de14d511e1ab7a316d8404678e4acf03c3262"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/web-push-libs/web-push-php/zipball/c92de14d511e1ab7a316d8404678e4acf03c3262",
+                "reference": "c92de14d511e1ab7a316d8404678e4acf03c3262",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2",
+                "lib-openssl": "*",
+                "mdanter/ecc": "^0.5.0",
+                "php": "^7.0",
+                "spomky-labs/base64url": "^1.0",
+                "spomky-labs/jose": "^7.0",
+                "spomky-labs/php-aes-gcm": "^1.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "5.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Minishlink\\WebPush\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Louis Lagrange",
+                    "email": "lagrange.louis@gmail.com",
+                    "homepage": "https://github.com/Minishlink"
+                }
+            ],
+            "description": "Web Push library for PHP",
+            "homepage": "https://github.com/web-push-libs/web-push-php",
+            "keywords": [
+                "Push API",
+                "WebPush",
+                "notifications",
+                "push",
+                "web"
+            ],
+            "time": "2017-10-12T20:30:49+00:00"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.23.0",
             "source": {
@@ -2816,6 +3127,52 @@
                 "redis"
             ],
             "time": "2016-06-16T16:22:20+00:00"
+        },
+        {
+            "name": "psr/cache",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/cache.git",
+                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/cache/zipball/d11b50ad223250cf17b86e38383413f5a6764bf8",
+                "reference": "d11b50ad223250cf17b86e38383413f5a6764bf8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for caching libraries",
+            "keywords": [
+                "cache",
+                "psr",
+                "psr-6"
+            ],
+            "time": "2016-08-06T20:24:11+00:00"
         },
         {
             "name": "psr/container",
@@ -3339,6 +3696,261 @@
                 "phra"
             ],
             "time": "2015-10-13T18:44:15+00:00"
+        },
+        {
+            "name": "spomky-labs/aes-key-wrap",
+            "version": "v3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Spomky-Labs/aes-key-wrap.git",
+                "reference": "072e312ea119c4cc33012edc5e7e8c3f3def0d66"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Spomky-Labs/aes-key-wrap/zipball/072e312ea119c4cc33012edc5e7e8c3f3def0d66",
+                "reference": "072e312ea119c4cc33012edc5e7e8c3f3def0d66",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "^2.4",
+                "ext-mbstring": "*",
+                "lib-openssl": "*",
+                "php": "^5.4|^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.5|^5.0",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AESKW\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florent Morselli",
+                    "homepage": "https://github.com/Spomky-Labs/aes-key-wrap/contributors"
+                }
+            ],
+            "description": "AES Key Wrap for PHP.",
+            "homepage": "https://github.com/Spomky-Labs/aes-key-wrap",
+            "keywords": [
+                "A128KW",
+                "A192KW",
+                "A256KW",
+                "RFC3394",
+                "RFC5649",
+                "aes",
+                "key",
+                "padding",
+                "wrap"
+            ],
+            "time": "2017-03-25T21:07:11+00:00"
+        },
+        {
+            "name": "spomky-labs/base64url",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Spomky-Labs/base64url.git",
+                "reference": "ef6d5fb93894063d9cee996022259fd08d6646ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Spomky-Labs/base64url/zipball/ef6d5fb93894063d9cee996022259fd08d6646ea",
+                "reference": "ef6d5fb93894063d9cee996022259fd08d6646ea",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3|^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0|^5.0",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Base64Url\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florent Morselli",
+                    "homepage": "https://github.com/Spomky-Labs/base64url/contributors"
+                }
+            ],
+            "description": "Base 64 URL Safe Encoding/decoding PHP Library",
+            "homepage": "https://github.com/Spomky-Labs/base64url",
+            "keywords": [
+                "base64",
+                "rfc4648",
+                "safe",
+                "url"
+            ],
+            "time": "2016-01-21T19:50:30+00:00"
+        },
+        {
+            "name": "spomky-labs/jose",
+            "version": "v7.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Spomky-Labs/jose.git",
+                "reference": "8c99915d9302bf088cfa2e37c08e1479ba022101"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Spomky-Labs/jose/zipball/8c99915d9302bf088cfa2e37c08e1479ba022101",
+                "reference": "8c99915d9302bf088cfa2e37c08e1479ba022101",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "^2.4",
+                "fgrosse/phpasn1": "^2.0",
+                "lib-openssl": "*",
+                "mdanter/ecc": "0.5.*",
+                "php": "^7.0",
+                "psr/cache": "^1.0",
+                "spomky-labs/aes-key-wrap": "^3.0",
+                "spomky-labs/base64url": "^1.0",
+                "spomky-labs/php-aes-gcm": "^1.2",
+                "symfony/polyfill-mbstring": "^1.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0",
+                "satooshi/php-coveralls": "^1.0",
+                "symfony/cache": "^2.0|^3.0"
+            },
+            "suggest": {
+                "ext-crypto": "Highly recommended when you use AES GCM based algorithms.",
+                "ext-curve25519": "For EdDSA with X25519 curves support.",
+                "ext-ed25519": "For EdDSA with Ed25519 curves support."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jose\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florent Morselli",
+                    "homepage": "https://github.com/Spomky"
+                },
+                {
+                    "name": "All contributors",
+                    "homepage": "https://github.com/Spomky-Labs/jose/contributors"
+                }
+            ],
+            "description": "JSON Object Signing and Encryption library for PHP.",
+            "homepage": "https://github.com/Spomky-Labs/Jose",
+            "keywords": [
+                "JOSE",
+                "JWE",
+                "JWK",
+                "JWKSet",
+                "JWS",
+                "Jot",
+                "RFC7515",
+                "RFC7516",
+                "RFC7517",
+                "RFC7518",
+                "RFC7519",
+                "RFC7520",
+                "jwa",
+                "jwt"
+            ],
+            "time": "2017-10-11T19:55:27+00:00"
+        },
+        {
+            "name": "spomky-labs/php-aes-gcm",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Spomky-Labs/php-aes-gcm.git",
+                "reference": "b655bef0d4f0fa2f36c11c5122e284951e81961c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Spomky-Labs/php-aes-gcm/zipball/b655bef0d4f0fa2f36c11c5122e284951e81961c",
+                "reference": "b655bef0d4f0fa2f36c11c5122e284951e81961c",
+                "shasum": ""
+            },
+            "require": {
+                "beberlei/assert": "^2.4",
+                "lib-openssl": "*",
+                "php": ">=5.4",
+                "symfony/polyfill-mbstring": "^1.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.5|^5.0",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "suggest": {
+                "ext-crypto": "Highly recommended for better performance."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AESGCM\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florent Morselli",
+                    "homepage": "https://github.com/Spomky"
+                },
+                {
+                    "name": "All contributors",
+                    "homepage": "https://github.com/Spomky-Labs/php-aes-gcm/contributors"
+                }
+            ],
+            "description": "AES GCM (Galois Counter Mode) PHP implementation.",
+            "homepage": "https://github.com/Spomky-Labs/php-aes-gcm",
+            "keywords": [
+                "AES-GCM",
+                "Galois Counter Mode",
+                "aes",
+                "gcm"
+            ],
+            "time": "2016-11-22T21:11:11+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4362,16 +4974,16 @@
         },
         {
             "name": "tcg/voyager",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/the-control-group/voyager.git",
-                "reference": "0b11c4c09d494ca72497ec0fc2e66dd21fa457d6"
+                "reference": "0e27b4935d195ef5537fd3aacd0a1aafa7a1e3df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/0b11c4c09d494ca72497ec0fc2e66dd21fa457d6",
-                "reference": "0b11c4c09d494ca72497ec0fc2e66dd21fa457d6",
+                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/0e27b4935d195ef5537fd3aacd0a1aafa7a1e3df",
+                "reference": "0e27b4935d195ef5537fd3aacd0a1aafa7a1e3df",
                 "shasum": ""
             },
             "require": {
@@ -4424,7 +5036,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2017-10-04T15:41:54+00:00"
+            "time": "2017-10-24T13:57:24+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -6433,26 +7045,28 @@
         },
         {
             "name": "wnx/laravel-stats",
-            "version": "v1.0.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stefanzweifel/laravel-stats.git",
-                "reference": "1e445e47ace65320b536f2d527e5772f076a3fb6"
+                "reference": "08d37b856f8f209adebc2f0d5257ad9c7fa67019"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stefanzweifel/laravel-stats/zipball/1e445e47ace65320b536f2d527e5772f076a3fb6",
-                "reference": "1e445e47ace65320b536f2d527e5772f076a3fb6",
+                "url": "https://api.github.com/repos/stefanzweifel/laravel-stats/zipball/08d37b856f8f209adebc2f0d5257ad9c7fa67019",
+                "reference": "08d37b856f8f209adebc2f0d5257ad9c7fa67019",
                 "shasum": ""
             },
             "require": {
-                "illuminate/console": "^5.5",
-                "illuminate/support": "^5.5",
+                "illuminate/console": "5.5.*",
+                "illuminate/support": "5.5.*",
                 "php": ">=7.0.0",
                 "phploc/phploc": "^4.0",
                 "symfony/finder": "^3.3"
             },
             "require-dev": {
+                "laravel/browser-kit-testing": "^2.0",
+                "laravel/dusk": "^2.0",
                 "orchestra/testbench": "^3.5",
                 "phpunit/phpunit": "6.*"
             },
@@ -6489,7 +7103,7 @@
                 "stats",
                 "wnx"
             ],
-            "time": "2017-10-19T19:05:22+00:00"
+            "time": "2017-10-24T19:14:33+00:00"
         }
     ],
     "aliases": [],

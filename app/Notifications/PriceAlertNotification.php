@@ -9,8 +9,10 @@ use Illuminate\Notifications\Messages\MailMessage;
 
 use App\Model\Post;
 
+use NotificationChannels\WebPush\WebPushMessage;
+use NotificationChannels\WebPush\WebPushChannel;
+
 /**
- * TODO:WebPushにも対応
  *
  * Class PriceAlertNotification
  * @package App\Notifications
@@ -45,7 +47,7 @@ class PriceAlertNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database', WebPushChannel::class];
     }
 
     /**
@@ -95,5 +97,15 @@ class PriceAlertNotification extends Notification
         return [
             //
         ];
+    }
+
+    public function toWebPush($notifiable, $notification)
+    {
+        return WebPushMessage::create()
+                             ->id($notification->id)
+                             ->title($this->post->title)
+//                             ->icon($this->post->image)
+                             ->body($this->post->body)//                             ->action('View app', 'view_app')
+            ;
     }
 }

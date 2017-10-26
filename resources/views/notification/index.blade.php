@@ -4,7 +4,10 @@
 
 @section('content')
 
+
   <h1 class="uk-heading-divider">通知</h1>
+
+  <web-push></web-push>
 
   <div class="uk-alert-primary" uk-alert>
     <p>CSVダウンロードは一度のみ有効です。</p>

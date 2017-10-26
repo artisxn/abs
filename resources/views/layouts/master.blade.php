@@ -9,9 +9,14 @@
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
+  <meta name="vapidPublicKey" content="{{ config('webpush.vapid.public_key') }}">
+
   <title>@yield('title'){{ config('app.name') }}</title>
 
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+
+  <link rel='icon' type='image/png' href='/icon.png'>
+  <link rel="apple-touch-icon" sizes="144x144" href="/icon.png">
 
   @include('layouts.analytics_verification')
 
