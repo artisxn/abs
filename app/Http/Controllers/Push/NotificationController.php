@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Push;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 use NotificationChannels\WebPush\PushSubscription;
 
 class NotificationController extends Controller
@@ -25,7 +27,7 @@ class NotificationController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      *
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     public function last(Request $request)
     {
@@ -33,6 +35,9 @@ class NotificationController extends Controller
             return response()->json('Endpoint missing.', 403);
         }
 
+        /**
+         * @var PushSubscription $subscription
+         */
         $subscription = PushSubscription::findByEndpoint($request->endpoint);
         if (is_null($subscription)) {
             return response()->json('Subscription not found.', 404);
@@ -63,11 +68,17 @@ class NotificationController extends Controller
             return response()->json('Endpoint missing.', 403);
         }
 
+        /**
+         * @var PushSubscription $subscription
+         */
         $subscription = PushSubscription::findByEndpoint($request->endpoint);
         if (is_null($subscription)) {
             return response()->json('Subscription not found.', 404);
         }
 
+        /**
+         * @var \Illuminate\Notifications\DatabaseNotification $notification
+         */
         $notification = $subscription->user->notifications()->where('id', $id)->first();
         if (is_null($notification)) {
             return response()->json('Notification not found.', 404);
@@ -85,15 +96,17 @@ class NotificationController extends Controller
      */
     protected function payload($notification)
     {
-        $payload = [
-            'title'      => isset($notifications->intro[0]) ? $notifications->intro[0] : null,
-            'body'       => $this->format($notification),
-            'actionText' => $notification->action_text ?: null,
-            'actionUrl'  => $notification->action_url ?: null,
-            'id'         => isset($notification->id) ? $notification->id : null,
-        ];
+        //        $payload = [
+        //            'title'      => isset($notifications->intro[0]) ? $notifications->intro[0] : null,
+        //            'body'       => $this->format($notification),
+        //            'actionText' => $notification->action_text ?: null,
+        //            'actionUrl'  => $notification->action_url ?: null,
+        //            'id'         => isset($notification->id) ? $notification->id : null,
+        //        ];
 
-        return json_encode($payload);
+        $payload = $notification->toJson();
+
+        return $payload;
     }
 
     /**

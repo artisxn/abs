@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\Push;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
-use Illuminate\Foundation\Validation\ValidatesRequests;
+use App\Http\Controllers\Controller;
 
 class PushSubscriptionController extends Controller
 {
-    use ValidatesRequests;
-
     /**
      * Create a new controller instance.
      *
