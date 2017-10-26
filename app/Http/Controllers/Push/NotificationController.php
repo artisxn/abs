@@ -104,9 +104,9 @@ class NotificationController extends Controller
         //            'id'         => isset($notification->id) ? $notification->id : null,
         //        ];
 
-        $payload = $notification->toJson();
+        $payload = $notification->data;
 
-        return $payload;
+        return json_encode($payload);
     }
 
     /**
