@@ -3,11 +3,11 @@ return [
 
     //最近のアイテムから除外するカテゴリー
     //洋書が多すぎなので除外。RECENT_EXCEPT
-    'recent_except'        => explode(',', env('RECENT_EXCEPT', [])),
+    'recent_except'        => explode(',', env('RECENT_EXCEPT', '')),
 
     //アイテム情報を削除するカテゴリー
     //洋書だけ多すぎなので削除していく
-    'delete_category'      => explode(',', env('DELETE_CATEGORY', [])),
+    'delete_category'      => explode(',', env('DELETE_CATEGORY', '')),
 
     //特典キー
     'special_key_personal' => env('SPECIAL_KEY_PERSONAL', ''),
