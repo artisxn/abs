@@ -2,23 +2,12 @@
 return [
 
     //最近のアイテムから除外するカテゴリー
-    //洋書が多すぎなので除外。
-    'recent_except'        => [
-        52033011,
-    ],
+    //洋書が多すぎなので除外。RECENT_EXCEPT
+    'recent_except'        => explode(',', env('RECENT_EXCEPT', [])),
 
     //アイテム情報を削除するカテゴリー
     //洋書だけ多すぎなので削除していく
-    'delete_category'      => [
-        52033011,
-        52231011,
-        97181011,
-        2129039051,
-        2570983051,
-        100052011,
-        2624415051,
-        97635011,
-    ],
+    'delete_category'      => explode(',', env('DELETE_CATEGORY', [])),
 
     //特典キー
     'special_key_personal' => env('SPECIAL_KEY_PERSONAL', ''),
@@ -82,7 +71,7 @@ return [
     /**
      * PriceAlertのカテゴリー
      */
-    'price_alert'       => [
+    'price_alert'      => [
         'up'   => 2,
         'down' => 3,
     ],
