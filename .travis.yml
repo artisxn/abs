@@ -20,3 +20,4 @@ script:
 
 after_success:
    - curl -s "$FORGE";
+   - curl -s "$FORGE_A";
