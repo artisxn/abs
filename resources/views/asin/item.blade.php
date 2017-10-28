@@ -19,9 +19,7 @@
 
   @include('asin.imageset')
 
-  @auth
-    @include('asin.graph')
-  @endauth
+  @include('asin.graph')
 
   @include('asin.histories')
 
