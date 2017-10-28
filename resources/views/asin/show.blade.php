@@ -14,11 +14,14 @@
   @include('home.form')
 
   @empty($alert_message)
+
     @include('item.watchlist')
 
     <h1 class="uk-heading-divider uk-heading-primary">{{ $title }}</h1>
 
     @include('asin.item')
+
+    @include('asin.json-ld')
 
     @else
       <div class="uk-alert-danger" uk-alert>

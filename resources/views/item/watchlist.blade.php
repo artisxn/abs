@@ -14,9 +14,7 @@
       </button>
     </form>
   @else
-    <form
-      action="{{ route('watch.asin.destroy', optional($watch->first())->id) }}"
-      method="POST">
+    <form action="{{ route('watch.asin.destroy', optional($watch->first())->id) }}" method="POST">
       {{ method_field('DELETE') }}
       {{ csrf_field() }}
       <button class="uk-button uk-button-danger">ASINウォッチリストから削除</button>

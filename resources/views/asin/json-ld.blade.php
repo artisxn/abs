@@ -1,0 +1,1 @@
+{!! $asin_item->jsonLd() !!}

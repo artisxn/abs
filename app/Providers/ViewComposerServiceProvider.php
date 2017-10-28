@@ -15,6 +15,7 @@ use App\Http\ViewComposers\PickupViewComposer;
 use App\Http\ViewComposers\PriceAlertViewComposer;
 use App\Http\ViewComposers\AsinWatchViewComposer;
 use App\Http\ViewComposers\BrowseWatchViewComposer;
+use App\Http\ViewComposers\SearchFormViewComposer;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
@@ -42,6 +43,9 @@ class ViewComposerServiceProvider extends ServiceProvider
         View::composer(['watch.index', 'watch.asin.index'], AsinWatchViewComposer::class);
 
         View::composer(['watch.index', 'watch.browse.index'], BrowseWatchViewComposer::class);
+
+        View::composer('home.form', SearchFormViewComposer::class);
+
     }
 
     /**

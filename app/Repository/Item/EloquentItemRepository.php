@@ -55,9 +55,11 @@ class EloquentItemRepository implements ItemRepositoryInterface
         if (!is_null($asin_item)) {
             $asin_item->load([
                 'histories' => function ($query) {
-                    $query->latest()->limit(30);
+                    $query->latest()->with('availability')->limit(30);
                 },
             ]);
+
+            $asin_item->load(['item_attribute', 'offers']);
         }
 
         return $asin_item;

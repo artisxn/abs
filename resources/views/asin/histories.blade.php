@@ -21,7 +21,7 @@
           <tr>
             <td>{{ $history->day }}</td>
             <td>{{ $history->rank }}</td>
-            <td>{{ $history->availability()->first()->availability or $history->availability }}</td>
+            <td>{{ optional($history->availability)->availability }}</td>
             <td>{{ $history->priceFormat($history->lowest_new_price) }}</td>
             <td>{{ $history->total_new }}</td>
             <td>{{ $history->priceFormat($history->lowest_used_price) }}</td>

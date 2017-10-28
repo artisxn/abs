@@ -15,3 +15,4 @@
 
   </form>
 </div>
+{!! $search_json_ld !!}
