@@ -45,7 +45,6 @@ class ViewComposerServiceProvider extends ServiceProvider
         View::composer(['watch.index', 'watch.browse.index'], BrowseWatchViewComposer::class);
 
         View::composer('home.form', SearchFormViewComposer::class);
-
     }
 
     /**
