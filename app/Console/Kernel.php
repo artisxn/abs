@@ -76,7 +76,7 @@ class Kernel extends ConsoleKernel
                  ->when(config('amazon-feature.price_alert'));
 
         $schedule->command(Commands\WatchPriceAlertCommand::class)
-                 ->hourlyAt(3)
+                 ->hourly()
                  ->when(config('amazon-feature.price_alert'));
     }
 
