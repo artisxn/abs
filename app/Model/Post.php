@@ -4,8 +4,12 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Notifications\Notifiable;
+
 class Post extends \TCG\Voyager\Models\Post
 {
+    use Notifiable;
+
     /**
      *
      * @param \Illuminate\Database\Eloquent\Builder $query

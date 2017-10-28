@@ -7,20 +7,30 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-use App\Channels\MastodonChannel;
+use App\Model\Post;
 
-class PriceAlertNotification extends Notification implements ShouldQueue
+use NotificationChannels\WebPush\WebPushMessage;
+use NotificationChannels\WebPush\WebPushChannel;
+
+class WatchPriceAlertNotification extends Notification implements ShouldQueue
 {
     use Queueable;
 
     /**
+     * @var Post
+     */
+    protected $post;
+
+    /**
      * Create a new notification instance.
+     *
+     * @param Post|\Illuminate\Database\Eloquent\Model $post
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Post $post)
     {
-        //
+        $this->post = $post;
     }
 
     /**
@@ -32,11 +42,7 @@ class PriceAlertNotification extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        $via = [];
-
-        if (config('amazon-feature.mastodon')) {
-            $via[] = MastodonChannel::class;
-        }
+        $via = ['database', WebPushChannel::class];
 
         return $via;
     }
@@ -65,26 +71,14 @@ class PriceAlertNotification extends Notification implements ShouldQueue
      */
     public function toDatabase($notifiable)
     {
-        //
-    }
-
-    /**
-     * Get the array representation of the notification.
-     *
-     * @param  mixed $notifiable
-     *
-     * @return array
-     */
-    public function toMastodon($notifiable)
-    {
-        $url = route('asin', $notifiable->excerpt);
-
-        $cat = $notifiable->category_id === config('amazon.price_alert.up') ? '⬆️' : '⬇️';
-
-        $chart = '💹';
+        $cat = $this->post->category_id === config('amazon.price_alert.up') ? 'up' : 'down';
 
         return [
-            'status' => "{$cat} {$notifiable->title}" . PHP_EOL . "{$chart} {$notifiable->body}" . PHP_EOL . $url,
+            'title'       => $this->post->title,
+            'body'        => $this->post->body,
+            'asin'        => $this->post->excerpt,
+            'category_id' => $this->post->category_id,
+            'category'    => $cat,
         ];
     }
 
@@ -100,5 +94,15 @@ class PriceAlertNotification extends Notification implements ShouldQueue
         return [
             //
         ];
+    }
+
+    public function toWebPush($notifiable, $notification)
+    {
+        return WebPushMessage::create()
+                             ->id($notification->id)
+                             ->title($this->post->title)
+                             ->icon($this->post->image)
+                             ->body($this->post->body)//                             ->action('View app', 'view_app')
+            ;
     }
 }

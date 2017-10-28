@@ -119,4 +119,8 @@ return [
      */
     'delete_old_post'             => env('FEATURE_DELETE_OLD_POST', true),
 
+    /**
+     * マストドンへの通知。
+     */
+    'mastodon'                    => env('FEATURE_MASTODON', false),
 ];

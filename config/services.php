@@ -45,4 +45,13 @@ return [
         'redirect'      => env('AMAZON_LOGIN_REDIRECT'),
     ],
 
+    'mastodon' => [
+        'domain'        => env('MASTODON_DOMAIN'),
+        'client_id'     => env('MASTODON_ID'),
+        'client_secret' => env('MASTODON_SECRET'),
+        'redirect'      => env('MASTODON_REDIRECT'),
+        //'read', 'write', 'follow'
+        'scope'         => ['read', 'write', 'follow'],
+        'token'         => env('MASTODON_TOKEN', ''),
+    ],
 ];

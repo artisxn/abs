@@ -12,6 +12,8 @@ use App\Model\Item;
 use App\Model\Post;
 
 use Notification;
+
+use App\Notifications\WatchPriceAlertNotification;
 use App\Notifications\PriceAlertNotification;
 
 class PriceCheckJob implements ShouldQueue
@@ -76,6 +78,9 @@ class PriceCheckJob implements ShouldQueue
 
         if (filled($slug)) {
             //Postに追加
+            /**
+             * @var Post $post
+             */
             $post = Post::updateOrCreate([
                 'slug' => $slug,
             ], [
@@ -89,9 +94,17 @@ class PriceCheckJob implements ShouldQueue
                 'status'      => Post::PUBLISHED,
             ]);
 
-            //ウォッチリストにあるアイテムなら通知
-            if ($post->wasRecentlyCreated and $this->item->users()->count() > 0) {
-                Notification::send($this->item->users()->get(), new PriceAlertNotification($post));
+            if ($post->wasRecentlyCreated) {
+                if ($this->item->users()->count() > 0) {
+                    //ウォッチリスト版通知
+                    Notification::send(
+                        $this->item->users()->get(),
+                        new WatchPriceAlertNotification($post)
+                    );
+                } else {
+                    //ホーム版通知
+                    $post->notify(new PriceAlertNotification());
+                }
             }
         }
     }

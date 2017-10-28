@@ -32,7 +32,7 @@
             @include('notification.type.csv')
             @break
 
-            @case(App\Notifications\PriceAlertNotification::class)
+            @case(App\Notifications\WatchPriceAlertNotification::class)
             @include('notification.type.price')
             @break
 
