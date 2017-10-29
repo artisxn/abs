@@ -18,7 +18,7 @@ class PriceAlertViewComposer
     public function compose(View $view)
     {
         $price_alert_posts = cache()->remember('price_alert_posts', 60, function () {
-            return Post::latest('updated_at')
+            return Post::latest()
                        ->whereIn('category_id', [2, 3])
                        ->limit(10)
                        ->get();
