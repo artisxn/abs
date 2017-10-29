@@ -7,6 +7,9 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
+use NotificationChannels\WebPush\WebPushMessage;
+use NotificationChannels\WebPush\WebPushChannel;
+
 class CsvExported extends Notification implements ShouldQueue
 {
     use Queueable;
@@ -44,7 +47,7 @@ class CsvExported extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database', WebPushChannel::class];
     }
 
     /**
@@ -75,5 +78,19 @@ class CsvExported extends Notification implements ShouldQueue
             'title' => $this->title,
             'file'  => $this->file,
         ];
+    }
+
+    /**
+     * @param $notifiable
+     * @param $notification
+     *
+     * @return mixed
+     */
+    public function toWebPush($notifiable, $notification)
+    {
+        return WebPushMessage::create()
+                             ->id($notification->id)
+                             ->title($this->title)
+                             ->body('CSVの準備ができました。');
     }
 }

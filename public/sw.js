@@ -48,7 +48,7 @@
       // const data = event.notification.data
 
       if (event.action === 'open') {
-        self.clients.openWindow('/notifications')
+        self.clients.openWindow('/')
       } else if (event.action === 'other') {
         //
       } else {
