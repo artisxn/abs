@@ -2981,16 +2981,16 @@
         },
         {
             "name": "overtrue/laravel-lang",
-            "version": "3.0.6",
+            "version": "3.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/overtrue/laravel-lang.git",
-                "reference": "914fc271b5040621daabac49ac422909bae1936f"
+                "reference": "c49d5f86c2ab2302c06e10d7ebd66a1ac73e0bab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/overtrue/laravel-lang/zipball/914fc271b5040621daabac49ac422909bae1936f",
-                "reference": "914fc271b5040621daabac49ac422909bae1936f",
+                "url": "https://api.github.com/repos/overtrue/laravel-lang/zipball/c49d5f86c2ab2302c06e10d7ebd66a1ac73e0bab",
+                "reference": "c49d5f86c2ab2302c06e10d7ebd66a1ac73e0bab",
                 "shasum": ""
             },
             "require": {
@@ -3028,7 +3028,7 @@
                 "laravel",
                 "overtrue"
             ],
-            "time": "2017-07-31T02:22:53+00:00"
+            "time": "2017-10-28T12:10:43+00:00"
         },
         {
             "name": "paragonie/random_compat",
