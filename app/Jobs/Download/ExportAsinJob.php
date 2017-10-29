@@ -14,7 +14,7 @@ use App\Http\Resources\Csv\Item as ItemResource;
 
 use League\Csv\Writer;
 
-use App\Notifications\CsvEported;
+use App\Notifications\CsvExported;
 
 use Storage;
 
@@ -57,7 +57,6 @@ class ExportAsinJob implements ShouldQueue
         Storage::makeDirectory($path);
 
         $file = Storage::path($path . $file_name);
-        info($file);
 
         $writer = Writer::createFromPath($file, 'w');
 
@@ -75,6 +74,6 @@ class ExportAsinJob implements ShouldQueue
             $writer->insertOne($line);
         }
 
-        $this->user->notify(new CsvEported('CSVダウンロード(ASIN)', $file_name));
+        $this->user->notify(new CsvExported('CSVダウンロード(ASIN)', $file_name));
     }
 }

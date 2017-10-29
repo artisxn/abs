@@ -15,7 +15,7 @@ use League\Csv\Writer;
 use App\Repository\Browse\BrowseRepositoryInterface as BrowseRepository;
 use App\Model\User;
 
-use App\Notifications\CsvEported;
+use App\Notifications\CsvExported;
 
 use Storage;
 
@@ -91,7 +91,6 @@ class ExportCategoryJob implements ShouldQueue
         Storage::makeDirectory($path);
 
         $file = Storage::path($path . $file_name);
-        info($file);
 
         $writer = Writer::createFromPath($file, 'w');
 
@@ -105,6 +104,6 @@ class ExportCategoryJob implements ShouldQueue
             $writer->insertOne($line);
         }
 
-        $this->user->notify(new CsvEported('CSVダウンロード(カテゴリー)', $file_name));
+        $this->user->notify(new CsvExported('CSVダウンロード(カテゴリー)', $file_name));
     }
 }

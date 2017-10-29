@@ -28,7 +28,7 @@
       @foreach($notifications as $notification)
         <tr>
           @switch($notification->type)
-            @case(App\Notifications\CsvEported::class)
+            @case(App\Notifications\CsvExported::class)
             @include('notification.type.csv')
             @break
 
