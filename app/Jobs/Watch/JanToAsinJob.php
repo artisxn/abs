@@ -17,7 +17,7 @@ class JanToAsinJob implements ShouldQueue
     /**
      * @var array
      */
-    protected $jan_lists;
+    public $jan_lists;
 
     /**
      * @var int

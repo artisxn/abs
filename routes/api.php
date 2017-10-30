@@ -30,3 +30,8 @@ Route::namespace('Api\World')->middleware(['auth:api', 'world'])->group(function
     Route::name('api.world.update')->any('world/update', 'WorldUpdateController');
     Route::name('api.world.new')->get('world/new', 'WorldNewController');
 });
+
+Route::namespace('Api\Watch')->middleware(['auth:api'])->group(function () {
+    Route::post('watch/asin', 'AsinController@store');
+    Route::post('watch/ean', 'EanController@store');
+});

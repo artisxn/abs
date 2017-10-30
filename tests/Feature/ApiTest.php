@@ -11,6 +11,7 @@ use App\Model\WorldItem;
 
 use Illuminate\Support\Facades\Bus;
 use App\Jobs\World\WorldWatchJob;
+use App\Jobs\Watch\JanToAsinJob;
 
 class ApiTest extends TestCase
 {
@@ -46,14 +47,14 @@ class ApiTest extends TestCase
                          ->json('GET', '/api/world');
 
         $response->assertSuccessful()
-            ->assertJson([
-                'data' => [
-                    [
-                        'id'   => true,
-                        'asin' => 'test_asin',
-                    ],
-                ],
-            ]);
+                 ->assertJson([
+                     'data' => [
+                         [
+                             'id'   => true,
+                             'asin' => 'test_asin',
+                         ],
+                     ],
+                 ]);
     }
 
     public function testWorldShowAsin()
@@ -138,5 +139,47 @@ class ApiTest extends TestCase
                          ],
                      ],
                  ]);
+    }
+
+    public function testWatchStoreAsin()
+    {
+        $asin = 'testasin10';
+
+        $response = $this->actingAs($this->user, 'api')
+                         ->json('POST', '/api/watch/asin', [
+                             'asin'     => $asin,
+                             'priority' => 1,
+                         ]);
+
+        $response->assertSuccessful()
+                 ->assertJson(
+                     [
+                         'asin_id'  => $asin,
+                         'priority' => 1,
+                     ]
+                 );
+    }
+
+    public function testWatchStoreJan()
+    {
+        Bus::fake();
+
+        $ean = 'test_ean___13';
+
+        $response = $this->actingAs($this->user, 'api')
+                         ->json('POST', '/api/watch/ean', [
+                             'ean' => $ean,
+                         ]);
+
+        Bus::assertDispatched(JanToAsinJob::class, function ($job) use ($ean) {
+            return $job->jan_lists === [$ean];
+        });
+
+        $response->assertSuccessful()
+                 ->assertJson(
+                     [
+                         'message' => true,
+                     ]
+                 );
     }
 }

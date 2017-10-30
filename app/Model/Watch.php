@@ -14,7 +14,13 @@ class Watch extends Model
     protected $fillable = [
         'asin_id',
         'user_id',
+        'priority',
     ];
+
+    /**
+     * @var array
+     */
+    protected $hidden = ['user_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

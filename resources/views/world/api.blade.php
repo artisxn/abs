@@ -30,6 +30,33 @@
   <pre
     class="uk-background-muted"><code>{{ implode(',',config('amazon-feature.world_watch_item_locales')) }}</code></pre>
 
+  <h2 class="uk-heading-line"><span>ウォッチリストに追加（ASIN）</span></h2>
+
+  優先度を変更したい場合もこのAPIを使う。
+
+  <pre class="uk-background-muted"><code>POST /api/watch/asin</code></pre>
+
+  <h3>オプション</h3>
+  <dl>
+    <dt>asin</dt>
+    <dd>必須。10文字のASINを指定。</dd>
+    <dt>priority</dt>
+    <dd>優先度。<code>0</code>か<code>1</code>。デフォルトは0。</dd>
+  </dl>
+
+  <h2 class="uk-heading-line"><span>ウォッチリストに追加（JAN/EAN）</span></h2>
+
+  ASINとは違いJANからASINに変換して追加するのでAPIはインポートを開始するまで。優先度の指定はできない。
+
+  <pre class="uk-background-muted"><code>POST /api/watch/ean</code></pre>
+
+  <h3>オプション</h3>
+  <dl>
+    <dt>ean</dt>
+    <dd>必須。13文字のJAN/EANを指定。</dd>
+  </dl>
+
+
   <h2 class="uk-heading-line"><span>商品リストを取得</span></h2>
 
   <pre class="uk-background-muted"><code>GET /api/world</code></pre>
