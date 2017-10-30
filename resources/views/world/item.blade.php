@@ -6,7 +6,7 @@
       @endif
     ><a href="{{ route('world.show', $world_item->asin) }}">
         {{ $world_item->asin }}
-{{--        / {{ $world_item->ean }}--}}
+        / {{ $world_item->ean }}
       </a>
     </td>
   @endif
