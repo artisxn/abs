@@ -4,6 +4,9 @@
 
 https://abs.kawax.biz/
 
+## LICENSE
+NO LICENSE
+
 ## CHANGELOG
 
 Product Advertising API だけ使ってたけど他のAPIも使って機能追加していく。

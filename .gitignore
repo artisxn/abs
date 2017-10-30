@@ -1,11 +1,16 @@
 /vendor
 /node_modules
 /public/storage
+/storage/*.key
 /public/hot
 Homestead.yaml
 Homestead.json
 .env
 .vagrant
 Vagrantfile
+/.idea
 !/storage/app/public/users/default.png
 after.sh
+/hooks
+npm-debug.log
+yarn-error.log
