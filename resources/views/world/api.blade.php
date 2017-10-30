@@ -42,7 +42,7 @@
     <dt>country</dt>
     <dd><code>JP</code>、<code>JP,US</code>など国コードを指定。<code>,</code>区切りで複数指定。デフォルトはすべての国。</dd>
     <dt>search</dt>
-    <dd>商品タイトルで検索。</dd>
+    <dd>商品タイトル/ASIN/JANで検索。</dd>
     <dt>page</dt>
     <dd>ページ。デフォルト1。</dd>
     <dt>limit</dt>

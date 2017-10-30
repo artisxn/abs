@@ -1,6 +1,6 @@
 <thead>
 <tr class="uk-text-nowrap">
-  <th>ASIN</th>
+  <th>ASIN/JAN</th>
   <th>国</th>
   <th>カテゴリー</th>
   <th>タイトル</th>

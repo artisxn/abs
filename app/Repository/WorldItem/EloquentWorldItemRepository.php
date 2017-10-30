@@ -32,7 +32,11 @@ class EloquentWorldItemRepository implements WorldItemRepositoryInterface
                                 ->with(['availability', 'binding', 'browses'])
                                 ->latest('updated_at')
                                 ->when(request()->filled('search'), function ($query) {
-                                    return $query->where('title', 'LIKE', '%' . request()->input('search') . '%');
+                                    $search = request()->input('search');
+
+                                    return $query->where('title', 'LIKE', '%' . $search . '%')
+                                                 ->orWhere('asin', $search)
+                                                 ->orWhere('ean', $search);
                                 })
                                 ->paginate(100);
 
@@ -75,7 +79,11 @@ class EloquentWorldItemRepository implements WorldItemRepositoryInterface
                           ->latest('updated_at')
                           ->with(['availability', 'binding', 'browses'])
                           ->when(request()->filled('search'), function ($query) {
-                              return $query->where('title', 'LIKE', '%' . request()->input('search') . '%');
+                              $search = request()->input('search');
+
+                              return $query->where('title', 'LIKE', '%' . $search . '%')
+                                           ->orWhere('asin', $search)
+                                           ->orWhere('ean', $search);
                           })
                           ->when(request()->filled('country'), function ($query) {
                               return $query->whereIn('country', explode(',', request()->input('country')));

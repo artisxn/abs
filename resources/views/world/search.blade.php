@@ -7,7 +7,7 @@
            value="{{ request('search') }}"
            class="uk-search-input"
            type="search"
-           placeholder="タイトル検索...">
+           placeholder="タイトル/ASIN/JAN検索...">
   </div>
 
 </form>
