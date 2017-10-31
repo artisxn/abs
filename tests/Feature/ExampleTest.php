@@ -32,4 +32,13 @@ class ExampleTest extends TestCase
 
         $response->assertRedirect('/login');
     }
+
+    public function testClosed()
+    {
+        config(['amazon-feature.closed' => true]);
+
+        $response = $this->get('/');
+
+        $response->assertStatus(404);
+    }
 }
