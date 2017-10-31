@@ -28,7 +28,7 @@ class ItemController extends Controller
         if (empty($asin_item)) {
             $alert_message = true;
 
-            return view('asin.show')->with(compact('alert_message'));
+            return response()->view('asin.show', compact('alert_message'), 404);
         }
 
         //取得失敗した場合は後で再取得
