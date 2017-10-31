@@ -78,6 +78,15 @@ class Kernel extends ConsoleKernel
         $schedule->command(Commands\WatchPriceAlertCommand::class)
                  ->hourly()
                  ->when(config('amazon-feature.price_alert'));
+
+
+        $schedule->command('abs:watch-item')
+                 ->hourlyAt(45)
+                 ->when(config('amazon-feature.price_alert_express'));
+
+        $schedule->command(Commands\WatchPriceAlertCommand::class)
+                 ->everyThirtyMinutes()
+                 ->when(config('amazon-feature.price_alert_express'));
     }
 
     /**

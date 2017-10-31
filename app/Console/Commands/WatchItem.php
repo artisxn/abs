@@ -41,7 +41,10 @@ class WatchItem extends Command
      */
     public function handle()
     {
-        $asins = Watch::groupBy('asin_id')->latest()->take(1000)->pluck('asin_id');
+        $asins = Watch::groupBy('asin_id')
+                      ->inRandomOrder()
+                      ->take(1000)
+                      ->pluck('asin_id');
 
         info('Watch Item: ' . $asins->count());
 

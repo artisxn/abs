@@ -44,6 +44,12 @@ class WatchPriceAlertNotification extends Notification implements ShouldQueue
     {
         $via = ['database', WebPushChannel::class];
 
+        if (config('amazon-feature.notify_mail')) {
+            if ($notifiable->can('notify-mail') and $notifiable->notify_mail) {
+                $via[] = 'mail';
+            }
+        }
+
         return $via;
     }
 
@@ -56,10 +62,23 @@ class WatchPriceAlertNotification extends Notification implements ShouldQueue
      */
     public function toMail($notifiable)
     {
+        if ($this->post->category_id === config('amazon.price_alert.up')) {
+            $level = 'success';
+            $line_move = '価格が上がりました。';
+        } else {
+            $level = 'error';
+            $line_move = '価格が下がりました。';
+        }
+
+        $subject = '[' . config('app.name') . ']' . $this->post->title;
+
         return (new MailMessage)
-            ->line('The introduction to the notification.')
-            ->action('Notification Action', url('/'))
-            ->line('Thank you for using our application!');
+            ->subject($subject)
+            ->level($level)
+            ->greeting($this->post->title)
+            ->line($line_move)
+            ->line($this->post->body)
+            ->action('ABSで表示', route('asin', $this->post->excerpt));
     }
 
     /**

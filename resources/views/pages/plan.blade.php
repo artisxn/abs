@@ -36,6 +36,14 @@
     </tr>
 
     <tr>
+      <th><strong>変動チェックをメール通知</strong></th>
+      <td><span uk-icon="icon: close"></span></td>
+      <td><span uk-icon="icon: check"></span></td>
+      <td><span uk-icon="icon: check"></span></td>
+      <td><span uk-icon="icon: check"></span></td>
+    </tr>
+
+    <tr>
       <th><strong>CSVダウンロード件数</strong></th>
       <td>100</td>
       <td>10,000</td>

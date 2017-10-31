@@ -114,6 +114,16 @@ return [
     'price_alert'                 => env('FEATURE_PRICE_ALERT', true),
 
     /**
+     * 価格チェック。高速版
+     */
+    'price_alert_express'         => env('FEATURE_PRICE_ALERT_EXPRESS', false),
+
+    /**
+     * メールで通知
+     */
+    'notify_mail'                 => env('FEATURE_NOTIFY_MAIL', false),
+
+    /**
      * PriceAlertカテゴリーの古いPostを削除
      * Postに残ってる間は再通知しない→一定期間後に削除して再通知可能に。
      */

@@ -26,6 +26,7 @@ class User extends \TCG\Voyager\Models\User
         'refresh_token',
         'special_key',
         'api_token',
+        'notify_mail',
     ];
 
     /**
@@ -40,6 +41,7 @@ class User extends \TCG\Voyager\Models\User
         'refresh_token',
         'special_key',
         'api_token',
+        'notify_mail',
     ];
 
     /**

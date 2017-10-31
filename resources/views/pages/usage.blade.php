@@ -51,6 +51,8 @@
     </div>
   </div>
 
+  <p>メールでの通知は有料プランのみ対応。</p>
+
   <h3>CSVファイルでダウンロード</h3>
 
   <p>ウォッチリストに追加したアイテムの商品情報をCSVでダウンロードできます。</p>
@@ -90,6 +92,14 @@
 
   <table class="uk-table uk-table-striped uk-table-hover uk-table-divider">
     <tbody>
+    <tr>
+      <th>価格変動チェック</th>
+      <td>{{ config('amazon-feature.price_alert') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
+      <th>価格変動チェックをメールで通知</th>
+      <td>{{ config('amazon-feature.notify_mail') ? 'ON' : 'OFF' }}</td>
+    </tr>
     <tr>
       <th>ランダムブラウズ</th>
       <td>{{ config('amazon-feature.random_browse') ? 'ON' : 'OFF' }}</td>
@@ -146,10 +156,7 @@
       <th>API</th>
       <td>{{ config('amazon-feature.api') ? 'ON' : 'OFF' }}</td>
     </tr>
-    <tr>
-      <th>価格変動チェック</th>
-      <td>{{ config('amazon-feature.price_alert') ? 'ON' : 'OFF' }}</td>
-    </tr>
+
     </tbody>
   </table>
 

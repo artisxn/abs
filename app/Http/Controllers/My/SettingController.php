@@ -17,6 +17,7 @@ class SettingController extends Controller
         $request->user()->fill([
             'special_key' => $request->input('special_key'),
             'api_token'   => $request->input('api_token'),
+            'notify_mail' => $request->input('notify_mail', false),
         ])->save();
 
         return back();
