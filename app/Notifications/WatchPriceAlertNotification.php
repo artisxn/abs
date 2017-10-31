@@ -78,7 +78,7 @@ class WatchPriceAlertNotification extends Notification implements ShouldQueue
             ->greeting($this->post->title)
             ->line($line_move)
             ->line($this->post->body)
-            ->action('ABSで表示', route('asin', $this->post->excerpt));
+            ->action(config('app.name') . 'で表示', route('asin', $this->post->excerpt));
     }
 
     /**
