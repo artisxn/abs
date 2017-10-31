@@ -106,16 +106,16 @@
     <tr>
       <th><strong>支払い方法</strong></th>
       <td><span uk-icon="icon: close"></span></td>
-      <td>Enty（特典キー入力）</td>
-      <td>Enty（特典キー入力）</td>
+      <td>Enty/fantia（特典キー入力）</td>
+      <td>Enty/fantia（特典キー入力）</td>
       <td>チャットワークで問い合わせ</td>
     </tr>
 
     <tr>
       <th><strong>解約方法</strong></th>
       <td><span uk-icon="icon: close"></span></td>
-      <td>Entyで停止</td>
-      <td>Entyで停止</td>
+      <td>Enty/fantiaで停止</td>
+      <td>Enty/fantiaで停止</td>
       <td>チャットワークで連絡</td>
     </tr>
 
@@ -124,23 +124,30 @@
 
   <div class="uk-section uk-section-muted uk-dark uk-padding">
     <div class="uk-container">
-      <h3>Entyでの支払いについて</h3>
+      <h3>Enty/fantiaでの支払いについて</h3>
 
-      <a href="https://enty.jp/kawax" target="_blank">https://enty.jp/kawax</a>
+      <ul class="uk-list uk-list-bullet">
+        <li>
+          <a href="https://enty.jp/kawax" target="_blank">https://enty.jp/kawax</a>
+        </li>
+        <li>
+          <a href="https://fantia.jp/kawax" target="_blank">https://fantia.jp/kawax</a>
+        </li>
+      </ul>
 
-      <h4>Entyを使う理由</h4>
-      <p>お金が関わる機能は色々と大変だから。Entyなら全部任せられる。他に同じようなことができるサービスがあれば対応します。</p>
+      <h4>Enty/fantia を使う理由</h4>
+      <p>お金が関わる機能は色々と大変だから。Enty/fantia なら全部任せられる。他に同じようなことができるサービスがあれば対応します。</p>
 
       <h4>申し込み方法</h4>
       <ul class="uk-list uk-list-bullet">
-        <li>Entyでプランを選んで申し込む。</li>
-        <li>投稿に特典キーが書かれているので設定画面から入力する。</li>
+        <li>Entyもしくはfantiaでプランを選んで申し込む。</li>
+        <li>投稿に特典キーが書かれているので<a href="{{ route('settings.index') }}" rel="nofollow">設定画面</a>から入力する。</li>
         <li>特典キーは不定期に変更されるので変更されたら再度入力が必要です。</li>
       </ul>
 
       <h4>解約方法</h4>
       <ul class="uk-list uk-list-bullet">
-        <li>Entyで停止すれば解約となります。</li>
+        <li>Enty/fantia で停止すれば解約となります。</li>
         <li>特典キーが変更されるまではそのまま使えます。</li>
       </ul>
     </div>
