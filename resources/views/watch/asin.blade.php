@@ -1,4 +1,4 @@
-<h3>ASIN</h3>
+<h3>ASIN({{ $asin_watches->count() }})</h3>
 
 
 @if($asin_watches->count() > 0)
