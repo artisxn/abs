@@ -1,4 +1,4 @@
-<h3>カテゴリー({{ $browse_watches->count() }})</h3>
+<h3>カテゴリー({{ $browse_watches->total() }})</h3>
 
 @if($browse_watches->count() > 0)
   {{ $browse_watches->links() }}
