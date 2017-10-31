@@ -24,7 +24,11 @@ class Closed
     {
         if (config('amazon-feature.closed') and auth()->check() === false) {
             if (!$request->is('login') and !$request->is('callback') and !$request->is('auth/login')) {
-                return redirect()->route('login');
+                if (session('guest_login')) {
+                    return redirect()->route('auth.login.form');
+                } else {
+                    return redirect()->route('login');
+                }
             }
         }
 
