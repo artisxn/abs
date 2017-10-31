@@ -12,7 +12,7 @@
         "appstract/laravel-blade-directives": "^0.4.5",
         "barryvdh/laravel-debugbar": "^3.1",
         "barryvdh/laravel-ide-helper": "^2.4",
-        "doctrine/dbal": "^2.5",
+        "doctrine/dbal": "^2.6",
         "fabpot/goutte": "^3.2",
         "fideloper/proxy": "~3.3",
         "laravel-notification-channels/webpush": "^2.0",

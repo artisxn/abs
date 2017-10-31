@@ -57,14 +57,16 @@ class PriceAlertNotification extends Notification implements ShouldQueue
      */
     public function toMastodon($notifiable)
     {
-        $url = route('asin', $notifiable->excerpt);
+        $title = str_limit($notifiable->title, 300);
 
         $cat = $notifiable->category_id === config('amazon.price_alert.up') ? '⬆️' : '⬇️';
 
         $chart = '💹';
 
+        $url = route('asin', $notifiable->excerpt);
+
         return [
-            'status' => "{$cat} {$notifiable->title}" . PHP_EOL . "{$chart} {$notifiable->body}" . PHP_EOL . $url,
+            'status' => "{$cat} {$title}" . PHP_EOL . "{$chart} {$notifiable->body}" . PHP_EOL . $url,
         ];
     }
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6cfd553266be86e1fc41410855bf4a87",
+    "content-hash": "e3f63db51a622e9585ac63b1a36ad697",
     "packages": [
         {
             "name": "appstract/laravel-blade-directives",
@@ -7152,16 +7152,16 @@
         },
         {
             "name": "wnx/laravel-stats",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stefanzweifel/laravel-stats.git",
-                "reference": "08d37b856f8f209adebc2f0d5257ad9c7fa67019"
+                "reference": "d36b060e8dd8d07be0eaae76a0b2510f26d6d6c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stefanzweifel/laravel-stats/zipball/08d37b856f8f209adebc2f0d5257ad9c7fa67019",
-                "reference": "08d37b856f8f209adebc2f0d5257ad9c7fa67019",
+                "url": "https://api.github.com/repos/stefanzweifel/laravel-stats/zipball/d36b060e8dd8d07be0eaae76a0b2510f26d6d6c7",
+                "reference": "d36b060e8dd8d07be0eaae76a0b2510f26d6d6c7",
                 "shasum": ""
             },
             "require": {
@@ -7210,7 +7210,7 @@
                 "stats",
                 "wnx"
             ],
-            "time": "2017-10-24T19:14:33+00:00"
+            "time": "2017-10-30T19:46:18+00:00"
         }
     ],
     "aliases": [],
