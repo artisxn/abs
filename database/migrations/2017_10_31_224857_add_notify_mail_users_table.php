@@ -15,7 +15,6 @@ class AddNotifyMailUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->boolean('notify_mail')->default(true)->after('special_key');
-
         });
     }
 
