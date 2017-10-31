@@ -5,6 +5,10 @@
 
   <p>最低新品価格が20%以上増減したアイテム</p>
 
+  @feature('mastodon')
+  <p>他の通知先：<a href="{{ config('amazon-feature.mastodon_url') }}" target="_blank">マストドン</a></p>
+  @endfeature
+
   <div class="uk-section uk-section-small uk-section-secondary uk-padding">
     <div class="uk-container">
 

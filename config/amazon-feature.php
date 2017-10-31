@@ -133,4 +133,5 @@ return [
      * マストドンへの通知。
      */
     'mastodon'                    => env('FEATURE_MASTODON', false),
+    'mastodon_url'                => env('FEATURE_MASTODON_URL'),
 ];
