@@ -94,71 +94,71 @@
     <tbody>
     <tr>
       <th>価格変動チェック</th>
-      <td>{{ config('amazon-feature.price_alert') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.price_alert') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>価格変動チェックをメールで通知</th>
-      <td>{{ config('amazon-feature.notify_mail') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.notify_mail') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>高速版価格変動チェック</th>
-      <td>{{ config('amazon-feature.price_alert_express') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.price_alert_express') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>ランダムブラウズ</th>
-      <td>{{ config('amazon-feature.random_browse') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.random_browse') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>最近のアイテム</th>
-      <td>{{ config('amazon-feature.recent_item') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.recent_item') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>ウォッチリストのアイテムを1日1回更新</th>
-      <td>{{ config('amazon-feature.watch_item') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.watch_item') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>更新日の古いアイテムを更新</th>
-      <td>{{ config('amazon-feature.update_old_item') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.update_old_item') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>一定期間更新のないアイテムを削除</th>
-      <td>{{ config('amazon-feature.delete_old_item') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.delete_old_item') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>除外カテゴリーのアイテムを削除</th>
-      <td>{{ config('amazon-feature.delete_category') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.delete_category') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>JAN/EANリストのCSVファイルをウォッチリストへインポート</th>
-      <td>{{ config('amazon-feature.jan_import') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.jan_import') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>ワールド</th>
-      <td>{{ config('amazon-feature.world') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.world') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>プラン</th>
-      <td>{{ config('amazon-feature.plan') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.plan') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>非公開モード</th>
-      <td>{{ config('amazon-feature.closed') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.closed') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>シングルユーザーモード</th>
-      <td>{{ config('amazon-feature.single_user') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.single_user') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>ゲストログイン</th>
-      <td>{{ config('amazon-feature.password_login') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.password_login') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>CSVにImageSetsを含める</th>
-      <td>{{ config('amazon-feature.image_sets') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.image_sets') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>API</th>
-      <td>{{ config('amazon-feature.api') ? 'ON' : 'OFF' }}</td>
+      <td>{{ config('feature.api') ? 'ON' : 'OFF' }}</td>
     </tr>
 
     </tbody>

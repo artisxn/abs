@@ -22,7 +22,7 @@ class World
      */
     public function handle($request, Closure $next)
     {
-        if (!config('amazon-feature.world')) {
+        if (!config('feature.world')) {
             return abort(404);
         }
 

@@ -37,7 +37,7 @@ class ApiWorldTest extends TestCase
             'ean'  => 'test_ean',
         ]);
 
-        config(['amazon-feature.world' => true]);
+        config(['feature.world' => true]);
     }
 
     public function testWorldIndex()

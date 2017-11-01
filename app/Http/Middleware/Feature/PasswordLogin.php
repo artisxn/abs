@@ -21,7 +21,7 @@ class PasswordLogin
      */
     public function handle($request, Closure $next)
     {
-        if (!config('amazon-feature.password_login')) {
+        if (!config('feature.password_login')) {
             return abort(404);
         }
 

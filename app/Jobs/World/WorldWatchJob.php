@@ -93,7 +93,7 @@ class WorldWatchJob implements ShouldQueue
                 continue;
             }
 
-            $browse_nodes = browse_nodes($item);
+            $browse_nodes = abs_browse_nodes($item);
             if (!empty($browse_nodes)) {
                 $browseRepository->createNodes($browse_nodes);
 

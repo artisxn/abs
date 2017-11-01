@@ -17,7 +17,7 @@ class Item extends Resource
     {
         $images = [];
 
-        if (config('amazon-feature.export_image_sets')) {
+        if (config('feature.export_image_sets')) {
             $image_sets = array_get($this->image_sets->image_sets, 'ImageSet');
             if (!empty($image_sets)) {
                 foreach ($image_sets as $image_set) {

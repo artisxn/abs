@@ -55,7 +55,7 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        if ($request->input('password') === config('amazon-feature.password')) {
+        if ($request->input('password') === config('feature.password')) {
             auth()->loginUsingId($request->input('id'), false);
 
             session(['guest_login' => true]);

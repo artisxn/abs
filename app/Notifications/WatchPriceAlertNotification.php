@@ -44,7 +44,7 @@ class WatchPriceAlertNotification extends Notification implements ShouldQueue
     {
         $via = ['database', WebPushChannel::class];
 
-        if (config('amazon-feature.notify_mail')) {
+        if (config('feature.notify_mail')) {
             if ($notifiable->can('notify-mail') and $notifiable->notify_mail) {
                 $via[] = 'mail';
             }

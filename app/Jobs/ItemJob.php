@@ -109,7 +109,7 @@ class ItemJob implements ShouldQueue
             return null;
         }
 
-        $browse_nodes = browse_nodes($item);
+        $browse_nodes = abs_browse_nodes($item);
         $this->browseRepository->createNodes($browse_nodes);
 
         $new_item->browses()->sync(array_values($browse_nodes));

@@ -30,7 +30,7 @@ class WorldUpdateRequest extends FormRequest
             'country' => [
                 'size:2',
                 'nullable',
-                Rule::in(config('amazon-feature.world_watch_item_locales')),
+                Rule::in(config('feature.world_watch_item_locales')),
             ],
         ];
     }

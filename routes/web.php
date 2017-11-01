@@ -92,7 +92,7 @@ Route::view('privacy', 'pages.privacy')->name('privacy');
 Route::view('usage', 'pages.usage')->name('usage');
 Route::view('closed', 'pages.closed')->name('closed');
 
-if (config('amazon-feature.plan')) {
+if (config('feature.plan')) {
     Route::view('plan', 'pages.plan')->name('plan');
 }
 

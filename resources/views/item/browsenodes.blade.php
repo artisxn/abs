@@ -1,5 +1,5 @@
 @php
-  $browse_nodes = browse_nodes($item);
+  $browse_nodes = abs_browse_nodes($item);
   $browse_nodes = array_reverse($browse_nodes);
 @endphp
 

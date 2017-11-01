@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Blade::if('feature', function ($feature) {
-            return config('amazon-feature.' . $feature);
+            return config('feature.' . $feature);
         });
     }
 

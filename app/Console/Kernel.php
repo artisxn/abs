@@ -33,60 +33,60 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('abs:random-browse')
                  ->hourlyAt(21)
-                 ->when(config('amazon-feature.random_browse'));
+                 ->when(config('feature.random_browse'));
 
         $schedule->command('abs:recent-item')
                  ->hourlyAt(33)
-                 ->when(config('amazon-feature.recent_item'));
+                 ->when(config('feature.recent_item'));
 
         $schedule->command('abs:watch-item')
                  ->dailyAt('00:15')
-                 ->when(config('amazon-feature.watch_item'));
+                 ->when(config('feature.watch_item'));
 
         $schedule->command('abs:count-info')
                  ->hourlyAt(52);
 
         $schedule->command(Commands\Mainte\UpdateOldItem::class)
                  ->hourlyAt(25)
-                 ->when(config('amazon-feature.update_old_item'));
+                 ->when(config('feature.update_old_item'));
 
         $schedule->command(Commands\Mainte\DeleteOldItem::class)
                  ->daily()
-                 ->when(config('amazon-feature.delete_old_item'));
+                 ->when(config('feature.delete_old_item'));
 
         $schedule->command(Commands\Mainte\DeleteOldPost::class)
                  ->dailyAt('06:06')
-                 ->when(config('amazon-feature.delete_old_post'));
+                 ->when(config('feature.delete_old_post'));
 
         $schedule->command('abs:delete-category')
                  ->hourlyAt(44)
-                 ->when(config('amazon-feature.delete_category'));
+                 ->when(config('feature.delete_category'));
 
         $schedule->command('abs:world-watch')
                  ->hourlyAt(2)
-                 ->when(config('amazon-feature.world_watch_item'));
+                 ->when(config('feature.world_watch_item'));
 
         //優先度の高いものは多く更新
         $schedule->command('abs:world-watch --priority=1')
                  ->hourlyAt(32)
-                 ->when(config('amazon-feature.world_watch_item'));
+                 ->when(config('feature.world_watch_item'));
 
         $schedule->command(Commands\PriceAlertCommand::class)
                  ->hourly()
-                 ->when(config('amazon-feature.price_alert'));
+                 ->when(config('feature.price_alert'));
 
         $schedule->command(Commands\WatchPriceAlertCommand::class)
                  ->hourly()
-                 ->when(config('amazon-feature.price_alert'));
+                 ->when(config('feature.price_alert'));
 
 
         $schedule->command('abs:watch-item')
                  ->hourlyAt(45)
-                 ->when(config('amazon-feature.price_alert_express'));
+                 ->when(config('feature.price_alert_express'));
 
         $schedule->command(Commands\WatchPriceAlertCommand::class)
                  ->everyThirtyMinutes()
-                 ->when(config('amazon-feature.price_alert_express'));
+                 ->when(config('feature.price_alert_express'));
     }
 
     /**

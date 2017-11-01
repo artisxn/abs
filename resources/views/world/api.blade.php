@@ -28,7 +28,7 @@
 
   <h2 class="uk-heading-line"><span>国コード</span></h2>
   <pre
-    class="uk-background-muted"><code>{{ implode(',',config('amazon-feature.world_watch_item_locales')) }}</code></pre>
+    class="uk-background-muted"><code>{{ implode(',',config('feature.world_watch_item_locales')) }}</code></pre>
 
   <h2 class="uk-heading-line"><span>ウォッチリストに追加（ASIN）</span></h2>
 

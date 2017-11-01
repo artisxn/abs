@@ -65,7 +65,7 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
         string $sort = 'desc',
         int $limit = 1000
     ) {
-        $image_sets = config('amazon-feature.export_image_sets');
+        $image_sets = config('feature.export_image_sets');
 
         return $this->browse->findOrFail($category)
                             ->items()

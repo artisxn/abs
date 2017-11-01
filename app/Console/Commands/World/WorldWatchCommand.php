@@ -41,7 +41,7 @@ class WorldWatchCommand extends Command
     public function handle()
     {
         //指定のユーザーIDのみ
-        $user = User::findOrFail(config('amazon-feature.world_watch_item_user_id'));
+        $user = User::findOrFail(config('feature.world_watch_item_user_id'));
 
         $priority = $this->option('priority');
         info('Priority: ' . $priority);
@@ -58,7 +58,7 @@ class WorldWatchCommand extends Command
 
         info('World Watch: ' . $asins->count());
 
-        $locales = config('amazon-feature.world_watch_item_locales');
+        $locales = config('feature.world_watch_item_locales');
 
         $delay = 1;
 

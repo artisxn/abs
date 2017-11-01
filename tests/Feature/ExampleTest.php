@@ -36,7 +36,7 @@ class ExampleTest extends TestCase
 
     public function testClosed()
     {
-        config(['amazon-feature.closed' => true]);
+        config(['feature.closed' => true]);
 
         $response = $this->get('/');
 

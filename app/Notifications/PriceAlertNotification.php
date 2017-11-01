@@ -41,7 +41,7 @@ class PriceAlertNotification extends Notification implements ShouldQueue
 
         $via = [];
 
-        if (config('amazon-feature.mastodon')) {
+        if (config('feature.mastodon')) {
             $via[] = MastodonChannel::class;
         }
 

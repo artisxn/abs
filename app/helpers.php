@@ -1,6 +1,6 @@
 <?php
 
-if (!function_exists('browse_nodes')) {
+if (!function_exists('abs_browse_nodes')) {
 
     /**
      * ASINのデータからブラウズノードのリスト
@@ -9,7 +9,7 @@ if (!function_exists('browse_nodes')) {
      *
      * @return array
      */
-    function browse_nodes($item): array
+    function abs_browse_nodes($item): array
     {
         if (empty($item) or !is_array($item)) {
             return [];
