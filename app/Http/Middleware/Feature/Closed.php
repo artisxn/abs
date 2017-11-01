@@ -23,8 +23,13 @@ class Closed
     public function handle($request, Closure $next)
     {
         if (config('amazon-feature.closed') and auth()->check() === false) {
-            if (!$request->is('login') and !$request->is('callback') and !$request->is('auth/login')) {
-                abort(404);
+            if (!$request->is('login') and
+                !$request->is('callback') and
+                !$request->is('auth/login') and
+                !$request->is('closed')
+            ) {
+                //                abort(404);
+                return redirect('closed');
             }
         }
 
