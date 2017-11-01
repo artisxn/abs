@@ -40,7 +40,7 @@ class ExportController extends Controller
             $order,
             $sort,
             $limit
-        )->onQueue('export');
+        );
 
         return view('export.queue');
     }

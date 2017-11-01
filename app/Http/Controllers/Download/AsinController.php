@@ -16,7 +16,7 @@ class AsinController extends Controller
      */
     public function __invoke(Request $request)
     {
-        ExportAsinJob::dispatch($request->user())->onQueue('export');
+        ExportAsinJob::dispatch($request->user());
 
         return view('export.queue');
     }

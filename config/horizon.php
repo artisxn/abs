@@ -58,20 +58,20 @@ return [
         'production' => [
             'supervisor-1' => [
                 'connection' => 'redis',
-                'queue' => ['abs', 'export'],
-                'balance' => 'auto',
-                'processes' => 10,
-                'tries' => 3,
+                'queue'      => [env('QUEUE_NAME')],
+                'balance'    => 'auto',
+                'processes'  => 10,
+                'tries'      => 3,
             ],
         ],
 
         'local' => [
             'supervisor-1' => [
                 'connection' => 'redis',
-                'queue' => ['abs', 'export'],
-                'balance' => 'auto',
-                'processes' => 3,
-                'tries' => 3,
+                'queue'      => [env('QUEUE_NAME')],
+                'balance'    => 'auto',
+                'processes'  => 3,
+                'tries'      => 3,
             ],
         ],
     ],

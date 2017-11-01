@@ -23,7 +23,7 @@ class CategoryController extends Controller
             'updated_at',
             'desc',
             $request->user()->csvLimit()
-        )->onQueue('export');
+        );
 
         return view('export.queue');
     }
