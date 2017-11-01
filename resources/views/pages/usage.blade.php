@@ -101,6 +101,10 @@
       <td>{{ config('amazon-feature.notify_mail') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
+      <th>高速版価格変動チェック</th>
+      <td>{{ config('amazon-feature.price_alert_express') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
       <th>ランダムブラウズ</th>
       <td>{{ config('amazon-feature.random_browse') ? 'ON' : 'OFF' }}</td>
     </tr>
