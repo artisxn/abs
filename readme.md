@@ -91,3 +91,12 @@ mailgun を使うので使えるユーザー数は制限する。送信数が多
 
 ## インストールメモ
 - `php artisan voyager:install` が途中で失敗するので残りのseedは手動で実行する。
+
+```bash
+php artisan db:seed --class=RolesTableSeeder
+php artisan db:seed --class=PermissionsTableSeeder
+php artisan db:seed --class=PermissionRoleTableSeede
+sudo -u forge php artisan storage:link
+```
+
+menu_itemsは他からSQLでエクスポートして持ってくる。
