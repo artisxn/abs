@@ -21,4 +21,24 @@
     <li>ウォッチリストの価格変動チェック（各ユーザーに通知。ウェブプッシュ通知。メール通知。）</li>
     <li>当たり前のようにhttps化も。</li>
   </ul>
+
+  <h4>カスタマイズ版の例</h4>
+  <ul class="uk-list uk-list-bullet">
+    <li><a href="https://abs-alert.kawax.biz/">https://abs-alert.kawax.biz/</a></li>
+    <li>通知を優先した設定。</li>
+    <li>ウォッチリストのアイテムの更新と変動チェックの間隔を短く。</li>
+    <li>非公開設定なのでログインしないと見られない。</li>
+    <li>特典キーは同じものが使える。fantiaで無料チケットを用意したので試用にどうぞ。</li>
+  </ul>
+
+  <h4>fantia無料チケット</h4>
+  <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+    <ul class="uk-list">
+      <li><a href="https://fantia.jp/kawax" target="_blank">https://fantia.jp/kawax</a></li>
+      <li>■利用できるプラン：ABSビジネスプラン(月額10000円)</li>
+      <li>■チケットコード：<strong>0D0343C3</strong></li>
+      <li>■無料期間：1ヶ月(入会月も含む)</li>
+      <li>■コード入力期限: 2017/12/31 23:59まで</li>
+    </ul>
+  </div>
 </div>
