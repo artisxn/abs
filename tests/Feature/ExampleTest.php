@@ -1,4 +1,5 @@
 <?php
+
 namespace Tests\Feature;
 
 use Tests\TestCase;
@@ -39,6 +40,6 @@ class ExampleTest extends TestCase
 
         $response = $this->get('/');
 
-        $response->assertStatus(404);
+        $response->assertRedirect('closed');
     }
 }
