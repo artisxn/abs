@@ -134,4 +134,13 @@ return [
      */
     'mastodon'                    => env('FEATURE_MASTODON', false),
     'mastodon_url'                => env('FEATURE_MASTODON_URL'),
+
+    /**
+     * DBに詳細データを保存するかどうか。データ量が大きくなるので不要ならオフ。
+     */
+    'save_item_attributes'        => env('FEATURE_SAVE_ITEM_ATTRIBUTES', true),
+    'save_offer_summary'          => env('FEATURE_SAVE_OFFER_SUMMARY', true),
+    'save_offers'                 => env('FEATURE_SAVE_OFFERS', true),
+    'save_image_sets'             => env('FEATURE_SAVE_IMAGESETS', true),
+
 ];

@@ -171,43 +171,51 @@ class EloquentItemRepository implements ItemRepositoryInterface
         $new_item->availability()->associate($ava)->save();
 
         //ItemAttribute
-        $attributes = array_get($item, 'ItemAttributes');
-        if (!empty($attributes)) {
-            $attr = ItemAttribute::updateOrCreate([
-                'item_asin' => $asin,
-            ], [
-                'attributes' => $attributes,
-            ]);
+        if (config('feature.save_item_attributes')) {
+            $attributes = array_get($item, 'ItemAttributes');
+            if (!empty($attributes)) {
+                $attr = ItemAttribute::updateOrCreate([
+                    'item_asin' => $asin,
+                ], [
+                    'attributes' => $attributes,
+                ]);
+            }
         }
 
         //OfferSummary
-        $offer_summary = array_get($item, 'OfferSummary');
-        if (!empty($offer_summary)) {
-            $summary = OfferSummary::updateOrCreate([
-                'item_asin' => $asin,
-            ], [
-                'offer_summary' => $offer_summary,
-            ]);
+        if (config('feature.save_offer_summary')) {
+            $offer_summary = array_get($item, 'OfferSummary');
+            if (!empty($offer_summary)) {
+                $summary = OfferSummary::updateOrCreate([
+                    'item_asin' => $asin,
+                ], [
+                    'offer_summary' => $offer_summary,
+                ]);
+            }
         }
 
         //Offers
-        $offers = array_get($item, 'Offers');
-        if (!empty($offers)) {
-            $offer = Offer::updateOrCreate([
-                'item_asin' => $asin,
-            ], [
-                'offers' => $offers,
-            ]);
+        if (config('feature.save_offers')) {
+            $offers = array_get($item, 'Offers');
+            if (!empty($offers)) {
+                $offer = Offer::updateOrCreate([
+                    'item_asin' => $asin,
+                ], [
+                    'offers' => $offers,
+                ]);
+            }
         }
 
         //ImageSet
-        $image_sets = array_get($item, 'ImageSets');
-        if (!empty($image_sets)) {
-            $image = ImageSet::updateOrCreate([
-                'item_asin' => $asin,
-            ], [
-                'image_sets' => $image_sets,
-            ]);
+        if (config('feature.save_image_sets')) {
+            $image_sets = array_get($item, 'ImageSets');
+            if (!empty($image_sets)) {
+                $image = ImageSet::updateOrCreate([
+                    'item_asin' => $asin,
+                ], [
+                    'image_sets' => $image_sets,
+                ]);
+            }
         }
 
         return $new_item;
