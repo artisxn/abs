@@ -27,10 +27,14 @@ class AsinController extends Controller
             'asin_id' => $request->input('asin'),
             'user_id' => $request->user()->id,
         ], [
-            'asin_id'  => $request->input('asin'),
-            'user_id'  => $request->user()->id,
-            'priority' => $request->input('priority', 0),
+            'asin_id' => $request->input('asin'),
+            'user_id' => $request->user()->id,
         ]);
+
+        if ($request->filled('priority')) {
+            $watch->priority = $request->input('priority', 0);
+            $watch->save();
+        }
 
         return response()->json($watch);
     }

@@ -14,7 +14,7 @@ class MenuItemsTableSeeder extends Seeder
     public function run()
     {
         if (file_exists(base_path('routes/web.php'))) {
-            require base_path('routes/web.php');
+            //            require base_path('routes/web.php');
 
             $menu = Menu::where('name', 'admin')->firstOrFail();
 
