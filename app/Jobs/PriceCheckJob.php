@@ -44,6 +44,10 @@ class PriceCheckJob implements ShouldQueue
      */
     public function handle()
     {
+        if (empty($this->item)) {
+            return;
+        }
+
         if ($this->item->histories->count() < 2) {
             return;
         }
