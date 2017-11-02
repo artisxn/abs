@@ -19,6 +19,7 @@ class PriceAlertViewComposer
     {
         $price_alert_posts = cache()->remember('price_alert_posts', 60, function () {
             return Post::latest()
+                       ->whereAuthorId(1)
                        ->whereIn('category_id', [2, 3])
                        ->limit(10)
                        ->get();

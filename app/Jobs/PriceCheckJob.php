@@ -88,7 +88,6 @@ class PriceCheckJob implements ShouldQueue
             $post = Post::updateOrCreate([
                 'slug' => $slug,
             ], [
-                'author_id'   => 1,
                 'category_id' => $category_id,
                 'title'       => $this->item->title,
                 'body'        => $price_yesterday . '円 => ' . $price_today . '円',
@@ -101,12 +100,16 @@ class PriceCheckJob implements ShouldQueue
             if ($post->wasRecentlyCreated) {
                 if ($this->item->users()->count() > 0) {
                     //ウォッチリスト版通知
+                    $post->fill(['author_id' => 0])->save();
+
                     Notification::send(
                         $this->item->users()->get(),
                         new WatchPriceAlertNotification($post)
                     );
                 } else {
                     //ホーム版通知
+                    $post->fill(['author_id' => 1])->save();
+
                     $post->notify(new PriceAlertNotification());
                 }
             }
