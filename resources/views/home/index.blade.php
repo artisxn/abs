@@ -8,7 +8,9 @@
   @include('home.about')
   @endfeature
 
+  @feature('price_alert')
   @include('home.price_alert')
+  @endfeature
 
   @include('home.pickup')
 
