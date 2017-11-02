@@ -93,6 +93,10 @@
   <table class="uk-table uk-table-striped uk-table-hover uk-table-divider">
     <tbody>
     <tr>
+      <th>CSVダウンロード</th>
+      <td>{{ config('feature.csv_download') ? 'ON' : 'OFF' }}</td>
+    </tr>
+    <tr>
       <th>価格変動チェック</th>
       <td>{{ config('feature.price_alert') ? 'ON' : 'OFF' }}</td>
     </tr>

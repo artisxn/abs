@@ -54,6 +54,7 @@
             </a>
           </li>
           @endfeature
+          @feature('csv_download')
           @can('export')
             <li>
               <a href="{{ route('export.index') }}">
@@ -62,6 +63,8 @@
               </a>
             </li>
           @endcan
+          @endfeature
+
           <li>
             <a href="{{ route('notifications') }}">
               <span uk-icon="icon: bell"></span>

@@ -10,6 +10,11 @@ return [
     'about'                    => env('FEATURE_ABOUT', true),
 
     /**
+     * CSV
+     */
+    'csv_download'             => env('FEATURE_CSV_DOWNLOAD', true),
+
+    /**
      * プライバシーポリシーページ
      */
     'privacy'                  => env('FEATURE_PRIVACY', true),
@@ -137,6 +142,7 @@ return [
 
     /**
      * DBに詳細データを保存するかどうか。データ量が大きくなるので不要ならオフ。
+     * image_setsが一番大きい。
      */
     'save_item_attributes'        => env('FEATURE_SAVE_ITEM_ATTRIBUTES', true),
     'save_offer_summary'          => env('FEATURE_SAVE_OFFER_SUMMARY', true),

@@ -5,7 +5,9 @@
 
   {{ $asin_watches->links() }}
 
+  @feature('csv_download')
   <a href="{{ route('download.asin') }}" class="uk-button uk-button-default">CSVでダウンロード</a>
+  @endfeature
 
   <ul class="uk-list uk-list-striped">
     @foreach($asin_watches as $watch)
