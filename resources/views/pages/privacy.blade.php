@@ -52,6 +52,6 @@
 
   <p>当サイトのプライバシーポリシーに関するお問い合わせは下記の窓口までお願い致します。</p>
 
-  <p>kawaxbiz@gmail.com</p>
+  <p><a href="https://www.chatwork.com/kawax" target="_blank">チャットワーク</a></p>
 
 @endsection
