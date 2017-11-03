@@ -42,4 +42,12 @@
       <li>■コード入力期限: 2017/12/31 23:59まで</li>
     </ul>
   </div>
+
+  <h4>システム</h4>
+  <ul class="uk-list uk-list-bullet">
+    <li>AWS/EC2/RDS</li>
+    <li>PHP7.1/MySQL5.7/Redis/memcached</li>
+    <li>Laravel 5.5/Socialite/Horizon</li>
+    <li>Vue.js/UIkit</li>
+  </ul>
 </div>
