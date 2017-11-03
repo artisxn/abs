@@ -38,4 +38,23 @@ class AsinController extends Controller
 
         return response()->json($watch);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  Request $request
+     * @param  string  $asin
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Request $request, $asin)
+    {
+        $watch = $request->user()->watches()->whereAsinId($asin)->first();
+
+        abort_if(empty($watch), 404);
+
+        $watch->delete();
+
+        return response()->json();
+    }
 }

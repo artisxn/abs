@@ -56,6 +56,12 @@
     <dd>必須。13文字のJAN/EANを指定。</dd>
   </dl>
 
+  <h2 class="uk-heading-line"><span>ウォッチリストから削除（ASIN）</span></h2>
+
+  <pre class="uk-background-muted"><code>DELETE /api/watch/asin/{asin}</code></pre>
+
+  <pre class="uk-background-muted"><code>DELETE /api/watch/asin/0000000000</code></pre>
+
 
   <h2 class="uk-heading-line"><span>商品リストを取得</span></h2>
 

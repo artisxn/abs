@@ -33,5 +33,7 @@ Route::namespace('Api\World')->middleware(['auth:api', 'world'])->group(function
 
 Route::namespace('Api\Watch')->middleware(['auth:api'])->group(function () {
     Route::post('watch/asin', 'AsinController@store');
+    Route::delete('watch/asin/{asin}', 'AsinController@destroy');
+
     Route::post('watch/ean', 'EanController@store');
 });

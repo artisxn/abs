@@ -6,6 +6,7 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use App\Model\User;
+use App\Model\Watch;
 
 use Illuminate\Support\Facades\Bus;
 
@@ -108,5 +109,30 @@ class ApiWatchTest extends TestCase
                          'errors'  => true,
                      ]
                  );
+    }
+
+    public function testWatchDelete()
+    {
+        $asin = 'testasin10';
+
+        $watch = factory(Watch::class)->create([
+            'user_id' => $this->user->id,
+            'asin_id' => $asin,
+        ]);
+
+        $response = $this->actingAs($this->user, 'api')
+                         ->json('DELETE', '/api/watch/asin/' . $asin);
+
+        $response->assertSuccessful();
+    }
+
+    public function testWatchDeleteNotFound()
+    {
+        $asin = 'testasin10';
+
+        $response = $this->actingAs($this->user, 'api')
+                         ->json('DELETE', '/api/watch/asin/' . $asin);
+
+        $response->assertStatus(404);
     }
 }
