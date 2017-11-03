@@ -25,16 +25,19 @@ Route::name('search')->get('search', 'SearchController@search');
 
 Route::name('index')->get('/', 'AmazonController@index');
 
+//ログイン
 Route::name('login')->get('login', 'LoginController@login');
 Route::get('callback', 'LoginController@callback');
 Route::name('logout')->get('logout', 'LoginController@logout');
 
+//ユーザーページ
 Route::middleware('auth')->namespace('My')->group(function () {
     Route::name('notifications')->get('notifications', 'NotificationController');
     Route::resource('settings', 'SettingController')
          ->only(['index', 'store']);
 });
 
+//ウォッチリスト
 Route::middleware('auth')->prefix('watch')->namespace('Watch')->group(function () {
     Route::resource('asin', 'AsinWatchController')
          ->only(['index', 'store', 'destroy'])
@@ -63,6 +66,7 @@ Route::middleware('auth')->prefix('watch')->namespace('Watch')->group(function (
     Route::name('watch.import')->post('import', 'ImportController');
 });
 
+//CSVダウンロード
 Route::middleware('auth')->namespace('Download')->group(function () {
     Route::name('download.asin')->get('download/asin', 'AsinController');
     Route::name('download.category')->get('download/category/{category}', 'CategoryController');
@@ -73,6 +77,7 @@ Route::middleware('auth')->namespace('Download')->group(function () {
     Route::name('export.export')->post('export', 'ExportController@export');
 });
 
+//ワールド
 Route::namespace('World')->middleware(['auth', 'world'])->group(function () {
     Route::name('world.new')->get('world/new', 'WorldNewController');
     Route::name('world.api')->get('world/api', 'WorldApiController');
@@ -80,11 +85,6 @@ Route::namespace('World')->middleware(['auth', 'world'])->group(function () {
     Route::resource('world', 'WorldController')
          ->only(['index', 'show']);
 });
-
-
-if (config('feature.plan')) {
-    Route::view('plan', 'pages.plan')->name('plan');
-}
 
 //Password Login
 Route::prefix('auth')->namespace('Auth')->group(function () {
@@ -101,14 +101,15 @@ Route::namespace('Push')->prefix('push')->group(function () {
     Route::post('subscriptions/delete', 'PushSubscriptionController@destroy');
 });
 
-
+//Voyager
 Route::middleware('can:admin-voyager')->prefix('admin')->group(function () {
     Voyager::routes();
 });
 
-
+if (config('feature.plan')) {
+    Route::view('plan', 'pages.plan')->name('plan');
+}
 Route::view('privacy', 'pages.privacy')->name('privacy');
 Route::view('usage', 'pages.usage')->name('usage');
 Route::view('closed', 'pages.closed')->name('closed');
 Route::view('docs/api', 'docs.api')->name('docs.api');
-
