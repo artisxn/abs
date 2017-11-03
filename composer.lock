@@ -2173,16 +2173,16 @@
         },
         {
             "name": "laravel/horizon",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "7408caf238b6f167627c72453b6b7550bac89a1c"
+                "reference": "0995e6a3c71838877afbfa7bd7e0f6d8c4c3bfa2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/7408caf238b6f167627c72453b6b7550bac89a1c",
-                "reference": "7408caf238b6f167627c72453b6b7550bac89a1c",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/0995e6a3c71838877afbfa7bd7e0f6d8c4c3bfa2",
+                "reference": "0995e6a3c71838877afbfa7bd7e0f6d8c4c3bfa2",
                 "shasum": ""
             },
             "require": {
@@ -2198,7 +2198,7 @@
                 "symfony/debug": "~3.3"
             },
             "require-dev": {
-                "mockery/mockery": "~0.9",
+                "mockery/mockery": "~1.0",
                 "orchestra/database": "~3.5",
                 "orchestra/testbench": "~3.5",
                 "phpunit/phpunit": "~6.0"
@@ -2237,7 +2237,7 @@
                 "laravel",
                 "queue"
             ],
-            "time": "2017-09-28T21:45:53+00:00"
+            "time": "2017-11-02T19:10:36+00:00"
         },
         {
             "name": "laravel/socialite",
@@ -2578,16 +2578,16 @@
         },
         {
             "name": "maximebf/debugbar",
-            "version": "v1.14.0",
+            "version": "v1.14.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maximebf/php-debugbar.git",
-                "reference": "e23a98f2d65607d8aa6c7b409a513f8fdf4acdde"
+                "reference": "64251a392344e3d22f3d21c3b7c531ba96eb01d2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/e23a98f2d65607d8aa6c7b409a513f8fdf4acdde",
-                "reference": "e23a98f2d65607d8aa6c7b409a513f8fdf4acdde",
+                "url": "https://api.github.com/repos/maximebf/php-debugbar/zipball/64251a392344e3d22f3d21c3b7c531ba96eb01d2",
+                "reference": "64251a392344e3d22f3d21c3b7c531ba96eb01d2",
                 "shasum": ""
             },
             "require": {
@@ -2635,7 +2635,7 @@
                 "debug",
                 "debugbar"
             ],
-            "time": "2017-08-17T07:17:00+00:00"
+            "time": "2017-09-13T12:19:36+00:00"
         },
         {
             "name": "mdanter/ecc",
@@ -2884,7 +2884,7 @@
         },
         {
             "name": "mtdowling/cron-expression",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mtdowling/cron-expression.git",
@@ -6414,30 +6414,30 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "2.0.2",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "ae068fede81d06e7bb9bb46a367210a3d3e1fe6a"
+                "reference": "1174d9018191e93cb9d719edec01257fc05f8158"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/ae068fede81d06e7bb9bb46a367210a3d3e1fe6a",
-                "reference": "ae068fede81d06e7bb9bb46a367210a3d3e1fe6a",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/1174d9018191e93cb9d719edec01257fc05f8158",
+                "reference": "1174d9018191e93cb9d719edec01257fc05f8158",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.0",
                 "sebastian/diff": "^2.0",
-                "sebastian/exporter": "^3.0"
+                "sebastian/exporter": "^3.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.0"
+                "phpunit/phpunit": "^6.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
@@ -6468,13 +6468,13 @@
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
-            "homepage": "http://www.github.com/sebastianbergmann/comparator",
+            "homepage": "https://github.com/sebastianbergmann/comparator",
             "keywords": [
                 "comparator",
                 "compare",
                 "equality"
             ],
-            "time": "2017-08-03T07:14:59+00:00"
+            "time": "2017-11-03T07:16:52+00:00"
         },
         {
             "name": "sebastian/diff",
