@@ -82,10 +82,6 @@ Route::namespace('World')->middleware(['auth', 'world'])->group(function () {
 });
 
 
-Route::view('privacy', 'pages.privacy')->name('privacy');
-Route::view('usage', 'pages.usage')->name('usage');
-Route::view('closed', 'pages.closed')->name('closed');
-
 if (config('feature.plan')) {
     Route::view('plan', 'pages.plan')->name('plan');
 }
@@ -109,3 +105,10 @@ Route::namespace('Push')->prefix('push')->group(function () {
 Route::middleware('can:admin-voyager')->prefix('admin')->group(function () {
     Voyager::routes();
 });
+
+
+Route::view('privacy', 'pages.privacy')->name('privacy');
+Route::view('usage', 'pages.usage')->name('usage');
+Route::view('closed', 'pages.closed')->name('closed');
+Route::view('docs/api', 'docs.api')->name('docs.api');
+
