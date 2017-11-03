@@ -36,4 +36,7 @@ Route::namespace('Api\Watch')->middleware(['auth:api'])->group(function () {
     Route::delete('watch/asin/{asin}', 'AsinController@destroy');
 
     Route::post('watch/ean', 'EanController@store');
+
+    Route::post('watch/browse', 'BrowseController@store');
+    Route::delete('watch/browse/{browse}', 'BrowseController@destroy');
 });

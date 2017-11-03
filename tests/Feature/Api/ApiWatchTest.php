@@ -1,12 +1,13 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Api;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use App\Model\User;
 use App\Model\Watch;
+use App\Model\BrowseWatch;
 
 use Illuminate\Support\Facades\Bus;
 
@@ -111,7 +112,7 @@ class ApiWatchTest extends TestCase
                  );
     }
 
-    public function testWatchDelete()
+    public function testWatchAsinDelete()
     {
         $asin = 'testasin10';
 
@@ -132,6 +133,42 @@ class ApiWatchTest extends TestCase
 
         $response = $this->actingAs($this->user, 'api')
                          ->json('DELETE', '/api/watch/asin/' . $asin);
+
+        $response->assertStatus(404);
+    }
+
+    public function testWatchStoreBrowse()
+    {
+        $response = $this->actingAs($this->user, 'api')
+                         ->json('POST', '/api/watch/browse', [
+                             'browse' => 1,
+                         ]);
+
+        $response->assertSuccessful()
+                 ->assertJson(
+                     [
+                         'browse_id' => 1,
+                     ]
+                 );
+    }
+
+    public function testWatchBrowseDelete()
+    {
+        $watch = factory(BrowseWatch::class)->create([
+            'user_id'   => $this->user->id,
+            'browse_id' => 1,
+        ]);
+
+        $response = $this->actingAs($this->user, 'api')
+                         ->json('DELETE', '/api/watch/browse/1');
+
+        $response->assertSuccessful();
+    }
+
+    public function testWatchBrowseDeleteNotFound()
+    {
+        $response = $this->actingAs($this->user, 'api')
+                         ->json('DELETE', '/api/watch/browse/1');
 
         $response->assertStatus(404);
     }

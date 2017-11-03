@@ -20,7 +20,9 @@ class Watch extends Model
     /**
      * @var array
      */
-    protected $hidden = ['user_id'];
+    protected $hidden = [
+        'user_id',
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

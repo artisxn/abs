@@ -15,6 +15,13 @@ class BrowseWatch extends Model
     ];
 
     /**
+     * @var array
+     */
+    protected $hidden = [
+        'user_id',
+    ];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()

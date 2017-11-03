@@ -8,7 +8,9 @@
 
   <h2 class="uk-heading-line"><span>認証</span></h2>
 
-  <p>APIトークンを<a href="{{ route('settings.index') }}" rel="nofollow">設定ページ</a>で確認。ユーザー登録した時点でランダムなAPIトークンが生成されている。変更可能（60文字以下）。</p>
+  <p>
+    APIトークンを<a href="{{ route('settings.index') }}" rel="nofollow">設定ページ</a>で確認。ユーザー登録した時点でランダムなAPIトークンが生成されている。変更可能（60文字以下）。
+  </p>
 
   <p>以降はこのAPIトークンを常に使う。</p>
 
@@ -57,6 +59,22 @@
   <pre class="uk-background-muted"><code>DELETE /api/watch/asin/{asin}</code></pre>
 
   <pre class="uk-background-muted"><code>DELETE /api/watch/asin/0000000000</code></pre>
+
+  <h2 class="uk-heading-line"><span>ウォッチリストに追加（カテゴリー）</span></h2>
+
+  <pre class="uk-background-muted"><code>POST /api/watch/browse</code></pre>
+
+  <h3>オプション</h3>
+  <dl>
+    <dt>browse</dt>
+    <dd>必須。ブラウズノードIDを指定。</dd>
+  </dl>
+
+  <h2 class="uk-heading-line"><span>ウォッチリストから削除（カテゴリー）</span></h2>
+
+  <pre class="uk-background-muted"><code>DELETE /api/watch/browse/{browse}</code></pre>
+
+  <pre class="uk-background-muted"><code>DELETE /api/watch/browse/1234</code></pre>
 
 
   <h2 class="uk-heading-line"><span>【ワールド】国コード</span></h2>
