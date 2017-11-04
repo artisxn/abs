@@ -6,7 +6,7 @@
 
   @include('world.subnav')
 
-  <h1 class="uk-heading-divider">ワールド</h1>
+  <h1 class="uk-heading-divider">ワールド（{{ $world_items->total() }}）</h1>
 
   @include('world.search')
 
