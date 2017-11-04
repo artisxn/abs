@@ -36,7 +36,7 @@
 
   <pre class="uk-background-muted"><code>POST /api/watch/asin</code></pre>
 
-  <h3>オプション</h3>
+  <h3>パラメータ</h3>
   <dl>
     <dt>asin</dt>
     <dd>必須。10文字のASINを指定。</dd>
@@ -50,7 +50,7 @@
 
   <pre class="uk-background-muted"><code>POST /api/watch/ean</code></pre>
 
-  <h3>オプション</h3>
+  <h3>パラメータ</h3>
   <dl>
     <dt>ean</dt>
     <dd>必須。13文字のJAN/EANを指定。</dd>
@@ -70,7 +70,7 @@
   <h3>レスポンス</h3>
   更新時間順の商品リスト。
 
-  <h3>オプション</h3>
+  <h3>パラメータ</h3>
   <dl>
     <dt>country</dt>
     <dd><code>JP</code>、<code>JP,US</code>など国コードを指定。<code>,</code>区切りで複数指定。デフォルトはすべての国。</dd>
@@ -92,7 +92,7 @@
   <h3>JAN/EAN（13桁）で指定</h3>
   <pre class="uk-background-muted"><code>GET /api/world/ean/{ean}</code></pre>
 
-  <h3>オプション</h3>
+  <h3>パラメータ</h3>
   <dl>
     <dt>country</dt>
     <dd><code>JP</code>、<code>JP,US</code>など国コードを指定。<code>,</code>区切りで複数指定。デフォルトはすべての国。</dd>
@@ -109,7 +109,7 @@
   <h3>レスポンス</h3>
   更新後の各ASINの商品データ。
 
-  <h3>オプション</h3>
+  <h3>パラメータ</h3>
   <dl>
     <dt>asin</dt>
     <dd>必須。10桁のASINを指定。<code>,</code>区切りで複数指定。Amazon APIの仕様により最大10個まで。</dd>
@@ -126,7 +126,7 @@
   <h3>レスポンス</h3>
   作成時間順の商品リスト。
 
-  <h3>オプション</h3>
+  <h3>パラメータ</h3>
   <dl>
     <dt>since</dt>
     <dd><code>2017-10-22</code>など日付を指定。作成日が指定日以降の商品のみ。</dd>
