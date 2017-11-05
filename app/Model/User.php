@@ -7,6 +7,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use NotificationChannels\WebPush\HasPushSubscriptions;
 
+/**
+ * @mixin \Eloquent
+ */
 class User extends \TCG\Voyager\Models\User
 {
     use Notifiable;

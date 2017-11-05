@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 
 use App\Model\User;
 use App\Jobs\World\WorldWatchJob;
+use Illuminate\Support\Collection;
 
 class WorldWatchCommand extends Command
 {
@@ -41,6 +42,9 @@ class WorldWatchCommand extends Command
     public function handle()
     {
         //指定のユーザーIDのみ
+        /**
+         * @var User $user
+         */
         $user = User::findOrFail(config('feature.world_watch_item_user_id'));
 
         $priority = $this->option('priority');
@@ -62,6 +66,9 @@ class WorldWatchCommand extends Command
 
         $delay = 1;
 
+        /**
+         * @var Collection $items
+         */
         foreach ($asins->chunk(10) as $items) {
             foreach ($locales as $locale) {
                 info($locale);
