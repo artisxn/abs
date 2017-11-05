@@ -66,7 +66,7 @@ class WorldWatchCommand extends Command
             foreach ($locales as $locale) {
                 info($locale);
 
-                WorldWatchJob::dispatch($items->toArray(), $locale)->delay(now()->addSeconds($delay * 30));
+                WorldWatchJob::dispatch($items->toArray(), $locale)->delay(now()->addSeconds($delay * 10));
 
                 $delay++;
             }
