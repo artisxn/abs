@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs\Watch;
+namespace App\Jobs\Import;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -61,6 +61,9 @@ class SaveJob implements ShouldQueue
             return;
         }
 
+        /**
+         * @var User $user
+         */
         $user = User::findOrFail($this->user_id);
 
         $repository->create($this->item);

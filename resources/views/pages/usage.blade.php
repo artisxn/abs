@@ -133,8 +133,8 @@
       <td>{{ config('feature.delete_category') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
-      <th>JAN/EANリストのCSVファイルをウォッチリストへインポート</th>
-      <td>{{ config('feature.jan_import') ? 'ON' : 'OFF' }}</td>
+      <th>ASIN/JAN(EAN)リストのCSVファイルをウォッチリストへインポート</th>
+      <td>{{ config('feature.csv_import') ? 'ON' : 'OFF' }}</td>
     </tr>
     <tr>
       <th>ワールド</th>

@@ -42,6 +42,16 @@
           </a>
         </li>
         @endfeature
+        @feature('csv_import')
+        @can('csv-import')
+          <li>
+            <a href="{{ route('import.index') }}">
+              <span uk-icon="icon: upload"></span>
+              インポート
+            </a>
+          </li>
+        @endcan
+        @endfeature
         @can('export')
           <li>
             <a href="{{ route('export.index') }}">

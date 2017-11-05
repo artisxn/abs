@@ -12,7 +12,7 @@
   @endforeach
 
 
-  <div class="uk-section uk-section-secondary uk-dark uk-width-3-4 uk-align-center uk-padding">
+  <div class="uk-section uk-section-secondary uk-dark uk-width-3-4@m uk-align-center uk-padding">
 
     <form action="{{ route('export.export') }}" method="post" class="uk-form-horizontal">
       {{ csrf_field() }}

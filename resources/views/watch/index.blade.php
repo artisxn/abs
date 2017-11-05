@@ -20,10 +20,6 @@
   <div class="uk-grid-divider" uk-grid>
     <div class="uk-width-1-2@m">
       @include('watch.asin')
-
-      @can('jan-import')
-        @include('watch.import_form')
-      @endcan
     </div>
 
     <div class="uk-width-1-2@m">

@@ -31,7 +31,7 @@ class AuthServiceProvider extends ServiceProvider
             return $user->isAdmin() or $user->plan() === 'business';
         });
 
-        Gate::define('jan-import', function (User $user) {
+        Gate::define('csv-import', function (User $user) {
             return $user->isAdmin() or $user->plan() === 'business';
         });
 

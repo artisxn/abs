@@ -26,7 +26,7 @@ class ItemJob implements ShouldQueue
     /**
      * @var string
      */
-    protected $asin;
+    public $asin;
 
     /**
      * @var Item

@@ -52,7 +52,7 @@
     </tr>
 
     <tr>
-      <th><strong>JAN/EANリストインポート</strong></th>
+      <th><strong>ASIN/JAN(EAN)リストのCSVインポート</strong></th>
       <td><span uk-icon="icon: close"></span></td>
       <td><span uk-icon="icon: close"></span></td>
       <td><span uk-icon="icon: check"></span></td>

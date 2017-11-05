@@ -11,7 +11,7 @@ use App\Model\BrowseWatch;
 
 use Illuminate\Support\Facades\Bus;
 
-use App\Jobs\Watch\JanToAsinJob;
+use App\Jobs\Import\JanToAsinJob;
 
 class ApiWatchTest extends TestCase
 {

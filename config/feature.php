@@ -93,9 +93,9 @@ return [
     'watch_item'                  => env('FEATURE_WATCH_ITEM', true),
 
     /**
-     * JANリストのCSVをアップロードしてウォッチリストに追加
+     * ASIN/JANリストのCSVをアップロードしてウォッチリストに追加
      */
-    'jan_import'                  => env('FEATURE_JAN_IMPORT', false),
+    'csv_import'                  => env('FEATURE_CSV_IMPORT', true),
 
     /**
      * プランページ

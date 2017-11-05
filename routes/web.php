@@ -62,9 +62,15 @@ Route::middleware('auth')->prefix('watch')->namespace('Watch')->group(function (
          ]);
 
     Route::name('watch')->get('/', 'WatchController@index');
-
-    Route::name('watch.import')->post('import', 'ImportController');
 });
+
+//インポート
+Route::middleware('auth')->prefix('import')->namespace('Import')->group(function () {
+    Route::name('import.jan')->post('jan', 'JanImportController');
+    Route::name('import.asin')->post('asin', 'AsinImportController');
+});
+Route::view('import', 'import.index')->name('import.index');
+
 
 //CSVダウンロード
 Route::middleware('auth')->namespace('Download')->group(function () {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Watch;
+namespace App\Http\Requests\Import;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,7 @@ class ImportRequest extends FormRequest
     public function rules()
     {
         return [
-            'jan_csv' => 'required|file|mimetypes:text/*',
+            'csv' => 'required|file|mimetypes:text/*',
         ];
     }
 }

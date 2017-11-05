@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs\Watch;
+namespace App\Jobs\Import;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;

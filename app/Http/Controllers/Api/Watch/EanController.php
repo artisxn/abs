@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\Watch;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Jobs\Watch\JanToAsinJob;
+use App\Jobs\Import\JanToAsinJob;
 
 class EanController extends Controller
 {
