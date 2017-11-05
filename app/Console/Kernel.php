@@ -63,12 +63,12 @@ class Kernel extends ConsoleKernel
                  ->when(config('feature.delete_category'));
 
         $schedule->command('abs:world-watch')
-                 ->everyFifteenMinutes()
+                 ->everyFiveMinutes()
                  ->when(config('feature.world_watch_item'));
 
         //優先度の高いものは多く更新
         $schedule->command('abs:world-watch --priority=1')
-                 ->hourlyAt(32)
+                 ->everyTenMinutes()
                  ->when(config('feature.world_watch_item'));
 
         $schedule->command(Commands\PriceAlertCommand::class)

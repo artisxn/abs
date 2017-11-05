@@ -49,7 +49,7 @@ class WorldWatchCommand extends Command
         $watches = $user->watches()
                         ->where('priority', '>=', $priority)
                         ->oldest('updated_at')
-                        ->limit(100)
+                        ->limit(30)
                         ->get();
 
         $watches->each->touch();
