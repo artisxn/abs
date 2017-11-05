@@ -188,7 +188,7 @@ class EloquentWorldItemRepository implements WorldItemRepositoryInterface
 
         //Availability
         $availability = array_get($item, 'Offers.Offer.OfferListing.Availability', '');
-        $availability = str_limit($availability, 250);
+        $availability = str_limit($availability, 200);
         $ava = Availability::firstOrCreate(compact('availability'));
         $world_item->availability()->associate($ava);
 
