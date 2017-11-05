@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Import;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\Import\ImportRequest;

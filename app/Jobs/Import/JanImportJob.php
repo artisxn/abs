@@ -18,7 +18,7 @@ class JanImportJob implements ShouldQueue
     /**
      * @var string
      */
-    protected $file_path;
+    public $file_path;
 
     /**
      * @var int

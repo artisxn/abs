@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Import;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
+use Storage;
 
 use App\Http\Requests\Import\ImportRequest;
 
@@ -22,11 +23,14 @@ class AsinImportController extends Controller
             return back();
         }
 
-        $path = $request->file('csv')->path();
+        $file = $request->file('csv')
+                        ->storeAs('csv/' . $request->user()->id, 'import.csv');
+
+        $path = Storage::path($file);
 
         //ASINの場合ウォッチリストへの追加はすぐに完了
-        $csv_count = dispatch_now(new AsinImportJob($path, $request->user()->id));
+        AsinImportJob::dispatch($path, $request->user()->id);
 
-        return view('import.start')->with(compact('csv_count'));
+        return view('import.start');
     }
 }

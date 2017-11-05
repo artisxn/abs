@@ -11,18 +11,18 @@ trait RankingTrait
     {
         $rank = $this->histories()->take(2)->latest('day')->get();
 
-        if(empty($rank)){
+        if (empty($rank)) {
             return '';
         }
 
         $today = $rank->first();
         $yesterday = $rank->last();
 
-        if(empty($today)){
+        if (empty($today)) {
             return '';
         }
 
-        if(empty($yesterday)){
+        if (empty($yesterday)) {
             return '';
         }
 

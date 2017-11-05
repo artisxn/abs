@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Bus;
+use Illuminate\Support\Facades\Storage;
 
 use App\Model\User;
 use App\Model\Item;
@@ -33,6 +34,7 @@ class AsinImportTest extends TestCase
     public function testAsinCsvUpload()
     {
         Bus::fake();
+        Storage::fake('local');
 
         $file = UploadedFile::fake()->create('asin.csv');
 
@@ -41,15 +43,15 @@ class AsinImportTest extends TestCase
                              'csv' => $file,
                          ]);
 
+        Storage::disk('local')->assertExists('csv/1/import.csv');
+
         Bus::assertDispatched(AsinImportJob::class, function ($job) use ($file) {
-            return $job->file_path === $file->path();
+            return $job->file_path === Storage::disk('local')->path('csv/1/import.csv');
         });
 
         $response->assertSuccessful()
                  ->assertViewIs('import.start')
-                 ->assertViewHas([
-                     'csv_count',
-                 ]);
+                 ->assertViewMissing('csv_count');
     }
 
     public function testAsinCsvUploadFail()

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api\World;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Repository\WorldItem\WorldItemRepositoryInterface as WorldItem;

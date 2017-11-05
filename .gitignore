@@ -14,3 +14,4 @@ after.sh
 /hooks
 npm-debug.log
 yarn-error.log
+storage/framework/testing

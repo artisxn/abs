@@ -11,9 +11,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use League\Csv\Reader;
 use League\Csv\Statement;
 
-use App\Model\User;
 use App\Model\Watch;
-use App\Model\Item;
 
 use App\Jobs\ItemJob;
 
@@ -29,7 +27,7 @@ class AsinImportJob implements ShouldQueue
     /**
      * @var int
      */
-    public $user_id;
+    protected $user_id;
 
     /**
      * Create a new job instance.
@@ -52,11 +50,6 @@ class AsinImportJob implements ShouldQueue
     public function handle()
     {
         info(self::class);
-
-        /**
-         * @var User $user
-         */
-        $user = User::findOrFail($this->user_id);
 
         /**
          * @var Reader $reader
