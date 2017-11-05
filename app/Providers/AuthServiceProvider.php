@@ -36,7 +36,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('admin-voyager', function (User $user) {
-            return $user->isAdmin() and session('guest_login') == false;
+            return $user->isAdmin();// and session('guest_login') == false;
         });
 
         Gate::define('notify-mail', function (User $user) {
