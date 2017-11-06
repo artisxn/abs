@@ -91,15 +91,15 @@ class ItemJob implements ShouldQueue
         //            return AmazonProduct::setIdType('ASIN')->item($this->asin);
         //        }, 5000);
 
-        \Redis::throttle('amazon-api')->allow(1)->every(2)->then(function () use (&$results) {
-            $results = rescue(function () {
-                return AmazonProduct::setIdType('ASIN')->item($this->asin);
-            }, []);
-        }, function () {
-            info('Amazon API Throttle: Item Job');
-
-            return [];
-        });
+        //        \Redis::throttle('amazon-api')->allow(1)->every(2)->then(function () use (&$results) {
+        $results = rescue(function () {
+            return AmazonProduct::setIdType('ASIN')->item($this->asin);
+        }, []);
+        //        }, function () {
+        //            info('Amazon API Throttle: Item Job');
+        //
+        //            return [];
+        //        });
 
         $item = array_get($results, 'Items.Item');
 
