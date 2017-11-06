@@ -23,11 +23,11 @@
 
     <div class="uk-grid-divider" uk-grid>
       <div class="uk-width-1-2@m">
-        @include('import.jan_form')
+        @include('import.asin_form')
       </div>
 
       <div class="uk-width-1-2@m">
-        @include('import.asin_form')
+        @include('import.jan_form')
       </div>
     </div>
 
