@@ -68,9 +68,9 @@ Route::middleware('auth')->prefix('watch')->namespace('Watch')->group(function (
 Route::middleware('auth')->prefix('import')->namespace('Import')->group(function () {
     Route::name('import.jan')->post('jan', 'JanImportController');
     Route::name('import.asin')->post('asin', 'AsinImportController');
-});
-Route::view('import', 'import.index')->name('import.index');
 
+    Route::view('/', 'import.index')->name('import.index');
+});
 
 //CSVダウンロード
 Route::middleware('auth')->namespace('Download')->group(function () {
