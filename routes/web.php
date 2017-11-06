@@ -11,24 +11,40 @@
 |
 */
 
+//ホーム
+Route::name('index')->get('/', 'AmazonController');
 
-Route::redirect('asin', '/');
-Route::name('asin')->get('asin/{asin}', 'ItemController@show');
+//ASIN
+Route::namespace('Asin')->group(function () {
+    Route::redirect('asin', '/');
+    Route::name('asin')->get('asin/{asin}', 'ItemController')
+         ->where('asin', '[0-9a-zA-Z]{10}');
+});
 
-Route::name('browse')->get('browse/{browse}', 'BrowseController@browse');
-Route::name('browse-new')->get('browse/{browse}/new', 'BrowseController@newRelease');
+//ブラウズ
+Route::namespace('Browse')->group(function () {
+    Route::name('browse')->get('browse/{browse}', 'BrowseController')
+         ->where('browse', '[0-9]+');
+    Route::name('browse-new')->get('browse/{browse}/new', 'BrowseNewController')
+         ->where('browse', '[0-9]+');
+});
 
-Route::name('browselist')->get('browse', 'BrowseListController@browseList');
-Route::name('browselist-all')->get('browse-all', 'BrowseListController@browseAll');
+//ブラウズリスト
+Route::namespace('BrowseList')->group(function () {
+    Route::name('browselist')->get('browse', 'BrowseListController');
+    Route::name('browselist-all')->get('browse-all', 'BrowseListAllController');
+});
 
-Route::name('search')->get('search', 'SearchController@search');
+//検索
+Route::name('search')->get('search', 'SearchController');
 
-Route::name('index')->get('/', 'AmazonController@index');
 
 //ログイン
-Route::name('login')->get('login', 'LoginController@login');
-Route::get('callback', 'LoginController@callback');
-Route::name('logout')->get('logout', 'LoginController@logout');
+Route::namespace('Login')->group(function () {
+    Route::name('login')->get('login', 'LoginController@login');
+    Route::get('callback', 'LoginController@callback');
+    Route::name('logout')->get('logout', 'LoginController@logout');
+});
 
 //ユーザーページ
 Route::middleware('auth')->namespace('My')->group(function () {
@@ -61,7 +77,7 @@ Route::middleware('auth')->prefix('watch')->namespace('Watch')->group(function (
              'browse' => 'browse-watch',
          ]);
 
-    Route::name('watch')->get('/', 'WatchController@index');
+    Route::name('watch')->get('/', 'WatchController');
 });
 
 //インポート

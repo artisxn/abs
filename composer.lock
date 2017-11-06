@@ -61,16 +61,16 @@
         },
         {
             "name": "arrilot/laravel-widgets",
-            "version": "3.7.7",
+            "version": "3.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/arrilot/laravel-widgets.git",
-                "reference": "4170f51766fcb26f7ab830b9529d86cfe2ab832a"
+                "reference": "82b95fffc38b0324af7d6b9c82929f27e6bf7521"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arrilot/laravel-widgets/zipball/4170f51766fcb26f7ab830b9529d86cfe2ab832a",
-                "reference": "4170f51766fcb26f7ab830b9529d86cfe2ab832a",
+                "url": "https://api.github.com/repos/arrilot/laravel-widgets/zipball/82b95fffc38b0324af7d6b9c82929f27e6bf7521",
+                "reference": "82b95fffc38b0324af7d6b9c82929f27e6bf7521",
                 "shasum": ""
             },
             "require": {
@@ -118,7 +118,7 @@
                 "laravel",
                 "widgets"
             ],
-            "time": "2017-10-05T23:02:35+00:00"
+            "time": "2017-11-06T00:41:04+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -7152,16 +7152,16 @@
         },
         {
             "name": "wnx/laravel-stats",
-            "version": "v1.2.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stefanzweifel/laravel-stats.git",
-                "reference": "d36b060e8dd8d07be0eaae76a0b2510f26d6d6c7"
+                "reference": "81a7c5e88bb2caf5fad5ce3e5b176c9d7a35f245"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stefanzweifel/laravel-stats/zipball/d36b060e8dd8d07be0eaae76a0b2510f26d6d6c7",
-                "reference": "d36b060e8dd8d07be0eaae76a0b2510f26d6d6c7",
+                "url": "https://api.github.com/repos/stefanzweifel/laravel-stats/zipball/81a7c5e88bb2caf5fad5ce3e5b176c9d7a35f245",
+                "reference": "81a7c5e88bb2caf5fad5ce3e5b176c9d7a35f245",
                 "shasum": ""
             },
             "require": {
@@ -7210,7 +7210,7 @@
                 "stats",
                 "wnx"
             ],
-            "time": "2017-10-30T19:46:18+00:00"
+            "time": "2017-11-05T08:17:13+00:00"
         }
     ],
     "aliases": [],

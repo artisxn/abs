@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Asin;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 use App\Jobs\ItemJob;
 
@@ -18,7 +19,7 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show(Item $repository, string $asin)
+    public function __invoke(Item $repository, string $asin)
     {
         $item = dispatch_now(new ItemJob($asin));
 

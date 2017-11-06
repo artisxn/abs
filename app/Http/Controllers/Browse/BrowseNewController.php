@@ -1,27 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Browse;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 use App\Jobs\BrowseJob;
 
-class BrowseController extends Controller
+class BrowseNewController extends Controller
 {
-    /**
-     * Browse TopSellers
-     *
-     * @param string $browse
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function browse(string $browse)
-    {
-        $browse_items = dispatch_now(new BrowseJob($browse));
-
-        return view('browse.index')->with($browse_items);
-    }
-
     /**
      * Browse New Release
      *
@@ -29,7 +16,7 @@ class BrowseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function newRelease(string $browse)
+    public function __invoke(string $browse)
     {
         $browse_items = dispatch_now(new BrowseJob($browse, 'NewReleases'));
 
