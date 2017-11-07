@@ -128,6 +128,13 @@ Route::middleware('can:admin-voyager')->prefix('admin')->group(function () {
     Voyager::routes();
 });
 
+//特集
+Route::namespace('Feature')->prefix('feature')->group(function () {
+    Route::name('feature.game')->get('game', 'Game\GameController');
+
+});
+
+
 if (config('feature.plan')) {
     Route::view('plan', 'pages.plan')->name('plan');
 }

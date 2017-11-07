@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Item extends Model
 {
     use Presenter\ItemJsonTrait;
+    use Presenter\RankingTrait;
 
     public $primaryKey = 'asin';
 

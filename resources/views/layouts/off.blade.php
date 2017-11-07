@@ -2,7 +2,7 @@
   <div class="uk-offcanvas-bar">
     <button class="uk-offcanvas-close" type="button" uk-close></button>
 
-    <ul class="uk-nav uk-nav-default">
+    <ul class="uk-nav-default uk-nav-parent-icon" uk-nav>
       <li class="uk-nav-header">
         <a href="{{ route('index') }}" class="uk-logo">
           <span uk-icon="icon: bolt"></span>
@@ -11,6 +11,18 @@
       </li>
 
       <li><a href="{{ route('index') }}">ホーム</a></li>
+
+      @feature('feature_page')
+      <li class="uk-parent">
+        <a href="#">特集</a>
+        <ul class="uk-nav-sub">
+          @feature('feature_game')
+          <li><a href="{{ route('feature.game') }}">テレビゲーム</a></li>
+          @endfeature
+        </ul>
+      </li>
+      @endfeature
+
       @feature('plan')
       <li><a href="{{ route('plan') }}">プラン</a></li>
       @endfeature

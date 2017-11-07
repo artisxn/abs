@@ -7,6 +7,19 @@
       </a>
       <ul class="uk-navbar-nav uk-visible@s">
         <li><a href="{{ route('index') }}">ホーム</a></li>
+        @feature('feature_page')
+        <li>
+          <a href="#">特集</a>
+          <div class="uk-navbar-dropdown">
+            <ul class="uk-nav uk-navbar-dropdown-nav">
+              @feature('feature_game')
+              <li><a href="{{ route('feature.game') }}">テレビゲーム</a></li>
+              @endfeature
+            </ul>
+          </div>
+        </li>
+        @endfeature
+
         @feature('plan')
         <li><a href="{{ route('plan') }}">プラン</a></li>
         @endfeature

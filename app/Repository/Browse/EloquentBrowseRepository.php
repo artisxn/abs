@@ -8,6 +8,8 @@ use App\Model\Item;
 
 class EloquentBrowseRepository implements BrowseRepositoryInterface
 {
+    use FeatureTrait;
+
     /**
      * @var Browse
      */

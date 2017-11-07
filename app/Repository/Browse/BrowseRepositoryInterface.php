@@ -39,6 +39,20 @@ interface BrowseRepositoryInterface
     public function count();
 
     /**
+     * @param int $browse
+     *
+     * @return mixed
+     */
+    public function bestSellers(int $browse);
+
+    /**
+     * @param int $browse
+     *
+     * @return mixed
+     */
+    public function preOrder(int $browse);
+
+    /**
      * @param int $id
      *
      * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection

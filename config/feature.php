@@ -149,4 +149,10 @@ return [
     'save_offers'                 => env('FEATURE_SAVE_OFFERS', true),
     'save_image_sets'             => env('FEATURE_SAVE_IMAGESETS', true),
 
+    /**
+     * 特集ページ
+     */
+    'feature_page'                => env('FEATURE_PAGE', false),
+    'feature_game'                => env('FEATURE_GAME', false),
+
 ];
