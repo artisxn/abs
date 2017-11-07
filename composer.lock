@@ -2241,16 +2241,16 @@
         },
         {
             "name": "laravel/socialite",
-            "version": "v3.0.7",
+            "version": "v3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "d79174513dbf14359b53e44394cf71373ae03433"
+                "reference": "fc1c8d415699e502f3e61cbc61e3250d5bd942eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/d79174513dbf14359b53e44394cf71373ae03433",
-                "reference": "d79174513dbf14359b53e44394cf71373ae03433",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/fc1c8d415699e502f3e61cbc61e3250d5bd942eb",
+                "reference": "fc1c8d415699e502f3e61cbc61e3250d5bd942eb",
                 "shasum": ""
             },
             "require": {
@@ -2299,7 +2299,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2017-07-22T14:44:37+00:00"
+            "time": "2017-11-06T16:02:48+00:00"
         },
         {
             "name": "laravelcollective/html",
@@ -3565,16 +3565,16 @@
         },
         {
             "name": "revolution/socialite-amazon",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/socialite-amazon.git",
-                "reference": "7515fba3aeac3d4335226317399a7b24382399f9"
+                "reference": "ab86b8b770ac4f13870ea80dcb2c8f19a0738ac7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/socialite-amazon/zipball/7515fba3aeac3d4335226317399a7b24382399f9",
-                "reference": "7515fba3aeac3d4335226317399a7b24382399f9",
+                "url": "https://api.github.com/repos/kawax/socialite-amazon/zipball/ab86b8b770ac4f13870ea80dcb2c8f19a0738ac7",
+                "reference": "ab86b8b770ac4f13870ea80dcb2c8f19a0738ac7",
                 "shasum": ""
             },
             "require": {
@@ -3610,7 +3610,7 @@
                 "laravel",
                 "socialite"
             ],
-            "time": "2017-09-13T02:23:26+00:00"
+            "time": "2017-11-06T15:49:20+00:00"
         },
         {
             "name": "seld/cli-prompt",

@@ -27,12 +27,11 @@ class WorldShowController extends Controller
     }
 
     /**
-     * @param Request $request
      * @param         $asin
      *
      * @return \Illuminate\Http\Response
      */
-    public function asin(Request $request, $asin)
+    public function asin($asin)
     {
         $item = $this->get('asin', $asin);
 
@@ -40,12 +39,11 @@ class WorldShowController extends Controller
     }
 
     /**
-     * @param Request $request
      * @param         $ean
      *
      * @return \Illuminate\Http\Response
      */
-    public function ean(Request $request, $ean)
+    public function ean($ean)
     {
         $item = $this->get('ean', $ean);
 

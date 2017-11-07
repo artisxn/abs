@@ -17,10 +17,12 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
+//グラフ
 Route::namespace('Api')->group(function () {
     Route::get('graph/{asin}', 'HistoryGraphController');
 });
 
+//ワールド
 Route::namespace('Api\World')->middleware(['auth:api', 'world'])->group(function () {
     Route::name('api.world.index')->get('world', 'WorldIndexController');
 
@@ -31,6 +33,7 @@ Route::namespace('Api\World')->middleware(['auth:api', 'world'])->group(function
     Route::name('api.world.new')->get('world/new', 'WorldNewController');
 });
 
+//ウォッチリスト
 Route::namespace('Api\Watch')->middleware(['auth:api'])->group(function () {
     Route::post('watch/asin', 'AsinController@store');
     Route::delete('watch/asin/{asin}', 'AsinController@destroy');
