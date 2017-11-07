@@ -13,7 +13,7 @@ trait FeatureTrait
     {
         return $this->browse->find($browse)
                             ->items()
-                            ->whereBetween('rank', [1, 101])
+                            ->whereBetween('rank', [1, 100])
                             ->orderBy('rank')
                             ->get();
     }
