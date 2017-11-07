@@ -6,7 +6,7 @@
 @section('content')
 
   <div class="uk-alert-primary" uk-alert>
-    <p>「特定のカテゴリーのこの情報が欲しい」という依頼が多いのでサンプルとしていくつか作る。</p>
+    <p>「特定のカテゴリーのこういう情報が欲しい」という依頼が多いのでサンプルとしていくつか作る。</p>
   </div>
 
   <h1 class="uk-heading-divider">特集：テレビゲーム</h1>
