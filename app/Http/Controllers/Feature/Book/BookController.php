@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Feature\Game;
+namespace App\Http\Controllers\Feature\Book;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Repository\Browse\BrowseRepositoryInterface as Browse;
 
-class GameController extends Controller
+class BookController extends Controller
 {
     /**
      * @param Browse $repository
@@ -16,10 +16,10 @@ class GameController extends Controller
      */
     public function __invoke(Browse $repository)
     {
-        $best_sellers = $repository->bestSellers(637394);
-        $pre_orders = $repository->preOrder(637394);
+        $best_sellers = $repository->bestSellers(465392);
+        $pre_orders = $repository->preOrder(465392);
 
-        return view('feature.game.index')->with(compact([
+        return view('feature.book.index')->with(compact([
             'best_sellers',
             'pre_orders',
         ]));

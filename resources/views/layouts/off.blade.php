@@ -16,6 +16,9 @@
       <li class="uk-parent">
         <a href="#">特集</a>
         <ul class="uk-nav-sub">
+          @feature('feature_book')
+          <li><a href="{{ route('feature.book') }}">本</a></li>
+          @endfeature
           @feature('feature_game')
           <li><a href="{{ route('feature.game') }}">テレビゲーム</a></li>
           @endfeature

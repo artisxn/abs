@@ -3,7 +3,7 @@
     <caption>予約受付中</caption>
 
     <tbody>
-    @foreach($game_pre_orders as $item)
+    @foreach($pre_orders as $item)
       <tr>
         <td class="uk-text-right">{{ $item->rank }}</td>
         <td>

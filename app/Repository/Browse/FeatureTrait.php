@@ -18,7 +18,6 @@ trait FeatureTrait
                                 ->orderBy('rank')
                                 ->get();
         });
-
     }
 
     /**
@@ -30,15 +29,15 @@ trait FeatureTrait
     {
         return cache()->remember('feature.pre_order.' . $browse, 60, function () use ($browse) {
             return $this->browse->find($browse)
-                         ->items()
-                         ->whereNotNull('rank')
-                         ->with(['availability'])
-                         ->whereHas('availability', function ($query) {
-                             $query->where('availability', '近日発売　予約可');
-                         })
-                         ->orderBy('rank')
-                         ->limit(100)
-                         ->get();
+                                ->items()
+                                ->whereNotNull('rank')
+                                ->with(['availability'])
+                                ->whereHas('availability', function ($query) {
+                                    $query->where('availability', '近日発売　予約可');
+                                })
+                                ->orderBy('rank')
+                                ->limit(100)
+                                ->get();
         });
     }
 }

@@ -12,6 +12,9 @@
           <a href="#">特集</a>
           <div class="uk-navbar-dropdown">
             <ul class="uk-nav uk-navbar-dropdown-nav">
+              @feature('feature_book')
+              <li><a href="{{ route('feature.book') }}">本</a></li>
+              @endfeature
               @feature('feature_game')
               <li><a href="{{ route('feature.game') }}">テレビゲーム</a></li>
               @endfeature

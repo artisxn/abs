@@ -154,5 +154,5 @@ return [
      */
     'feature_page'                => env('FEATURE_PAGE', false),
     'feature_game'                => env('FEATURE_GAME', false),
-
+    'feature_book'                => env('FEATURE_BOOK', false),
 ];

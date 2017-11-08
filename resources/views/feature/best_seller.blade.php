@@ -3,7 +3,7 @@
     <caption>ベストセラー</caption>
 
     <tbody>
-    @foreach($game_best_sellers as $item)
+    @foreach($best_sellers as $item)
       <tr>
         <td class="uk-text-right">{{ $item->rank }}</td>
         <td>

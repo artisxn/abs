@@ -131,6 +131,7 @@ Route::middleware('can:admin-voyager')->prefix('admin')->group(function () {
 //特集
 Route::namespace('Feature')->prefix('feature')->group(function () {
     Route::name('feature.game')->get('game', 'Game\GameController');
+    Route::name('feature.book')->get('book', 'Book\BookController');
 });
 
 
