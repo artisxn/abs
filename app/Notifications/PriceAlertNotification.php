@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
 use App\Channels\MastodonChannel;
+use App\Channels\MastodonMessage;
 
 /**
  * Class PriceAlertNotification
@@ -53,7 +54,7 @@ class PriceAlertNotification extends Notification implements ShouldQueue
      *
      * @param  mixed $notifiable
      *
-     * @return array
+     * @return MastodonMessage
      */
     public function toMastodon($notifiable)
     {
@@ -65,9 +66,11 @@ class PriceAlertNotification extends Notification implements ShouldQueue
 
         $url = route('asin', $notifiable->excerpt);
 
-        return [
-            'status' => "{$cat} {$title}" . PHP_EOL . "{$chart} {$notifiable->body}" . PHP_EOL . $url,
-        ];
+        $status = "{$cat} {$title}" . PHP_EOL . "{$chart} {$notifiable->body}" . PHP_EOL . $url;
+
+        return MastodonMessage::create($status)
+                              ->domain(config('services.mastodon.domain'))
+                              ->token(config('services.mastodon.token'));
     }
 
     /**
