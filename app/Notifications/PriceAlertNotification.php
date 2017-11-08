@@ -7,8 +7,8 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-use App\Channels\MastodonChannel;
-use App\Channels\MastodonMessage;
+use Revolution\Laravel\Notification\Mastodon\MastodonChannel;
+use Revolution\Laravel\Notification\Mastodon\MastodonMessage;
 
 /**
  * Class PriceAlertNotification

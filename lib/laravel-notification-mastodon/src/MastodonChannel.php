@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Channels;
+namespace Revolution\Laravel\Notification\Mastodon;
 
 use Illuminate\Notifications\Notification;
 
