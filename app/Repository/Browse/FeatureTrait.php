@@ -16,6 +16,7 @@ trait FeatureTrait
                                 ->items()
                                 ->whereBetween('rank', [1, 100])
                                 ->orderBy('rank')
+                                ->limit(100)
                                 ->get();
         });
     }
