@@ -166,6 +166,7 @@ class EloquentWorldItemRepository implements WorldItemRepositoryInterface
         $total_used = array_get($item, 'OfferSummary.TotalUsed');
         $editorial_review = array_get($item, 'EditorialReviews.EditorialReview.Content');
 
+        $quantity = array_get($item, 'ItemAttributes.PackageQuantity', 1);
 
         /**
          * @var WorldItem $world_item
@@ -183,6 +184,7 @@ class EloquentWorldItemRepository implements WorldItemRepositoryInterface
             'lowest_used_formatted_price',
             'total_new',
             'total_used',
+            'quantity',
             'editorial_review',
         ]));
 

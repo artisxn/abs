@@ -32,6 +32,7 @@ class WorldItem extends Resource
             'used_price_formatted' => (string)$this->lowest_used_formatted_price,
             'total_new'            => $this->total_new,
             'total_used'           => $this->total_used,
+            'quantity'             => (int)$this->quantity,
             'created_at'           => (string)$this->created_at,
             'updated_at'           => (string)$this->updated_at,
         ];
