@@ -11,11 +11,14 @@ trait FeatureTrait
      */
     public function bestSellers(int $browse)
     {
-        return $this->browse->find($browse)
-                            ->items()
-                            ->whereBetween('rank', [1, 100])
-                            ->orderBy('rank')
-                            ->get();
+        return cache()->remember('feature.bestsellers.' . $browse, 60, function () use ($browse) {
+            return $this->browse->find($browse)
+                                ->items()
+                                ->whereBetween('rank', [1, 100])
+                                ->orderBy('rank')
+                                ->get();
+        });
+
     }
 
     /**
@@ -25,15 +28,17 @@ trait FeatureTrait
      */
     public function preOrder(int $browse)
     {
-        return $this->browse->find($browse)
-                            ->items()
-                            ->whereNotNull('rank')
-                            ->with(['availability'])
-                            ->whereHas('availability', function ($query) {
-                                $query->where('availability', '近日発売　予約可');
-                            })
-                            ->orderBy('rank')
-                            ->limit(100)
-                            ->get();
+        return cache()->remember('feature.pre_order.' . $browse, 60, function () use ($browse) {
+            return $this->browse->find($browse)
+                         ->items()
+                         ->whereNotNull('rank')
+                         ->with(['availability'])
+                         ->whereHas('availability', function ($query) {
+                             $query->where('availability', '近日発売　予約可');
+                         })
+                         ->orderBy('rank')
+                         ->limit(100)
+                         ->get();
+        });
     }
 }
