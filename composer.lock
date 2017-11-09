@@ -3509,16 +3509,16 @@
         },
         {
             "name": "revolution/laravel-mastodon-api",
-            "version": "1.3.0",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-mastodon-api.git",
-                "reference": "50c8fac8fd56af1807ba1f04f8d61f102313e4bd"
+                "reference": "d1e321e1e7fff14e07ee11e962d2ea05c2074a43"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-mastodon-api/zipball/50c8fac8fd56af1807ba1f04f8d61f102313e4bd",
-                "reference": "50c8fac8fd56af1807ba1f04f8d61f102313e4bd",
+                "url": "https://api.github.com/repos/kawax/laravel-mastodon-api/zipball/d1e321e1e7fff14e07ee11e962d2ea05c2074a43",
+                "reference": "d1e321e1e7fff14e07ee11e962d2ea05c2074a43",
                 "shasum": ""
             },
             "require": {
@@ -3561,20 +3561,20 @@
                 "laravel",
                 "mastodon"
             ],
-            "time": "2017-10-12T17:05:12+00:00"
+            "time": "2017-11-09T04:24:28+00:00"
         },
         {
             "name": "revolution/laravel-notification-mastodon",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-notification-mastodon.git",
-                "reference": "c7fe362ddd2c9b707ccfa4da993c702355248e1e"
+                "reference": "f4e41bae12eabc861929e5d6762e29c422292e5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-notification-mastodon/zipball/c7fe362ddd2c9b707ccfa4da993c702355248e1e",
-                "reference": "c7fe362ddd2c9b707ccfa4da993c702355248e1e",
+                "url": "https://api.github.com/repos/kawax/laravel-notification-mastodon/zipball/f4e41bae12eabc861929e5d6762e29c422292e5b",
+                "reference": "f4e41bae12eabc861929e5d6762e29c422292e5b",
                 "shasum": ""
             },
             "require": {
@@ -3605,7 +3605,7 @@
                 "mastodon",
                 "notification"
             ],
-            "time": "2017-11-09T01:52:47+00:00"
+            "time": "2017-11-09T04:22:12+00:00"
         },
         {
             "name": "revolution/socialite-amazon",
