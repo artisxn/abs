@@ -102,6 +102,11 @@
       {{ array_get($item, 'OfferSummary.LowestUsedPrice.FormattedPrice') }}
     </li>
 
+
+    <li>定価：
+      {{ array_get($item, 'ItemAttributes.ListPrice.FormattedPrice') }}
+    </li>
+
     <li itemscope itemtype="http://schema.org/Offer">在庫：
       <span itemprop="availability">
       {{ array_get($item, 'Offers.Offer.OfferListing.Availability') }}
