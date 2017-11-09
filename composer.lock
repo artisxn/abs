@@ -3565,16 +3565,16 @@
         },
         {
             "name": "revolution/laravel-notification-mastodon",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-notification-mastodon.git",
-                "reference": "dbb82c1fd1579f90804f71ec016a3cd4de1e9a85"
+                "reference": "c7fe362ddd2c9b707ccfa4da993c702355248e1e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-notification-mastodon/zipball/dbb82c1fd1579f90804f71ec016a3cd4de1e9a85",
-                "reference": "dbb82c1fd1579f90804f71ec016a3cd4de1e9a85",
+                "url": "https://api.github.com/repos/kawax/laravel-notification-mastodon/zipball/c7fe362ddd2c9b707ccfa4da993c702355248e1e",
+                "reference": "c7fe362ddd2c9b707ccfa4da993c702355248e1e",
                 "shasum": ""
             },
             "require": {
@@ -3605,7 +3605,7 @@
                 "mastodon",
                 "notification"
             ],
-            "time": "2017-11-08T16:29:47+00:00"
+            "time": "2017-11-09T01:52:47+00:00"
         },
         {
             "name": "revolution/socialite-amazon",
