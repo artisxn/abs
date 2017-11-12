@@ -7,76 +7,76 @@ return [
     /**
      * ホームのabout
      */
-    'about'                    => env('FEATURE_ABOUT', true),
+    'about'            => env('FEATURE_ABOUT', true),
 
     /**
      * CSV
      */
-    'csv_download'             => env('FEATURE_CSV_DOWNLOAD', true),
+    'csv_download'     => env('FEATURE_CSV_DOWNLOAD', true),
 
     /**
      * プライバシーポリシーページ
      */
-    'privacy'                  => env('FEATURE_PRIVACY', true),
+    'privacy'          => env('FEATURE_PRIVACY', true),
 
     /**
      * 非公開
      * 社内専用など非公開にしたい場合オン
      */
-    'closed'                   => env('FEATURE_CLOSED', false),
+    'closed'           => env('FEATURE_CLOSED', false),
 
     /**
      * シングルユーザー
      * 指定のユーザーIDのみ有効。非公開と共に。
      */
-    'single_user'              => env('FEATURE_SINGLE_USER', false),
-    'single_user_id'           => env('FEATURE_SINGLE_USER_ID', 1),
+    'single_user'      => env('FEATURE_SINGLE_USER', false),
+    'single_user_id'   => env('FEATURE_SINGLE_USER_ID', 1),
 
     /**
      * Amazonアカウント以外にパスワードでのログインも許可。
      * 基本的にはデバッグ用。ユーザー向けには解放しない。
      * FEATURE_PASSWORDと同じかしかチェックしてない。
      */
-    'password_login'           => env('FEATURE_PASSWORD_LOGIN', false),
-    'password'                 => env('FEATURE_PASSWORD', ''),
+    'password_login'   => env('FEATURE_PASSWORD_LOGIN', false),
+    'password'         => env('FEATURE_PASSWORD', ''),
 
 
     /**
      * ホームのランダムブラウズ
      * 自動でASIN情報を集めるので無駄なASINは不要な場合はオフ
      */
-    'random_browse'            => env('FEATURE_RANDOM_BROWSE', true),
+    'random_browse'    => env('FEATURE_RANDOM_BROWSE', true),
 
     /**
      * 最近のアイテム
      */
-    'recent_item'              => env('FEATURE_RECENT_ITEM', true),
+    'recent_item'      => env('FEATURE_RECENT_ITEM', true),
 
     /**
      * 更新日の古いアイテムを更新
      */
-    'update_old_item'          => env('FEATURE_UPDATE_OLD_ITEM', true),
+    'update_old_item'  => env('FEATURE_UPDATE_OLD_ITEM', true),
 
     /**
      * 更新日の古いアイテムを削除
      */
-    'delete_old_item'          => env('FEATURE_DELETE_OLD_ITEM', false),
+    'delete_old_item'  => env('FEATURE_DELETE_OLD_ITEM', false),
 
     /**
      * 除外リスト(amazon.delete_category)のカテゴリーのアイテム情報をDBから削除
      */
-    'delete_category'          => env('FEATURE_DELETE_CATEGORY', true),
+    'delete_category'  => env('FEATURE_DELETE_CATEGORY', true),
 
     /**
      * 世界機能のオンオフ
      */
-    'world'                    => env('FEATURE_WORLD', false),
+    'world'            => env('FEATURE_WORLD', false),
 
     /**
      * 指定したユーザーIDのウォッチリストから世界のアイテム情報を集める
      */
-    'world_watch_item'         => env('FEATURE_WORLD_WATCH_ITEM', false),
-    'world_watch_item_user_id' => env('FEATURE_WORLD_WATCH_ITEM_USER_ID', 1),
+    'world_watch_item' => env('FEATURE_WORLD_WATCH_ITEM', false),
+    'world_user_id'    => env('FEATURE_WORLD_WATCH_ITEM_USER_ID', 1),
 
     'world_watch_item_locales'    => explode(',', env('FEATURE_WORLD_LOCALES', 'JP,US')),
 
@@ -139,6 +139,13 @@ return [
      */
     'mastodon'                    => env('FEATURE_MASTODON', false),
     'mastodon_url'                => env('FEATURE_MASTODON_URL'),
+
+    /**
+     * ChatWorkへの通知
+     */
+    'chatwork'                    => env('FEATURE_CHATWORK', false),
+    'chatwork_token'              => env('CHATWORK_TOKEN', ''),
+    'chatwork_room'               => env('CHATWORK_ROOM', ''),
 
     /**
      * DBに詳細データを保存するかどうか。データ量が大きくなるので不要ならオフ。

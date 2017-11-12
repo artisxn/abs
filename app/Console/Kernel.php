@@ -87,6 +87,10 @@ class Kernel extends ConsoleKernel
         $schedule->command(Commands\WatchPriceAlertCommand::class)
                  ->everyThirtyMinutes()
                  ->when(config('feature.price_alert_express'));
+
+        $schedule->command(Commands\World\ChatWorkCommand::class)
+                 ->dailyAt('09:00')
+                 ->when(config('feature.chatwork'));
     }
 
     /**

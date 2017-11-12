@@ -45,7 +45,7 @@ class WorldWatchCommand extends Command
         /**
          * @var User $user
          */
-        $user = User::findOrFail(config('feature.world_watch_item_user_id'));
+        $user = User::findOrFail(config('feature.world_user_id'));
 
         $priority = $this->option('priority');
         info('Priority: ' . $priority);
