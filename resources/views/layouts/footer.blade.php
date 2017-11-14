@@ -22,6 +22,6 @@
   </nav>
 
   <div class="uk-text-center uk-margin-bottom">
-    <a href="https://abs.kawax.biz/" class="uk-button uk-button-text" target="_blank">©ABS</a>
+    <a href="https://abs.kawax.biz/" class="uk-button uk-button-text" target="_blank" rel="noopener">©ABS</a>
   </div>
 </footer>

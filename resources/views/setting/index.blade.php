@@ -3,7 +3,7 @@
 @section('title', '設定' . ' | ')
 
 @section('content')
-  <h2 class="uk-heading-divider"><span>設定</span></h2>
+  <h1 class="uk-heading-divider"><span>設定</span></h1>
 
   @foreach ($errors->all() as $message)
     <div class="uk-alert-danger" uk-alert>

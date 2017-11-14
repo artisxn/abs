@@ -14,19 +14,23 @@
   <title>@yield('title'){{ config('app.name') }}</title>
 
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+  <script src="{{ mix('/js/app.js') }}"></script>
 
   <link rel='icon' type='image/png' href='/icon.png'>
   <link rel="apple-touch-icon" sizes="144x144" href="/icon.png">
 
   @include('layouts.analytics_verification')
 
+  @include('layouts.preload')
+
+  <meta name="author" content="kawax">
 </head>
 <body>
 <div id="app" class="uk-offcanvas-content">
 
   @include('layouts.header')
 
-  <main class="uk-container">
+  <main class="uk-container uk-margin-large-top uk-margin-large-bottom">
 
     @yield('content')
 
@@ -36,7 +40,6 @@
 
 </div>
 
-<script src="{{ mix('/js/app.js') }}" async></script>
 
 <!-- {{ app()->version() }} -->
 
