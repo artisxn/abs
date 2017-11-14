@@ -2,7 +2,6 @@
      itemscope
      itemtype="http://schema.org/Product">
 
-
   @include('asin.header')
 
 
