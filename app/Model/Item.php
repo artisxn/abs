@@ -9,12 +9,24 @@ class Item extends Model
     use Presenter\ItemJsonTrait;
     use Presenter\RankingTrait;
 
-    public $primaryKey = 'asin';
+    /**
+     * @var string
+     */
+    protected $primaryKey = 'asin';
 
+    /**
+     * @var bool
+     */
     public $incrementing = false;
 
+    /**
+     * @var string
+     */
     protected $keyType = 'string';
 
+    /**
+     * @var array
+     */
     protected $fillable = [
         'asin',
         'title',

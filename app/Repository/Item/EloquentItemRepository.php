@@ -31,18 +31,16 @@ class EloquentItemRepository implements ItemRepositoryInterface
      */
     public function priceAlert()
     {
-        $items = $this->item->latest('updated_at')
-                            ->limit(1000)
-                            ->whereNotNull('rank')
-                            ->where('rank', '<', 1000)
-                            ->has('histories', '>', 5)
-                            ->whereHas('histories', function ($query) {
-                                $query->whereNotNull('lowest_new_price');
-                            })
-                            ->doesntHave('watches')
-                            ->get();
-
-        return $items;
+        return $this->item->latest('updated_at')
+                          ->limit(1000)
+                          ->whereNotNull('rank')
+                          ->where('rank', '<', 1000)
+                          ->has('histories', '>', 5)
+                          ->whereHas('histories', function ($query) {
+                              $query->whereNotNull('lowest_new_price');
+                          })
+                          ->doesntHave('watches')
+                          ->get();
     }
 
     /**
