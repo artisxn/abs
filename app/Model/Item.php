@@ -22,7 +22,7 @@ class Item extends Model
     /**
      * @var string
      */
-    protected $keyType = 'string';
+    //    protected $keyType = 'string';
 
     /**
      * @var array
