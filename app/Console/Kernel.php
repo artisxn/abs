@@ -44,7 +44,7 @@ class Kernel extends ConsoleKernel
                  ->when(config('feature.watch_item'));
 
         $schedule->command('abs:count-info')
-                 ->hourlyAt(52);
+                 ->dailyAt('12:00');
 
         $schedule->command(Commands\Mainte\UpdateOldItem::class)
                  ->hourlyAt(25)
