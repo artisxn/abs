@@ -6,10 +6,9 @@ use Illuminate\Console\Command;
 
 use App\Model\History;
 use App\Model\BrowseItem;
+use App\Model\User;
 
-use Notification;
 use App\Notifications\CountInfoNotification;
-use Revolution\Laravel\Notification\Mastodon\MastodonChannel;
 
 class CountInfo extends Command
 {
@@ -56,13 +55,11 @@ class CountInfo extends Command
         info('Browse count: ' . $browses_count);
         cache()->forever('browses_count', $browses_count);
 
-        Notification::route(MastodonChannel::class, '')
-                    ->notify(
-                        new CountInfoNotification(compact([
-                            'items_count',
-                            'histories_count',
-                            'browses_count',
-                        ]))
-                    );
+        User::find(1)->notify(new CountInfoNotification(compact([
+                'items_count',
+                'histories_count',
+                'browses_count',
+            ]))
+        );
     }
 }
