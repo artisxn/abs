@@ -11,7 +11,7 @@ trait FeatureTrait
      */
     public function bestSellers(int $browse)
     {
-        return cache()->remember('feature.bestsellers.' . $browse, 60, function () use ($browse) {
+        return cache()->remember('feature.bestsellers.' . $browse, 60 * 24, function () use ($browse) {
             return $this->browse->find($browse)
                                 ->items()
                                 ->whereBetween('rank', [1, 100])
@@ -28,7 +28,7 @@ trait FeatureTrait
      */
     public function preOrder(int $browse)
     {
-        return cache()->remember('feature.pre_order.' . $browse, 60, function () use ($browse) {
+        return cache()->remember('feature.pre_order.' . $browse, 60 * 24, function () use ($browse) {
             return $this->browse->find($browse)
                                 ->items()
                                 ->whereNotNull('rank')
