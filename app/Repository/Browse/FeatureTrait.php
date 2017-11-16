@@ -14,6 +14,7 @@ trait FeatureTrait
         return cache()->remember('feature.bestsellers.' . $browse, 60 * 24, function () use ($browse) {
             return $this->browse->find($browse)
                                 ->items()
+                                ->select(['asin', 'title', 'rank'])
                                 ->whereBetween('rank', [1, 100])
                                 ->orderBy('rank')
                                 ->limit(100)
@@ -31,6 +32,7 @@ trait FeatureTrait
         return cache()->remember('feature.pre_order.' . $browse, 60 * 24, function () use ($browse) {
             return $this->browse->find($browse)
                                 ->items()
+                                ->select(['asin', 'title', 'rank', 'availability_id'])
                                 ->whereNotNull('rank')
                                 ->with(['availability'])
                                 ->whereHas('availability', function ($query) {
