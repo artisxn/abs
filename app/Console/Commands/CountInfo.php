@@ -39,7 +39,9 @@ class CountInfo extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return void
+     *
+     * @throws \Exception
      */
     public function handle()
     {

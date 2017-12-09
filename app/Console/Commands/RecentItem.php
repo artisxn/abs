@@ -38,6 +38,8 @@ class RecentItem extends Command
      * @param Item $repository
      *
      * @return mixed
+     *
+     * @throws \Exception
      */
     public function handle(Item $repository)
     {

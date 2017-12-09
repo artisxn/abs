@@ -12,6 +12,8 @@ class HistoryCountViewComposer
      * @param  View $view
      *
      * @return void
+     *
+     * @throws \Exception
      */
     public function compose(View $view)
     {

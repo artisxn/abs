@@ -44,6 +44,8 @@ class BrowseJob implements ShouldQueue
      * @param Browse $repository
      *
      * @return array
+     *
+     * @throws \Exception|\Psr\SimpleCache\InvalidArgumentException
      */
     public function handle(Browse $repository)
     {
@@ -100,6 +102,8 @@ class BrowseJob implements ShouldQueue
 
     /**
      * @return array
+     *
+     * @throws \Exception|\Psr\SimpleCache\InvalidArgumentException
      */
     protected function browse()
     {
@@ -122,6 +126,8 @@ class BrowseJob implements ShouldQueue
      * @param array|null $asins
      *
      * @return array
+     *
+     * @throws \Exception|\Psr\SimpleCache\InvalidArgumentException
      */
     protected function items(array $asins = null)
     {

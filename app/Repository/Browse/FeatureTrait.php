@@ -8,6 +8,8 @@ trait FeatureTrait
      * @param int $browse
      *
      * @return mixed
+     *
+     * @throws \Exception
      */
     public function bestSellers(int $browse)
     {
@@ -26,6 +28,8 @@ trait FeatureTrait
      * @param int $browse
      *
      * @return mixed
+     *
+     * @throws \Exception
      */
     public function preOrder(int $browse)
     {

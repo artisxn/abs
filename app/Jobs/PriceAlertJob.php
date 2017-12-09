@@ -30,6 +30,8 @@ class PriceAlertJob implements ShouldQueue
      * @param Item $repository
      *
      * @return void
+     *
+     * @throws \Exception|\Psr\SimpleCache\InvalidArgumentException
      */
     public function handle(Item $repository)
     {

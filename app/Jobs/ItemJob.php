@@ -55,6 +55,8 @@ class ItemJob implements ShouldQueue
      * @param Browse $browseRepository
      *
      * @return array
+     *
+     * @throws \Exception|\Psr\SimpleCache\InvalidArgumentException
      */
     public function handle(Item $itemRepository, Browse $browseRepository): array
     {

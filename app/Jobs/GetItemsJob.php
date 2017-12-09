@@ -55,6 +55,8 @@ class GetItemsJob implements ShouldQueue
      * @param Browse $browseRepository
      *
      * @return array
+     *
+     * @throws \Exception
      */
     public function handle(Item $itemRepository, Browse $browseRepository): array
     {
