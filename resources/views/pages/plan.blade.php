@@ -7,14 +7,18 @@
 
   <h2 class="uk-heading-divider">プラン</h2>
 
+  <div class="uk-alert-warning" uk-alert>
+    <p>フリーとエンタープライズ以外は終了しました。</p>
+  </div>
+
   <table class="uk-table uk-table-striped uk-table-hover uk-table-divider">
     <caption></caption>
     <thead>
     <tr class="uk-text-nowrap">
       <th></th>
       <th><strong>フリー</strong></th>
-      <th><strong>パーソナル</strong></th>
-      <th><strong>ビジネス</strong></th>
+      <th><strong><del>パーソナル</del></strong></th>
+      <th><strong><del>ビジネス</del></strong></th>
       <th><strong>エンタープライズ</strong></th>
     </tr>
     </thead>
@@ -22,8 +26,8 @@
     <tr>
       <th><strong>料金（月額）</strong></th>
       <td>無料</td>
-      <td>1,000円</td>
-      <td>10,000円</td>
+      <td></td>
+      <td></td>
       <td>未定</td>
     </tr>
 
@@ -87,7 +91,7 @@
 
     <tr>
       <th><strong>自社サーバーでの運営</strong><br>
-        AWS(EC2+RDS)のみ対応。
+        AWS(EC2+RDS)推奨。
       </th>
       <td><span uk-icon="icon: close"></span></td>
       <td><span uk-icon="icon: close"></span></td>
@@ -106,60 +110,27 @@
     <tr>
       <th><strong>支払い方法</strong></th>
       <td><span uk-icon="icon: close"></span></td>
-      <td>Enty/fantia（特典キー入力）</td>
-      <td>Enty/fantia（特典キー入力）</td>
+      <td></td>
+      <td></td>
       <td>チャットワークで問い合わせ</td>
     </tr>
 
     <tr>
       <th><strong>解約方法</strong></th>
       <td><span uk-icon="icon: close"></span></td>
-      <td>Enty/fantiaで停止</td>
-      <td>Enty/fantiaで停止</td>
+      <td></td>
+      <td></td>
       <td>チャットワークで連絡</td>
     </tr>
 
     </tbody>
   </table>
 
-  <div class="uk-section uk-section-muted uk-dark uk-padding">
-    <div class="uk-container">
-      <h3>Enty/fantiaでの支払いについて</h3>
-
-      <ul class="uk-list uk-list-bullet">
-        <li>
-          <a href="https://enty.jp/kawax" target="_blank">https://enty.jp/kawax</a>
-        </li>
-        <li>
-          <a href="https://fantia.jp/kawax" target="_blank">https://fantia.jp/kawax</a>
-        </li>
-      </ul>
-
-      <h4>Enty/fantia を使う理由</h4>
-      <p>お金が関わる機能は色々と大変だから。Enty/fantia なら全部任せられる。他に同じようなことができるサービスがあれば対応します。</p>
-
-      <h4>申し込み方法</h4>
-      <ul class="uk-list uk-list-bullet">
-        <li>Entyもしくはfantiaでプランを選んで申し込む。</li>
-        <li>投稿に特典キーが書かれているので<a href="{{ route('settings.index') }}" rel="nofollow">設定画面</a>から入力する。</li>
-        <li>特典キーは不定期に変更されるので変更されたら再度入力が必要です。</li>
-      </ul>
-
-      <h4>解約方法</h4>
-      <ul class="uk-list uk-list-bullet">
-        <li>Enty/fantia で停止すれば解約となります。</li>
-        <li>特典キーが変更されるまではそのまま使えます。</li>
-      </ul>
-    </div>
-  </div>
-
   <div class="uk-section uk-section-primary uk-light uk-padding">
     <div class="uk-container">
       <h2>エンタープライズプラン</h2>
 
       <p>当サイトと全く同じサービスを自社サーバーで運営できます。</p>
-
-      <p>（元々は、数社から同じような開発依頼があって費用を分担する形で始めたもの）</p>
 
       <h4>メリット</h4>
       <ul class="uk-list uk-list-bullet">

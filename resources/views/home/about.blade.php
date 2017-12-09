@@ -30,19 +30,7 @@
     <li>ウォッチリストのアイテムの更新と変動チェックの間隔を短く。</li>
     <li>非公開設定なのでログインしないと見られない。</li>
     <li>自社サーバーで動かせば必要な機能だけ選んで運営できる。</li>
-    <li>特典キーは同じものが使える。fantiaで無料チケットを用意したので試用にどうぞ。</li>
   </ul>
-
-  <h4>fantia無料チケット</h4>
-  <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
-    <ul class="uk-list">
-      <li><a href="https://fantia.jp/kawax" target="_blank">https://fantia.jp/kawax</a></li>
-      <li>■利用できるプラン：ABSビジネスプラン(月額10000円)</li>
-      <li>■チケットコード：<strong>0D0343C3</strong></li>
-      <li>■無料期間：1ヶ月(入会月も含む)</li>
-      <li>■コード入力期限: 2017/12/31 23:59まで</li>
-    </ul>
-  </div>
 
   <h4>システム</h4>
   <ul class="uk-list uk-list-bullet">
