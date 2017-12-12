@@ -63,7 +63,7 @@ class JanToAsinJob implements ShouldQueue
 
         //        info(count($items));
 
-        if (count($items) === 0) {
+        if (empty($items) or count($items) === 0) {
             return;
         }
 
