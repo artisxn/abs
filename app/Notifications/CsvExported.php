@@ -88,9 +88,7 @@ class CsvExported extends Notification implements ShouldQueue
      */
     public function toWebPush($notifiable, $notification)
     {
-        return WebPushMessage::create()
-                             ->id($notification->id)
-                             ->title($this->title)
-                             ->body('CSVの準備ができました。');
+        return (new WebPushMessage)->title($this->title)
+                                   ->body('CSVの準備ができました。');
     }
 }

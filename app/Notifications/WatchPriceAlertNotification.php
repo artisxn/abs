@@ -123,11 +123,8 @@ class WatchPriceAlertNotification extends Notification implements ShouldQueue
      */
     public function toWebPush($notifiable, $notification)
     {
-        return WebPushMessage::create()
-                             ->id($notification->id)
-                             ->title($this->post->title)
-                             ->icon($this->post->image)
-                             ->body($this->post->body)//                             ->action('View app', 'view_app')
-            ;
+        return (new WebPushMessage)->title($this->post->title)
+                                   ->icon($this->post->image)
+                                   ->body($this->post->body);
     }
 }
