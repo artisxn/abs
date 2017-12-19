@@ -29,7 +29,7 @@
         "revolution/laravel-notification-mastodon": "^1.0",
         "revolution/socialite-amazon": "^1.0",
         "tcg/voyager": "^1.0",
-        "torann/json-ld": "^0.0.10"
+        "torann/json-ld": "0.*"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
