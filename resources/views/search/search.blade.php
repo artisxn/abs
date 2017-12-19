@@ -8,7 +8,7 @@
 
   <h1 class="uk-heading-divider">{{ $keyword }} ({{ $TotalResults or 0 }} 件)</h1>
 
-  @if(count($items) > 0)
+  @if(filled($items) and count($items) > 0)
     @foreach($items as $item)
       @include('browse.item')
     @endforeach
@@ -31,7 +31,7 @@
       <p>見つかりませんでした。しばらくしてからもう一度検索してください。
       </p>
     </div>
-    
+
     @if($page >= 5 and !empty(session('MoreSearchResultsUrl')))
       <div class="uk-alert-danger" uk-alert>
         <p>

@@ -15,7 +15,7 @@
   @include('browse.new-nav')
 
 
-  @if(count($browse_items) > 0)
+  @if(filled($browse_items) and count($browse_items) > 0)
     @foreach($browse_items as $item)
       @include('browse.item')
     @endforeach
