@@ -50,24 +50,17 @@ class SearchJob implements ShouldQueue
      */
     public function handle()
     {
-        info('Search: ' . $this->keyword);
+        //        info('Search: ' . $this->keyword);
 
         $page = $this->page;
 
-        //        $results = retry(3, function () {
-        //            return AmazonProduct::search($this->category, $this->keyword, $this->page);
-        //        }, 5000);
-
-        //        $results = rescue(function () {
-        //            return AmazonProduct::search($this->category, $this->keyword, $this->page);
-        //        });
-
-        \Redis::throttle('amazon-api-search')->allow(1)->every(5)->then(function () use (&$results) {
+        \Redis::throttle('amazon-api-search')->allow(1)->every(3)->then(function () use (&$results) {
             $results = rescue(function () {
                 return AmazonProduct::search($this->category, $this->keyword, $this->page);
             });
         }, function () {
-            //            info('Amazon API Throttle: Search');
+            info('Amazon API Throttle: Search ' . $this->keyword);
+
             return [];
         });
 
@@ -82,17 +75,14 @@ class SearchJob implements ShouldQueue
             $items = array_get($item, 'Item');
         }
 
+        $items = collect($items);
+
         $TotalPages = array_get($item, 'TotalPages');
 
         $MoreSearchResultsUrl = array_get($item, 'MoreSearchResultsUrl');
         if (!empty($MoreSearchResultsUrl)) {
             session(['MoreSearchResultsUrl' => $MoreSearchResultsUrl]);
         }
-
-        //        if (!empty($items)) {
-        //            $asins = array_pluck($items, 'ASIN');
-        //            GetItemsJob::dispatch($asins);
-        //        }
 
         return compact(
             'items',

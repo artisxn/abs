@@ -95,7 +95,7 @@ class BrowseJob implements ShouldQueue
 
         return [
             'browse_name'  => $browse_name,
-            'browse_items' => $browse_items,
+            'browse_items' => collect($browse_items),
             'browse_id'    => $this->browse_id,
         ];
     }

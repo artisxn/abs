@@ -108,23 +108,9 @@ class GetItemsJob implements ShouldQueue
      */
     public function get()
     {
-        //        $results = retry(3, function () {
-        //            return AmazonProduct::setIdType('ASIN')->items($this->asins);
-        //        }, 5000);
-
-        //        $results = rescue(function () {
-        //            return AmazonProduct::setIdType('ASIN')->items($this->asins);
-        //        });
-
-        //        \Redis::throttle('amazon-api')->allow(1)->every(2)->then(function () use (&$results) {
         $results = rescue(function () {
             return AmazonProduct::setIdType('ASIN')->items($this->asins);
         });
-        //        }, function () {
-        //            info('Amazon API Throttle: Get Items Job');
-        //
-        //            return [];
-        //        });
 
         $items = array_get($results, 'Items.Item');
 

@@ -8,7 +8,7 @@
 
   <h1 class="uk-heading-divider">{{ $keyword }} ({{ $TotalResults or 0 }} 件)</h1>
 
-  @if(filled($items) and count($items) > 0)
+  @if(count($items) > 0)
     @foreach($items as $item)
       @include('browse.item')
     @endforeach

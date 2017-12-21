@@ -18,8 +18,17 @@ class BrowseController extends Controller
      */
     public function __invoke(string $browse)
     {
-        $browse_items = dispatch_now(new BrowseJob($browse));
+        $browse_data = dispatch_now(new BrowseJob($browse));
 
-        return view('browse.index')->with($browse_items);
+        /**
+         * $browse_data は array なのでそのまま渡す
+         * [
+         * 'browse_name'  => $browse_name,
+         * 'browse_items' => collect($browse_items),
+         * 'browse_id'    => $this->browse_id,
+         * ];
+         */
+
+        return view('browse.index')->with($browse_data);
     }
 }
