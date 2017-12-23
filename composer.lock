@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "242a4872658e0d709e0bbc373748c21f",
+    "content-hash": "45e9af4660b9624631e264b7e4bb5655",
     "packages": [
         {
             "name": "appstract/laravel-blade-directives",
@@ -1195,73 +1195,6 @@
                 "parser"
             ],
             "time": "2014-09-09T13:34:57+00:00"
-        },
-        {
-            "name": "e2kaneko/laravel-chatwork-notifications",
-            "version": "dev-patch",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/kawax/laravel-chatwork-notification.git",
-                "reference": "bc4d770f28e44feaf82e2fb29835d8c76cbcd335"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-chatwork-notification/zipball/bc4d770f28e44feaf82e2fb29835d8c76cbcd335",
-                "reference": "bc4d770f28e44feaf82e2fb29835d8c76cbcd335",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "~6.0",
-                "illuminate/notifications": "^5.3",
-                "illuminate/support": "^5.3",
-                "php": ">=5.6.4"
-            },
-            "require-dev": {
-                "mockery/mockery": "^0.9.5",
-                "orchestra/database": "3.3.x-dev",
-                "orchestra/testbench": "3.3.x-dev",
-                "phpunit/phpunit": "4.*"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "NotificationChannels\\Chatwork\\ChatworkServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "NotificationChannels\\Chatwork\\": "src"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "NotificationChannels\\Chatwork\\Test\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tomohiro Kaneko",
-                    "email": "kaneko@e2info.com",
-                    "homepage": "https://www.e2info.co.jp/",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Chatwork notifications channel for Laravel.",
-            "homepage": "https://github.com/e2kaneko/laravel-chatwork-notification/",
-            "support": {
-                "source": "https://github.com/kawax/laravel-chatwork-notification/tree/patch"
-            },
-            "time": "2017-09-23T08:51:38+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -3640,6 +3573,64 @@
             "time": "2017-11-11T09:00:27+00:00"
         },
         {
+            "name": "revolution/laravel-notification-chatwork",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kawax/laravel-notification-chatwork.git",
+                "reference": "a835e2caf59f69b22449e46b6e6cac82d4d10626"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kawax/laravel-notification-chatwork/zipball/a835e2caf59f69b22449e46b6e6cac82d4d10626",
+                "reference": "a835e2caf59f69b22449e46b6e6cac82d4d10626",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "~6.0",
+                "illuminate/notifications": "5.*",
+                "illuminate/support": "5.*",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "orchestra/database": "^3.5",
+                "orchestra/testbench": "^3.5",
+                "phpunit/phpunit": "^6.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Revolution\\NotificationChannels\\Chatwork\\ChatworkServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Revolution\\NotificationChannels\\Chatwork\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "kawax",
+                    "email": "kawaxbiz@gmail.com"
+                }
+            ],
+            "description": "Chatwork notifications channel for Laravel. (v2)",
+            "homepage": "https://github.com/kawax/laravel-notification-chatwork/",
+            "keywords": [
+                "chatwork",
+                "laravel",
+                "notification"
+            ],
+            "time": "2017-12-23T02:04:49+00:00"
+        },
+        {
             "name": "revolution/laravel-notification-mastodon",
             "version": "1.1.1",
             "source": {
@@ -5217,16 +5208,16 @@
         },
         {
             "name": "tcg/voyager",
-            "version": "v1.0.9",
+            "version": "v1.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/the-control-group/voyager.git",
-                "reference": "62fb624d1fde0a3bbc364619858b5004ec8e991c"
+                "reference": "98361599ad4f80911a951ab9291fbd9e74bad7a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/62fb624d1fde0a3bbc364619858b5004ec8e991c",
-                "reference": "62fb624d1fde0a3bbc364619858b5004ec8e991c",
+                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/98361599ad4f80911a951ab9291fbd9e74bad7a4",
+                "reference": "98361599ad4f80911a951ab9291fbd9e74bad7a4",
                 "shasum": ""
             },
             "require": {
@@ -5279,7 +5270,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2017-12-07T18:33:31+00:00"
+            "time": "2017-12-22T20:55:20+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -6609,16 +6600,16 @@
         },
         {
             "name": "sebastian/comparator",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "1174d9018191e93cb9d719edec01257fc05f8158"
+                "reference": "b11c729f95109b56a0fe9650c6a63a0fcd8c439f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/1174d9018191e93cb9d719edec01257fc05f8158",
-                "reference": "1174d9018191e93cb9d719edec01257fc05f8158",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/b11c729f95109b56a0fe9650c6a63a0fcd8c439f",
+                "reference": "b11c729f95109b56a0fe9650c6a63a0fcd8c439f",
                 "shasum": ""
             },
             "require": {
@@ -6669,7 +6660,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2017-11-03T07:16:52+00:00"
+            "time": "2017-12-22T14:50:35+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -7413,9 +7404,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "e2kaneko/laravel-chatwork-notifications": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

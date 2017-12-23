@@ -6,8 +6,8 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-use NotificationChannels\Chatwork\ChatworkInformation;
-use NotificationChannels\Chatwork\ChatworkChannel;
+use Revolution\NotificationChannels\Chatwork\ChatworkInformation;
+use Revolution\NotificationChannels\Chatwork\ChatworkChannel;
 
 class InfoNotification extends Notification
 {
