@@ -3574,16 +3574,16 @@
         },
         {
             "name": "revolution/laravel-notification-chatwork",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-notification-chatwork.git",
-                "reference": "a835e2caf59f69b22449e46b6e6cac82d4d10626"
+                "reference": "10b7757e07679c3a9d14d6440d5155f116c9d21e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-notification-chatwork/zipball/a835e2caf59f69b22449e46b6e6cac82d4d10626",
-                "reference": "a835e2caf59f69b22449e46b6e6cac82d4d10626",
+                "url": "https://api.github.com/repos/kawax/laravel-notification-chatwork/zipball/10b7757e07679c3a9d14d6440d5155f116c9d21e",
+                "reference": "10b7757e07679c3a9d14d6440d5155f116c9d21e",
                 "shasum": ""
             },
             "require": {
@@ -3628,7 +3628,7 @@
                 "laravel",
                 "notification"
             ],
-            "time": "2017-12-23T02:04:49+00:00"
+            "time": "2017-12-23T06:13:54+00:00"
         },
         {
             "name": "revolution/laravel-notification-mastodon",
