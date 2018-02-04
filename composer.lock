@@ -1897,16 +1897,16 @@
         },
         {
             "name": "larapack/hooks",
-            "version": "v1.0.7",
+            "version": "v1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/larapack/hooks.git",
-                "reference": "779ad2a35a70ad9ab76a30628f3a9bbe0a8f2013"
+                "reference": "a3d84cbd6c13e0bedede6d560026f474aa5c7995"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larapack/hooks/zipball/779ad2a35a70ad9ab76a30628f3a9bbe0a8f2013",
-                "reference": "779ad2a35a70ad9ab76a30628f3a9bbe0a8f2013",
+                "url": "https://api.github.com/repos/larapack/hooks/zipball/a3d84cbd6c13e0bedede6d560026f474aa5c7995",
+                "reference": "a3d84cbd6c13e0bedede6d560026f474aa5c7995",
                 "shasum": ""
             },
             "require": {
@@ -1938,7 +1938,7 @@
                 "hooks",
                 "laravel"
             ],
-            "time": "2018-01-25T08:50:54+00:00"
+            "time": "2018-02-02T13:17:22+00:00"
         },
         {
             "name": "larapack/voyager-hooks",
