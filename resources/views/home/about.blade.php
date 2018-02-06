@@ -24,7 +24,7 @@
 
   <h4>カスタマイズ版の例</h4>
   <ul class="uk-list uk-list-bullet">
-    <li><a href="https://abs-alert.kawax.biz/" target="_blank" rel="nofollow">https://abs-alert.kawax.biz/</a></li>
+    <li><a href="https://abs-alert.kawax.biz/" target="_blank" rel="nofollow noopener">https://abs-alert.kawax.biz/</a></li>
     <li>通知を優先した設定。</li>
     <li>ウォッチリストのアイテムの更新と変動チェックの間隔を短く。</li>
     <li>非公開設定なのでログインしないと見られない。</li>
