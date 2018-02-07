@@ -3,7 +3,7 @@
     <span>価格変動チェック</span>
   </h2>
 
-  <p>最低新品価格が20%以上増減したアイテム</p>
+  <p>最低新品価格が一定割合増減したアイテム</p>
 
   @feature('mastodon')
   <p>他の通知先：<a href="https://twitter.com/a_b_s_alert" target="_blank">Twitter</a>

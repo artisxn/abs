@@ -68,13 +68,13 @@ class PriceCheckJob implements ShouldQueue
 
         $price_move = $price_today / $price_yesterday;
 
-        //40%以上アップ
+        //アップ
         if ($price_move >= 1.4) {
             $slug = 'up_' . $this->item->asin;
             $category_id = config('amazon.price_alert.up');
         }
 
-        //40%以上ダウン
+        //ダウン
         if ($price_move <= 0.6) {
             $slug = 'down_' . $this->item->asin;
             $category_id = config('amazon.price_alert.down');
