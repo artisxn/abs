@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Pagination\Paginator;
 
 use Horizon;
 
@@ -31,6 +32,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('feature', function ($feature) {
             return config('feature.' . $feature);
         });
+
+        Paginator::defaultView('vendor.pagination.default');
     }
 
     /**
