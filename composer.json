@@ -8,27 +8,26 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=7.1.0",
+        "php": ">=7.1.3",
         "appstract/laravel-blade-directives": "^0.7",
         "barryvdh/laravel-debugbar": "^3.1",
         "barryvdh/laravel-ide-helper": "^2.4",
         "doctrine/dbal": "^2.6",
         "revolution/laravel-notification-chatwork": "^2.0",
         "fabpot/goutte": "^3.2",
-        "fideloper/proxy": "~3.3",
+        "fideloper/proxy": "~4.0",
         "laravel-notification-channels/webpush": "^3.0",
-        "laravel/framework": "5.5.*",
+        "laravel/framework": "5.6.*",
         "laravel/horizon": "^1.0",
-        "laravelcollective/html": "5.5.*",
+        "laravelcollective/html": "5.6.*",
         "league/csv": "^9.0",
-        "morrislaptop/laravel-queue-clear": "^1.1",
         "overtrue/laravel-lang": "~3.0",
         "predis/predis": "^1.1",
         "revolution/laravel-amazon-product-api": "^0.4",
         "revolution/laravel-mastodon-api": "^1.3",
         "revolution/laravel-notification-mastodon": "^1.0",
         "revolution/socialite-amazon": "^1.0",
-        "tcg/voyager": "^1.0",
+        "tcg/voyager": "dev-1.x-dev",
         "torann/json-ld": "0.*"
     },
     "require-dev": {
@@ -36,7 +35,8 @@
         "fzaninotto/faker": "~1.4",
         "laravel/homestead": "^7.0",
         "mockery/mockery": "^1.0",
-        "phpunit/phpunit": "~6.0",
+        "nunomaduro/collision": "~1.1",
+        "phpunit/phpunit": "~7.0",
         "wnx/laravel-stats": "^1.0"
     },
     "autoload": {
@@ -49,9 +49,6 @@
         ],
         "psr-4": {
             "App\\": "app/"
-        },
-        "psr-0": {
-            "MarketplaceWebServiceProducts_": "lib/amazon-mws-api/src/MarketplaceWebServiceProducts"
         }
     },
     "autoload-dev": {
