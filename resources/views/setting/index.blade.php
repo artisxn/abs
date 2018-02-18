@@ -50,7 +50,7 @@
           <label>
             {{ Form::checkbox('notify_mail', 1, request()->user()->notify_mail, ['class' => 'uk-checkbox']) }}
           </label>
-          <small class="uk-text-muted">送信先はAmazonアカウントのメールアドレス。パーソナルプラン以上のみ対応。</small>
+          <small class="uk-text-muted">送信先はAmazonアカウントのメールアドレス。<del>パーソナルプラン以上のみ対応。</del></small>
         </div>
       </div>
       @endfeature
