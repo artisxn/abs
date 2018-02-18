@@ -40,7 +40,8 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('notify-mail', function (User $user) {
-            return $user->plan() !== 'free';
+            return true;
+            //            return $user->plan() !== 'free';
         });
     }
 }
