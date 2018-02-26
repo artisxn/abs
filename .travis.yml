@@ -2,7 +2,7 @@ sudo: false
 language: php
 
 php:
-- 7.1
+- 7.2
 
 before_script:
   - phpenv config-rm xdebug.ini || true
@@ -21,4 +21,5 @@ script:
 
 after_success:
    - curl -s "$FORGE";
+   - curl -s "$FORGE2";
    #- curl -s "$FORGE_A";
