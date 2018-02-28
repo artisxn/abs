@@ -2094,16 +2094,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.6.5",
+            "version": "v5.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "2e68209991e15aca1382ef9a3443d13f2e0d8755"
+                "reference": "d9bf9d0e103ec536e6c459f3f5400bf6b132bb2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/2e68209991e15aca1382ef9a3443d13f2e0d8755",
-                "reference": "2e68209991e15aca1382ef9a3443d13f2e0d8755",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/d9bf9d0e103ec536e6c459f3f5400bf6b132bb2f",
+                "reference": "d9bf9d0e103ec536e6c459f3f5400bf6b132bb2f",
                 "shasum": ""
             },
             "require": {
@@ -2225,7 +2225,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-02-22T19:21:38+00:00"
+            "time": "2018-02-27T14:02:09+00:00"
         },
         {
             "name": "laravel/horizon",
@@ -5168,12 +5168,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/the-control-group/voyager.git",
-                "reference": "161c77c077f9bf0e8cae22f17ced6ebbefeca89e"
+                "reference": "2e3e201345927d8fcd2a56a2836a208e07723958"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/161c77c077f9bf0e8cae22f17ced6ebbefeca89e",
-                "reference": "161c77c077f9bf0e8cae22f17ced6ebbefeca89e",
+                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/2e3e201345927d8fcd2a56a2836a208e07723958",
+                "reference": "2e3e201345927d8fcd2a56a2836a208e07723958",
                 "shasum": ""
             },
             "require": {
@@ -5226,7 +5226,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2018-02-25T01:24:22+00:00"
+            "time": "2018-02-26T14:50:24+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
