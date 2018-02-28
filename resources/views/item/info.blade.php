@@ -8,6 +8,10 @@
       </a>
     </li>
 
+    <li>
+      JAN/EAN : {{ array_get($item, 'ItemAttributes.EAN') }}
+    </li>
+
     @php
       $publishers = array_get($item, 'ItemAttributes.Publisher');
       if(is_array($publishers)){
