@@ -7,7 +7,7 @@
 
     <form action="{{ route('watch.asin.store') }}" method="POST">
       {{ csrf_field() }}
-      <input type="hidden" name="asin" value="{{ array_get($item, 'ASIN') }}">
+      <input type="hidden" name="asin" value="{{ data_get($item, 'ASIN') }}">
       <button class="uk-button uk-button-primary">
         <span uk-icon="icon: star"></span>
         ASINウォッチリストに追加
@@ -20,8 +20,8 @@
       <button class="uk-button uk-button-danger">ASINウォッチリストから削除</button>
     </form>
   @endunless
-  @else
+@else
 
-    @include('watch.amazon')
+  @include('watch.amazon')
 
-    @endauth
+@endauth

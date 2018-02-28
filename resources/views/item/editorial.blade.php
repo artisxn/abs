@@ -1,5 +1,5 @@
 @php
-  $reviews = array_get($item, 'EditorialReviews.EditorialReview', []);
+  $reviews = data_get($item, 'EditorialReviews.EditorialReview', []);
 @endphp
 
 @if(filled($reviews))

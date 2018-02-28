@@ -1,5 +1,5 @@
 @php
-  $image_sets = array_get($item, 'ImageSets.ImageSet');
+  $image_sets = data_get($item, 'ImageSets.ImageSet');
   if(is_null($image_sets)){
     $image_sets = $asin_item->image_sets->image_sets;
   }

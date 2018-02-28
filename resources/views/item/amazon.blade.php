@@ -1,5 +1,5 @@
 <div class="uk-card-footer">
-  <a href="{{ array_get($item, 'DetailPageURL') }}"
+  <a href="{{ data_get($item, 'DetailPageURL') }}"
      target="_blank"
      rel="nofollow noopener"
      class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom">

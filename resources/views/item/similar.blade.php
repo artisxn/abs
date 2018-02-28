@@ -1,5 +1,5 @@
 @php
-  $similar_products = array_get($item, 'SimilarProducts.SimilarProduct');
+  $similar_products = data_get($item, 'SimilarProducts.SimilarProduct');
 @endphp
 
 @if(!empty($similar_products) and count($similar_products) > 0)
@@ -10,8 +10,8 @@
     <ul class="uk-list uk-list-bullet">
       @foreach($similar_products as $similar)
         <li>
-          <a href="{{ route('asin', ['asin' => array_get($similar, 'ASIN')]) }}">
-            {{ array_get($similar, 'Title') }}
+          <a href="{{ route('asin', ['asin' => data_get($similar, 'ASIN')]) }}">
+            {{ data_get($similar, 'Title') }}
           </a>
         </li>
       @endforeach

@@ -1,5 +1,5 @@
 @php
-  $features = array_get($item, 'ItemAttributes.Feature', []);
+  $features = data_get($item, 'ItemAttributes.Feature', []);
   $features = array_wrap($features);
 @endphp
 
