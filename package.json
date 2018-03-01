@@ -13,7 +13,7 @@
     "ide-helper:models": "php artisan ide-helper:models -N"
   },
   "devDependencies": {
-    "axios": "^0.17.1",
+    "axios": "^0.18",
     "chart.js": "^2.7.1",
     "cross-env": "^5.1.3",
     "font-awesome": "^4.7.0",
