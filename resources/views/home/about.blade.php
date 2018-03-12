@@ -38,9 +38,9 @@
   データベースは20GB近くまでのデータ量になってるのでそろそろ古いデータは削除していくような調整が必要かも。
 
   <ul class="uk-list uk-list-bullet">
-    <li>ASINカウント : {{ $items_count or '0' }}</li>
-    <li>履歴カウント : {{ $histories_count or '0' }}</li>
-    <li>カテゴリーカウント : {{ $browses_count or '0' }}</li>
+    <li>ASINカウント : {{ number_format($items_count) }}</li>
+    <li>履歴カウント : {{ number_format($histories_count) }}</li>
+    <li>カテゴリーカウント : {{ number_format($browses_count) }}</li>
   </ul>
 
   <h4>システム</h4>

@@ -17,7 +17,7 @@ class HistoryCountViewComposer
      */
     public function compose(View $view)
     {
-        $histories_count = cache()->get('histories_count');
+        $histories_count = cache('histories_count', '0');
 
         $view->with(compact('histories_count'));
     }

@@ -17,7 +17,7 @@ class RecentItemViewComposer
      */
     public function compose(View $view)
     {
-        $recent_items = cache()->get('recent_items');
+        $recent_items = cache('recent_items');
 
         $view->with(compact('recent_items'));
     }

@@ -17,7 +17,7 @@ class BrowseCountViewComposer
      */
     public function compose(View $view)
     {
-        $browses_count = cache()->get('browses_count');
+        $browses_count = cache('browses_count', '0');
 
         $view->with(compact('browses_count'));
     }

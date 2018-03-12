@@ -17,7 +17,7 @@ class RandomBrowseViewComposer
      */
     public function compose(View $view)
     {
-        $browse_items = cache()->get('random_items');
+        $browse_items = cache('random_items');
 
         $view->with($browse_items);
     }

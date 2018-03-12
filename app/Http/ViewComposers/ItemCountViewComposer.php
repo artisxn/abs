@@ -7,15 +7,13 @@ use Illuminate\View\View;
 class ItemCountViewComposer
 {
     /**
-     * データをビューと結合
+     * @param View $view
      *
-     * @param  View $view
-     *
-     * @return void
+     * @throws \Exception
      */
     public function compose(View $view)
     {
-        $items_count = cache()->get('items_count');
+        $items_count = cache('items_count', '0');
 
         $view->with(compact('items_count'));
     }
