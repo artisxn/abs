@@ -41,6 +41,7 @@
     <li>ASINカウント : {{ number_format($items_count) }}</li>
     <li>履歴カウント : {{ number_format($histories_count) }}</li>
     <li>カテゴリーカウント : {{ number_format($browses_count) }}</li>
+    <li>ユーザーカウント : {{ number_format($user_count) }}</li>
   </ul>
 
   <h4>システム</h4>
