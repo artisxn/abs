@@ -26,11 +26,21 @@
 
   <h4>カスタマイズ版の例</h4>
   <ul class="uk-list uk-list-bullet">
-    <li><a href="https://abs-alert.kawax.biz/" target="_blank" rel="nofollow noopener">https://abs-alert.kawax.biz/</a></li>
+    <li><a href="https://abs-alert.kawax.biz/" target="_blank" rel="nofollow noopener">https://abs-alert.kawax.biz/</a>
+    </li>
     <li>通知を優先した設定。</li>
     <li>ウォッチリストのアイテムの更新と変動チェックの間隔を短く。</li>
     <li>非公開設定なのでログインしないと見られない。</li>
     <li>自社サーバーで動かせば必要な機能だけ選んで運営できる。</li>
+  </ul>
+
+  <h4>データ</h4>
+  データベースは20GB近くまでのデータ量になってるのでそろそろ古いデータは削除していくような調整が必要かも。
+
+  <ul class="uk-list uk-list-bullet">
+    <li>ASINカウント : {{ $items_count or '0' }}</li>
+    <li>履歴カウント : {{ $histories_count or '0' }}</li>
+    <li>カテゴリーカウント : {{ $browses_count or '0' }}</li>
   </ul>
 
   <h4>システム</h4>

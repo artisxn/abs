@@ -61,19 +61,20 @@
         },
         {
             "name": "arrilot/laravel-widgets",
-            "version": "3.9.0",
+            "version": "3.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/arrilot/laravel-widgets.git",
-                "reference": "83f7a95f8bf77e4b10f51e71560e78dbf2af7407"
+                "reference": "1c4b9f17a18784b1c08401bf861547cb585cb213"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arrilot/laravel-widgets/zipball/83f7a95f8bf77e4b10f51e71560e78dbf2af7407",
-                "reference": "83f7a95f8bf77e4b10f51e71560e78dbf2af7407",
+                "url": "https://api.github.com/repos/arrilot/laravel-widgets/zipball/1c4b9f17a18784b1c08401bf861547cb585cb213",
+                "reference": "1c4b9f17a18784b1c08401bf861547cb585cb213",
                 "shasum": ""
             },
             "require": {
+                "illuminate/cache": ">=5.1",
                 "illuminate/console": ">=5.1",
                 "illuminate/container": ">=5.1",
                 "illuminate/contracts": ">=5.1",
@@ -118,7 +119,7 @@
                 "laravel",
                 "widgets"
             ],
-            "time": "2017-11-23T21:18:07+00:00"
+            "time": "2018-03-10T17:34:53+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",

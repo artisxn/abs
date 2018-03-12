@@ -34,11 +34,11 @@ class ViewComposerServiceProvider extends ServiceProvider
 
         View::composer('home.index', RecentItemViewComposer::class);
 
-        View::composer('pages.usage', BrowseCountViewComposer::class);
+        View::composer('home.index', BrowseCountViewComposer::class);
 
-        View::composer('pages.usage', ItemCountViewComposer::class);
+        View::composer('home.index', ItemCountViewComposer::class);
 
-        View::composer('pages.usage', HistoryCountViewComposer::class);
+        View::composer('home.index', HistoryCountViewComposer::class);
 
         View::composer(['watch.index', 'watch.asin.index'], AsinWatchViewComposer::class);
 
