@@ -80,39 +80,43 @@ class PriceCheckJob implements ShouldQueue
             $category_id = config('amazon.price_alert.down');
         }
 
-        if (filled($slug)) {
-            //Postに追加
-            /**
-             * @var Post $post
-             */
-            $post = Post::updateOrCreate([
-                'slug' => $slug,
-            ], [
-                'category_id' => $category_id,
-                'title'       => $this->item->title,
-                'body'        => $price_yesterday . '円 => ' . $price_today . '円',
-                'excerpt'     => $this->item->asin,
-                'slug'        => $slug,
-                'image'       => $this->item->large_image,
-                'status'      => Post::PUBLISHED,
-            ]);
+        if (blank($slug)) {
+            return;
+        }
 
-            if ($post->wasRecentlyCreated) {
-                if ($this->item->users()->count() > 0) {
-                    //ウォッチリスト版通知
-                    $post->fill(['author_id' => 0])->save();
+        //Postに追加
+        /**
+         * @var Post $post
+         */
+        $post = Post::updateOrCreate([
+            'slug' => $slug,
+        ], [
+            'category_id' => $category_id,
+            'title'       => $this->item->title,
+            'body'        => $price_yesterday . '円 => ' . $price_today . '円',
+            'excerpt'     => $this->item->asin,
+            'slug'        => $slug,
+            'image'       => $this->item->large_image,
+            'status'      => Post::PUBLISHED,
+        ]);
 
-                    Notification::send(
-                        $this->item->users()->get(),
-                        new WatchPriceAlertNotification($post)
-                    );
-                } else {
-                    //ホーム版通知
-                    $post->fill(['author_id' => 1])->save();
+        if (!$post->wasRecentlyCreated) {
+            return;
+        }
 
-                    $post->notify(new PriceAlertNotification());
-                }
-            }
+        if ($this->item->users()->count() > 0) {
+            //ウォッチリスト版通知
+            $post->fill(['author_id' => 0])->save();
+
+            Notification::send(
+                $this->item->users()->get(),
+                new WatchPriceAlertNotification($post)
+            );
+        } else {
+            //ホーム版通知
+            $post->fill(['author_id' => 1])->save();
+
+            $post->notify(new PriceAlertNotification());
         }
     }
 }
