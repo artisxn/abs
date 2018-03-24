@@ -8,7 +8,7 @@
   <h2 class="uk-heading-divider">プラン</h2>
 
   <div class="uk-alert-warning" uk-alert>
-    <p>フリーとエンタープライズ以外は終了しました。</p>
+    <p>ビジネスは終了しました。</p>
   </div>
 
   <table class="uk-table uk-table-striped uk-table-hover uk-table-divider">
@@ -17,8 +17,10 @@
     <tr class="uk-text-nowrap">
       <th></th>
       <th><strong>フリー</strong></th>
-      <th><strong><del>パーソナル</del></strong></th>
-      <th><strong><del>ビジネス</del></strong></th>
+      <th><strong>パーソナル</strong></th>
+      <th><strong>
+          <del>ビジネス</del>
+        </strong></th>
       <th><strong>エンタープライズ</strong></th>
     </tr>
     </thead>
@@ -26,7 +28,7 @@
     <tr>
       <th><strong>料金（月額）</strong></th>
       <td>無料</td>
-      <td></td>
+      <td>500円</td>
       <td></td>
       <td>10万円〜</td>
     </tr>
@@ -40,7 +42,7 @@
     </tr>
 
     <tr>
-      <th><strong>変動チェックをメール通知</strong></th>
+      <th><strong>ウォッチリストの変動チェックをメール通知</strong></th>
       <td><span uk-icon="icon: close"></span></td>
       <td><span uk-icon="icon: check"></span></td>
       <td><span uk-icon="icon: check"></span></td>
@@ -50,7 +52,7 @@
     <tr>
       <th><strong>CSVダウンロード件数</strong></th>
       <td>100</td>
-      <td>10,000</td>
+      <td>無制限</td>
       <td>無制限</td>
       <td>無制限</td>
     </tr>
@@ -58,7 +60,7 @@
     <tr>
       <th><strong>ASIN/JAN(EAN)リストのCSVインポート</strong></th>
       <td><span uk-icon="icon: close"></span></td>
-      <td><span uk-icon="icon: close"></span></td>
+      <td><span uk-icon="icon: check"></span></td>
       <td><span uk-icon="icon: check"></span></td>
       <td><span uk-icon="icon: check"></span></td>
     </tr>
@@ -68,7 +70,7 @@
         カテゴリーIDや件数を指定してのCSVダウンロード
       </th>
       <td><span uk-icon="icon: close"></span></td>
-      <td><span uk-icon="icon: close"></span></td>
+      <td><span uk-icon="icon: check"></span></td>
       <td><span uk-icon="icon: check"></span></td>
       <td><span uk-icon="icon: check"></span></td>
     </tr>
@@ -110,7 +112,7 @@
     <tr>
       <th><strong>支払い方法</strong></th>
       <td><span uk-icon="icon: close"></span></td>
-      <td></td>
+      <td>fantia</td>
       <td></td>
       <td>チャットワークで問い合わせ</td>
     </tr>
@@ -125,6 +127,8 @@
 
     </tbody>
   </table>
+
+  @include('pages.plan_pay')
 
   <div class="uk-section uk-section-primary uk-light uk-padding">
     <div class="uk-container">

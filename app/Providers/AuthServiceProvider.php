@@ -28,15 +28,15 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('export', function (User $user) {
-            return $user->isAdmin() or $user->plan() === 'business';
+            return $user->isAdmin() or $user->plan() === 'personal';
         });
 
         Gate::define('csv-import', function (User $user) {
-            return $user->isAdmin() or $user->plan() === 'business';
+            return $user->isAdmin() or $user->plan() === 'personal';
         });
 
         Gate::define('admin-voyager', function (User $user) {
-            return $user->isAdmin();// and session('guest_login') == false;
+            return $user->isAdmin();
         });
 
         Gate::define('notify-mail', function (User $user) {

@@ -33,8 +33,6 @@
           <input name="special_key" value="{{ request()->user()->special_key }}" class="uk-input" type="text"
                  placeholder="特典キー">
           <small class="uk-text-muted">
-            <a href="https://enty.jp/kawax" target="_blank">Enty</a>
-            /
             <a href="https://fantia.jp/kawax" target="_blank">fantia</a>
             の支援特典。キーは不定期に変更されます。
           </small>
@@ -50,7 +48,9 @@
           <label>
             {{ Form::checkbox('notify_mail', 1, request()->user()->notify_mail, ['class' => 'uk-checkbox']) }}
           </label>
-          <small class="uk-text-muted">送信先はAmazonアカウントのメールアドレス。<del>パーソナルプラン以上のみ対応。</del></small>
+          <small class="uk-text-muted">送信先はAmazonアカウントのメールアドレス。
+            <del>パーソナルプラン以上のみ対応。</del>
+          </small>
         </div>
       </div>
       @endfeature
