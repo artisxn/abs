@@ -107,7 +107,6 @@ class ExportCategoryJob implements ShouldQueue
             Storage::put($path . $file_name, $writer->getContent());
 
             $this->user->notify(new CsvExported('CSVダウンロード(カテゴリー)', $file_name));
-
         } catch (Exception $e) {
             logger()->error($e->getMessage());
         }

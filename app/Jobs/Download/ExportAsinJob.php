@@ -77,7 +77,6 @@ class ExportAsinJob implements ShouldQueue
             Storage::put($path . $file_name, $writer->getContent());
 
             $this->user->notify(new CsvExported('CSVダウンロード(ASIN)', $file_name));
-
         } catch (Exception $e) {
             logger()->error($e->getMessage());
         }
