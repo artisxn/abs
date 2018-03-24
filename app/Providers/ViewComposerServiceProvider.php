@@ -7,10 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
 use App\Http\ViewComposers\RandomBrowseViewComposer;
-use App\Http\ViewComposers\ItemCountViewComposer;
-use App\Http\ViewComposers\HistoryCountViewComposer;
-use App\Http\ViewComposers\BrowseCountViewComposer;
-use App\Http\ViewComposers\UserCountViewComposer;
+use App\Http\ViewComposers\CountViewComposer;
 use App\Http\ViewComposers\RecentItemViewComposer;
 use App\Http\ViewComposers\PickupViewComposer;
 use App\Http\ViewComposers\PriceAlertViewComposer;
@@ -35,13 +32,7 @@ class ViewComposerServiceProvider extends ServiceProvider
 
         View::composer('home.index', RecentItemViewComposer::class);
 
-        View::composer('home.index', BrowseCountViewComposer::class);
-
-        View::composer('home.index', ItemCountViewComposer::class);
-
-        View::composer('home.index', HistoryCountViewComposer::class);
-
-        View::composer('home.index', UserCountViewComposer::class);
+        View::composer('home.index', CountViewComposer::class);
 
         View::composer(['watch.index', 'watch.asin.index'], AsinWatchViewComposer::class);
 

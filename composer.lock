@@ -2364,16 +2364,16 @@
         },
         {
             "name": "laravelcollective/html",
-            "version": "v5.6.3",
+            "version": "v5.6.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "41cd9291a69bd24f2184e504be041348a87308a8"
+                "reference": "623a150c91e2d3f92eeee9f9eda58a841e3cb548"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/41cd9291a69bd24f2184e504be041348a87308a8",
-                "reference": "41cd9291a69bd24f2184e504be041348a87308a8",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/623a150c91e2d3f92eeee9f9eda58a841e3cb548",
+                "reference": "623a150c91e2d3f92eeee9f9eda58a841e3cb548",
                 "shasum": ""
             },
             "require": {
@@ -2428,7 +2428,7 @@
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "https://laravelcollective.com",
-            "time": "2018-02-12T14:19:42+00:00"
+            "time": "2018-03-16T16:57:31+00:00"
         },
         {
             "name": "league/csv",
@@ -5176,12 +5176,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/the-control-group/voyager.git",
-                "reference": "084a4182b633da3fffeaf369ab2f55e86681577b"
+                "reference": "296349614f58f51c27a613230d9fb40a87784864"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/084a4182b633da3fffeaf369ab2f55e86681577b",
-                "reference": "084a4182b633da3fffeaf369ab2f55e86681577b",
+                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/296349614f58f51c27a613230d9fb40a87784864",
+                "reference": "296349614f58f51c27a613230d9fb40a87784864",
                 "shasum": ""
             },
             "require": {
@@ -5235,7 +5235,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2018-03-21T18:33:13+00:00"
+            "time": "2018-03-22T17:08:17+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

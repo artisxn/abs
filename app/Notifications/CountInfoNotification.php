@@ -62,6 +62,7 @@ class CountInfoNotification extends Notification implements ShouldQueue
             'ASINカウント：' . data_get($this->info, 'items_count'),
             '履歴カウント：' . data_get($this->info, 'histories_count'),
             'カテゴリーカウント：' . data_get($this->info, 'browses_count'),
+            'ユーザーカウント：' . data_get($this->info, 'user_count'),
         ];
 
         return MastodonMessage::create(implode(PHP_EOL, $status))

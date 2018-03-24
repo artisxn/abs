@@ -47,6 +47,7 @@ class Item extends Resource
 
         $offer_summary = $this->offer_summary->offer_summary;
 
+        //config/amazon.phpのcsv_headerと合わせる。
         return [
             $this->asin,
             $this->title,

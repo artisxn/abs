@@ -57,10 +57,15 @@ class CountInfo extends Command
         info('Browse count: ' . $browses_count);
         cache()->forever('browses_count', $browses_count);
 
+        $user_count = User::count('id');
+        info('User count: ' . $user_count);
+        cache()->forever('user_count', $user_count);
+
         User::find(1)->notify(new CountInfoNotification(compact([
                 'items_count',
                 'histories_count',
                 'browses_count',
+                'user_count',
             ]))
         );
     }

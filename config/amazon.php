@@ -21,7 +21,7 @@ return [
      */
     'csv_limit'        => env('CSV_LIMIT', 1000),
 
-    //CSVのヘッダー。ItemResourceと合わせる。
+    //CSVのヘッダー。app/Http/Resources/Csv/Itemと合わせる。
     'csv_header'       => [
         'ASIN',
         'Title',
