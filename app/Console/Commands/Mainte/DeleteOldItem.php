@@ -45,6 +45,8 @@ class DeleteOldItem extends Command
 
         info('Delete Old Item: ' . $items->count());
 
+        $this->info($items->count());
+
         $items->delete();
     }
 }
