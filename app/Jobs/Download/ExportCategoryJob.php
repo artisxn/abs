@@ -90,9 +90,7 @@ class ExportCategoryJob implements ShouldQueue
 
         Storage::makeDirectory($path);
 
-        $file = Storage::path($path . $file_name);
-
-        $writer = Writer::createFromPath($file, 'w');
+        $writer = Writer::createFromFileObject(new \SplTempFileObject());
 
         $writer->insertOne(config('amazon.csv_header'));
 
@@ -103,6 +101,8 @@ class ExportCategoryJob implements ShouldQueue
 
             $writer->insertOne($line);
         }
+
+        Storage::put($path . $file_name, $writer->getContent());
 
         $this->user->notify(new CsvExported('CSVダウンロード(カテゴリー)', $file_name));
     }

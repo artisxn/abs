@@ -56,9 +56,7 @@ class ExportAsinJob implements ShouldQueue
 
         Storage::makeDirectory($path);
 
-        $file = Storage::path($path . $file_name);
-
-        $writer = Writer::createFromPath($file, 'w');
+        $writer = Writer::createFromFileObject(new \SplTempFileObject());
 
         $writer->insertOne(config('amazon.csv_header'));
 
@@ -73,6 +71,8 @@ class ExportAsinJob implements ShouldQueue
 
             $writer->insertOne($line);
         }
+
+        Storage::put($path . $file_name, $writer->getContent());
 
         $this->user->notify(new CsvExported('CSVダウンロード(ASIN)', $file_name));
     }
