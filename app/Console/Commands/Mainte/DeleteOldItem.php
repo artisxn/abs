@@ -41,7 +41,7 @@ class DeleteOldItem extends Command
      */
     public function handle(Item $repository)
     {
-        $items = $repository->deleteOld(90);
+        $items = $repository->deleteOld(180);
 
         info('Delete Old Item: ' . $items->count());
 

@@ -57,7 +57,7 @@ class Kernel extends ConsoleKernel
                  ->onOneServer();
 
         $schedule->command(Commands\Mainte\DeleteOldItem::class)
-                 ->daily()
+                 ->dailyAt('04:10')
                  ->when(config('feature.delete_old_item'))
                  ->onOneServer();
 
