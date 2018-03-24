@@ -11,6 +11,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use App\Http\Resources\Csv\Item as ItemResource;
 
 use League\Csv\Writer;
+use League\Csv\Exception;
 
 use App\Repository\Browse\BrowseRepositoryInterface as BrowseRepository;
 use App\Model\User;
@@ -76,7 +77,7 @@ class ExportCategoryJob implements ShouldQueue
      *
      * @param BrowseRepository $repository
      *
-     * @return string
+     * @return void
      */
     public function handle(BrowseRepository $repository)
     {
@@ -90,20 +91,25 @@ class ExportCategoryJob implements ShouldQueue
 
         Storage::makeDirectory($path);
 
-        $writer = Writer::createFromFileObject(new \SplTempFileObject());
+        try {
+            $writer = Writer::createFromFileObject(new \SplTempFileObject());
 
-        $writer->insertOne(config('amazon.csv_header'));
+            $writer->insertOne(config('amazon.csv_header'));
 
-        $items = $repository->exportCursor($this->category, $this->order, $this->sort, $this->limit);
+            $items = $repository->exportCursor($this->category, $this->order, $this->sort, $this->limit);
 
-        foreach ($items as $item) {
-            $line = (new ItemResource($item))->toArray(request());
+            foreach ($items as $item) {
+                $line = (new ItemResource($item))->toArray(request());
 
-            $writer->insertOne($line);
+                $writer->insertOne($line);
+            }
+
+            Storage::put($path . $file_name, $writer->getContent());
+
+            $this->user->notify(new CsvExported('CSVダウンロード(カテゴリー)', $file_name));
+
+        } catch (Exception $e) {
+            logger()->error($e->getMessage());
         }
-
-        Storage::put($path . $file_name, $writer->getContent());
-
-        $this->user->notify(new CsvExported('CSVダウンロード(カテゴリー)', $file_name));
     }
 }

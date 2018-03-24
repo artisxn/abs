@@ -13,6 +13,7 @@ use App\Model\User;
 use App\Http\Resources\Csv\Item as ItemResource;
 
 use League\Csv\Writer;
+use League\Csv\Exception;
 
 use App\Notifications\CsvExported;
 
@@ -56,24 +57,29 @@ class ExportAsinJob implements ShouldQueue
 
         Storage::makeDirectory($path);
 
-        $writer = Writer::createFromFileObject(new \SplTempFileObject());
+        try {
+            $writer = Writer::createFromFileObject(new \SplTempFileObject());
 
-        $writer->insertOne(config('amazon.csv_header'));
+            $writer->insertOne(config('amazon.csv_header'));
 
-        $items = $this->user->watches()
-                            ->with('item')
-                            ->latest()
-                            ->limit($this->user->csvLimit())
-                            ->cursor();
+            $items = $this->user->watches()
+                                ->with('item')
+                                ->latest()
+                                ->limit($this->user->csvLimit())
+                                ->cursor();
 
-        foreach ($items as $item) {
-            $line = (new ItemResource($item->item))->toArray(request());
+            foreach ($items as $item) {
+                $line = (new ItemResource($item->item))->toArray(request());
 
-            $writer->insertOne($line);
+                $writer->insertOne($line);
+            }
+
+            Storage::put($path . $file_name, $writer->getContent());
+
+            $this->user->notify(new CsvExported('CSVダウンロード(ASIN)', $file_name));
+
+        } catch (Exception $e) {
+            logger()->error($e->getMessage());
         }
-
-        Storage::put($path . $file_name, $writer->getContent());
-
-        $this->user->notify(new CsvExported('CSVダウンロード(ASIN)', $file_name));
     }
 }
