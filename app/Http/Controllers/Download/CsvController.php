@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 
 use Storage;
 
+use App\Jobs\Download\DeleteCsvJob;
+
 class CsvController extends Controller
 {
     /**
@@ -21,11 +23,8 @@ class CsvController extends Controller
 
         abort_unless(Storage::exists($name), 404);
 
-        //        $file = Storage('app/' . $name);
+        DeleteCsvJob::dispatch($name)->delay(now()->addMinutes(3));
 
         return Storage::download($name);
-
-        //        return response()->download($file, $file_name)
-        //                         ->deleteFileAfterSend(true);
     }
 }
