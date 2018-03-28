@@ -13,7 +13,7 @@
     @foreach($asin_watches as $watch)
       <li>
         {!! $watch->ranking() !!}
-        <a href="{{ route('asin', $watch->asin_id) }}">{{ $watch->item->title or $watch->asin_id}}</a>
+        <a href="{{ route('asin', $watch->asin_id) }}">{{ $watch->item->title ?? $watch->asin_id}}</a>
 
       </li>
     @endforeach

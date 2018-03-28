@@ -47,11 +47,8 @@
   </td>
   <td>{{ $world_item->availability->availability }}</td>
   <td class="uk-text-right uk-text-nowrap">
-    {{ $world_item->lowest_new_formatted_price or 0 }}
-    <span class="uk-badge uk-background-secondary">{{ $world_item->total_new or 0 }}</span>
+    {{ $world_item->lowest_new_formatted_price ?? 0 }}
+    <span class="uk-badge uk-background-secondary">{{ $world_item->total_new ?? 0 }}</span>
   </td>
-  {{--<td class="uk-text-right">{{ $world_item->total_new or 0 }}</td>--}}
   <td> {{ $world_item->updated_at->format('m/d H:i') }}</td>
-  {{--<td class="uk-text-right">{{ $world_item->lowest_used_price or 0 }}</td>--}}
-  {{--<td class="uk-text-right">{{ $world_item->total_used or 0 }}</td>--}}
 </tr>

@@ -2,7 +2,7 @@
 
   <h2 class="uk-heading-line uk-text-center">
     <span>ランダムブラウズ：
-      <a href="{{ route('browse', $browse_id) }}">{{ $browse_name or '' }}</a>
+      <a href="{{ route('browse', $browse_id) }}">{{ $browse_name ?? '' }}</a>
     </span>
   </h2>
 
@@ -19,7 +19,7 @@
   @else
     <div class="uk-alert-warning" uk-alert>
       <a class="uk-alert-close" uk-close></a>
-      <p>見つかりませんでした。(<a href="{{ route('browse', ['browse' => $browse_id]) }}">{{ $browse_id or '' }}</a>)</p>
+      <p>見つかりませんでした。(<a href="{{ route('browse', ['browse' => $browse_id]) }}">{{ $browse_id ?? '' }}</a>)</p>
     </div>
 
   @endif

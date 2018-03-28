@@ -9,7 +9,7 @@
     <div class="uk-width-3-4 uk-search uk-search-default">
 
       <button id="search_icon" class="uk-search-icon-flip" uk-search-icon></button>
-      <input id="search_keyword" name="keyword" value="{{ $keyword or '' }}" class="uk-search-input" type="search" placeholder="検索...">
+      <input id="search_keyword" name="keyword" value="{{ $keyword ?? '' }}" class="uk-search-input" type="search" placeholder="検索...">
     </div>
 
 

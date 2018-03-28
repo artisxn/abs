@@ -10,7 +10,7 @@
   @include('browse.browse-watch')
 
 
-  <h1 class="uk-heading-divider">ブラウズ{{ $browse_new or '' }}：{{ $browse_name or '' }}</h1>
+  <h1 class="uk-heading-divider">ブラウズ{{ $browse_new ?? '' }}：{{ $browse_name ?? '' }}</h1>
 
   @include('browse.new-nav')
 

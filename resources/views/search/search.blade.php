@@ -6,7 +6,7 @@
 
   @include('home.form')
 
-  <h1 class="uk-heading-divider">{{ $keyword }} ({{ $TotalResults or 0 }} 件)</h1>
+  <h1 class="uk-heading-divider">{{ $keyword }} ({{ $TotalResults ?? 0 }} 件)</h1>
 
   @if(count($items) > 0)
     @foreach($items as $item)

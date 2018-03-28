@@ -15,7 +15,7 @@
             <label for="id" class="uk-form-label">ユーザーID</label>
 
             <div class="uk-form-controls">
-              <input id="id" type="number" name="id" value="{{ old('id') or '1' }}"
+              <input id="id" type="number" name="id" value="{{ old('id') ?? '1' }}"
                      class="uk-input uk-form-width-large{{ $errors->has('id') ? ' uk-form-danger' : '' }}">
 
               @if($errors->has('id'))

@@ -7,7 +7,7 @@
       <tr>
         <td class="uk-text-right">{{ $item->rank }}</td>
         <td>
-          <a href="{{ route('asin', $item->asin) }}">{{ $item->title or $item->asin}}</a></td>
+          <a href="{{ route('asin', $item->asin) }}">{{ $item->title ?? $item->asin}}</a></td>
       </tr>
     @endforeach
     </tbody>
