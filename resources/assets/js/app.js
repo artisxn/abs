@@ -4,9 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-window.Vue = require('vue');
+window.Vue = require("vue");
 
-require('./bootstrap');
+require("./bootstrap");
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -16,9 +16,9 @@ require('./bootstrap');
 
 // Vue.component('example', require('./components/Example.vue'));
 
-Vue.component('history-graph', require('./components/HistoryGraph.vue'));
-Vue.component('web-push', require('./components/WebPush.vue'));
+Vue.component("history-graph", require("./components/HistoryGraph.vue"));
+Vue.component("web-push", require("./components/WebPush.vue"));
 
 const app = new Vue({
-  el: '#app'
+  el: "#app"
 });
