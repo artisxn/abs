@@ -1,4 +1,6 @@
 # ABS
+[![Build Status](https://travis-ci.org/kawax/abs.svg?branch=master)](https://travis-ci.org/kawax/abs)
+[![Maintainability](https://api.codeclimate.com/v1/badges/f31fd5fe68d9d238aaac/maintainability)](https://codeclimate.com/github/kawax/abs/maintainability)
 
 大昔に作ったAmazon検索ツールをLaravelで作り直した。昔は時間かけて調べたけど今なら数時間で終わる。(2016)
 
