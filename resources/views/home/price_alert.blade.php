@@ -31,17 +31,17 @@
                   <img class="uk-preserve-width uk-border-rounded"
                        src="{{ $post->image }}"
                        width="40"
-                       title="{{ $post->title }}"
-                       alt="{{ $post->title }}">
+                       title="{{ de($post->title) }}"
+                       alt="{{ de($post->title) }}">
                 </a>
               @endif
             </td>
             <td><a href="{{ route('asin', $post->excerpt) }}">{{ str_limit($post->title, 200) }}</a></td>
             <td class="uk-text-nowrap">
               @if($post->category_id === config('amazon.price_alert.up'))
-                <span class="uk-text-success">{{ $post->body }}</span>
+                <span class="uk-text-success">{{ de($post->body) }}</span>
               @elseif($post->category_id === config('amazon.price_alert.down'))
-                <span class="uk-text-danger">{{ $post->body }}</span>
+                <span class="uk-text-danger">{{ de($post->body) }}</span>
               @endif
             </td>
             <td class="uk-text-nowrap">{{ $post->updated_at }}</td>

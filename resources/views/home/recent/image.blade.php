@@ -5,8 +5,8 @@
 
         <img src="{{ $item->large_image }}"
              border="0"
-             title="{{ $item->title }}"
-             alt="{{ $item->title }}"
+             title="{{ de($item->title) }}"
+             alt="{{ de($item->title) }}"
         >
       </div>
 
