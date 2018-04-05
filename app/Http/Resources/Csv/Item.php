@@ -50,20 +50,20 @@ class Item extends Resource
         //config/amazon.phpのcsv_headerと合わせる。
         return [
             $this->asin,
-            $this->title,
+            de($this->title),
             $this->rank,
-            array_get($attr, 'Binding'),
-            array_get($attr, 'Brand'),
-            array_get($attr, 'Publisher'),
-            $authors,
-            $creators,
-            $actors,
+            de(array_get($attr, 'Binding')),
+            de(array_get($attr, 'Brand')),
+            de(array_get($attr, 'Publisher')),
+            de($authors),
+            de($creators),
+            de($actors),
             array_get($attr, 'ReleaseDate'),
             array_get($offer_summary, 'LowestNewPrice.Amount'),
             array_get($offer_summary, 'TotalNew'),
             array_get($offer_summary, 'LowestUsedPrice.Amount'),
             array_get($offer_summary, 'TotalUsed'),
-            $this->availability->availability,
+            de($this->availability->availability),
 
             $this->updated_at,
 
