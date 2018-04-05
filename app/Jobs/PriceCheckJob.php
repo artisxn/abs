@@ -92,7 +92,7 @@ class PriceCheckJob implements ShouldQueue
             'slug' => $slug,
         ], [
             'category_id' => $category_id,
-            'title'       => $this->item->title,
+            'title'       => de($this->item->title),
             'body'        => $price_yesterday . '円 => ' . $price_today . '円',
             'excerpt'     => $this->item->asin,
             'slug'        => $slug,
