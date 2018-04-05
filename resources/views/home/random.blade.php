@@ -2,7 +2,7 @@
 
   <h2 class="uk-heading-line uk-text-center">
     <span>ランダムブラウズ：
-      <a href="{{ route('browse', $browse_id) }}">{{ $browse_name ?? '' }}</a>
+      <a href="{{ route('browse', $browse_id) }}">{{ de($browse_name) ?? '' }}</a>
     </span>
   </h2>
 
