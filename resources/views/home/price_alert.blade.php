@@ -36,7 +36,7 @@
                 </a>
               @endif
             </td>
-            <td><a href="{{ route('asin', $post->excerpt) }}">{{ str_limit($post->title, 200) }}</a></td>
+            <td><a href="{{ route('asin', $post->excerpt) }}">{{ str_limit(de($post->title), 200) }}</a></td>
             <td class="uk-text-nowrap">
               @if($post->category_id === config('amazon.price_alert.up'))
                 <span class="uk-text-success">{{ de($post->body) }}</span>
