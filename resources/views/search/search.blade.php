@@ -1,12 +1,12 @@
 @extends('layouts.master')
 
-@section('title', $keyword . ' | ')
+@section('title', de($keyword) . ' | ')
 
 @section('content')
 
   @include('home.form')
 
-  <h1 class="uk-heading-divider">{{ $keyword }} ({{ $TotalResults ?? 0 }} 件)</h1>
+  <h1 class="uk-heading-divider">{{ de($keyword) }} ({{ $TotalResults ?? 0 }} 件)</h1>
 
   @if(count($items) > 0)
     @foreach($items as $item)
@@ -16,7 +16,7 @@
     @if($TotalPages > $page)
       <a href="{{ route('search', [
                 'category' => $category,
-                'keyword' => $keyword,
+                'keyword' => de($keyword),
                 'page' => $page + 1
         ]) }}"
          class="uk-button uk-button-danger uk-button-large uk-width-1-1 uk-margin-large-bottom">
