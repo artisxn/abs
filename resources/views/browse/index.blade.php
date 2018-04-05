@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 
-@section('title', 'ブラウズ：' . $browse_name . ' | ')
+@section('title', 'ブラウズ：' . de($browse_name) . ' | ')
 
 @section('content')
 
@@ -10,7 +10,7 @@
   @include('browse.browse-watch')
 
 
-  <h1 class="uk-heading-divider">ブラウズ{{ $browse_new ?? '' }}：{{ $browse_name ?? '' }}</h1>
+  <h1 class="uk-heading-divider">ブラウズ{{ $browse_new ?? '' }}：{{ de($browse_name) ?? '' }}</h1>
 
   @include('browse.new-nav')
 
