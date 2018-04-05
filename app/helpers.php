@@ -35,3 +35,16 @@ if (!function_exists('abs_browse_nodes')) {
         return $browse_nodes;
     }
 }
+
+if (!function_exists('de')) {
+
+    /**
+     * @param string $text
+     *
+     * @return string
+     */
+    function de($text)
+    {
+        return html_entity_decode($text, ENT_HTML401, "UTF-8");
+    }
+}

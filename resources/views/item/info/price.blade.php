@@ -3,13 +3,13 @@
         content="{{ data_get($item, 'OfferSummary.LowestNewPrice.CurrencyCode') }}"></span>
   <span itemtype="http://schema.org/Offer" itemprop="price"
         content="{{ data_get($item, 'OfferSummary.LowestNewPrice.Amount') }}"></span>
-  {{ data_get($item, 'OfferSummary.LowestNewPrice.FormattedPrice') }}
+  {{ de(data_get($item, 'OfferSummary.LowestNewPrice.FormattedPrice')) }}
 </li>
 
 <li>中古価格：
-  {{ data_get($item, 'OfferSummary.LowestUsedPrice.FormattedPrice') }}
+  {{ de(data_get($item, 'OfferSummary.LowestUsedPrice.FormattedPrice')) }}
 </li>
 
 <li>定価：
-  {{ data_get($item, 'ItemAttributes.ListPrice.FormattedPrice') }}
+  {{ de(data_get($item, 'ItemAttributes.ListPrice.FormattedPrice')) }}
 </li>

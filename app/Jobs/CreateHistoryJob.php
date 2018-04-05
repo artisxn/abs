@@ -53,7 +53,7 @@ class CreateHistoryJob implements ShouldQueue
         $total_new = array_get($this->item, 'OfferSummary.TotalNew');
         $total_used = array_get($this->item, 'OfferSummary.TotalUsed');
 
-        $availability = array_get($this->item, 'Offers.Offer.OfferListing.Availability', '');
+        $availability = de(array_get($this->item, 'Offers.Offer.OfferListing.Availability', ''));
 
         $ava = Availability::firstOrCreate(compact('availability'));
 

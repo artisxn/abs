@@ -11,7 +11,7 @@
   <li itemscope itemtype="http://schema.org/CreativeWork">発売元(Publisher)：
     <span itemprop="publisher">
           <a href="{{ route('search', ['category' => 'All', 'keyword' => $publisher]) }}">
-            {{ $publisher }}
+            {{ de($publisher) }}
           </a>
       </span>
   </li>

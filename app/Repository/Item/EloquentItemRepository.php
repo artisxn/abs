@@ -148,7 +148,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
         }
 
         $rank = array_get($item, 'SalesRank');
-        $title = array_get($item, 'ItemAttributes.Title');
+        $title = de(array_get($item, 'ItemAttributes.Title'));
         $large_image = array_get($item, 'LargeImage.URL');
         $detail_url = array_get($item, 'DetailPageURL');
 
@@ -164,7 +164,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
         ]));
 
         //Availability
-        $availability = array_get($item, 'Offers.Offer.OfferListing.Availability', '');
+        $availability = de(array_get($item, 'Offers.Offer.OfferListing.Availability', ''));
         $ava = Availability::firstOrCreate(compact('availability'));
         $new_item->availability()->associate($ava)->save();
 

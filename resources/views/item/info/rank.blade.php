@@ -1,1 +1,1 @@
-<li>ランキング：{{ data_get($item, 'SalesRank') }} ({{ data_get($item, 'ItemAttributes.Binding') }})</li>
+<li>ランキング：{{ data_get($item, 'SalesRank') }} ({{ de(data_get($item, 'ItemAttributes.Binding')) }})</li>

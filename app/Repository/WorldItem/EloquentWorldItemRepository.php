@@ -154,17 +154,17 @@ class EloquentWorldItemRepository implements WorldItemRepositoryInterface
         $ean = array_get($item, 'ItemAttributes.EAN');
 
         $rank = array_get($item, 'SalesRank');
-        $title = array_get($item, 'ItemAttributes.Title');
+        $title = de(array_get($item, 'ItemAttributes.Title'));
 
         $lowest_new_price = array_get($item, 'OfferSummary.LowestNewPrice.Amount');
-        $lowest_new_formatted_price = array_get($item, 'OfferSummary.LowestNewPrice.FormattedPrice');
+        $lowest_new_formatted_price = de(array_get($item, 'OfferSummary.LowestNewPrice.FormattedPrice'));
 
         $lowest_used_price = array_get($item, 'OfferSummary.LowestUsedPrice.Amount');
-        $lowest_used_formatted_price = array_get($item, 'OfferSummary.LowestUsedPrice.FormattedPrice');
+        $lowest_used_formatted_price = de(array_get($item, 'OfferSummary.LowestUsedPrice.FormattedPrice'));
 
         $total_new = array_get($item, 'OfferSummary.TotalNew');
         $total_used = array_get($item, 'OfferSummary.TotalUsed');
-        $editorial_review = array_get($item, 'EditorialReviews.EditorialReview.Content');
+        $editorial_review = de(array_get($item, 'EditorialReviews.EditorialReview.Content'));
 
         $quantity = array_get($item, 'ItemAttributes.PackageQuantity', 1);
 
@@ -189,13 +189,13 @@ class EloquentWorldItemRepository implements WorldItemRepositoryInterface
         ]));
 
         //Availability
-        $availability = array_get($item, 'Offers.Offer.OfferListing.Availability', '');
+        $availability = de(array_get($item, 'Offers.Offer.OfferListing.Availability', ''));
         $availability = str_limit($availability, 200);
         $ava = Availability::firstOrCreate(compact('availability'));
         $world_item->availability()->associate($ava);
 
         //Binding
-        $binding = array_get($item, 'ItemAttributes.Binding');
+        $binding = de(array_get($item, 'ItemAttributes.Binding'));
 
         if (!empty($binding)) {
             $bind = Binding::firstOrCreate(compact('binding'));

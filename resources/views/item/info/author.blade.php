@@ -10,8 +10,8 @@
 @unless(empty($author))
   <li itemscope itemtype="http://schema.org/CreativeWork">著者(Author)：
     <span itemprop="author">
-        <a href="{{ route('search', ['category' => 'All', 'keyword' => $author]) }}">
-          {{ $author }}
+        <a href="{{ route('search', ['category' => 'All', 'keyword' => de($author)]) }}">
+          {{ de($author) }}
         </a>
         </span>
   </li>
