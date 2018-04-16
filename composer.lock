@@ -61,29 +61,29 @@
         },
         {
             "name": "arrilot/laravel-widgets",
-            "version": "3.11.0",
+            "version": "3.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/arrilot/laravel-widgets.git",
-                "reference": "839f5c0dc6eda011f2f531975650002311015274"
+                "reference": "a1007a077114e6616009d2776a6a664e7425a047"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/arrilot/laravel-widgets/zipball/839f5c0dc6eda011f2f531975650002311015274",
-                "reference": "839f5c0dc6eda011f2f531975650002311015274",
+                "url": "https://api.github.com/repos/arrilot/laravel-widgets/zipball/a1007a077114e6616009d2776a6a664e7425a047",
+                "reference": "a1007a077114e6616009d2776a6a664e7425a047",
                 "shasum": ""
             },
             "require": {
-                "illuminate/cache": ">=5.1",
-                "illuminate/console": ">=5.1",
-                "illuminate/container": ">=5.1",
-                "illuminate/contracts": ">=5.1",
-                "illuminate/support": ">=5.1",
-                "illuminate/view": ">=5.1",
-                "php": ">=5.5.9"
+                "illuminate/cache": ">=5.5",
+                "illuminate/console": ">=5.5",
+                "illuminate/container": ">=5.5",
+                "illuminate/contracts": ">=5.5",
+                "illuminate/support": ">=5.5",
+                "illuminate/view": ">=5.5",
+                "php": ">=7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~6.0"
             },
             "type": "library",
             "extra": {
@@ -113,13 +113,13 @@
                 }
             ],
             "description": "A powerful alternative to view composers. Asynchronous widgets, reloadable widgets, console generator, caching - everything you can think of.",
-            "homepage": "https://github.com/Arrilot/laravel-widgets",
+            "homepage": "https://github.com/arrilot/laravel-widgets",
             "keywords": [
                 "ajax",
                 "laravel",
                 "widgets"
             ],
-            "time": "2018-04-09T19:55:37+00:00"
+            "time": "2018-04-15T19:59:08+00:00"
         },
         {
             "name": "aws/aws-sdk-php",
@@ -5361,12 +5361,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/the-control-group/voyager.git",
-                "reference": "d961678c6cdaf2274bba36d374e9a9058ae7be6c"
+                "reference": "5d2a47b645975084d952a8130b0f5e92b0a9cc05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/d961678c6cdaf2274bba36d374e9a9058ae7be6c",
-                "reference": "d961678c6cdaf2274bba36d374e9a9058ae7be6c",
+                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/5d2a47b645975084d952a8130b0f5e92b0a9cc05",
+                "reference": "5d2a47b645975084d952a8130b0f5e92b0a9cc05",
                 "shasum": ""
             },
             "require": {
@@ -5420,7 +5420,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2018-04-04T17:37:20+00:00"
+            "time": "2018-04-16T01:59:47+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
