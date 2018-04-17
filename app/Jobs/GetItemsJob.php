@@ -81,23 +81,22 @@ class GetItemsJob implements ShouldQueue
 
         foreach ($items as $item) {
             $asin = array_get($item, 'ASIN');
-            if (!empty($asin)) {
-                $new_item = $this->itemRepository->create($item);
 
-                $browse_nodes = abs_browse_nodes($item);
-                $this->browseRepository->createNodes($browse_nodes);
-
-                $new_item->browses()->sync(array_values($browse_nodes));
-
-                //必ずItemの後にHistory
-                $this->createHistory($item);
-
-                cache()->put(
-                    'asin.' . $asin,
-                    $item,
-                    60 * 6
-                );
+            if (empty($asin)) {
+                continue;
             }
+
+            $new_item = $this->itemRepository->create($item);
+
+            $browse_nodes = abs_browse_nodes($item);
+            $this->browseRepository->createNodes($browse_nodes);
+
+            $new_item->browses()->sync(array_values($browse_nodes));
+
+            //必ずItemの後にHistory
+            $this->createHistory($item);
+
+            cache()->put('asin.' . $asin, $item, 60 * 6);
         }
 
         return $items;
