@@ -12,7 +12,6 @@
   <ul class="uk-list uk-list-striped">
     @foreach($asin_watches as $watch)
       <li>
-        {!! $watch->ranking() !!}
         <a href="{{ route('asin', $watch->asin_id) }}">{{ de($watch->item->title) ?? $watch->asin_id}}</a>
 
       </li>
