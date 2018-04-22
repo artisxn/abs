@@ -12,7 +12,7 @@
   <ul class="uk-list uk-list-striped">
     @foreach($asin_watches as $watch)
       <li>
-        <a href="{{ route('asin', $watch->asin_id) }}">{{ de($watch->item->title) ?? $watch->asin_id}}</a>
+        <a href="{{ route('asin', $watch->asin_id) }}">{{ abs_decode($watch->item->title) ?? $watch->asin_id}}</a>
 
       </li>
     @endforeach

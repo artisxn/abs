@@ -17,8 +17,8 @@
              width="{{ array_get($item, $img_size . '.Width') }}"
              height="{{ array_get($item, $img_size . '.Height') }}"
              border="0"
-             title="{{ de(array_get($item, 'ItemAttributes.Title')) }}"
-             alt="{{ de(array_get($item, 'ItemAttributes.Title')) }}"
+             title="{{abs_decode(array_get($item, 'ItemAttributes.Title')) }}"
+             alt="{{abs_decode(array_get($item, 'ItemAttributes.Title')) }}"
         >
       </div>
 

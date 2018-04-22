@@ -11,7 +11,7 @@
     </td>
   @endif
   <td>{{ $world_item->country }}</td>
-  <td>{{ de($world_item->binding->binding) }}
+  <td>{{ abs_decode($world_item->binding->binding) }}
     @unless(empty($world_item->browses))
       <div>
         <button class="uk-button uk-button-text" type="button">
@@ -22,7 +22,7 @@
           <div class="uk-card uk-card-body uk-card-default">
             <ul class="uk-list uk-list-bullet">
               @foreach($world_item->browses->reverse() as $browse)
-                <li>{{ de($browse->title) }}</li>
+                <li>{{ abs_decode($browse->title) }}</li>
               @endforeach
             </ul>
           </div>
@@ -30,7 +30,7 @@
       </div>
     @endunless
   </td>
-  <td>{{ de($world_item->title) }}
+  <td>{{ abs_decode($world_item->title) }}
     @unless(empty($world_item->editorial_review))
       <div>
         <button class="uk-button uk-button-text" type="button">
@@ -39,15 +39,15 @@
         </button>
         <div uk-drop>
           <div class="uk-card uk-card-body uk-card-default">
-            {{ de($world_item->editorial_review) }}
+            {{ abs_decode($world_item->editorial_review) }}
           </div>
         </div>
       </div>
     @endunless
   </td>
-  <td>{{ de($world_item->availability->availability) }}</td>
+  <td>{{ abs_decode($world_item->availability->availability) }}</td>
   <td class="uk-text-right uk-text-nowrap">
-    {{ de($world_item->lowest_new_formatted_price) ?? 0 }}
+    {{ abs_decode($world_item->lowest_new_formatted_price) ?? 0 }}
     <span class="uk-badge uk-background-secondary">{{ $world_item->total_new ?? 0 }}</span>
   </td>
   <td> {{ $world_item->updated_at->format('m/d H:i') }}</td>

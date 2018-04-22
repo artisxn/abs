@@ -10,7 +10,7 @@
 
     <ul class="uk-list uk-list-bullet">
       @foreach($features as $feature)
-        <li>{!! de($feature) !!}</li>
+        <li>{!! abs_decode($feature) !!}</li>
       @endforeach
     </ul>
   </div>

@@ -10,8 +10,8 @@
 @unless(empty($brand))
   <li>ブランド(Brand)：
     <span itemprop="brand">
-          <a href="{{ route('search', ['category' => 'All', 'keyword' => de($brand)]) }}">
-            {{ de($brand) }}
+          <a href="{{ route('search', ['category' => 'All', 'keyword' => abs_decode($brand)]) }}">
+            {{ abs_decode($brand) }}
           </a>
         </span>
   </li>

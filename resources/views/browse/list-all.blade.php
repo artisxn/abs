@@ -17,7 +17,7 @@
       @foreach($lists as $browse)
         <li>
           <a href="{{ route('browse', ['browse' => $browse->id]) }}">
-            {{ de($browse->title) }}
+            {{ abs_decode($browse->title) }}
             @if($browse->browse_items_count > 0)
               <span class="uk-badge">{{ $browse->browse_items_count }}</span>
             @endif

@@ -14,7 +14,7 @@
     <ul class="uk-list uk-list-striped">
       @foreach($lists as $name => $node)
         <li>
-          <a href="{{ route('browse', ['browse' => $node]) }}">{{ de($name) }}</a> （<a href="{{ route('browse-new', ['browse' => $node]) }}">ニューリリース</a>）[{{ $node }}]
+          <a href="{{ route('browse', ['browse' => $node]) }}">{{ abs_decode($name) }}</a> （<a href="{{ route('browse-new', ['browse' => $node]) }}">ニューリリース</a>）[{{ $node }}]
         </li>
       @endforeach
     </ul>

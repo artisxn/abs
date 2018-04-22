@@ -1,7 +1,7 @@
 <div class="uk-card-body uk-padding-small">
   <h4 class="uk-card-title">
     <a href="{{ route('asin', $item->asin) }}" class="uk-link-text">
-      {{ str_limit(de($item->title), 100) }}
+      {{ str_limit(abs_decode($item->title), 100) }}
     </a>
   </h4>
 

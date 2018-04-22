@@ -11,7 +11,7 @@
       @foreach($similar_products as $similar)
         <li>
           <a href="{{ route('asin', ['asin' => data_get($similar, 'ASIN')]) }}">
-            {{ de(data_get($similar, 'Title')) }}
+            {{ abs_decode(data_get($similar, 'Title')) }}
           </a>
         </li>
       @endforeach

@@ -12,7 +12,7 @@
         @endfeature
 
         <a href="{{ route('browse', $watch->browse_id) }}">
-          {{ de($watch->browse->title) }}
+          {{ abs_decode($watch->browse->title) }}
           <span class="uk-badge">
             {{ $watch->browse_items_count }}
           </span>

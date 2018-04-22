@@ -3,7 +3,7 @@
 @empty($alert_message)
 
   @php
-    $title = de($asin_item->title);
+    $title = abs_decode($asin_item->title);
   @endphp
 
   @section('title', $title . ' | ')

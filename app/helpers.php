@@ -36,14 +36,14 @@ if (!function_exists('abs_browse_nodes')) {
     }
 }
 
-if (!function_exists('de')) {
+if (!function_exists('abs_decode')) {
 
     /**
      * @param string $text
      *
      * @return string
      */
-    function de($text)
+    function abs_decode($text)
     {
         return html_entity_decode($text, ENT_HTML401, "UTF-8");
     }

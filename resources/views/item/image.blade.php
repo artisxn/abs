@@ -15,8 +15,8 @@
            width="{{ data_get($item, $img_size . '.Width') }}"
            height="{{ data_get($item, $img_size . '.Height') }}"
            border="0"
-           title="{{ de(data_get($item, 'ItemAttributes.Title')) }}"
-           alt="{{ de(data_get($item, 'ItemAttributes.Title')) }}"
+           title="{{ abs_decode(data_get($item, 'ItemAttributes.Title')) }}"
+           alt="{{ abs_decode(data_get($item, 'ItemAttributes.Title')) }}"
            itemprop="image">
     </a>
   </div>
