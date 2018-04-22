@@ -15,6 +15,7 @@ return [
         'default_role'                 => 'user',
         'namespace'                    => App\Model\User::class,
         'default_avatar'               => 'users/default.png',
+        'redirect'                     => '/admin',
     ],
 
     /*
@@ -91,21 +92,17 @@ return [
 
     'database' => [
         'tables' => [
-            'hidden' => ['migrations', 'data_rows', 'data_types', 'menu_items', 'password_resets', 'permission_role', 'settings'],
+            'hidden' => [
+                'migrations',
+                'data_rows',
+                'data_types',
+                'menu_items',
+                'password_resets',
+                'permission_role',
+                'settings',
+            ],
         ],
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | The prefix you wish to use with your voyager installation
-    |--------------------------------------------------------------------------
-    |
-    | specify the domain prefix you would like your users to visit in order
-    | to view the Voyager admin panel
-    |
-    */
-
-    'prefix' => 'admin',
 
     /*
     |--------------------------------------------------------------------------
@@ -150,16 +147,16 @@ return [
         // Add custom list items to navbar's dropdown
         'navbar_items' => [
             'Profile' => [
-                'route'         => 'voyager.profile',
-                'classes'       => 'class-full-of-rum',
-                'icon_class'    => 'voyager-person',
+                'route'      => 'voyager.profile',
+                'classes'    => 'class-full-of-rum',
+                'icon_class' => 'voyager-person',
             ],
-            'Home' => [
-                'route'         => '/',
-                'icon_class'    => 'voyager-home',
-                'target_blank'  => true,
+            'Home'    => [
+                'route'        => '/',
+                'icon_class'   => 'voyager-home',
+                'target_blank' => true,
             ],
-            'Logout' => [
+            'Logout'  => [
                 'route'      => 'voyager.logout',
                 'icon_class' => 'voyager-power',
             ],
@@ -173,6 +170,26 @@ return [
 
     ],
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Automatic Procedures
+    |--------------------------------------------------------------------------
+    |
+    | When a change happens on Voyager, we can automate some routines.
+    |
+    */
+    'bread'     => [
+        // When a BREAD is added, create the Menu item using the BREAD properties.
+        'add_menu_item'  => true,
+        // which menu add item to
+        'default_menu'   => 'admin',
+        // When a BREAD is added, create the related Permission.
+        'add_permission' => true,
+        // which role add premissions to
+        'default_role'   => 'admin',
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | UI Generic Config
@@ -184,7 +201,7 @@ return [
 
     'primary_color' => '#22A7F0',
 
-    'show_dev_tips' => true, // Show development tip "How To Use:" in Menu and Settings
+    'show_dev_tips'  => true, // Show development tip "How To Use:" in Menu and Settings
 
     // Here you can specify additional assets you would like to be included in the master.blade
     'additional_css' => [
@@ -196,12 +213,12 @@ return [
     ],
 
     'googlemaps' => [
-         'key'    => env('GOOGLE_MAPS_KEY', ''),
-         'center' => [
-             'lat' => env('GOOGLE_MAPS_DEFAULT_CENTER_LAT', '32.715738'),
-             'lng' => env('GOOGLE_MAPS_DEFAULT_CENTER_LNG', '-117.161084'),
-         ],
-         'zoom' => env('GOOGLE_MAPS_DEFAULT_ZOOM', 11),
-     ],
+        'key'    => env('GOOGLE_MAPS_KEY', ''),
+        'center' => [
+            'lat' => env('GOOGLE_MAPS_DEFAULT_CENTER_LAT', '32.715738'),
+            'lng' => env('GOOGLE_MAPS_DEFAULT_CENTER_LNG', '-117.161084'),
+        ],
+        'zoom'   => env('GOOGLE_MAPS_DEFAULT_ZOOM', 11),
+    ],
 
 ];

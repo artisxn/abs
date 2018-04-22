@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3632c503e16b88e1993e6b293e68d6a5",
+    "content-hash": "1199cb4e965fbde457d423e4c172c358",
     "packages": [
         {
             "name": "appstract/laravel-blade-directives",
@@ -5359,16 +5359,16 @@
         },
         {
             "name": "tcg/voyager",
-            "version": "dev-1.x-dev",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/the-control-group/voyager.git",
-                "reference": "c79ec6da49c528201f4dd84f02063ceecb88df32"
+                "reference": "717b31f0368cb3e0cb5468fbca34ca410f8ce0b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/c79ec6da49c528201f4dd84f02063ceecb88df32",
-                "reference": "c79ec6da49c528201f4dd84f02063ceecb88df32",
+                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/717b31f0368cb3e0cb5468fbca34ca410f8ce0b2",
+                "reference": "717b31f0368cb3e0cb5468fbca34ca410f8ce0b2",
                 "shasum": ""
             },
             "require": {
@@ -5422,7 +5422,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2018-04-20T14:54:57+00:00"
+            "time": "2018-04-19T12:29:25+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -7756,7 +7756,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "tcg/voyager": 20,
         "tomschlick/laravel-http2-server-push": 20
     },
     "prefer-stable": false,

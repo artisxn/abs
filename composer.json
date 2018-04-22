@@ -28,7 +28,7 @@
         "revolution/laravel-notification-chatwork": "^2.0",
         "revolution/laravel-notification-mastodon": "^1.0",
         "revolution/socialite-amazon": "^1.0",
-        "tcg/voyager": "dev-1.x-dev",
+        "tcg/voyager": "^1.1",
         "tomschlick/laravel-http2-server-push": "dev-master",
         "torann/json-ld": "0.*"
     },
