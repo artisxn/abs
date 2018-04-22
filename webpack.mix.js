@@ -15,5 +15,5 @@ mix
   .js("resources/assets/js/app.js", "public/js")
   .sass("resources/assets/sass/app.scss", "public/css")
   .extract(["vue", "axios", "lodash", "chart.js"])
-  .version()
+  // .version()
   .disableNotifications();
