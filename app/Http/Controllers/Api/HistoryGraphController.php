@@ -11,16 +11,15 @@ use App\Repository\Item\ItemRepositoryInterface as Item;
 class HistoryGraphController extends Controller
 {
     /**
-     *
      * @param Request $request
      * @param Item    $repository
      * @param string  $asin
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function __invoke(Request $request, Item $repository, string $asin)
     {
-        $limit = $request->input('limit', 365);
+        $limit = $request->input('limit', 180);
 
         $histories = $repository->histories($asin, $limit);
 
