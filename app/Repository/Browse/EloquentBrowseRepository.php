@@ -53,7 +53,7 @@ class EloquentBrowseRepository implements BrowseRepositoryInterface
             $this->updateOrCreate([
                 'id' => $browse_id,
             ], [
-                'title' => de($title),
+                'title' => abs_decode($title),
             ]);
         }
     }

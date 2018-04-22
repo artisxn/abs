@@ -15,7 +15,7 @@ class WorldIndexController extends Controller
      * @param Request   $request
      * @param WorldItem $repository
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function __invoke(Request $request, WorldItem $repository)
     {
