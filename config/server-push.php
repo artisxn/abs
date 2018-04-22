@@ -13,7 +13,7 @@ return [
         ],
 
         'images' => [
-            '/icon.png',
+
         ],
     ],
 
