@@ -29,7 +29,7 @@
     "revolution/laravel-notification-mastodon": "^1.0",
     "revolution/socialite-amazon": "^1.0",
     "tcg/voyager": "^1.1",
-    "tomschlick/laravel-http2-server-push": "dev-dev",
+    "tomschlick/laravel-http2-server-push": "dev-patch",
     "torann/json-ld": "0.*"
   },
   "require-dev": {

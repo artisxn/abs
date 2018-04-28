@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "58c239a17a8bac56f55432b0d0c564a3",
+    "content-hash": "369bb57d32619ee14cc7eb227e6f2569",
     "packages": [
         {
             "name": "appstract/laravel-blade-directives",
@@ -5473,7 +5473,7 @@
         },
         {
             "name": "tomschlick/laravel-http2-server-push",
-            "version": "dev-dev",
+            "version": "dev-patch",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-http2-server-push.git",
