@@ -97,15 +97,3 @@ Vue.jsなのでGoogle botからは見えないだろうと非表示にしてた�
 ### Laravel 5.6 2018-02-18
 長期サポート版の5.5のままにするか迷ったけど5.6にアップデート。
 メールでの通知を全員可能に。一時的にテスト。今後は送信数を見てから。
-
-## インストールメモ
-- `php artisan voyager:install` が途中で失敗するので残りのseedは手動で実行する。
-
-```bash
-php artisan db:seed --class=RolesTableSeeder
-php artisan db:seed --class=PermissionsTableSeeder
-php artisan db:seed --class=PermissionRoleTableSeede
-sudo -u forge php artisan storage:link
-```
-
-menu_itemsは他からSQLでエクスポートして持ってくる。
