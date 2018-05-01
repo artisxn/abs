@@ -102,3 +102,7 @@ Vue.jsなのでGoogle botからは見えないだろうと非表示にしてた�
 - https://forums.aws.amazon.com/ann.jspa?annID=5543
 
 何度目だろうな。文字がエンコードされてるので対応しないとすべて壊れる。
+検索APIの名称は何度も変わってるけど中身はあまり進化してない。けど余計な仕様変更はする。
+
+これが手元に残ってたくらいだから最初にAPI使って何か作ったのは2003年頃。
+https://github.com/kawax/AmazonWebServices2002
