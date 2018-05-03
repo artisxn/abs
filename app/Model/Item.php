@@ -3,9 +3,12 @@
 namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Item extends Model
 {
+    use Notifiable;
+
     use Presenter\ItemJsonTrait;
     use Presenter\RankingTrait;
 

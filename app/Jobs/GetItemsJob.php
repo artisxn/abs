@@ -12,6 +12,8 @@ use AmazonProduct;
 use App\Repository\Item\ItemRepositoryInterface as Item;
 use App\Repository\Browse\BrowseRepositoryInterface as Browse;
 
+use App\Notifications\NewItemNotification;
+
 /**
  * 複数のASINを取得
  *
@@ -87,6 +89,11 @@ class GetItemsJob implements ShouldQueue
             }
 
             $new_item = $this->itemRepository->create($item);
+
+            //新着を通知
+            if ($new_item->wasRecentlyCreated) {
+                $new_item->notify(new NewItemNotification)->delay(now()->addMinutes(5));
+            }
 
             $browse_nodes = abs_browse_nodes($item);
             $this->browseRepository->createNodes($browse_nodes);
