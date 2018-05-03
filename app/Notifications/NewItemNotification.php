@@ -43,7 +43,7 @@ class NewItemNotification extends Notification implements ShouldQueue
 
         //除外カテゴリーなら除く
         if (!$notifiable->browses->every(function ($browse) {
-            return in_array($browse->id, config('amazon.delete_category'));
+            return !in_array($browse->id, config('amazon.delete_category'));
         })) {
             return $via;
         };
