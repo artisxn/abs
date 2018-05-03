@@ -38,7 +38,7 @@ class NewItemNotification extends Notification implements ShouldQueue
         $via = [];
 
         //ランキングが一定以内のみ
-        if ($notifiable->rank <= 1000 and config('feature.mastodon')) {
+        if ($notifiable->rank > 0 and $notifiable->rank <= 1000 and config('feature.mastodon')) {
             $via[] = MastodonChannel::class;
         }
 
