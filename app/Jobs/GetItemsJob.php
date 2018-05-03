@@ -92,7 +92,7 @@ class GetItemsJob implements ShouldQueue
 
             //新着を通知
             if ($new_item->wasRecentlyCreated) {
-                $new_item->notify(new NewItemNotification)->delay(now()->addMinutes(5));
+                $new_item->notify(new NewItemNotification);
             }
 
             $browse_nodes = abs_browse_nodes($item);
