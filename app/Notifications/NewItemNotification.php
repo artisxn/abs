@@ -63,10 +63,8 @@ class NewItemNotification extends Notification implements ShouldQueue
      *
      * @return MastodonMessage
      */
-    public
-    function toMastodon(
-        $notifiable
-    ) {
+    public function toMastodon($notifiable)
+    {
         $title = str_limit($notifiable->title, 300);
 
         $rank = $notifiable->rank;
@@ -87,10 +85,8 @@ class NewItemNotification extends Notification implements ShouldQueue
      *
      * @return array
      */
-    public
-    function toArray(
-        $notifiable
-    ) {
+    public function toArray($notifiable)
+    {
         return [
             //
         ];
