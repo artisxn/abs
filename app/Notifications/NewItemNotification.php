@@ -37,8 +37,19 @@ class NewItemNotification extends Notification implements ShouldQueue
 
         $via = [];
 
+        if (!config('feature.mastodon')) {
+            return $via;
+        }
+
+        //除外カテゴリーなら除く
+        if (!$notifiable->browses->every(function ($browse) {
+            return in_array($browse->id, config('amazon.delete_category'));
+        })) {
+            return $via;
+        };
+
         //ランキングが一定以内のみ
-        if ($notifiable->rank > 0 and $notifiable->rank <= 1000 and config('feature.mastodon')) {
+        if ($notifiable->rank > 0 and $notifiable->rank <= 1000) {
             $via[] = MastodonChannel::class;
         }
 
@@ -52,8 +63,10 @@ class NewItemNotification extends Notification implements ShouldQueue
      *
      * @return MastodonMessage
      */
-    public function toMastodon($notifiable)
-    {
+    public
+    function toMastodon(
+        $notifiable
+    ) {
         $title = str_limit($notifiable->title, 300);
 
         $rank = $notifiable->rank;
@@ -74,8 +87,10 @@ class NewItemNotification extends Notification implements ShouldQueue
      *
      * @return array
      */
-    public function toArray($notifiable)
-    {
+    public
+    function toArray(
+        $notifiable
+    ) {
         return [
             //
         ];

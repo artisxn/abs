@@ -90,11 +90,6 @@ class GetItemsJob implements ShouldQueue
 
             $new_item = $this->itemRepository->create($item);
 
-            //新着を通知
-            if ($new_item->wasRecentlyCreated) {
-                $new_item->notify(new NewItemNotification);
-            }
-
             $browse_nodes = abs_browse_nodes($item);
             $this->browseRepository->createNodes($browse_nodes);
 
@@ -102,6 +97,11 @@ class GetItemsJob implements ShouldQueue
 
             //必ずItemの後にHistory
             $this->createHistory($item);
+
+            //新着を通知
+            if ($new_item->wasRecentlyCreated) {
+                $new_item->notify(new NewItemNotification);
+            }
 
             cache()->put('asin.' . $asin, $item, 60 * 6);
         }
