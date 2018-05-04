@@ -3,12 +3,10 @@
 namespace App\Repository\Browse;
 
 use App\Model\Browse;
-use App\Model\BrowseItem;
-use App\Model\Item;
 
 class EloquentBrowseRepository implements BrowseRepositoryInterface
 {
-    use FeatureTrait;
+    use Traits\Feature;
 
     /**
      * @var Browse

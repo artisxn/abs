@@ -3,11 +3,12 @@
 namespace App\Repository\WorldItem;
 
 use App\Model\WorldItem;
-use App\Model\Binding;
-use App\Model\Availability;
 
 class EloquentWorldItemRepository implements WorldItemRepositoryInterface
 {
+    use Traits\Create;
+    use Traits\Api;
+
     /**
      * @var WorldItem
      */
@@ -67,144 +68,6 @@ class EloquentWorldItemRepository implements WorldItemRepositoryInterface
                                    ->get();
 
         return $world_items;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function apiIndex()
-    {
-        $items = request()->user()
-                          ->worldItems()
-                          ->latest('updated_at')
-                          ->with(['availability', 'binding', 'browses'])
-                          ->when(request()->filled('search'), function ($query) {
-                              $search = request()->input('search');
-
-                              return $query->where('title', 'LIKE', '%' . $search . '%')
-                                           ->orWhere('asin', $search)
-                                           ->orWhere('ean', $search);
-                          })
-                          ->when(request()->filled('country'), function ($query) {
-                              return $query->whereIn('country', explode(',', request()->input('country')));
-                          })
-                          ->paginate(request()->input('limit', 50));
-
-        return $items;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function apiNew()
-    {
-        $items = $this->model->latest()
-                             ->with(['availability', 'binding', 'browses'])
-                             ->when(request()->filled('since'), function ($query) {
-                                 return $query->whereDate('created_at', '>=', request()->input('since'));
-                             })
-                             ->when(request()->filled('country'), function ($query) {
-                                 return $query->whereIn('country', explode(',', request()->input('country')));
-                             })
-                             ->paginate(request()->input('limit', 10));
-
-        return $items;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function apiShow(string $column, string $asin)
-    {
-        $item = $this->model->where($column, $asin)
-                            ->latest('updated_at')
-                            ->with(['availability', 'binding', 'browses'])
-                            ->when(request()->filled('country'), function ($query) {
-                                return $query->whereIn('country', explode(',', request()->input('country')));
-                            })->get();
-
-        return $item;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function apiUpdateAsins(array $asins, string $country)
-    {
-        $item = $this->model->whereIn('asin', $asins)
-                            ->latest('updated_at')
-                            ->with(['availability', 'binding', 'browses'])
-                            ->whereCountry($country)
-                            ->get();
-
-        return $item;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function create(array $item = null, string $country)
-    {
-        $asin = array_get($item, 'ASIN');
-
-        if (empty($asin)) {
-            return null;
-        }
-
-        $ean = array_get($item, 'ItemAttributes.EAN');
-
-        $rank = array_get($item, 'SalesRank');
-        $title = abs_decode(array_get($item, 'ItemAttributes.Title'));
-
-        $lowest_new_price = array_get($item, 'OfferSummary.LowestNewPrice.Amount');
-        $lowest_new_formatted_price = abs_decode(array_get($item, 'OfferSummary.LowestNewPrice.FormattedPrice'));
-
-        $lowest_used_price = array_get($item, 'OfferSummary.LowestUsedPrice.Amount');
-        $lowest_used_formatted_price = abs_decode(array_get($item, 'OfferSummary.LowestUsedPrice.FormattedPrice'));
-
-        $total_new = array_get($item, 'OfferSummary.TotalNew');
-        $total_used = array_get($item, 'OfferSummary.TotalUsed');
-        $editorial_review = abs_decode(array_get($item, 'EditorialReviews.EditorialReview.Content'));
-
-        $quantity = array_get($item, 'ItemAttributes.PackageQuantity', 1);
-
-        /**
-         * @var WorldItem $world_item
-         */
-        $world_item = $this->model->updateOrCreate([
-            'asin'    => $asin,
-            'country' => $country,
-        ], compact([
-            'ean',
-            'title',
-            'rank',
-            'lowest_new_price',
-            'lowest_new_formatted_price',
-            'lowest_used_price',
-            'lowest_used_formatted_price',
-            'total_new',
-            'total_used',
-            'quantity',
-            'editorial_review',
-        ]));
-
-        //Availability
-        $availability = abs_decode(array_get($item, 'Offers.Offer.OfferListing.Availability', ''));
-        $availability = str_limit($availability, 200);
-        $ava = Availability::firstOrCreate(compact('availability'));
-        $world_item->availability()->associate($ava);
-
-        //Binding
-        $binding = abs_decode(array_get($item, 'ItemAttributes.Binding'));
-
-        if (!empty($binding)) {
-            $bind = Binding::firstOrCreate(compact('binding'));
-            $world_item->binding()->associate($bind);
-        }
-
-        $world_item->save();
-
-        return $world_item;
     }
 
     /**

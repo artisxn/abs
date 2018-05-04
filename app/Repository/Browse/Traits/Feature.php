@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository\Browse;
+namespace App\Repository\Browse\Traits;
 
-trait FeatureTrait
+trait Feature
 {
     /**
      * @param int $browse
