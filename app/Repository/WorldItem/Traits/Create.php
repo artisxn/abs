@@ -74,5 +74,4 @@ trait Create
 
         return $world_item;
     }
-
 }

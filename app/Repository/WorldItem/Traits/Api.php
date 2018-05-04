@@ -2,7 +2,6 @@
 
 namespace App\Repository\WorldItem\Traits;
 
-
 trait Api
 {
     /**
