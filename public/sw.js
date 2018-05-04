@@ -8,8 +8,6 @@
         this.notificationClick.bind(this))
       self.addEventListener('notificationclose',
         this.notificationClose.bind(this))
-
-      self.addEventListener('fetch', function (event) {})
     },
 
     /**
@@ -136,4 +134,12 @@
   }
 
   WebPush.init()
+
+  const Offline = {
+    init () {
+      self.addEventListener('fetch', function (event) {})
+    },
+  }
+
+  Offline.init()
 })()
