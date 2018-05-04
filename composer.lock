@@ -4025,32 +4025,31 @@
         },
         {
             "name": "spomky-labs/aes-key-wrap",
-            "version": "v3.0.3",
+            "version": "v4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spomky-Labs/aes-key-wrap.git",
-                "reference": "072e312ea119c4cc33012edc5e7e8c3f3def0d66"
+                "reference": "6d302dc2d20cd61fc8bf0e253d628c70724d302a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spomky-Labs/aes-key-wrap/zipball/072e312ea119c4cc33012edc5e7e8c3f3def0d66",
-                "reference": "072e312ea119c4cc33012edc5e7e8c3f3def0d66",
+                "url": "https://api.github.com/repos/Spomky-Labs/aes-key-wrap/zipball/6d302dc2d20cd61fc8bf0e253d628c70724d302a",
+                "reference": "6d302dc2d20cd61fc8bf0e253d628c70724d302a",
                 "shasum": ""
             },
             "require": {
-                "beberlei/assert": "^2.4",
                 "ext-mbstring": "*",
                 "lib-openssl": "*",
-                "php": "^5.4|^7.0"
+                "php": "^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.5|^5.0",
+                "phpunit/phpunit": "^6.0",
                 "satooshi/php-coveralls": "^1.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0.x-dev"
+                    "dev-master": "4.0.x-dev"
                 }
             },
             "autoload": {
@@ -4081,7 +4080,7 @@
                 "padding",
                 "wrap"
             ],
-            "time": "2017-03-25T21:07:11+00:00"
+            "time": "2017-10-28T16:15:26+00:00"
         },
         {
             "name": "spomky-labs/base64url",
@@ -4137,16 +4136,16 @@
         },
         {
             "name": "spomky-labs/jose",
-            "version": "v7.0.1",
+            "version": "v7.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Spomky-Labs/jose.git",
-                "reference": "8ff3cceba70ffc7e9d08fa681918ca4474bd4154"
+                "reference": "c7835297fa6a2c00dcdcbfadd67f7ea099b226a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Spomky-Labs/jose/zipball/8ff3cceba70ffc7e9d08fa681918ca4474bd4154",
-                "reference": "8ff3cceba70ffc7e9d08fa681918ca4474bd4154",
+                "url": "https://api.github.com/repos/Spomky-Labs/jose/zipball/c7835297fa6a2c00dcdcbfadd67f7ea099b226a1",
+                "reference": "c7835297fa6a2c00dcdcbfadd67f7ea099b226a1",
                 "shasum": ""
             },
             "require": {
@@ -4156,15 +4155,15 @@
                 "mdanter/ecc": "0.5.*",
                 "php": "^7.0",
                 "psr/cache": "^1.0",
-                "spomky-labs/aes-key-wrap": "^3.0",
+                "spomky-labs/aes-key-wrap": "^3.0|^4.0",
                 "spomky-labs/base64url": "^1.0",
                 "spomky-labs/php-aes-gcm": "^1.2",
                 "symfony/polyfill-mbstring": "^1.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^6.0",
-                "satooshi/php-coveralls": "^1.0",
-                "symfony/cache": "^2.0|^3.0"
+                "satooshi/php-coveralls": "^2.0",
+                "symfony/cache": "^2.0|^3.0|^4.0"
             },
             "suggest": {
                 "ext-crypto": "Highly recommended when you use AES GCM based algorithms.",
@@ -4174,7 +4173,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.1.x-dev"
+                    "dev-master": "7.1.x-dev"
                 }
             },
             "autoload": {
@@ -4214,7 +4213,7 @@
                 "jwa",
                 "jwt"
             ],
-            "time": "2018-02-14T08:25:35+00:00"
+            "time": "2018-05-03T07:34:56+00:00"
         },
         {
             "name": "spomky-labs/php-aes-gcm",
