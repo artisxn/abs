@@ -9,7 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use NotificationChannels\WebPush\WebPushMessage;
 use NotificationChannels\WebPush\WebPushChannel;
 
-class WebPushTest extends Notification
+class WebPushTest extends Notification implements ShouldQueue
 {
     use Queueable;
 
