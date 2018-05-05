@@ -106,3 +106,7 @@ Vue.jsなのでGoogle botからは見えないだろうと非表示にしてた�
 
 これが手元に残ってたくらいだから最初にAPI使って何か作ったのは2003年頃。
 https://github.com/kawax/AmazonWebServices2002
+
+### Progressive Web App(PWA) 2018-05-05
+ウェブプッシュ通知もPWAの一部だけどホームに追加やオフラインでの表示にも少し対応。
+対応してるかどうかはブラウザ次第。

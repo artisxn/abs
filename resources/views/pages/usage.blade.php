@@ -43,7 +43,7 @@
 
   <p>条件は同じでウォッチリストのアイテム全部を調査。通知先は各ユーザーの通知ページ。</p>
 
-  <p><a href="/notifications" rel="nofollow">ウェブプッシュ通知</a>を有効にするとブラウザを起動していればいつでも通知されます。対応しているのは一部ブラウザのみ。</p>
+  <p><a href="/notifications" rel="nofollow">ウェブプッシュ通知</a>を有効にするとブラウザを起動していればいつでも通知されます。対応しているのは一部ブラウザのみ。通知ページからテストできます。何も起きなければ非対応。</p>
 
   <div class="uk-child-width-1-2@m" uk-grid>
     <div class="uk-margin">
