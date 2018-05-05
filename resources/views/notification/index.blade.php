@@ -9,6 +9,10 @@
 
   <web-push></web-push>
 
+  <a href="{{ route('push.test') }}" class="uk-button uk-button-default uk-button-small uk-margin-top">
+    ウェブプッシュ通知テスト
+  </a>
+
   <div class="uk-alert-primary" uk-alert>
     <p>CSVダウンロードは一度のみ有効です。</p>
   </div>

@@ -121,6 +121,8 @@ Route::namespace('Push')->prefix('push')->group(function () {
 
     Route::post('subscriptions', 'PushSubscriptionController@update');
     Route::post('subscriptions/delete', 'PushSubscriptionController@destroy');
+
+    Route::name('push.test')->get('test', 'TestController');
 });
 
 //Voyager
