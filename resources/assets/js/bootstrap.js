@@ -1,5 +1,8 @@
 window._ = require("lodash");
 
+import * as OfflinePluginRuntime from "offline-plugin/runtime";
+OfflinePluginRuntime.install();
+
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
