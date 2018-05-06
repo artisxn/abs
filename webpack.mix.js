@@ -23,6 +23,7 @@ mix.webpackConfig({
   plugins: [
     new OfflinePlugin({
       externals: ["/"],
+      responseStrategy: "network-first",
       ServiceWorker: {
         entry: "./resources/assets/js/webpush.js",
         navigateFallbackURL: "/",
