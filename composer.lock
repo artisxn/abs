@@ -125,16 +125,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.55.8",
+            "version": "3.55.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "2be78854e31b458a764914696a8b9dc4c9081e92"
+                "reference": "88247c9eedb1083781847e09508b7daf28c90149"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/2be78854e31b458a764914696a8b9dc4c9081e92",
-                "reference": "2be78854e31b458a764914696a8b9dc4c9081e92",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/88247c9eedb1083781847e09508b7daf28c90149",
+                "reference": "88247c9eedb1083781847e09508b7daf28c90149",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +201,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-05-07T21:49:09+00:00"
+            "time": "2018-05-10T02:27:29+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2390,16 +2390,16 @@
         },
         {
             "name": "laravel/socialite",
-            "version": "v3.0.9",
+            "version": "v3.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "fc1c8d415699e502f3e61cbc61e3250d5bd942eb"
+                "reference": "647ee1b1b7520e16c661b4df5cdff1d7f6902eee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/fc1c8d415699e502f3e61cbc61e3250d5bd942eb",
-                "reference": "fc1c8d415699e502f3e61cbc61e3250d5bd942eb",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/647ee1b1b7520e16c661b4df5cdff1d7f6902eee",
+                "reference": "647ee1b1b7520e16c661b4df5cdff1d7f6902eee",
                 "shasum": ""
             },
             "require": {
@@ -2448,7 +2448,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2017-11-06T16:02:48+00:00"
+            "time": "2017-12-05T13:46:36+00:00"
         },
         {
             "name": "laravelcollective/html",
@@ -3838,21 +3838,25 @@
         },
         {
             "name": "revolution/socialite-amazon",
-            "version": "1.0.1",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/socialite-amazon.git",
-                "reference": "ab86b8b770ac4f13870ea80dcb2c8f19a0738ac7"
+                "reference": "30d319e2fb0504821cb12f142cb7101518f5023b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/socialite-amazon/zipball/ab86b8b770ac4f13870ea80dcb2c8f19a0738ac7",
-                "reference": "ab86b8b770ac4f13870ea80dcb2c8f19a0738ac7",
+                "url": "https://api.github.com/repos/kawax/socialite-amazon/zipball/30d319e2fb0504821cb12f142cb7101518f5023b",
+                "reference": "30d319e2fb0504821cb12f142cb7101518f5023b",
                 "shasum": ""
             },
             "require": {
                 "laravel/socialite": "*",
-                "php": ">=5.6.4"
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^6.0"
             },
             "type": "library",
             "extra": {
@@ -3883,7 +3887,7 @@
                 "laravel",
                 "socialite"
             ],
-            "time": "2017-11-06T15:49:20+00:00"
+            "time": "2018-05-10T03:43:33+00:00"
         },
         {
             "name": "seld/cli-prompt",
@@ -5938,16 +5942,16 @@
         },
         {
             "name": "laravel/homestead",
-            "version": "v7.4.1",
+            "version": "v7.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/homestead.git",
-                "reference": "5b421129fa2cba574e69fdeac093a428b4ef17a3"
+                "reference": "3c73add39c20e027e18e3a1269a99a48850c066e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/homestead/zipball/5b421129fa2cba574e69fdeac093a428b4ef17a3",
-                "reference": "5b421129fa2cba574e69fdeac093a428b4ef17a3",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/3c73add39c20e027e18e3a1269a99a48850c066e",
+                "reference": "3c73add39c20e027e18e3a1269a99a48850c066e",
                 "shasum": ""
             },
             "require": {
@@ -5984,7 +5988,7 @@
                 }
             ],
             "description": "A virtual machine for web artisans.",
-            "time": "2018-04-30T13:35:07+00:00"
+            "time": "2018-05-09T13:01:46+00:00"
         },
         {
             "name": "mockery/mockery",
