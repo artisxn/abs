@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "369bb57d32619ee14cc7eb227e6f2569",
+    "content-hash": "d6d4662a1f151d992af3c31729af36ea",
     "packages": [
         {
             "name": "appstract/laravel-blade-directives",
@@ -125,16 +125,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.56.0",
+            "version": "3.56.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "ae1ee1d4c8a5c571afc6e33e210297e44c1ed2ea"
+                "reference": "933bc65b9f8e4d88e0bf4635d9476c2766eee743"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ae1ee1d4c8a5c571afc6e33e210297e44c1ed2ea",
-                "reference": "ae1ee1d4c8a5c571afc6e33e210297e44c1ed2ea",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/933bc65b9f8e4d88e0bf4635d9476c2766eee743",
+                "reference": "933bc65b9f8e4d88e0bf4635d9476c2766eee743",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +201,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-05-14T21:08:08+00:00"
+            "time": "2018-05-15T18:32:36+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -3623,16 +3623,16 @@
         },
         {
             "name": "revolution/laravel-amazon-product-api",
-            "version": "0.4.0",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-amazon-product-api.git",
-                "reference": "4024d0ab29da84b84e3171e8f37a541f425ea3be"
+                "reference": "110cf930c5cc445e0987fe607dcffc457c6b1092"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-amazon-product-api/zipball/4024d0ab29da84b84e3171e8f37a541f425ea3be",
-                "reference": "4024d0ab29da84b84e3171e8f37a541f425ea3be",
+                "url": "https://api.github.com/repos/kawax/laravel-amazon-product-api/zipball/110cf930c5cc445e0987fe607dcffc457c6b1092",
+                "reference": "110cf930c5cc445e0987fe607dcffc457c6b1092",
                 "shasum": ""
             },
             "require": {
@@ -3676,7 +3676,7 @@
                 "amazon",
                 "laravel"
             ],
-            "time": "2017-12-16T02:13:31+00:00"
+            "time": "2018-05-16T03:49:56+00:00"
         },
         {
             "name": "revolution/laravel-mastodon-api",
@@ -5942,16 +5942,16 @@
         },
         {
             "name": "laravel/homestead",
-            "version": "v7.4.2",
+            "version": "v7.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/homestead.git",
-                "reference": "3c73add39c20e027e18e3a1269a99a48850c066e"
+                "reference": "4fee0ee599f9150ca1d27e88ce16fc7c1b7e327c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/homestead/zipball/3c73add39c20e027e18e3a1269a99a48850c066e",
-                "reference": "3c73add39c20e027e18e3a1269a99a48850c066e",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/4fee0ee599f9150ca1d27e88ce16fc7c1b7e327c",
+                "reference": "4fee0ee599f9150ca1d27e88ce16fc7c1b7e327c",
                 "shasum": ""
             },
             "require": {
@@ -5988,7 +5988,7 @@
                 }
             ],
             "description": "A virtual machine for web artisans.",
-            "time": "2018-05-09T13:01:46+00:00"
+            "time": "2018-05-15T22:28:00+00:00"
         },
         {
             "name": "mockery/mockery",
