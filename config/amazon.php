@@ -21,6 +21,11 @@ return [
      */
     'csv_limit'        => env('CSV_LIMIT', 1000),
 
+    /**
+     * ランキングの何位以内を新着とするか
+     */
+    'new_item_rank' => env('NEW_ITEM_RANK', 200),
+
     //CSVのヘッダー。app/Http/Resources/Csv/Itemと合わせる。
     'csv_header'       => [
         'ASIN',

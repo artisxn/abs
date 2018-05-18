@@ -49,7 +49,7 @@ class NewItemNotification extends Notification implements ShouldQueue
         };
 
         //ランキングが一定以内のみ
-        if ($notifiable->rank > 0 and $notifiable->rank <= 500) {
+        if ($notifiable->rank > 0 and $notifiable->rank <= config('amazon.new_item_rank')) {
             $via[] = MastodonChannel::class;
         }
 
