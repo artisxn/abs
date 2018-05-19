@@ -24,6 +24,10 @@
 
     @include('layouts.analytics_verification')
 
+    @feature('adsense')
+    @include('layouts.adsense_header')
+    @endfeature
+
     @include('layouts.preload')
 
     <meta name="author" content="kawax">
