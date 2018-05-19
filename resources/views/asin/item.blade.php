@@ -4,9 +4,11 @@
 
     @include('asin.header')
 
+    @feature('adsense')
     @unless(data_get($asin_item->item_attribute->attributes,'IsAdultProduct'))
         @include('layouts.adsense')
     @endunless
+    @endfeature
 
     @include('item.browsenodes')
 
