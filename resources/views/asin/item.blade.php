@@ -2,27 +2,31 @@
      itemscope
      itemtype="http://schema.org/Product">
 
-  @include('asin.header')
+    @include('asin.header')
 
-  @include('item.browsenodes')
+    @unless($asin_item->item_attribute->attributes['IsAdultProduct'])
+        @include('layouts.adsense')
+    @endunless
 
-
-  @include('asin.image')
-
-  @include('item.editorial')
-
-  @include('item.feature')
-
-  @include('item.info')
-
-  @include('asin.imageset')
-
-  @include('asin.graph')
-
-  @include('asin.histories')
-
-  @include('item.similar')
+    @include('item.browsenodes')
 
 
-  @include('item.amazon')
+    @include('asin.image')
+
+    @include('item.editorial')
+
+    @include('item.feature')
+
+    @include('item.info')
+
+    @include('asin.imageset')
+
+    @include('asin.graph')
+
+    @include('asin.histories')
+
+    @include('item.similar')
+
+
+    @include('item.amazon')
 </div>
