@@ -4,7 +4,7 @@
 
     @include('asin.header')
 
-    @unless($asin_item->item_attribute->attributes['IsAdultProduct'])
+    @unless(data_get($asin_item->item_attribute->attributes,'IsAdultProduct'))
         @include('layouts.adsense')
     @endunless
 
