@@ -17,7 +17,7 @@ class CountInfo extends Command
      *
      * @var string
      */
-    protected $signature = 'abs:count-info';
+    protected $signature = 'abs:count-info {--no-notify}';
 
     /**
      * The console command description.
@@ -61,12 +61,14 @@ class CountInfo extends Command
         info('User count: ' . $user_count);
         cache()->forever('user_count', $user_count);
 
-        User::find(1)->notify(new CountInfoNotification(compact([
-                'items_count',
-                'histories_count',
-                'browses_count',
-                'user_count',
-            ]))
-        );
+        if (!$this->option('no-notify')) {
+            User::find(1)->notify(new CountInfoNotification(compact([
+                    'items_count',
+                    'histories_count',
+                    'browses_count',
+                    'user_count',
+                ]))
+            );
+        }
     }
 }

@@ -25,8 +25,6 @@ class RandomBrowse extends Command
     /**
      * Create a new command instance.
      *
-     * @param  BrowseService $service
-     *
      * @return void
      */
     public function __construct()
