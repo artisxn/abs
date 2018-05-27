@@ -5542,12 +5542,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-http2-server-push.git",
-                "reference": "71450921b562e57c714c1b0ce89e025cb37fe8ae"
+                "reference": "7ad38a18329e54034f395da21df49417913ca1d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-http2-server-push/zipball/71450921b562e57c714c1b0ce89e025cb37fe8ae",
-                "reference": "71450921b562e57c714c1b0ce89e025cb37fe8ae",
+                "url": "https://api.github.com/repos/kawax/laravel-http2-server-push/zipball/7ad38a18329e54034f395da21df49417913ca1d7",
+                "reference": "7ad38a18329e54034f395da21df49417913ca1d7",
                 "shasum": ""
             },
             "require": {
@@ -5592,9 +5592,9 @@
             ],
             "description": "A middleware package for Laravel 5 to enable server push for your script, style, and image assets.",
             "support": {
-                "source": "https://github.com/kawax/laravel-http2-server-push/tree/dev"
+                "source": "https://github.com/kawax/laravel-http2-server-push/tree/patch"
             },
-            "time": "2018-04-28T12:23:55+00:00"
+            "time": "2018-05-27T03:58:13+00:00"
         },
         {
             "name": "torann/json-ld",
