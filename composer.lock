@@ -125,16 +125,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.61.1",
+            "version": "3.61.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "527d7d10b30a2294686d146b0a12b587f28057b0"
+                "reference": "a6825e5d290b3dd95b5dee4c9456e64a60f6a38b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/527d7d10b30a2294686d146b0a12b587f28057b0",
-                "reference": "527d7d10b30a2294686d146b0a12b587f28057b0",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a6825e5d290b3dd95b5dee4c9456e64a60f6a38b",
+                "reference": "a6825e5d290b3dd95b5dee4c9456e64a60f6a38b",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +201,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-06-05T22:44:12+00:00"
+            "time": "2018-06-07T22:10:20+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -507,16 +507,16 @@
         },
         {
             "name": "caouecs/laravel-lang",
-            "version": "3.0.48",
+            "version": "3.0.49",
             "source": {
                 "type": "git",
                 "url": "https://github.com/caouecs/Laravel-lang.git",
-                "reference": "00a265f660c80c59d1208f6b190349365d4cb053"
+                "reference": "c009f791582e58abfca70c8f0ded08b2668e81a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/00a265f660c80c59d1208f6b190349365d4cb053",
-                "reference": "00a265f660c80c59d1208f6b190349365d4cb053",
+                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/c009f791582e58abfca70c8f0ded08b2668e81a8",
+                "reference": "c009f791582e58abfca70c8f0ded08b2668e81a8",
                 "shasum": ""
             },
             "require-dev": {
@@ -545,7 +545,7 @@
                 "laravel",
                 "lpm"
             ],
-            "time": "2018-05-08T14:16:52+00:00"
+            "time": "2018-06-07T19:27:38+00:00"
         },
         {
             "name": "composer/ca-bundle",
