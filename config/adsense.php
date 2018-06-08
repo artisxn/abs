@@ -4,7 +4,7 @@ return [
      * ポリシー違反と判断されるASINを除外
      * csvをダウンロードして置換
      * (.*)/asin/([a-z0-9]*),(.*)
-     * '$2$'
+     * '$2',
      */
     'ignore' => [
         '4198645507',
@@ -24,16 +24,18 @@ return [
         'B074RZQSTC',
         'B07542GJGN',
         'B075GKX26H',
+        'B075R7YDBQ',
         'B076HGL7JR',
         'B076WYLK7D',
         'B077922J38',
         'B077NXNQL8',
         'B077SNCLXX',
         'B078JKVP4X',
+        'B078K4RNV3',
         'B078MDJ41K',
         'B078N8MC9L',
-        'B078YJB834',
         'B079B4FPMD',
+        'B079BHGK8G',
         'B079FSQFKC',
         'B07B45LY47',
         'B07B461N1Z',
@@ -42,7 +44,6 @@ return [
         'B07BSZ1966',
         'B07BT6BCW1',
         'B07C2KM74T',
-        'B07C4HB8WR',
         'B07CMK4WC6',
     ],
 ];
