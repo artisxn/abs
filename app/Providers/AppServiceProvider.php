@@ -35,7 +35,7 @@ class AppServiceProvider extends ServiceProvider
 
         Blade::if('adsense', function ($item) {
             return !data_get($item->item_attribute->attributes, 'IsAdultProduct')
-                and !array_has(config('adsense.ignore'), data_get($item, 'ASIN'));
+                and !in_array(data_get($item, 'ASIN'), config('adsense.ignore'));
         });
 
         Paginator::defaultView('vendor.pagination.default');
