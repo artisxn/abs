@@ -106,6 +106,11 @@ class Kernel extends ConsoleKernel
                  ->dailyAt('09:00')
                  ->when(config('feature.chatwork'))
                  ->onOneServer();
+
+        $schedule->command(Commands\Feature\FeatureUpdate::class)
+                 ->dailyAt('04:41')
+                 ->when(config('feature.feature_page'))
+                 ->onOneServer();
     }
 
     /**
