@@ -17,9 +17,9 @@ trait Feature
             return $this->browse->find($browse)
                                 ->items()
                                 ->select(['asin', 'title', 'rank'])
-                                ->whereBetween('rank', [1, 100])
+                                ->whereBetween('rank', [1, 50])
                                 ->orderBy('rank')
-                                ->limit(100)
+                                ->limit(50)
                                 ->get();
         });
     }
