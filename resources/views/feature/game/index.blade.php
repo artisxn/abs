@@ -4,9 +4,7 @@
 
 @section('content')
 
-    <div class="uk-alert-primary uk-margin-top" uk-alert>
-        <p>「特定のカテゴリーのこういう情報が欲しい」という依頼が多いのでサンプルとしていくつか作る。</p>
-    </div>
+    @include('feature.info')
 
     <h1 class="uk-heading-divider">特集：テレビゲーム</h1>
 

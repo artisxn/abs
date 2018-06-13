@@ -16,13 +16,13 @@ class BookController extends Controller
      */
     public function __invoke(Browse $repository)
     {
-        $best_sellers = $repository->bestSellers(465392);
+        //        $best_sellers = $repository->bestSellers(465392);
 
-        //        $pre_orders = $repository->preOrder(465392);
+        $pre_orders = $repository->preOrder(465392);
 
         return view('feature.book.index')->with(compact([
-            'best_sellers',
-            //            'pre_orders',
+            //            'best_sellers',
+            'pre_orders',
         ]));
     }
 }
