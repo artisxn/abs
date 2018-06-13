@@ -16,11 +16,12 @@ class GameController extends Controller
      */
     public function __invoke(Browse $repository)
     {
-        $best_sellers = $repository->bestSellers(637394);
+        //        $best_sellers = $repository->bestSellers(637394);
+
         $pre_orders = $repository->preOrder(637394);
 
         return view('feature.game.index')->with(compact([
-            'best_sellers',
+            //            'best_sellers',
             'pre_orders',
         ]));
     }
