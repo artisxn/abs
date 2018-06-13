@@ -20,9 +20,9 @@ trait Feature
                 //                                ->where('rank', '>=', 1)
                 //                                ->where('rank', '<=', 100)
                                 ->whereNotNull('rank')
-                                ->orderBy('rank')
-                                ->limit(100)
-                                ->get();
+                                ->get()
+                                ->sortBy('rank')
+                                ->take(100);
         });
     }
 
