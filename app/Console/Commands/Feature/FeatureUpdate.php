@@ -44,7 +44,7 @@ class FeatureUpdate extends Command
         $pre_orders = $repository->preOrder(637394);
         $this->info($pre_orders->count());
 
-        $best_sellers = $repository->bestSellers(466280);
-        $this->info($best_sellers->count());
+        //        $best_sellers = $repository->bestSellers(466280);
+        //        $this->info($best_sellers->count());
     }
 }
