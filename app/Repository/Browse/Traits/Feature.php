@@ -17,8 +17,9 @@ trait Feature
             return $this->browse->find($browse)
                                 ->items()
                                 ->select(['asin', 'title', 'rank'])
-                                ->where('rank', '>=', 1)
-                                ->where('rank', '<=', 100)
+                //                                ->where('rank', '>=', 1)
+                //                                ->where('rank', '<=', 100)
+                                ->whereNotNull('rank')
                                 ->orderBy('rank')
                                 ->limit(100)
                                 ->get();
