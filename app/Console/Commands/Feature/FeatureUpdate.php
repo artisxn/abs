@@ -20,7 +20,7 @@ class FeatureUpdate extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Update feature page cache';
 
     /**
      * Create a new command instance.
@@ -41,9 +41,10 @@ class FeatureUpdate extends Command
      */
     public function handle(Browse $repository)
     {
-        $best_sellers = $repository->bestSellers(466280);
         $pre_orders = $repository->preOrder(637394);
-
         $this->info($pre_orders->count());
+
+        $best_sellers = $repository->bestSellers(466280);
+        $this->info($best_sellers->count());
     }
 }
