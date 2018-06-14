@@ -111,10 +111,10 @@ class Kernel extends ConsoleKernel
                  ->dailyAt('05:33')
                  ->onOneServer();
 
-        //        $schedule->command(Commands\Feature\FeatureUpdate::class)
-        //                 ->dailyAt('04:41')
-        //                 ->when(config('feature.feature_page'))
-        //                 ->onOneServer();
+        $schedule->command(Commands\Feature\FeatureUpdate::class)
+                 ->dailyAt('04:41')
+                 ->when(config('feature.feature_page'))
+                 ->onOneServer();
     }
 
     /**
