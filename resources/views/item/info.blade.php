@@ -1,35 +1,37 @@
 <div class="uk-card-body">
-  <h4 class="uk-heading-line"><span>商品情報</span></h4>
+    <h4 class="uk-heading-line"><span>商品情報</span></h4>
 
-  <ul class="uk-list uk-list-bullet">
-    <li>ASIN：
-      <a href="{{ route('asin', data_get($item, 'ASIN')) }}">
-        {{ data_get($item, 'ASIN') }}
-      </a>
-    </li>
+    <ul class="uk-list uk-list-bullet">
+        @unless(empty(data_get($item, 'ASIN')))
+            <li>ASIN：
+                <a href="{{ route('asin', data_get($item, 'ASIN')) }}">
+                    {{ data_get($item, 'ASIN') }}
+                </a>
+            </li>
+        @endunless
 
-    <li>
-      JAN/EAN : {{ data_get($item, 'ItemAttributes.EAN') }}
-    </li>
+        <li>
+            JAN/EAN : {{ data_get($item, 'ItemAttributes.EAN') }}
+        </li>
 
-    @include('item.info.publisher')
-    @include('item.info.brand')
-    @include('item.info.author')
-    @include('item.info.creator')
+        @include('item.info.publisher')
+        @include('item.info.brand')
+        @include('item.info.author')
+        @include('item.info.creator')
 
-    <li>発売日：<span itemprop="releaseDate">
+        <li>発売日：<span itemprop="releaseDate">
         {{ data_get($item, 'ItemAttributes.ReleaseDate') }}
       </span>
-    </li>
+        </li>
 
-    @include('item.info.price')
+        @include('item.info.price')
 
-    @include('item.info.offer')
+        @include('item.info.offer')
 
-    @include('item.info.rank')
+        @include('item.info.rank')
 
-    @include('item.info.review')
+        @include('item.info.review')
 
-  </ul>
+    </ul>
 
 </div>
