@@ -25,7 +25,7 @@ class SearchController extends Controller
 
         $page = $request->input('page', 1);
 
-        $search_result = dispatch_now(new SearchJob($category, $keyword, $page));
+        $search_result = SearchJob::dispatchNow($category, $keyword, $page);
 
         return view('search.search')->with($search_result);
     }
