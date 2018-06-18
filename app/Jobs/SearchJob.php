@@ -41,9 +41,6 @@ class SearchJob implements ShouldQueue
         $this->category = $category;
         $this->keyword = $keyword;
         $this->page = $page;
-        if ($this->page > 10) {
-            $this->page = 10;
-        }
     }
 
     /**
@@ -57,7 +54,7 @@ class SearchJob implements ShouldQueue
 
         $page = $this->page;
 
-        \Redis::throttle('amazon-api-search')->allow(10)->every(60)->then(function () use (&$results) {
+        \Redis::throttle('amazon-api-search')->allow(5)->every(10)->then(function () use (&$results) {
             $results = rescue(function () {
                 return AmazonProduct::search($this->category, $this->keyword, $this->page);
             });
