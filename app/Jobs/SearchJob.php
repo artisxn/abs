@@ -58,7 +58,7 @@ class SearchJob implements ShouldQueue
             $page = 10;
         }
 
-        \Redis::throttle('amazon-api-search')->allow(1)->every(5)->then(function () use (&$results) {
+        \Redis::throttle('amazon-api-search')->allow(10)->every(60)->then(function () use (&$results) {
             $results = rescue(function () {
                 return AmazonProduct::search($this->category, $this->keyword, $this->page);
             });
