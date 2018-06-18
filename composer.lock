@@ -3624,22 +3624,22 @@
         },
         {
             "name": "revolution/laravel-amazon-product-api",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kawax/laravel-amazon-product-api.git",
-                "reference": "110cf930c5cc445e0987fe607dcffc457c6b1092"
+                "reference": "4096d8312a58b948ac28f1498abd80d40960f5f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kawax/laravel-amazon-product-api/zipball/110cf930c5cc445e0987fe607dcffc457c6b1092",
-                "reference": "110cf930c5cc445e0987fe607dcffc457c6b1092",
+                "url": "https://api.github.com/repos/kawax/laravel-amazon-product-api/zipball/4096d8312a58b948ac28f1498abd80d40960f5f2",
+                "reference": "4096d8312a58b948ac28f1498abd80d40960f5f2",
                 "shasum": ""
             },
             "require": {
-                "exeu/apai-io": "^2.1",
-                "guzzlehttp/guzzle": "^6.2",
-                "illuminate/support": "5.*",
+                "exeu/apai-io": "^2.2",
+                "guzzlehttp/guzzle": "^6.3",
+                "illuminate/support": "^5.5",
                 "php": ">=7.0.0"
             },
             "require-dev": {
@@ -3677,7 +3677,7 @@
                 "amazon",
                 "laravel"
             ],
-            "time": "2018-05-16T03:49:56+00:00"
+            "time": "2018-06-17T11:45:24+00:00"
         },
         {
             "name": "revolution/laravel-mastodon-api",
@@ -6174,16 +6174,16 @@
         },
         {
             "name": "nunomaduro/collision",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nunomaduro/collision.git",
-                "reference": "245958b02c6a9edf24627380f368333ac5413a51"
+                "reference": "b1f606399ae77e9479b5597cd1aa3d8ea0078176"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/245958b02c6a9edf24627380f368333ac5413a51",
-                "reference": "245958b02c6a9edf24627380f368333ac5413a51",
+                "url": "https://api.github.com/repos/nunomaduro/collision/zipball/b1f606399ae77e9479b5597cd1aa3d8ea0078176",
+                "reference": "b1f606399ae77e9479b5597cd1aa3d8ea0078176",
                 "shasum": ""
             },
             "require": {
@@ -6194,7 +6194,8 @@
             },
             "require-dev": {
                 "laravel/framework": "5.6.*",
-                "phpunit/phpunit": "~7.0"
+                "phpstan/phpstan": "^0.9.2",
+                "phpunit/phpunit": "~7.2"
             },
             "type": "library",
             "extra": {
@@ -6232,7 +6233,7 @@
                 "php",
                 "symfony"
             ],
-            "time": "2018-03-21T20:11:24+00:00"
+            "time": "2018-06-16T22:05:52+00:00"
         },
         {
             "name": "phar-io/manifest",

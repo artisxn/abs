@@ -47,18 +47,22 @@ class CountInfo extends Command
     {
         $items_count = BrowseItem::distinct()->count('item_asin');
         info('Item count: ' . $items_count);
+        $this->info('Item count: ' . $items_count);
         cache()->forever('items_count', $items_count);
 
         $histories_count = History::count('id');
         info('History count: ' . $histories_count);
+        $this->info('History count: ' . $histories_count);
         cache()->forever('histories_count', $histories_count);
 
         $browses_count = BrowseItem::distinct()->count('browse_id');
         info('Browse count: ' . $browses_count);
+        $this->info('Browse count: ' . $browses_count);
         cache()->forever('browses_count', $browses_count);
 
         $user_count = User::count('id');
         info('User count: ' . $user_count);
+        $this->info('User count: ' . $user_count);
         cache()->forever('user_count', $user_count);
 
         if (!$this->option('no-notify')) {
