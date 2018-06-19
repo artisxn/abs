@@ -30,9 +30,13 @@ class UpdateJob implements ShouldQueue
      * @param Browse $repository
      *
      * @return void
+     *
+     * @throws \Exception
      */
     public function handle(Browse $repository)
     {
+        cache()->forget('feature.pre_order.637394');
+
         $pre_orders = $repository->preOrder(637394);
         info($pre_orders->count());
 
