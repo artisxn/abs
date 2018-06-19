@@ -13,9 +13,19 @@
         {{--@include('feature.best_seller')--}}
         {{--</div>--}}
 
-        <div class="uk-width-1-1">
-            @include('feature.pre_order')
-        </div>
+        @empty($pre_orders)
+            <div class="uk-width-1-1">
+                <div class="uk-alert-warning uk-margin-top" uk-alert>
+                    <p>
+                        更新中。しばらく待ってからリロードしてください。
+                    </p>
+                </div>
+            </div>
+        @else
+            <div class="uk-width-1-1">
+                @include('feature.pre_order')
+            </div>
+        @endempty
     </div>
 
 @endsection

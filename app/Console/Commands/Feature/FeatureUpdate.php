@@ -4,7 +4,7 @@ namespace App\Console\Commands\Feature;
 
 use Illuminate\Console\Command;
 
-use App\Repository\Browse\BrowseRepositoryInterface as Browse;
+use App\Jobs\Feature\UpdateJob;
 
 class FeatureUpdate extends Command
 {
@@ -35,16 +35,10 @@ class FeatureUpdate extends Command
     /**
      * Execute the console command.
      *
-     * @param Browse $repository
-     *
      * @return mixed
      */
-    public function handle(Browse $repository)
+    public function handle()
     {
-        $pre_orders = $repository->preOrder(637394);
-        $this->info($pre_orders->count());
-
-        //        $best_sellers = $repository->bestSellers(466280);
-        //        $this->info($best_sellers->count());
+        UpdateJob::dispatch();
     }
 }
