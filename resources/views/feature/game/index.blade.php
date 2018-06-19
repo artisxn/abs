@@ -17,7 +17,7 @@
             <div class="uk-width-1-1">
                 <div class="uk-alert-warning uk-margin-top" uk-alert>
                     <p>
-                        更新中。しばらく待ってからリロードしてください。
+                        更新中。
                     </p>
                 </div>
             </div>
