@@ -21,6 +21,13 @@ class PriceCheckJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
+     * ジョブがタイムアウトになるまでの秒数
+     *
+     * @var int
+     */
+    public $timeout = 300;
+
+    /**
      * @var Item
      */
     protected $item;
