@@ -125,16 +125,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.61.9",
+            "version": "3.61.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "57041356c1bb7fdcaba2e181feec56f854b52e38"
+                "reference": "6c6aaaede232d559b5f8b2d8af2b6fd13e490473"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/57041356c1bb7fdcaba2e181feec56f854b52e38",
-                "reference": "57041356c1bb7fdcaba2e181feec56f854b52e38",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/6c6aaaede232d559b5f8b2d8af2b6fd13e490473",
+                "reference": "6c6aaaede232d559b5f8b2d8af2b6fd13e490473",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +201,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-06-19T20:26:38+00:00"
+            "time": "2018-06-20T20:08:58+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2183,16 +2183,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.6.25",
+            "version": "v5.6.26",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "a15efe4fbcd6b38ea76edc5c8939ffde4f4c7b7f"
+                "reference": "7047df295e77cecb6a2f84736a732af66cc6789c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/a15efe4fbcd6b38ea76edc5c8939ffde4f4c7b7f",
-                "reference": "a15efe4fbcd6b38ea76edc5c8939ffde4f4c7b7f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/7047df295e77cecb6a2f84736a732af66cc6789c",
+                "reference": "7047df295e77cecb6a2f84736a732af66cc6789c",
                 "shasum": ""
             },
             "require": {
@@ -2318,20 +2318,20 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-06-12T14:39:24+00:00"
+            "time": "2018-06-20T14:21:11+00:00"
         },
         {
             "name": "laravel/horizon",
-            "version": "v1.2.3",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "36ef9e2d6e09e617cf801050326a69e876ff5535"
+                "reference": "99657aa470f8f7b527eedf62b3a8daffc62da7dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/36ef9e2d6e09e617cf801050326a69e876ff5535",
-                "reference": "36ef9e2d6e09e617cf801050326a69e876ff5535",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/99657aa470f8f7b527eedf62b3a8daffc62da7dc",
+                "reference": "99657aa470f8f7b527eedf62b3a8daffc62da7dc",
                 "shasum": ""
             },
             "require": {
@@ -2386,7 +2386,7 @@
                 "laravel",
                 "queue"
             ],
-            "time": "2018-03-13T18:00:18+00:00"
+            "time": "2018-06-20T14:43:56+00:00"
         },
         {
             "name": "laravel/socialite",
