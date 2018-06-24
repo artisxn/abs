@@ -60,7 +60,7 @@ return [
                 'connection' => 'redis',
                 'queue'      => [env('QUEUE_NAME')],
                 'balance'    => 'auto',
-                'processes'  => 2,
+                'processes'  => 1,
                 'tries'      => 3,
             ],
         ],
