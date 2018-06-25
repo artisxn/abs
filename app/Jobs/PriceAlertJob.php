@@ -39,12 +39,12 @@ class PriceAlertJob implements ShouldQueue
 
         $items = $repository->priceAlert();
 
-        foreach ($items as $item) {
-            dispatch_now(new PriceCheckJob($item));
-        }
-
         cache()->delete('price_alert_posts');
 
-        info(self::class . ': End');
+        foreach ($items as $item) {
+            PriceCheckJob::dispatch($item);
+        }
+
+        //        info(self::class . ': End');
     }
 }

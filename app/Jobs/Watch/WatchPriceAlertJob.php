@@ -38,9 +38,9 @@ class WatchPriceAlertJob implements ShouldQueue
         $watches = Watch::groupBy('asin_id')->cursor();
 
         foreach ($watches as $watch) {
-            dispatch_now(new PriceCheckJob($watch->item));
+            PriceCheckJob::dispatch($watch->item);
         }
 
-        info(self::class . ': End');
+        //        info(self::class . ': End');
     }
 }
