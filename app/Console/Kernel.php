@@ -88,7 +88,7 @@ class Kernel extends ConsoleKernel
                  ->onOneServer();
 
         $schedule->command(Commands\WatchPriceAlertCommand::class)
-                 ->hourly()
+                 ->hourlyAt(30)
                  ->when(config('feature.price_alert'))
                  ->onOneServer();
 
