@@ -39,7 +39,7 @@ class DeleteOldHistory extends Command
      */
     public function handle()
     {
-        $items = History::whereDate('updated_at', '<', now()->subDays(200));
+        $items = History::whereDate('updated_at', '<', now()->subDays(190));
 
         info('Delete Old History: ' . $items->count());
 
