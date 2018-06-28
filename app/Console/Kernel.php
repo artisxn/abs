@@ -108,11 +108,11 @@ class Kernel extends ConsoleKernel
                  ->onOneServer();
 
         $schedule->command(Commands\Mainte\DeleteOldHistory::class)
-                 ->dailyAt('05:33')
+                 ->dailyAt('05:40')
                  ->onOneServer();
 
         $schedule->command(Commands\Feature\FeatureUpdate::class)
-                 ->dailyAt('06:06')
+                 ->dailyAt('06:16')
                  ->when(config('feature.feature_page'))
                  ->onOneServer();
     }
