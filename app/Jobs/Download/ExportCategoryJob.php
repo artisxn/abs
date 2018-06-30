@@ -54,14 +54,14 @@ class ExportCategoryJob implements ShouldQueue
      *
      * @var int
      */
-    public $tries = 1;
+    public $tries = 2;
 
     /**
      * ジョブがタイムアウトになるまでの秒数
      *
      * @var int
      */
-    public $timeout = 60 * 30;
+    public $timeout = 60 * 5;
 
     /**
      * Create a new job instance.
