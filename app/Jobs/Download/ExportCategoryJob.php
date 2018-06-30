@@ -50,14 +50,11 @@ class ExportCategoryJob implements ShouldQueue
     protected $limit;
 
     /**
-     * タイムアウトになる時間を決定
+     * ジョブがタイムアウトになるまでの秒数
      *
-     * @return \DateTime
+     * @var int
      */
-    public function retryUntil()
-    {
-        return now()->addMinutes(30);
-    }
+    public $timeout = 60 * 30;
 
     /**
      * Create a new job instance.
