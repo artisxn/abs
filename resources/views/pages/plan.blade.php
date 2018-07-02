@@ -112,7 +112,7 @@
     <tr>
       <th><strong>支払い方法</strong></th>
       <td><span uk-icon="icon: close"></span></td>
-      <td>fantia</td>
+      <td>pixivFANBOX</td>
       <td></td>
       <td>チャットワークで問い合わせ</td>
     </tr>
@@ -166,7 +166,7 @@
         </li>
         <li>Amazonアカウントのログイン情報を教えてもらう。もしくは必要な作業ができる権限を持ったIAMユーザーの情報。もしくはEC2とRDSを用意してもらってログインに必要な情報だけもらう。</li>
         <li>EC2の設定はこちらで行います。WordPressが動く程度のサーバーでは機能が足りないのでこちらで設定しないと動きません。</li>
-        <li>EC2はt2.micro以上、OSはUbuntu 16.04。すでに使ってるEC2の流用はできません。RDS(MySQL 5.7)なら流用できます。</li>
+        <li>EC2はt2.micro以上、OSはUbuntu 18.04。すでに使ってるEC2の流用はできません。RDS(MySQL 5.7)なら流用できます。</li>
 
       </ul>
 
