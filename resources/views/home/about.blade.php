@@ -49,7 +49,7 @@
 
   <h4>システム</h4>
   <ul class="uk-list uk-list-bullet">
-    <li>AWS/EC2/RDS</li>
+    <li>AWS/RDS</li>
     <li>PHP {{ PHP_MAJOR_VERSION }}.{{ PHP_MINOR_VERSION }}/MySQL 5.7/Redis/memcached</li>
     <li>Laravel {{ app()->version() }}/Socialite/Horizon</li>
     <li>Vue.js/UIkit</li>
