@@ -20,6 +20,6 @@ script:
 - vendor/bin/phpunit
 
 after_success:
-   - curl -s "$FORGE";
+   #- curl -s "$FORGE";
    - curl -s "$FORGE2";
    #- curl -s "$FORGE_A";
