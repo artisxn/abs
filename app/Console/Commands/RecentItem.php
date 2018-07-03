@@ -47,6 +47,8 @@ class RecentItem extends Command
 
         $items = $repository->recent();
 
+        $this->info('Recent Item: ' . $items->count());
+
         cache()->forever('recent_items', $items);
 
         info('Recent Item: End');
