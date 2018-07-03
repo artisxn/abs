@@ -38,7 +38,7 @@ class Kernel extends ConsoleKernel
                  ->onOneServer();
 
         $schedule->command('abs:recent-item')
-                 ->hourlyAt(33)
+                 ->hourlyAt(45)
                  ->when(config('feature.recent_item'))
                  ->onOneServer();
 
