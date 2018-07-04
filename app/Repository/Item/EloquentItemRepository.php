@@ -110,8 +110,8 @@ class EloquentItemRepository implements ItemRepositoryInterface
     public function deleteOld(int $days = 30)
     {
         return $this->item->whereDate('updated_at', '<', now()->subDays($days))
-            //                          ->has('histories', '<', 10)
-                          ->doesntHave('watches');
+            //            ->doesntHave('watches')
+                          ->has('histories', '<', 10);
     }
 
     /**
