@@ -29,7 +29,7 @@ class EloquentItemRepository implements ItemRepositoryInterface
     public function priceAlert()
     {
         return $this->item->latest('updated_at')
-                          ->limit(1000)
+                          ->limit(500)
                           ->whereNotNull('rank')
                           ->where('rank', '<', 1000)
                           ->has('histories', '>', 5)
