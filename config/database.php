@@ -47,14 +47,14 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-//            'host'      => env('DB_HOST', 'localhost'),
-            'read'   => [
-                'host' => env('DB_HOST_READ', env('DB_HOST', 'localhost')),
-            ],
-            'write'  => [
-                'host' => env('DB_HOST', 'localhost'),
-            ],
-            'sticky' => true,
+            'host'      => env('DB_HOST', 'localhost'),
+            //            'read'   => [
+            //                'host' => env('DB_HOST_READ', env('DB_HOST', 'localhost')),
+            //            ],
+            //            'write'  => [
+            //                'host' => env('DB_HOST', 'localhost'),
+            //            ],
+            //            'sticky' => true,
             'port'      => env('DB_PORT', '3306'),
             'database'  => env('DB_DATABASE', 'forge'),
             'username'  => env('DB_USERNAME', 'forge'),
