@@ -33,7 +33,7 @@
           <input name="special_key" value="{{ request()->user()->special_key }}" class="uk-input" type="text"
                  placeholder="特典キー">
           <small class="uk-text-muted">
-            <a href="https://fantia.jp/kawax" target="_blank">fantia</a>
+            <a href="https://www.pixiv.net/fanbox/creator/762638" target="_blank">pixivFANBOX</a>
             の支援特典。キーは不定期に変更されます。
           </small>
         </div>
