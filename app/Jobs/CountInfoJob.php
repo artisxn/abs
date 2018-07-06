@@ -20,6 +20,20 @@ class CountInfoJob implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     /**
+     * 最大試行回数
+     *
+     * @var int
+     */
+    public $tries = 1;
+
+    /**
+     * ジョブがタイムアウトになるまでの秒数
+     *
+     * @var int
+     */
+    public $timeout = 120;
+
+    /**
      * @var bool
      */
     protected $notify;
