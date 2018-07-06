@@ -9,7 +9,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
 use App\Model\History;
-use App\Model\BrowseItem;
+use App\Model\Item;
+use App\Model\Browse;
 use App\Model\User;
 
 use App\Notifications\CountInfoNotification;
@@ -48,11 +49,11 @@ class CountInfoJob implements ShouldQueue
         info('User count: ' . $user_count);
         cache()->forever('user_count', $user_count);
 
-        $browses_count = BrowseItem::distinct()->count('browse_id');
+        $browses_count = Browse::count('id');
         info('Browse count: ' . $browses_count);
         cache()->forever('browses_count', $browses_count);
 
-        $items_count = BrowseItem::distinct()->count('item_asin');
+        $items_count = Item::count('asin');
         info('Item count: ' . $items_count);
         cache()->forever('items_count', $items_count);
 

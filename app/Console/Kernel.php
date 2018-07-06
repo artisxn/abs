@@ -48,7 +48,7 @@ class Kernel extends ConsoleKernel
                  ->onOneServer();
 
         $schedule->command('abs:count-info')
-                 ->dailyAt('12:00')
+                 ->dailyAt('12:10')
                  ->onOneServer();
 
         $schedule->command(Commands\Mainte\UpdateOldItem::class)
