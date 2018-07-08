@@ -113,7 +113,7 @@ class Kernel extends ConsoleKernel
                  ->onOneServer();
 
         $schedule->command(Commands\Feature\FeatureUpdate::class)
-                 ->dailyAt('10:16')
+                 ->dailyAt('3:16')
                  ->when(config('feature.feature_page'))
                  ->onOneServer();
     }
