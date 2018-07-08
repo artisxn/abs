@@ -8,6 +8,7 @@ use App\Model\Browse;
 class EloquentItemRepository implements ItemRepositoryInterface
 {
     use Traits\Create;
+    use Traits\Alert;
 
     /**
      * @var Item
@@ -21,23 +22,6 @@ class EloquentItemRepository implements ItemRepositoryInterface
     public function __construct(Item $item)
     {
         $this->item = $item;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function priceAlert()
-    {
-        return $this->item->latest('updated_at')
-                          ->limit(1000)
-                          ->whereNotNull('rank')
-                          ->where('rank', '<', 500)
-                          ->has('histories', '>', 5)
-                          ->whereHas('histories', function ($query) {
-                              $query->whereNotNull('lowest_new_price');
-                          })
-                          ->doesntHave('watches')
-                          ->get();
     }
 
     /**

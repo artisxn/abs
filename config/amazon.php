@@ -14,20 +14,20 @@ return [
     'special_key_business' => env('SPECIAL_KEY_BUSINESS', ''),
 
 
-    'default_priority' => env('DEFAULT_PRIORITY', 0),
+    'default_priority'  => env('DEFAULT_PRIORITY', 0),
 
     /**
      * CSVダウンロードの制限
      */
-    'csv_limit'        => env('CSV_LIMIT', 1000),
+    'csv_limit'         => env('CSV_LIMIT', 1000),
 
     /**
      * ランキングの何位以内を新着とするか
      */
-    'new_item_rank' => env('NEW_ITEM_RANK', 200),
+    'new_item_rank'     => env('NEW_ITEM_RANK', 200),
 
     //CSVのヘッダー。app/Http/Resources/Csv/Itemと合わせる。
-    'csv_header'       => [
+    'csv_header'        => [
         'ASIN',
         'Title',
         'Ranking',
@@ -50,7 +50,7 @@ return [
     ],
 
     //検索
-    'form'             => [
+    'form'              => [
         'All'                => 'すべて',
         'Books'              => '本',
         'Music'              => 'ミュージック',
@@ -76,13 +76,18 @@ return [
     /**
      * PriceAlertのカテゴリー
      */
-    'price_alert'      => [
+    'price_alert'       => [
         'up'   => 2,
         'down' => 3,
     ],
 
+    /**
+     * priceAlertの件数
+     */
+    'price_alert_limit' => env('PRICE_ALERT_LIMIT', 500),
+
     // Login with Amazonの画像
-    'login_button_img' => 'https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_390x92.png',
+    'login_button_img'  => 'https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_390x92.png',
 
     'analytics'              => env('GOOGLE_ANALYTICS', ''),
     'analytics_verification' => env('GOOGLE_ANALYTICS_VERIFICATION', ''),
