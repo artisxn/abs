@@ -59,19 +59,19 @@ class CountInfoJob implements ShouldQueue
      */
     public function handle()
     {
-        $user_count = User::count('id');
+        $user_count = User::count();
         info('User count: ' . $user_count);
         cache()->forever('user_count', $user_count);
 
-        $browses_count = Browse::count('id');
+        $browses_count = Browse::count();
         info('Browse count: ' . $browses_count);
         cache()->forever('browses_count', $browses_count);
 
-        $items_count = Item::count('asin');
+        $items_count = Item::count();
         info('Item count: ' . $items_count);
         cache()->forever('items_count', $items_count);
 
-        $histories_count = History::count('id');
+        $histories_count = History::count();
         info('History count: ' . $histories_count);
         cache()->forever('histories_count', $histories_count);
 
