@@ -10,7 +10,7 @@
                 @feature('privacy')
                 <li><a href="{{ route('privacy') }}">プライバシーポリシー</a></li>
                 @endfeature
-                <li><a href="https://goo.gl/forms/PPiy2lJ55F9r5VI92" target="_blank" rel="noopener nofollow">問い合わせフォーム</a></li>
+                {{--<li><a href="https://goo.gl/forms/PPiy2lJ55F9r5VI92" target="_blank" rel="noopener nofollow">問い合わせフォーム</a></li>--}}
             </ul>
         </div>
         <div class="uk-navbar-right">
