@@ -125,16 +125,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.64.12",
+            "version": "3.64.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "1006a0bfacb1e1cd69cee92f53a80143cd59dd5e"
+                "reference": "aadc68842a5dd1d3fb7faaee8a8a8eaaf0fd6065"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1006a0bfacb1e1cd69cee92f53a80143cd59dd5e",
-                "reference": "1006a0bfacb1e1cd69cee92f53a80143cd59dd5e",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/aadc68842a5dd1d3fb7faaee8a8a8eaaf0fd6065",
+                "reference": "aadc68842a5dd1d3fb7faaee8a8a8eaaf0fd6065",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +201,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-08-14T22:18:41+00:00"
+            "time": "2018-08-16T22:11:39+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -605,16 +605,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "1.7.1",
+            "version": "1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "5d9311d4555787c8a57fea15f82471499aedf712"
+                "reference": "576aab9b5abb2ed11a1c52353a759363216a4ad2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/5d9311d4555787c8a57fea15f82471499aedf712",
-                "reference": "5d9311d4555787c8a57fea15f82471499aedf712",
+                "url": "https://api.github.com/repos/composer/composer/zipball/576aab9b5abb2ed11a1c52353a759363216a4ad2",
+                "reference": "576aab9b5abb2ed11a1c52353a759363216a4ad2",
                 "shasum": ""
             },
             "require": {
@@ -681,7 +681,7 @@
                 "dependency",
                 "package"
             ],
-            "time": "2018-08-07T07:39:23+00:00"
+            "time": "2018-08-16T14:57:12+00:00"
         },
         {
             "name": "composer/semver",
@@ -808,16 +808,16 @@
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "c919dc6c62e221fc6406f861ea13433c0aa24f08"
+                "reference": "e1809da56ce1bd1b547a752936817341ac244d8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/c919dc6c62e221fc6406f861ea13433c0aa24f08",
-                "reference": "c919dc6c62e221fc6406f861ea13433c0aa24f08",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/e1809da56ce1bd1b547a752936817341ac244d8e",
+                "reference": "e1809da56ce1bd1b547a752936817341ac244d8e",
                 "shasum": ""
             },
             "require": {
@@ -848,7 +848,7 @@
                 "Xdebug",
                 "performance"
             ],
-            "time": "2018-04-11T15:42:36+00:00"
+            "time": "2018-08-16T10:54:23+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -1249,16 +1249,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.4",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "8790f594151ca6a2010c6218e09d96df67173ad3"
+                "reference": "54859fabea8b3beecbb1a282888d5c990036b9e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/8790f594151ca6a2010c6218e09d96df67173ad3",
-                "reference": "8790f594151ca6a2010c6218e09d96df67173ad3",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/54859fabea8b3beecbb1a282888d5c990036b9e3",
+                "reference": "54859fabea8b3beecbb1a282888d5c990036b9e3",
                 "shasum": ""
             },
             "require": {
@@ -1302,7 +1302,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2018-04-10T10:11:19+00:00"
+            "time": "2018-08-16T20:49:45+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -2304,16 +2304,16 @@
         },
         {
             "name": "laravel/socialite",
-            "version": "v3.0.12",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "b5f465847b1d637efa86bbfe2fc1c9d2bd12f60f"
+                "reference": "65f771ff4f266ebae23de1a3f18efd80a1da2f8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/b5f465847b1d637efa86bbfe2fc1c9d2bd12f60f",
-                "reference": "b5f465847b1d637efa86bbfe2fc1c9d2bd12f60f",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/65f771ff4f266ebae23de1a3f18efd80a1da2f8d",
+                "reference": "65f771ff4f266ebae23de1a3f18efd80a1da2f8d",
                 "shasum": ""
             },
             "require": {
@@ -2322,7 +2322,7 @@
                 "illuminate/http": "~5.4",
                 "illuminate/support": "~5.4",
                 "league/oauth1-client": "~1.0",
-                "php": ">=5.4.0"
+                "php": ">=5.6.4"
             },
             "require-dev": {
                 "mockery/mockery": "~0.9",
@@ -2358,11 +2358,12 @@
                 }
             ],
             "description": "Laravel wrapper around OAuth 1 & OAuth 2 libraries.",
+            "homepage": "https://laravel.com",
             "keywords": [
                 "laravel",
                 "oauth"
             ],
-            "time": "2018-06-01T15:06:47+00:00"
+            "time": "2018-08-16T12:51:21+00:00"
         },
         {
             "name": "laravelcollective/html",
