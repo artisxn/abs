@@ -125,16 +125,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.65.2",
+            "version": "3.66.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "357ba2a06d2cf6e82a240f98a2292f5cd8bee15a"
+                "reference": "eefa7317be6a8aceacf10364ea964e70fc7647f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/357ba2a06d2cf6e82a240f98a2292f5cd8bee15a",
-                "reference": "357ba2a06d2cf6e82a240f98a2292f5cd8bee15a",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/eefa7317be6a8aceacf10364ea964e70fc7647f8",
+                "reference": "eefa7317be6a8aceacf10364ea964e70fc7647f8",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +201,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-08-22T20:21:17+00:00"
+            "time": "2018-08-25T00:49:07+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -808,16 +808,16 @@
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "e1809da56ce1bd1b547a752936817341ac244d8e"
+                "reference": "e37cbd80da64afe314c72de8d2d2fec0e40d9373"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/e1809da56ce1bd1b547a752936817341ac244d8e",
-                "reference": "e1809da56ce1bd1b547a752936817341ac244d8e",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/e37cbd80da64afe314c72de8d2d2fec0e40d9373",
+                "reference": "e37cbd80da64afe314c72de8d2d2fec0e40d9373",
                 "shasum": ""
             },
             "require": {
@@ -848,7 +848,7 @@
                 "Xdebug",
                 "performance"
             ],
-            "time": "2018-08-16T10:54:23+00:00"
+            "time": "2018-08-23T12:00:19+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -5882,16 +5882,16 @@
         },
         {
             "name": "laravel/homestead",
-            "version": "v7.15.0",
+            "version": "v7.15.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/homestead.git",
-                "reference": "e682ec04c2c618776fbfa103b5ecec6063a7f244"
+                "reference": "068814af93aced781d33b4712f211c1c55cedfbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/homestead/zipball/e682ec04c2c618776fbfa103b5ecec6063a7f244",
-                "reference": "e682ec04c2c618776fbfa103b5ecec6063a7f244",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/068814af93aced781d33b4712f211c1c55cedfbc",
+                "reference": "068814af93aced781d33b4712f211c1c55cedfbc",
                 "shasum": ""
             },
             "require": {
@@ -5929,7 +5929,7 @@
                 }
             ],
             "description": "A virtual machine for web artisans.",
-            "time": "2018-08-20T18:43:30+00:00"
+            "time": "2018-08-23T16:14:12+00:00"
         },
         {
             "name": "mockery/mockery",
