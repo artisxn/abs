@@ -21,7 +21,7 @@
     "laravelcollective/html": "5.6.*",
     "league/csv": "^9.0",
     "league/flysystem-aws-s3-v3": "^1.0",
-    "overtrue/laravel-lang": "3.0.8",
+    "overtrue/laravel-lang": "^3.0",
     "predis/predis": "^1.1",
     "revolution/laravel-amazon-product-api": "^1.0",
     "revolution/laravel-mastodon-api": "^1.3",
