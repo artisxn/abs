@@ -23,18 +23,6 @@
     <li>ASIN/JANリストのCSVをインポートしてウォッチリストに追加</li>
     <li>ウォッチリストの価格変動チェック（各ユーザーに通知。ウェブプッシュ通知。メール通知。）</li>
     <li>当たり前のようにhttps化も。</li>
-    <li>2018/04の急な仕様変更に対応済み。</li>
-    <li>Progressive Web App(PWA)的機能に一部対応 ホームに追加・プッシュ通知・オフライン</li>
-  </ul>
-
-  <h4>カスタマイズ版の例</h4>
-  <ul class="uk-list uk-list-bullet">
-    <li><del><a href="https://abs-alert.kawax.biz/" target="_blank" rel="nofollow noopener">https://abs-alert.kawax.biz/</a></del>（休止中）
-    </li>
-    <li>通知を優先した設定。</li>
-    <li>ウォッチリストのアイテムの更新と変動チェックの間隔を短く。</li>
-    <li>非公開設定なのでログインしないと見られない。</li>
-    <li>自社サーバーで動かせば必要な機能だけ選んで運営できる。</li>
   </ul>
 
   <h4>データ</h4>
