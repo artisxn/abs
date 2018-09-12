@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Notifications\Notifiable;
 
-class Post extends \TCG\Voyager\Models\Post
+class Post extends Model
 {
     use Notifiable;
 
