@@ -1,4 +1,4 @@
-let mix = require("laravel-mix");
+const mix = require("laravel-mix");
 const OfflinePlugin = require("offline-plugin");
 
 /*
@@ -13,8 +13,8 @@ const OfflinePlugin = require("offline-plugin");
  */
 
 mix
-  .js("resources/assets/js/app.js", "public/js")
-  .sass("resources/assets/sass/app.scss", "public/css")
+  .js("resources/js/app.js", "public/js")
+  .sass("resources/sass/app.scss", "public/css")
   .extract(["vue", "axios", "lodash", "chart.js"])
   .version()
   .disableNotifications();
@@ -25,7 +25,7 @@ mix.webpackConfig({
       externals: ["/"],
       responseStrategy: "network-first",
       ServiceWorker: {
-        entry: "./resources/assets/js/webpush.js",
+        entry: "./resources/js/webpush.js",
         navigateFallbackURL: "/",
         events: true,
         minify: true

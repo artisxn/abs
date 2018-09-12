@@ -1,8 +1,8 @@
-@import "~uikit/src/scss/variables-theme.scss";
-@import "~uikit/src/scss/mixins-theme.scss";
-@import "~uikit/src/scss/uikit-theme.scss";
+@import "../../node_modules/uikit/src/scss/variables-theme";
+@import "../../node_modules/uikit/src/scss/mixins-theme";
+@import "../../node_modules/uikit/src/scss/uikit-theme";
 
-@import "~font-awesome/scss/font-awesome";
+@import "../../node_modules/font-awesome/scss/font-awesome";
 
 .abs {
   &-navbar {
