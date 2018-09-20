@@ -126,9 +126,9 @@ Route::namespace('Push')->prefix('push')->group(function () {
 });
 
 //Voyager
-//Route::middleware('can:admin-voyager')->prefix('admin')->group(function () {
-//    Voyager::routes();
-//});
+Route::middleware('can:admin-voyager')->prefix('admin')->group(function () {
+    Voyager::routes();
+});
 
 //特集
 Route::namespace('Feature')->prefix('feature')->group(function () {
