@@ -10,7 +10,7 @@ use NotificationChannels\WebPush\HasPushSubscriptions;
 /**
  * @mixin \Eloquent
  */
-class User extends Authenticatable
+class User extends \TCG\Voyager\Models\User
 {
     use Notifiable;
     use HasPushSubscriptions;
