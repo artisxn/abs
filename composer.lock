@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "appstract/laravel-blade-directives",
-            "version": "1.1.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/appstract/laravel-blade-directives.git",
-                "reference": "c162d367ff2eedb003eda480ad8b6502446f2cf7"
+                "reference": "cab3808f7f1cf94a7ae5e2f497dcab4455846af6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/appstract/laravel-blade-directives/zipball/c162d367ff2eedb003eda480ad8b6502446f2cf7",
-                "reference": "c162d367ff2eedb003eda480ad8b6502446f2cf7",
+                "url": "https://api.github.com/repos/appstract/laravel-blade-directives/zipball/cab3808f7f1cf94a7ae5e2f497dcab4455846af6",
+                "reference": "cab3808f7f1cf94a7ae5e2f497dcab4455846af6",
                 "shasum": ""
             },
             "require": {
@@ -59,7 +59,7 @@
                 "appstract",
                 "laravel-blade-directives"
             ],
-            "time": "2018-05-31T10:37:07+00:00"
+            "time": "2018-10-09T15:40:23+00:00"
         },
         {
             "name": "arrilot/laravel-widgets",
@@ -125,16 +125,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.69.2",
+            "version": "3.69.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "65c88e074dffe4cb25b840c154b2f39564b39287"
+                "reference": "8e66716ee7bf6a4a4881647c6d96aa8619e82152"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/65c88e074dffe4cb25b840c154b2f39564b39287",
-                "reference": "65c88e074dffe4cb25b840c154b2f39564b39287",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/8e66716ee7bf6a4a4881647c6d96aa8619e82152",
+                "reference": "8e66716ee7bf6a4a4881647c6d96aa8619e82152",
                 "shasum": ""
             },
             "require": {
@@ -204,7 +204,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-10-08T20:05:34+00:00"
+            "time": "2018-10-10T22:18:53+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2469,16 +2469,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.7.8",
+            "version": "v5.7.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "763b64a43ebb6042e463aab4214d4cc9722147be"
+                "reference": "172f69f86bb86e107fb9fafff293b4b01291cf05"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/763b64a43ebb6042e463aab4214d4cc9722147be",
-                "reference": "763b64a43ebb6042e463aab4214d4cc9722147be",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/172f69f86bb86e107fb9fafff293b4b01291cf05",
+                "reference": "172f69f86bb86e107fb9fafff293b4b01291cf05",
                 "shasum": ""
             },
             "require": {
@@ -2607,7 +2607,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2018-10-04T14:47:20+00:00"
+            "time": "2018-10-09T13:28:28+00:00"
         },
         {
             "name": "laravel/horizon",
