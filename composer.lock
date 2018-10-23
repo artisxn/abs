@@ -125,16 +125,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.69.11",
+            "version": "3.69.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "c8796a6cc29018d0c96a501010f22e99bf31814b"
+                "reference": "12b2ab286eec13705e0465320cd8810365d4d0da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c8796a6cc29018d0c96a501010f22e99bf31814b",
-                "reference": "c8796a6cc29018d0c96a501010f22e99bf31814b",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/12b2ab286eec13705e0465320cd8810365d4d0da",
+                "reference": "12b2ab286eec13705e0465320cd8810365d4d0da",
                 "shasum": ""
             },
             "require": {
@@ -204,7 +204,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-10-19T20:47:57+00:00"
+            "time": "2018-10-22T21:30:32+00:00"
         },
         {
             "name": "barryvdh/laravel-debugbar",
@@ -454,16 +454,16 @@
         },
         {
             "name": "cakephp/chronos",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/chronos.git",
-                "reference": "30f5b26bcf76a5e53ecc274700ad1ec49dc05567"
+                "reference": "395110125ff577f080fa064dca5c5608a4e77ee1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/chronos/zipball/30f5b26bcf76a5e53ecc274700ad1ec49dc05567",
-                "reference": "30f5b26bcf76a5e53ecc274700ad1ec49dc05567",
+                "url": "https://api.github.com/repos/cakephp/chronos/zipball/395110125ff577f080fa064dca5c5608a4e77ee1",
+                "reference": "395110125ff577f080fa064dca5c5608a4e77ee1",
                 "shasum": ""
             },
             "require": {
@@ -507,7 +507,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-07-11T18:51:56+00:00"
+            "time": "2018-10-18T22:02:21+00:00"
         },
         {
             "name": "caouecs/laravel-lang",
@@ -2679,16 +2679,16 @@
         },
         {
             "name": "laravel/socialite",
-            "version": "v3.1.1",
+            "version": "v3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "65f771ff4f266ebae23de1a3f18efd80a1da2f8d"
+                "reference": "7194c0cd9fb2ce449669252b8ec316b85b7de481"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/65f771ff4f266ebae23de1a3f18efd80a1da2f8d",
-                "reference": "65f771ff4f266ebae23de1a3f18efd80a1da2f8d",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/7194c0cd9fb2ce449669252b8ec316b85b7de481",
+                "reference": "7194c0cd9fb2ce449669252b8ec316b85b7de481",
                 "shasum": ""
             },
             "require": {
@@ -2738,7 +2738,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2018-08-16T12:51:21+00:00"
+            "time": "2018-10-18T03:39:04+00:00"
         },
         {
             "name": "laravelcollective/html",
@@ -5686,16 +5686,16 @@
         },
         {
             "name": "tcg/voyager",
-            "version": "v1.1.9",
+            "version": "v1.1.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/the-control-group/voyager.git",
-                "reference": "f48152acf799422bbe6b1cdb53a5353d61679389"
+                "reference": "bce0b9e1b61b6c8243c554a967fa32f489f45e39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/f48152acf799422bbe6b1cdb53a5353d61679389",
-                "reference": "f48152acf799422bbe6b1cdb53a5353d61679389",
+                "url": "https://api.github.com/repos/the-control-group/voyager/zipball/bce0b9e1b61b6c8243c554a967fa32f489f45e39",
+                "reference": "bce0b9e1b61b6c8243c554a967fa32f489f45e39",
                 "shasum": ""
             },
             "require": {
@@ -5749,7 +5749,7 @@
                 "laravel",
                 "panel"
             ],
-            "time": "2018-10-20T12:48:41+00:00"
+            "time": "2018-10-21T16:15:14+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
