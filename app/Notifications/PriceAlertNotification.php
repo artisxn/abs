@@ -86,13 +86,25 @@ class PriceAlertNotification extends Notification implements ShouldQueue
 
         $cat = $notifiable->category_id === config('amazon.price_alert.up') ? '⬆️' : '⬇️';
 
+        $color = $notifiable->category_id === config('amazon.price_alert.up') ? 13632027 : 553968;
+
         $chart = '💹';
 
         $url = route('asin', $notifiable->excerpt);
 
         $status = "{$cat} {$title}" . PHP_EOL . "{$chart} {$notifiable->body}" . PHP_EOL . $url;
 
-        return DiscordMessage::create($status);
+        $embed = [
+            'title'       => "{$cat} {$title}",
+            'description' => "{$chart} {$notifiable->body}",
+            'url'         => $url,
+            'color'       => $color,
+            'thumbnail'   => [
+                'url' => $notifiable->image,
+            ],
+        ];
+
+        return DiscordMessage::create('', $embed);
     }
 
     /**
