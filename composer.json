@@ -15,6 +15,7 @@
     "doctrine/dbal": "^2.6",
     "fabpot/goutte": "^3.2",
     "fideloper/proxy": "~4.0",
+    "laravel-notification-channels/discord": "^1.0",
     "laravel-notification-channels/webpush": "^3.0",
     "laravel/framework": "5.7.*",
     "laravel/horizon": "^1.0",
@@ -28,7 +29,7 @@
     "revolution/laravel-notification-chatwork": "^2.0",
     "revolution/laravel-notification-mastodon": "^1.0",
     "revolution/socialite-amazon": "^1.0",
-      "tcg/voyager": "^1.1",
+    "tcg/voyager": "^1.1",
     "tomschlick/laravel-http2-server-push": "dev-patch",
     "torann/json-ld": "0.*"
   },

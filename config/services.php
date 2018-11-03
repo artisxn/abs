@@ -15,8 +15,8 @@ return [
     */
 
     'mailgun' => [
-        'domain' => env('MAILGUN_DOMAIN'),
-        'secret' => env('MAILGUN_SECRET'),
+        'domain'   => env('MAILGUN_DOMAIN'),
+        'secret'   => env('MAILGUN_SECRET'),
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
@@ -54,5 +54,10 @@ return [
         //'read', 'write', 'follow'
         'scope'         => ['read', 'write', 'follow'],
         'token'         => env('MASTODON_TOKEN', ''),
+    ],
+
+    'discord' => [
+        'token'   => env('DISCORD_BOT_TOKEN'),
+        'channel' => env('DISCORD_CHANNEL'),
     ],
 ];

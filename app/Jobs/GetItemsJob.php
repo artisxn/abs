@@ -99,9 +99,9 @@ class GetItemsJob implements ShouldQueue
             $this->createHistory($item);
 
             //新着を通知
-            //            if ($new_item->wasRecentlyCreated) {
-            //                $new_item->notify(new NewItemNotification);
-            //            }
+            if ($new_item->wasRecentlyCreated) {
+                $new_item->notify(new NewItemNotification);
+            }
 
             cache()->put('asin.' . $asin, $item, 60 * 6);
         }

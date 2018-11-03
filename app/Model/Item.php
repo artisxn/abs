@@ -38,6 +38,11 @@ class Item extends Model
         'detail_url',
     ];
 
+    public function routeNotificationForDiscord()
+    {
+        return config('services.discord.channel');
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

@@ -10,6 +10,9 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Revolution\Laravel\Notification\Mastodon\MastodonChannel;
 use Revolution\Laravel\Notification\Mastodon\MastodonMessage;
 
+use NotificationChannels\Discord\DiscordChannel;
+use NotificationChannels\Discord\DiscordMessage;
+
 /**
  * Class PriceAlertNotification
  * @package App\Notifications
@@ -46,6 +49,10 @@ class PriceAlertNotification extends Notification implements ShouldQueue
             $via[] = MastodonChannel::class;
         }
 
+        if (config('feature.discord')) {
+            $via[] = DiscordChannel::class;
+        }
+
         return $via;
     }
 
@@ -71,6 +78,21 @@ class PriceAlertNotification extends Notification implements ShouldQueue
         return MastodonMessage::create($status)
                               ->domain(config('services.mastodon.domain'))
                               ->token(config('services.mastodon.token'));
+    }
+
+    public function toDiscord($notifiable)
+    {
+        $title = str_limit($notifiable->title, 300);
+
+        $cat = $notifiable->category_id === config('amazon.price_alert.up') ? '⬆️' : '⬇️';
+
+        $chart = '💹';
+
+        $url = route('asin', $notifiable->excerpt);
+
+        $status = "{$cat} {$title}" . PHP_EOL . "{$chart} {$notifiable->body}" . PHP_EOL . $url;
+
+        return DiscordMessage::create($status);
     }
 
     /**

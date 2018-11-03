@@ -20,4 +20,9 @@ class Post extends \TCG\Voyager\Models\Post
     {
         return $query->whereCategoryId(1)->published()->latest()->limit(3);
     }
+
+    public function routeNotificationForDiscord()
+    {
+        return config('services.discord.channel');
+    }
 }

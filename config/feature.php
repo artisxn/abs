@@ -149,6 +149,11 @@ return [
     'chatwork_room'               => env('CHATWORK_ROOM', ''),
 
     /**
+     * Discordへの通知
+     */
+    'discord'                     => env('FEATURE_DISCORD', false),
+
+    /**
      * DBに詳細データを保存するかどうか。データ量が大きくなるので不要ならオフ。
      * image_setsが一番大きい。
      */

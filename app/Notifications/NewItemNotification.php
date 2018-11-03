@@ -10,6 +10,9 @@ use Illuminate\Notifications\Messages\MailMessage;
 use Revolution\Laravel\Notification\Mastodon\MastodonChannel;
 use Revolution\Laravel\Notification\Mastodon\MastodonMessage;
 
+use NotificationChannels\Discord\DiscordChannel;
+use NotificationChannels\Discord\DiscordMessage;
+
 class NewItemNotification extends Notification implements ShouldQueue
 {
     use Queueable;
@@ -37,10 +40,6 @@ class NewItemNotification extends Notification implements ShouldQueue
 
         $via = [];
 
-        if (!config('feature.mastodon')) {
-            return $via;
-        }
-
         //除外カテゴリーなら除く
         if (!$notifiable->browses->every(function ($browse) {
             return !in_array($browse->id, config('amazon.delete_category'));
@@ -50,7 +49,13 @@ class NewItemNotification extends Notification implements ShouldQueue
 
         //ランキングが一定以内のみ
         if ($notifiable->rank > 0 and $notifiable->rank <= config('amazon.new_item_rank')) {
-            $via[] = MastodonChannel::class;
+            if (config('feature.mastodon')) {
+                $via[] = MastodonChannel::class;
+            }
+
+            if (config('feature.discord')) {
+                $via[] = DiscordChannel::class;
+            }
         }
 
         return $via;
@@ -76,6 +81,19 @@ class NewItemNotification extends Notification implements ShouldQueue
         return MastodonMessage::create($status)
                               ->domain(config('services.mastodon.domain'))
                               ->token(config('services.mastodon.token'));
+    }
+
+    public function toDiscord($notifiable)
+    {
+        $title = str_limit($notifiable->title, 300);
+
+        $rank = $notifiable->rank;
+
+        $url = route('asin', $notifiable->asin);
+
+        $status = "【新着】(ランキング:{$rank}) {$title}" . PHP_EOL . $url;
+
+        return DiscordMessage::create($status);
     }
 
     /**
