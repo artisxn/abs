@@ -28,6 +28,7 @@
         @endfeature
         <li><a href="{{ route('usage') }}">使い方</a></li>
         <li><a href="{{ route('browselist') }}">ブラウズリスト</a></li>
+        <li><a href="{{ config('feature.discord_url') }}" target="_blank">Discord</a></li>
       </ul>
     </div>
 

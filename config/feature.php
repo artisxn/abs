@@ -152,6 +152,7 @@ return [
      * Discordへの通知
      */
     'discord'                     => env('FEATURE_DISCORD', false),
+    'discord_url'                 => 'https://discord.gg/dy4KbKM',
 
     /**
      * DBに詳細データを保存するかどうか。データ量が大きくなるので不要ならオフ。

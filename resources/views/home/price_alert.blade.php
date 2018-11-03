@@ -6,7 +6,7 @@
   <p>最低新品価格が一定割合増減したアイテム</p>
 
   @feature('mastodon')
-  <p>他の通知先：<a href="https://discord.gg/dy4KbKM" target="_blank">Discord</a>
+  <p>他の通知先：<a href="{{ config('feature.discord_url') }}" target="_blank">Discord</a>
     <a href="https://twitter.com/a_b_s_alert" target="_blank">Twitter</a>
     <a href="{{ config('feature.mastodon_url') }}" target="_blank">マストドン</a>
   </p>
