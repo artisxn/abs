@@ -86,7 +86,7 @@ class PriceAlertNotification extends Notification implements ShouldQueue
 
         $cat = $notifiable->category_id === config('amazon.price_alert.up') ? '⬆️' : '⬇️';
 
-        $color = $notifiable->category_id === config('amazon.price_alert.up') ? 13632027 : 553968;
+        $color = $notifiable->category_id === config('amazon.price_alert.up') ? 553968 : 13632027;
 
         $chart = '💹';
 
@@ -96,7 +96,7 @@ class PriceAlertNotification extends Notification implements ShouldQueue
 
         $embed = [
             'title'       => "{$cat} {$title}",
-            'description' => "{$chart} {$notifiable->body}",
+            'description' => "```{$chart} {$notifiable->body}```",
             'url'         => $url,
             'color'       => $color,
             'thumbnail'   => [
