@@ -94,8 +94,8 @@ class NewItemNotification extends Notification implements ShouldQueue
         $status = "【新着】(ランキング:{$rank}) {$title}" . PHP_EOL . $url;
 
         $embed = [
-            'title'       => "【新着】 {$title}",
-            'description' => "ランキング:{$rank}",
+            'title'       => "【新着】{$title}",
+            'description' => "ランキング : {$rank}",
             'url'         => $url,
             'color'       => 8245537,
             'thumbnail'   => [
