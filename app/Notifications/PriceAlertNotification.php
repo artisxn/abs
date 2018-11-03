@@ -97,7 +97,7 @@ class PriceAlertNotification extends Notification implements ShouldQueue
         $embed = [
             'title'       => "{$cat} {$title}",
             'description' => "{$chart} {$notifiable->body}",
-            'url'         => $url,
+            //            'url'         => $url,
             'color'       => $color,
             'thumbnail'   => [
                 'url' => $notifiable->image,
