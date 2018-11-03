@@ -104,7 +104,7 @@ class PriceAlertNotification extends Notification implements ShouldQueue
             ],
         ];
 
-        return DiscordMessage::create('', $embed);
+        return DiscordMessage::create($url, $embed);
     }
 
     /**
