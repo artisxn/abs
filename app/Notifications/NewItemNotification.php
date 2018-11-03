@@ -96,14 +96,14 @@ class NewItemNotification extends Notification implements ShouldQueue
         $embed = [
             'title'       => "【新着】{$title}",
             'description' => "ランキング : {$rank}",
-            //            'url'         => $url,
+            'url'         => $url,
             'color'       => 8245537,
             'thumbnail'   => [
                 'url' => $notifiable->large_image,
             ],
         ];
 
-        return DiscordMessage::create($url, $embed);
+        return DiscordMessage::create('', $embed);
     }
 
     /**
