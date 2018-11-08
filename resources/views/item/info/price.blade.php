@@ -13,3 +13,5 @@
 <li>定価：
   {{ abs_decode(data_get($item, 'ItemAttributes.ListPrice.FormattedPrice')) }}
 </li>
+
+<li>Prime：{{ data_get($item, 'Offers.Offer.OfferListing.IsEligibleForPrime') ? '対象' : '非対象' }}</li>
